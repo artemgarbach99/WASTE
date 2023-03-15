@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Верстка «WASTE»</title>
+</head>
+
+<body>
+	<div class="rootpage">
+		<h1>Верстка «WASTE»</h1>
+		<h2>Готовые страницы:</h2>
+		<ol class="rootpage__list">
+			<li><a target="_blank" href="login.html">login</a></li>
+			<li><a target="_blank" href="completing-registr.html">completing-registr</a></li>
+		</ol>
+	</div>
+</body>
+<style>
+	@charset "UTF-8";
+	@import url("https://fonts.googleapis.com/css?family=Montserrat:regular,500,700&display=swap");
+
+	*,
+	*::before,
+	*::after {
+		padding: 0px;
+		margin: 0px;
+		border: 0px;
+		box-sizing: border-box;
+	}
+
+	html,
+	body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		min-width: 320px;
+		width: 100%;
+		color: rgb(255, 255, 255);
+		background-color: #222222;
+	}
+
+	body {
+		font-family: Montserrat;
+		font-size: 100%;
+		line-height: 1;
+		font-size: 1rem;
+		font-weight: 500;
+	}
+
+	a {
+		text-decoration: underline;
+		color: #ff0000;
+	}
+
+
+	ul li {
+		list-style: none;
+	}
+
+	img {
+		vertical-align: top;
+	}
+
+	.wrapper {
+		width: 100%;
+		min-height: 100%;
+		overflow: hidden;
+	}
+
+	.rootpage {
+		padding: 60px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	@media (max-width: 767px) {
+		.rootpage {
+			padding: 30px 15px;
+		}
+	}
+
+	h1 {
+		color: #b4b4b4;
+		font-size: 1.4rem;
+		margin: 0px 0px 1.25rem 0px;
+		font-weight: 700;
+		/* text-transform: uppercase; */
+	}
+
+	@media (max-width: 767px) {
+		h1 {
+			font-size: 1.85rem;
+			margin: 0px 0px 1.25rem 0px;
+		}
+	}
+
+	h2 {
+		color: #b4b4b4;
+		font-size: 1.2rem;
+		margin: 0px 0px 1rem 0px;
+	}
+
+	@media (max-width: 767px) {
+		h2 {
+			font-size: 1.125rem;
+			margin: 0px 0px 1rem 0px;
+		}
+	}
+
+	.rootpage__info {
+		line-height: 140%;
+		margin: 0px 0px 1.5rem 0px;
+	}
+
+	.rootpage__list {
+		margin: 0px 0px 2.25rem 1.25rem;
+	}
+
+	.rootpage__list li:not(:last-child) {
+		margin: 0px 0px 15px 0px;
+	}
+
+	.rootpage__contacts,
+	.rootpage__tnx {
+		border-radius: 10px;
+		padding: 20px 65px;
+		line-height: 140%;
+	}
+
+	@media (max-width: 767px) {
+
+		.rootpage__contacts,
+		.rootpage__tnx {
+			border-radius: 40px;
+			padding: 20px;
+		}
+	}
+
+	.rootpage__contacts {
+		background: #3b3b3b;
+		box-shadow: 1px 1px 8px rgb(184, 184, 184);
+	}
+
+	.rootpage__contacts a {
+		color: #b4b4b4;
+	}
+
+	.rootpage__tnx {
+		background: #3b3b3b;
+		margin: 0px 0px 1rem 0px;
+		box-shadow: 1px 1px 8px rgb(184, 184, 184);
+	}
+</style>
+
+</html>

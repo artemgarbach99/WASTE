@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>login</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230315131948">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__body">
+					<div class="header__logo"></div>
+					<div class="header__item">
+						<a href="#" class="header__link"><img data-src="img/header/01.png" alt=""><span>Добавить</span></a>
+					</div>
+					<div class="header__item">
+						<a href="#" class="header__link"><img data-src="img/header/02.png" alt=""><span>Вход /
+								Регистрация</span></a>
+					</div>
+					<div class="header__item">
+						<a href="#" class="header__link"><img data-src="img/header/03.png" alt=""><span>Поиск</span></a>
+					</div>
+					<div class="header__item">
+						<a href="#" class="header__link"><img data-src="img/header/04.png" alt=""><span>Избранное</span></a>
+					</div>
+
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<div class="login">
+				<div class="login__container">
+					<div class="login__body">
+						<div class="login__navbar navbar">
+							<nav class="navbar__items dragscroll">
+								<div class="navbar__languages">
+									<span id="navbar__lable" class="navbar__lable _icon-triangle">UK</span>
+									<div id="navbar__dropdown" class="navbar__dropdown">
+										<a href="#" class="navbar__link h3">RU</a>
+										<a href="#" class="navbar__link h3">EN</a>
+									</div>
+								</div>
+								<a class="navbar__item" href="#" data-menu-opener="href">Объявления,
+									Визитки</a>
+								<a class="navbar__item" href="#" data-menu-opener="href">Мероприятия</a>
+								<a class="navbar__item" href="#" data-menu-opener="href">Издания</a>
+								<a class="navbar__item" href="#" data-menu-opener="href">Статьи</a>
+								<a class="navbar__item" href="#" data-menu-opener="href">Законодательство</a>
+							</nav>
+						</div>
+						<div class="login__forms forms-login">
+							<div data-tabs class="forms-login__inner">
+								<div class="forms-login__nav nav-forms-login">
+									<nav data-tabs-titles class="nav-forms-login__body">
+										<button type="button" class="nav-forms-login__title h4 _tab-active">Вход</button>
+										<button type="button" class="nav-forms-login__title h4">Регистрация</button>
+									</nav>
+								</div>
+								<div data-tabs-body class="forms-login__content content-forms-login">
+									<div class="content-forms-login__body">
+										<form action="#" class="content-forms-login__form">
+											<div class="content-forms-login__inputs">
+												<div class="content-forms-login__input">
+													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Email" class="input">
+												</div>
+												<div class="content-forms-login__input _btn-viewpass">
+													<input autocomplete="off" type="password" name="form[]" data-error="Ошибка" placeholder="Пароль" class="input">
+													<button type="button" class="content-forms-login__viewpass _icon-eye-close"></button>
+												</div>
+											</div>
+											<div class="content-forms-login__line">
+												<div class="checkbox">
+													<input id="c_1" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]">
+													<label for="c_1" class="checkbox__label"><span class="checkbox__text h4">Запомнить</span></label>
+												</div>
+												<a href="" class="content-forms-login__link h4">Забыли пароль?</a>
+											</div>
+											<button type="submit" class="content-forms-login__button">Войти</button>
+											<div class="content-forms-login__social">
+												<span class="content-forms-login__lable h4">Войти через</span>
+												<div class="content-forms-login__links">
+													<a href="" class="content-forms-login__facebook _icon-facebook"></a>
+													<a href="" class="content-forms-login__google _icon-google"></a>
+												</div>
+											</div>
+										</form>
+									</div>
+									<div class="content-forms-login__body">
+										<form action="#" class="content-forms-login__form">
+											<div class="content-forms-login__inputs">
+												<div class="content-forms-login__input">
+													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Email" class="input">
+												</div>
+												<div class="content-forms-login__input _btn-viewpass">
+													<input autocomplete="off" type="password" name="form[]" data-error="Ошибка" placeholder="Придумайте пароль" class="input">
+													<button type="button" class="content-forms-login__viewpass _icon-eye-close"></button>
+												</div>
+											</div>
+											<div class="content-forms-login__line">
+												<div class="content-forms-login__text h5">
+													<p>Не менее 6 символов.</p>
+													<p>Регистрируясь, Вы соглашаетесь с <a href="">правилами</a> сайта
+														“Мир отходов” и обязуетесь соблюдать их.</p>
+												</div>
+												<!-- <div class="checkbox">
+													<input id="c_2" data-error="Ошибка" class="checkbox__input"
+														type="checkbox" value="1" name="form[]">
+													<label for="c_2" class="checkbox__label"><span
+															class="checkbox__text h4">Запомнить</span></label>
+												</div>
+												<a href="" class="content-forms-login__link h4">Забыли пароль?</a> -->
+											</div>
+											<button type="submit" class="content-forms-login__button">Зарегистрироваться</button>
+											<div class="content-forms-login__bottom">
+												<a href="#" class="content-forms-login__login h4">Есть аккаунт?</a>
+												<div class="content-forms-login__social">
+													<span class="content-forms-login__lable h4">Войти через</span>
+													<div class="content-forms-login__links">
+														<a href="" class="content-forms-login__facebook _icon-facebook"></a>
+														<a href="" class="content-forms-login__google _icon-google"></a>
+													</div>
+												</div>
+											</div>
+										</form>
+										<!-- <form action="#" class="content-forms-login__form">
+											<div class="content-forms-login__input">
+												<input autocomplete="off" type="text" name="form[]" data-error="Ошибка"
+													placeholder="" class="input">
+											</div>
+											<div class="content-forms-login__input">
+												<input autocomplete="off" type="text" name="form[]" data-error="Ошибка"
+													placeholder="" class="input">
+											</div>
+											<div class="content-forms-login__line">
+												<div class="checkbox">
+													<input id="c_1" data-error="Ошибка" class="checkbox__input"
+														type="checkbox" value="1" name="form[]">
+													<label for="c_1" class="checkbox__label"><span
+															class="checkbox__text">Текст</span></label>
+												</div>
+												<a href="" class="content-forms-login__link">Забыли пароль?</a>
+											</div>
+											<button type="submit" class="content-forms-login__button">Войти</button>
+											<div class="content-forms-login__social">
+												<span class="content-forms-login__lable">Войти через</span>
+												<a href="" class="content-forms-login__facebook _icon-facebook"></a>
+												<a href="" class="content-forms-login__google _icon-google"></a>
+											</div>
+										</form> -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__inner">
+					<div class="footer__content row d-sm-flex justify-content-sm-center">
+						<ul class="footer__content--item col-md-8 d-flex justify-content-md-around text-center flex-md-row flex-sm-column">
+							<li class="footer__content--list"><a href="#">Рассылки</a></li>
+							<li class="footer__content--list"><a href="#">Реклама</a></li>
+							<li class="footer__content--list"><a href="#">Помощь</a></li>
+							<li class="footer__content--list"><a href="#">О нас</a></li>
+						</ul>
+						<ul class="footer__content--social col-md-4">
+							<li>
+								<a href="#"><img data-src="img/footer/01.png" alt=""></a>
+							</li>
+							<li>
+								<a href="#"><img data-src="img/footer/02.png" alt=""></a>
+							</li>
+							<li>
+								<a href="#"><img data-src="img/footer/03.png" alt=""></a>
+							</li>
+							<li>
+								<a href="#"><img data-src="img/footer/04.png" alt=""></a>
+							</li>
+						</ul>
+					</div>
+					<p class="footer__warn">
+						Администрация сайта <span>"Мир отходов"</span> не несет
+						ответственности за содержание объявлений, визиток и статей, а также
+						за осуществление сделок, заключенных на основе информации,
+						размещенной на сайте
+						<span>"Мир отходов"</span>
+					</p>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script>
+		const dropdown = document.querySelector('.navbar__lable').onclick = function() {
+			document.querySelector('.navbar__dropdown').classList.toggle('dropdown-open');
+			if (document.querySelector('.navbar__dropdown').classList.contains('dropdown-open')) {
+				document.querySelector('.navbar__lable').classList.add('lable-active')
+			} else {
+				document.querySelector('.navbar__lable').classList.remove('lable-active')
+			}
+		}
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/dragscroll/0.0.8/dragscroll.min.js?_v=20230315131948"></script>
+	<!-- 
+<div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+			</div>
+		</div>
+	</div>
+</div>
+ -->
+
+	<script src="js/app.min.js?_v=20230315131948"></script>
+</body>
+
+</html>
