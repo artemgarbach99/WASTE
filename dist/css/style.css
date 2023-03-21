@@ -4108,7 +4108,6 @@ a.mm-navbar__title {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 1.875rem;
 }
 
 .phone-content-forms__body {

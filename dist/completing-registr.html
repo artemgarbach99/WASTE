@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230321181813">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230321184414">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -107,7 +107,7 @@
 											<div class="content-forms-completing__phone phone-content-forms _star _icon-star">
 												<div class="phone-content-forms__body">
 													<button type="button" class="phone-content-forms__button _btn-first-phone"></button>
-													<div class="phone-content-forms__inner">
+													<div class="phone-content-forms__inner _01">
 														<select name="form[]" class="select-phone">
 															<option value="1" selected data-asset="Украина">+380
 															</option>
@@ -190,7 +190,7 @@
 											<div class="content-forms-completing__phone phone-content-forms _star _icon-star">
 												<div class="phone-content-forms__body">
 													<button type="button" class="phone-content-forms__button _btn-second-phone"></button>
-													<div class="phone-content-forms__inner">
+													<div class="phone-content-forms__inner _02">
 														<select name="form[]" class="select-phone">
 															<option value="1" selected data-asset="Украина">+380
 															</option>
@@ -241,7 +241,7 @@
 											<div class="content-forms-completing__phone phone-content-forms">
 												<div class="phone-content-forms__body">
 													<button type="button" class="phone-content-forms__button _btn-third-phone"></button>
-													<div class="phone-content-forms__inner">
+													<div class="phone-content-forms__inner _03">
 														<select name="form[]" class="select-phone">
 															<option value="1" selected data-asset="Украина">+380
 															</option>
@@ -321,8 +321,9 @@
 
 		const addAudit = function() {
 			if (addressesCountFirst <= 1) {
-				const elemKod = document.querySelector('.phone-content-forms__inner').outerHTML;
+				const elemKod = document.querySelector('.phone-content-forms__inner._01').outerHTML;
 				const elemOutKod = document.querySelector('.phone-content-forms__out');
+				elemOutKod.style.marginTop = "30px";
 				elemOutKod.innerHTML += '<div class="phone-content-forms__body">' + '<button type="button" class="phone-content-forms__button-close _01">' + '</button>' + elemKod + '</div>';
 				const closePhone = document.querySelectorAll('.phone-content-forms__button-close._01');
 				closePhone.forEach(element => element.addEventListener('click', closeAudit))
@@ -344,8 +345,9 @@
 
 		const addAudit02 = function() {
 			if (addressesCountSecond <= 1) {
-				const elemKod = document.querySelector('.phone-content-forms__inner').outerHTML;
+				const elemKod = document.querySelector('.phone-content-forms__inner._02').outerHTML;
 				const elemOutKod = document.querySelector('.phone-content-forms__out._second');
+				elemOutKod.style.marginTop = "30px";
 				elemOutKod.innerHTML += '<div class="phone-content-forms__body">' + '<button type="button" class="phone-content-forms__button-close _02">' + '</button>' + elemKod + '</div>';
 				const closePhone02 = document.querySelectorAll('.phone-content-forms__button-close._02');
 				closePhone02.forEach(element => element.addEventListener('click', closeAudit02))
@@ -367,8 +369,9 @@
 
 		const addAudit03 = function() {
 			if (addressesCountTwird <= 1) {
-				const elemKod = document.querySelector('.phone-content-forms__inner').outerHTML;
+				const elemKod = document.querySelector('.phone-content-forms__inner._03').outerHTML;
 				const elemOutKod = document.querySelector('.phone-content-forms__out._third');
+				elemOutKod.style.marginTop = "30px";
 				elemOutKod.innerHTML += '<div class="phone-content-forms__body">' + '<button type="button" class="phone-content-forms__button-close _03">' + '</button>' + elemKod + '</div>';
 				const closePhone03 = document.querySelectorAll('.phone-content-forms__button-close._03');
 				closePhone03.forEach(element => element.addEventListener('click', closeAudit03))
@@ -400,7 +403,7 @@
 </div>
  -->
 
-	<script src="js/app.min.js?_v=20230321181813"></script>
+	<script src="js/app.min.js?_v=20230321184414"></script>
 </body>
 
 </html>
