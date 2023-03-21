@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230315141833">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230321181813">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,8 +25,8 @@
 						<a href="#" class="header__link"><img data-src="img/header/02.png" alt=""><span>Вход /
 								Регистрация</span></a>
 					</div>
-					<div class="header__item">
-						<a href="#" class="header__link"><img data-src="img/header/03.png" alt=""><span>Поиск</span></a>
+					<div class="header__item search-btn">
+						<button class="header__link _close-btn"><img data-src="img/header/03.png" alt=""><span>Поиск</span></button>
 					</div>
 					<div class="header__item">
 						<a href="#" class="header__link"><img data-src="img/header/04.png" alt=""><span>Избранное</span></a>
@@ -35,1789 +35,1773 @@
 				</div>
 			</div>
 		</header>
-		<main class="page">
+		<div class="searchbar-wrapper hide" bis_skin_checked="1">
+			<div class="searchbar" bis_skin_checked="1">
+				<input type="text" class="searchbar-input" placeholder="Поиск по сайту">
+				<button class="searchbar-btn" type="button">Найти</button>
+			</div>
+		</div>
+		<main class="page _login">
+			<!-- <div class="login-wrap"> -->
 			<div class="login">
-				<div class="login__container">
-					<div class="login__body">
-						<div class="login__navbar navbar">
-							<nav id="menu">
-								<ul id="categories">
-									<li aria-current="location">
-										<span>
-											Вторсырье</span>
-
-										<ul id="recyclables-subcategories-panel">
-											<li aria-current="location">
-												<span>
-													Полимеры</span>
-
-												<ul id="plastic-waste-panel" class="lvl-3">
-													<li>
-														<a title="Продам отходы пластмасс" href="index.php?page=ads&category_id=20&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Куплю отходы пластмасс" href="index.php?page=ads&category_id=20&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Макулатура</span>
-
-												<ul id="waste-paper-panel" class="lvl-3">
-													<li>
-														<a title="Продажа макулатуры" href="index.php?page=ads&category_id=19&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Покупка макулатуры" href="index.php?page=ads&category_id=19&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Металлы</span>
-
-												<ul id="scrap-metal-panel" class="lvl-3">
-													<li>
-														<a title="Продажа металлолома" href="index.php?page=ads&category_id=34&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Покупка металлолома" href="index.php?page=ads&category_id=34&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Стекло</span>
-
-												<ul id="waste-glass-panel" class="lvl-3">
-													<li>
-														<a title="Продажа стеклобоя" href="index.php?page=ads&category_id=33&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Покупка стеклобоя" href="index.php?page=ads&category_id=33&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Шины, резина</span>
-
-												<ul id="waste-tyres-panel" class="lvl-3">
-													<li>
-														<a title="Предлагаю отработанные шины, отходы резины" href="index.php?page=ads&category_id=18&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Ищу отработанные шины, отходы резины" href="index.php?page=ads&category_id=18&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Древесина</span>
-
-												<ul id="timber-waste-panel" class="lvl-3">
-													<li>
-														<a title="Отходы древесины - предложение" href="index.php?page=ads&category_id=17&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Отходы древесины - спрос" href="index.php?page=ads&category_id=17&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Пищевые отходы</span>
-
-												<ul id="food-waste-panel" class="lvl-3">
-													<li>
-														<a title="Предлагаю пищевые отходы " href="index.php?page=ads&category_id=15&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Нужны пищевые отходы " href="index.php?page=ads&category_id=15&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Разная биомасса</span>
-
-												<ul id="biomass-panel" class="lvl-3">
-													<li>
-														<a title="Разные отходы растительного и животного происхождения - предложение" href="index.php?page=ads&category_id=14&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Разные отходы растительного и животного происхождения - потребность" href="index.php?page=ads&category_id=14&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Текстиль, кожа</span>
-
-												<ul id="textile-waste-panel" class="lvl-3">
-													<li>
-														<a title="Отходы текстиля, кожи - предлагаю" href="index.php?page=ads&category_id=31&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Отходы текстиля, кожи - нужны" href="index.php?page=ads&category_id=31&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Нефтепродукты</span>
-
-												<ul id="waste-oil-panel" class="lvl-3">
-													<li>
-														<a title="Нефтешламы, отработанные нефтепродукты  - предлагаю" href="index.php?page=ads&category_id=23&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Нефтешламы, отработанные нефтепродукты - ищу" href="index.php?page=ads&category_id=23&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Графит, уголь</span>
-
-												<ul id="carbon-waste-panel" class="lvl-3">
-													<li>
-														<a title="Бой графита, штыб, отработанный активированный уголь - реализую" href="index.php?page=ads&category_id=25&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Бой графита, штыб, отработанный активированный уголь - приобрету" href="index.php?page=ads&category_id=25&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Шламы, шлаки, щебень</span>
-
-												<ul id="sludge-panel" class="lvl-3">
-													<li>
-														<a title="Шламы, шлаки, щебень - предложение " href="index.php?page=ads&category_id=29&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Шламы, шлаки, щебень - потребность" href="index.php?page=ads&category_id=29&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Огнеупоры, абразивы</span>
-
-												<ul id="refractory-waste-panel" class="lvl-3">
-													<li>
-														<a title="Отходы огнеупоров, абразивов - продам" href="index.php?page=ads&category_id=24&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Отходы огнеупоров, абразивов - куплю" href="index.php?page=ads&category_id=24&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Химикаты</span>
-
-												<ul id="chemical-waste-panel" class="lvl-3">
-													<li>
-														<a title="Кислоты, соли, щелочи, растворители, лаки, краски и т.п. - предлагаю" href="index.php?page=ads&category_id=28&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Кислоты, соли, щелочи, растворители, лаки, краски и т.п. - ищу" href="index.php?page=ads&category_id=28&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Катализаторы</span>
-
-												<ul id="spent-catalysts-panel" class="lvl-3">
-													<li>
-														<a title="Отработанные катализаторы - продам" href="index.php?page=ads&category_id=30&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Отработанные катализаторы - куплю" href="index.php?page=ads&category_id=30&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Аккумуляторы</span>
-
-												<ul id="waste-batteries-panel" class="lvl-3">
-													<li>
-														<a title="Отработанные аккумуляторы - продам" href="index.php?page=ads&category_id=32&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Отработанные  аккумуляторы - куплю" href="index.php?page=ads&category_id=32&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Электронные отходы</span>
-
-												<ul id="electronic-waste-panel" class="lvl-3">
-													<li>
-														<a title="Компьютерный и электронный лом - продажа" href="index.php?page=ads&category_id=77&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Компьютерный и электронный лом - покупка" href="index.php?page=ads&category_id=77&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Лом оборудования, машин</span>
-
-												<ul id="broken-equipment-panel" class="lvl-3">
-													<li>
-														<a title="Лом оборудования, машин - предлагаю" href="index.php?page=ads&category_id=35&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Лом оборудования, машин - ищу" href="index.php?page=ads&category_id=35&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Комбинированные материалы</span>
-
-												<ul id="composite-waste-panel" class="lvl-3">
-													<li>
-														<a title="Комбинированные и многослойные материалы - предлагаю" href="index.php?page=ads&category_id=27&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Комбинированные и многослойные материалы - ищу" href="index.php?page=ads&category_id=27&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Отходы строительства, сноса </span>
-
-												<ul id="construction-waste-panel" class="lvl-3">
-													<li>
-														<a title="Отходы строительства, сноса - предлагаю" href="index.php?page=ads&category_id=78&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Отходы строительства, сноса - ищу" href="index.php?page=ads&category_id=78&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Нетипичное вторсырье</span>
-
-												<ul id="recyclable-materials-panel" class="lvl-3">
-													<li>
-														<a title="Необычное вторсырье - предлагаю" href="index.php?page=ads&category_id=26&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Необычное вторсырье - ищу" href="index.php?page=ads&category_id=26&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-
-										</ul>
-									</li>
-									<li>
-										<span>
-											Секонд-хенд</span>
-
-										<ul id="reuse-subcategories-panel">
-											<li>
-												<span>
-													Тара стеклянная</span>
-
-												<ul id="glass-containers-panel" class="lvl-3">
-													<li>
-														<a title="Возвратная стеклянная тара - продам" href="index.php?page=ads&category_id=106&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Возвратная стеклянная тара - куплю" href="index.php?page=ads&category_id=106&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Тара металлическая</span>
-
-												<ul id="metal-containers-panel" class="lvl-3">
-													<li>
-														<a title="Подержанная металлическая тара - предложение" href="index.php?page=ads&category_id=101&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Подержанная металлическая тара - спрос" href="index.php?page=ads&category_id=101&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Тара полимерная</span>
-
-												<ul id="polymer-containers-panel" class="lvl-3">
-													<li>
-														<a title="Полимерная тара для повторного использования - реализую" href="index.php?page=ads&category_id=102&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Полимерная тара для повторного использования - приобрету" href="index.php?page=ads&category_id=102&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Тара картонная</span>
-
-												<ul id="cardboard-containers-panel" class="lvl-3">
-													<li>
-														<a title="Бывшая в употреблении картонная тара - реализую" href="index.php?page=ads&category_id=104&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Бывшая в употреблении картонная тара - приобрету" href="index.php?page=ads&category_id=104&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Тара деревянная</span>
-
-												<ul id="wooden-containers-panel" class="lvl-3">
-													<li>
-														<a title="Оборотная деревянная тара - продам" href="index.php?page=ads&category_id=103&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Оборотная деревянная тара - куплю" href="index.php?page=ads&category_id=103&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Одежда, обувь</span>
-
-												<ul id="used-outfits-panel" class="lvl-3">
-													<li>
-														<a title="Секонд-хенд одежда, обувь - предлагаю" href="index.php?page=ads&category_id=93&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Секонд-хенд одежда, обувь - ищу" href="index.php?page=ads&category_id=93&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Бытовая техника</span>
-
-												<ul id="used-white-goods-panel" class="lvl-3">
-													<li>
-														<a title="Подержанная бытовая техника - продам" href="index.php?page=ads&category_id=94&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Подержанная бытовая техника - куплю" href="index.php?page=ads&category_id=94&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Мебель</span>
-
-												<ul id="used-furniture-panel" class="lvl-3">
-													<li>
-														<a title="Подержанная мебель - продам" href="index.php?page=ads&category_id=99&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Подержанная мебель - куплю" href="index.php?page=ads&category_id=99&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Компьютеры, оргтехника, телефоны</span>
-
-												<ul id="used-gadgets-panel" class="lvl-3">
-													<li>
-														<a title="Бывшие в употреблении компьютеры, оргтехника, телефоны - реализую" href="index.php?page=ads&category_id=96&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Бывшие в употреблении компьютеры, оргтехника, телефоны - приобрету" href="index.php?page=ads&category_id=96&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Механизмы, машины, запчасти</span>
-
-												<ul id="used-machinery-panel" class="lvl-3">
-													<li>
-														<a title="Бывшие в употреблении механизмы, машины, запчасти - реализую" href="index.php?page=ads&category_id=97&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Бывшие в употреблении механизмы, машины, запчасти - приобрету" href="index.php?page=ads&category_id=97&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Необычные товары</span>
-
-												<ul id="used-items-panel" class="lvl-3">
-													<li>
-														<a title="Бывшие в употреблении необычные товары - предлагаю" href="index.php?page=ads&category_id=98&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Бывшие в употреблении необычные товары - ищу" href="index.php?page=ads&category_id=98&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-
-										</ul>
-									</li>
-									<li>
-										<span>
-											Технологии, оборудование</span>
-
-										<ul id="equipment-subcategories-panel">
-											<li>
-												<span>
-													Полимеры</span>
-
-												<ul id="plastic-recycling-panel" class="lvl-3">
-													<li>
-														<a title="Оборудование для рециклинга полимеров - продажа" href="index.php?page=ads&category_id=60&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Оборудование для рециклинга полимеров - покупка" href="index.php?page=ads&category_id=60&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Макулатура</span>
-
-												<ul id="paper-recycling-panel" class="lvl-3">
-													<li>
-														<a title="Оборудование для переработки макулатуры - продам" href="index.php?page=ads&category_id=59&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Оборудование для переработки макулатуры - куплю" href="index.php?page=ads&category_id=59&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Древесина</span>
-
-												<ul id="timber-recycling-panel" class="lvl-3">
-													<li>
-														<a title="Технологии, оборудование по утилизации древесины - предлагаю" href="index.php?page=ads&category_id=57&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Технологии, оборудование по утилизации древесины - ищу" href="index.php?page=ads&category_id=57&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Пищевые отходы</span>
-
-												<ul id="food-recycling-panel" class="lvl-3">
-													<li>
-														<a title="Технологии, оборудование для утилизации пищевых отходов - предлагаю" href="index.php?page=ads&category_id=56&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Технологии, оборудование для утилизации пищевых отходов  - ищу" href="index.php?page=ads&category_id=56&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Разная биомасса</span>
-
-												<ul id="biomass-recycling-panel" class="lvl-3">
-													<li>
-														<a title="Средства утилизации различных отходов растительного и животного происхождения - предлагаю" href="index.php?page=ads&category_id=55&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Средства утилизации различных отходов растительного и животного происхождения - ищу" href="index.php?page=ads&category_id=55&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Твердые бытовые отходы</span>
-
-												<ul id="municipal-solid-waste-panel" class="lvl-3">
-													<li>
-														<a title="Техника и оборудование для обращения с ТБО - продажа" href="index.php?page=ads&category_id=40&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Техника и оборудование для обращения с ТБО - покупка" href="index.php?page=ads&category_id=40&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Шины, резина</span>
-
-												<ul id="tyre-recycling-panel" class="lvl-3">
-													<li>
-														<a title="Оборудование для рециклинга шин, резины - продам" href="index.php?page=ads&category_id=58&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Оборудование для рециклинга шин, резины - куплю" href="index.php?page=ads&category_id=58&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Металлы</span>
-
-												<ul id="metal-recycling-panel" class="lvl-3">
-													<li>
-														<a title="Оборудование для утилизации металлолома - продажа" href="index.php?page=ads&category_id=51&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Оборудование для утилизации металлолома - покупка" href="index.php?page=ads&category_id=51&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Нефтепродукты</span>
-
-												<ul id="oil-recycling-panel" class="lvl-3">
-													<li>
-														<a title="Технологии, оборудование для утилизации нефтепродуктов - предложение" href="index.php?page=ads&category_id=54&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Технологии, оборудование для утилизации нефтепродуктов - поиск" href="index.php?page=ads&category_id=54&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Графит, уголь</span>
-
-												<ul id="graphite-recycling-panel" class="lvl-3">
-													<li>
-														<a title="Устройства для утилизации графита, регенерации активированного угля - реализую" href="index.php?page=ads&category_id=52&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Устройства для утилизации графита, регенерации активированного угля - приобрету" href="index.php?page=ads&category_id=52&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Шламы, шлаки, щебень</span>
-
-												<ul id="sludge-treatment-panel" class="lvl-3">
-													<li>
-														<a title="Средства утилизации шламов, шлаков, щебня - предлагаю" href="index.php?page=ads&category_id=46&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Средства утилизации шламов, шлаков, щебня - ищу" href="index.php?page=ads&category_id=46&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Огнеупоры, абразивы</span>
-
-												<ul id="refractory-waste-treatment-panel" class="lvl-3">
-													<li>
-														<a title="Оборудование для утилизации огнеупоров, абразивов - продам" href="index.php?page=ads&category_id=53&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Оборудование для утилизации огнеупоров, абразивов - куплю" href="index.php?page=ads&category_id=53&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Текстиль, кожа</span>
-
-												<ul id="textile-recycling-panel" class="lvl-3">
-													<li>
-														<a title="Оборудование для утилизации текстиля и кожи - продам" href="index.php?page=ads&category_id=48&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Оборудование для утилизации текстиля и кожи - куплю" href="index.php?page=ads&category_id=48&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Стекло</span>
-
-												<ul id="glass-recycling-panel" class="lvl-3">
-													<li>
-														<a title="Оборудование для утилизации стеклобоя - продажа" href="index.php?page=ads&category_id=50&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Оборудование для утилизации стеклобоя - покупка" href="index.php?page=ads&category_id=50&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Комбинированные материалы</span>
-
-												<ul id="composite-material-recycling-panel" class="lvl-3">
-													<li>
-														<a title="Средства утилизации комбинированных и многослойных материалов - предложение" href="index.php?page=ads&category_id=44&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Средства утилизации комбинированных и многослойных материалов - спрос" href="index.php?page=ads&category_id=44&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Химикаты</span>
-
-												<ul id="chemical-waste-treatment-panel" class="lvl-3">
-													<li>
-														<a title="Средства утилизации кислот, солей, щелочей, растворителей, лаков, красок и т.п. отходов - предлагаю" href="index.php?page=ads&category_id=45&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Средства утилизации кислот, солей, щелочей, растворителей, лаков, красок и т.п. отходов - ищу" href="index.php?page=ads&category_id=45&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Катализаторы</span>
-
-												<ul id="catalyst-recycling-panel" class="lvl-3">
-													<li>
-														<a title="Аппараты для рециклинга катализаторов - предлагаю" href="index.php?page=ads&category_id=47&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Аппараты для рециклинга катализаторов - ищу" href="index.php?page=ads&category_id=47&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Аккумуляторы</span>
-
-												<ul id="battery-recycling-panel" class="lvl-3">
-													<li>
-														<a title="Приспособления для утилизации аккумуляторов - предлагаю" href="index.php?page=ads&category_id=49&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Приспособления для утилизации аккумуляторов - ищу" href="index.php?page=ads&category_id=49&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Электронные отходы</span>
-
-												<ul id="electronics-recycling-panel" class="lvl-3">
-													<li>
-														<a title="Оборудование для утилизации электроники - продам" href="index.php?page=ads&category_id=79&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Оборудование для утилизации электроники - куплю" href="index.php?page=ads&category_id=79&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Медицинские отходы</span>
-
-												<ul id="medical-waste-treatment-panel" class="lvl-3">
-													<li>
-														<a title="Устройства для обезвреживания медицинских отходов - предлагаю" href="index.php?page=ads&category_id=43&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Устройства для обезвреживания медицинских отходов - ищу " href="index.php?page=ads&category_id=43&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Агрохимикаты</span>
-
-												<ul id="banned-pesticides-management-panel" class="lvl-3">
-													<li>
-														<a title="Средства обезвреживания непригодных пестицидов - предлагаю" href="index.php?page=ads&category_id=42&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Средства обезвреживания непригодных пестицидов - ищу" href="index.php?page=ads&category_id=42&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Гальванические отходы</span>
-
-												<ul id="galvanic-sludge-treatment-panel" class="lvl-3">
-													<li>
-														<a title="Средства обращения с гальваническими отходами - предлагаю" href="index.php?page=ads&category_id=38&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Средства обращения с гальваническими отходами - ищу" href="index.php?page=ads&category_id=38&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Ртутьсодержащие отходы</span>
-
-												<ul id="mercury-waste-treatment-panel" class="lvl-3">
-													<li>
-														<a title="Оборудование по переработке ртутьсодержащих отходов - предлагаю" href="index.php?page=ads&category_id=39&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Оборудование по переработке ртутьсодержащих отходов - ищу" href="index.php?page=ads&category_id=39&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Лом машин</span>
-
-												<ul id="vehicle-recycling-panel" class="lvl-3">
-													<li>
-														<a title="Техника для утилизации непригодных транспортных средств -  продам" href="index.php?page=ads&category_id=80&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Техника для утилизации непригодных транспортных средств - куплю " href="index.php?page=ads&category_id=80&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Отходы строительства, сноса</span>
-
-												<ul id="construction-waste-recycling-panel" class="lvl-3">
-													<li>
-														<a title="Техника для переработки отходов строительства и сноса - предлагаю " href="index.php?page=ads&category_id=74&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Техника для переработки отходов строительства и сноса - ищу" href="index.php?page=ads&category_id=74&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Газообразные отходы</span>
-
-												<ul id="gas-treatment-panel" class="lvl-3">
-													<li>
-														<a title="Аппараты и методы газоочистки и пылеулавливания - предлагаю" href="index.php?page=ads&category_id=73&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Аппараты и методы газоочистки и пылеулавливания - ищу " href="index.php?page=ads&category_id=73&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Сточные воды</span>
-
-												<ul id="sewage-treatment-panel" class="lvl-3">
-													<li>
-														<a title="Технологии, оборудование для очистки сточных вод - продам" href="index.php?page=ads&category_id=41&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Технологии, оборудование для очистки сточных вод - куплю" href="index.php?page=ads&category_id=41&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Радиоактивные отходы</span>
-
-												<ul id="radioactive-waste-treatment-panel" class="lvl-3">
-													<li>
-														<a title="Методы и средства обращения с радиоактивными отходами - предлагаю" href="index.php?page=ads&category_id=37&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Методы и средства обращения с радиоактивными отходами - ищу " href="index.php?page=ads&category_id=37&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Нетипичные отходы</span>
-
-												<ul id="waste-treatment-panel" class="lvl-3">
-													<li>
-														<a title="Методы и средства переработки нетипичных отходов - предлагаю" href="index.php?page=ads&category_id=36&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Методы и средства переработки нетипичных отходов -  ищу" href="index.php?page=ads&category_id=36&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-
-										</ul>
-									</li>
-									<li>
-										<span>
-											Продукция из вторсырья</span>
-
-										<ul id="recycled-products-subcategories-panel">
-											<li>
-												<span>
-													Полимеры</span>
-
-												<ul id="recycled-plastic-panel" class="lvl-3">
-													<li>
-														<a title="Товары из вторичных полимеров - продажа" href="index.php?page=ads&category_id=66&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Товары из вторичных полимеров - купля " href="index.php?page=ads&category_id=66&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Древесина и др. биомасса</span>
-
-												<ul id="recycled-timber-panel" class="lvl-3">
-													<li>
-														<a title="Продукция из древесного вторсырья и другой биомассы - продам" href="index.php?page=ads&category_id=63&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Продукция из древесного вторсырья и другой биомассы - куплю " href="index.php?page=ads&category_id=63&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Шины, резина</span>
-
-												<ul id="recycled-rubber-panel" class="lvl-3">
-													<li>
-														<a title="Товары из вторичного резинового сырья - продам" href="index.php?page=ads&category_id=64&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Товары из вторичного резинового сырья - куплю " href="index.php?page=ads&category_id=64&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Макулатура</span>
-
-												<ul id="recycled-paper-panel" class="lvl-3">
-													<li>
-														<a title="Продукция из переработанной макулатуры - продажа" href="index.php?page=ads&category_id=65&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Продукция из переработанной макулатуры - покупка" href="index.php?page=ads&category_id=65&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Текстиль, кожа</span>
-
-												<ul id="recycled-textile-panel" class="lvl-3">
-													<li>
-														<a title="Изделия из вторичного текстильного сырья и кожи - реализую " href="index.php?page=ads&category_id=62&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Изделия из вторичного текстильного сырья и кожи - приобрету" href="index.php?page=ads&category_id=62&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Графит, уголь</span>
-
-												<ul id="recycled-carbon-panel" class="lvl-3">
-													<li>
-														<a title="Изделия из вторичных углеродных материалов - реализую" href="index.php?page=ads&category_id=81&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Изделия из вторичных углеродных материалов - приобрету " href="index.php?page=ads&category_id=81&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Нефтепродукты</span>
-
-												<ul id="recycled-oil-panel" class="lvl-3">
-													<li>
-														<a title="Товары из нефтешламов, отработанных нефтяных масел - продам" href="index.php?page=ads&category_id=82&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Товары из нефтешламов, отработанных нефтяных масел - куплю " href="index.php?page=ads&category_id=82&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Шламы, шлаки, щебень</span>
-
-												<ul id="recycled-sludge-panel" class="lvl-3">
-													<li>
-														<a title="Продукция из шламов, шлаков, щебня - продам" href="index.php?page=ads&category_id=83&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Продукция из шламов, шлаков, щебня - куплю" href="index.php?page=ads&category_id=83&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Нетрадиционное вторсырье</span>
-
-												<ul id="recycled-materials-panel" class="lvl-3">
-													<li>
-														<a title="Продукция из нетрадиционного вторсырья - продажа" href="index.php?page=ads&category_id=61&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Продукция из нетрадиционного вторсырья - покупка" href="index.php?page=ads&category_id=61&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-
-										</ul>
-									</li>
-									<li>
-										<span>
-											Услуги</span>
-
-										<ul id="services-subcategories-panel">
-											<li>
-												<span>
-													Переработка вторсырья</span>
-
-												<ul id="recycling-services-panel" class="lvl-3">
-													<li>
-														<a title="Услуги по утилизации вторсырья - окажу" href="index.php?page=ads&category_id=100&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Услуги по утилизации вторсырья - нужны " href="index.php?page=ads&category_id=100&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Лизинг, аренда</span>
-
-												<ul id="leasing-panel" class="lvl-3">
-													<li>
-														<a title="Лизинг, аренда оборудования, помещений - предлагаю" href="index.php?page=ads&category_id=72&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Лизинг, аренда оборудования, помещений - ищу " href="index.php?page=ads&category_id=72&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Сбор, транспортировка, размещение</span>
-
-												<ul id="logistics-panel" class="lvl-3">
-													<li>
-														<a title="Услуги по сбору, транспортировке, размещению отходов - предлагаю" href="index.php?page=ads&category_id=71&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Услуги по сбору, транспортировке, размещению отходов - требуются" href="index.php?page=ads&category_id=71&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Обезвреживание, уничтожение</span>
-
-												<ul id="hazardous-waste-management-panel" class="lvl-3">
-													<li>
-														<a title="Услуги по обезвреживанию, уничтожению отходов - предложение" href="index.php?page=ads&category_id=70&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Услуги по обезвреживанию, уничтожению отходов - спрос" href="index.php?page=ads&category_id=70&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Паспортизация, мониторинг, консалтинг</span>
-
-												<ul id="waste-inventory-panel" class="lvl-3">
-													<li>
-														<a title="Услуги по паспортизации, мониторингу, консалтингу - предложение" href="index.php?page=ads&category_id=69&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Услуги по паспортизации, мониторингу, консалтингу - спрос" href="index.php?page=ads&category_id=69&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Аудит, сертификация, страхование</span>
-
-												<ul id="environmental-audit-panel" class="lvl-3">
-													<li>
-														<a title="Услуги по экологическому аудиту, сертификации, страхованию - предоставлю" href="index.php?page=ads&category_id=68&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Услуги по экологическому аудиту, сертификации, страхованию - нужны " href="index.php?page=ads&category_id=68&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Проектирование, строительство</span>
-
-												<ul id="construction-services-panel" class="lvl-3">
-													<li>
-														<a title="Услуги по проектированию, строительству, рекультивации - предлагаю" href="index.php?page=ads&category_id=84&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Услуги по проектированию, строительству, рекультивации - ищу " href="index.php?page=ads&category_id=84&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Ремонт оборудования</span>
-
-												<ul id="equipment-repairs-panel" class="lvl-3">
-													<li>
-														<a title="Услуги по ремонту оборудования - предложение" href="index.php?page=ads&category_id=90&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Услуги по ремонту оборудования - спрос " href="index.php?page=ads&category_id=90&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Охрана труда</span>
-
-												<ul id="health-and-safety-panel" class="lvl-3">
-													<li>
-														<a title="Услуги по охране труда и технике безопасности - оказываю" href="index.php?page=ads&category_id=85&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Услуги по охране труда и технике безопасности - требуются" href="index.php?page=ads&category_id=85&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Юридическое сопровождение</span>
-
-												<ul id="legal-support-panel" class="lvl-3">
-													<li>
-														<a title="Юридические услуги - предложение" href="index.php?page=ads&category_id=86&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Юридические услуги - потребность" href="index.php?page=ads&category_id=86&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-											<li>
-												<span>
-													Необычные услуги</span>
-
-												<ul id="waste-management-panel" class="lvl-3">
-													<li>
-														<a title="Необычные услуги по обращению с отходами - предлагаю" href="index.php?page=ads&category_id=67&adtype=0">
-															<i class="bi bi-arrow-up-right"></i> Предлагаю
-														</a>
-													</li>
-
-													<li>
-														<a title="Необычные услуги по обращению с отходами - требуются" href="index.php?page=ads&category_id=67&adtype=1">
-															<i class="bi bi-arrow-down-left"></i> Ищу
-														</a>
-													</li>
-
-												</ul>
-											</li>
-
-										</ul>
-									</li>
-									<li>
-										<span>
-											Запчасти, узлы </span>
-
-										<ul id="spare-parts-panel">
-											<li>
-												<a title="Запасные части, узлы - предлагаю" href="index.php?page=ads&parent_id=87&adtype=0">
-													<i class="bi bi-arrow-up-right"></i> Предлагаю
-												</a>
-											</li>
-
-											<li>
-												<a title="Запасные части, узлы - приобрету" href="index.php?page=ads&parent_id=87&adtype=1">
-													<i class="bi bi-arrow-down-left"></i> Ищу
-												</a>
-											</li>
-
-										</ul>
-									</li>
-									<li>
-										<span>
-											Средства защиты </span>
-
-										<ul id="personal-protective-equipment-panel">
-											<li>
-												<a title="Средства индивидуальной защиты - продам" href="index.php?page=ads&parent_id=88&adtype=0">
-													<i class="bi bi-arrow-up-right"></i> Предлагаю
-												</a>
-											</li>
-
-											<li>
-												<a title="Средства индивидуальной защиты - куплю" href="index.php?page=ads&parent_id=88&adtype=1">
-													<i class="bi bi-arrow-down-left"></i> Ищу
-												</a>
-											</li>
-
-										</ul>
-									</li>
-									<li>
-										<span>
-											Средства измерений </span>
-
-										<ul id="metrology-panel">
-											<li>
-												<a title="Средства измерений - предложение" href="index.php?page=ads&parent_id=89&adtype=0">
-													<i class="bi bi-arrow-up-right"></i> Предлагаю
-												</a>
-											</li>
-
-											<li>
-												<a title="Средства измерений - спрос" href="index.php?page=ads&parent_id=89&adtype=1">
-													<i class="bi bi-arrow-down-left"></i> Ищу
-												</a>
-											</li>
-
-										</ul>
-									</li>
-									<li>
-										<span>
-											Готовый бизнес</span>
-
-										<ul id="business-panel">
-											<li>
-												<a title="Готовый бизнес по управлению отходами - продам" href="index.php?page=ads&parent_id=105&adtype=0">
-													<i class="bi bi-arrow-up-right"></i> Предлагаю
-												</a>
-											</li>
-
-											<li>
-												<a title="Готовый бизнес по управлению отходами - куплю" href="index.php?page=ads&parent_id=105&adtype=1">
-													<i class="bi bi-arrow-down-left"></i> Ищу
-												</a>
-											</li>
-
-										</ul>
-									</li>
-									<li>
-										<span>
-											Инвестиции</span>
-
-										<ul id="investment-panel">
-											<li>
-												<a title="Инвестиции в отрасль обращения с отходами - предлагаю" href="index.php?page=ads&parent_id=75&adtype=0">
-													<i class="bi bi-arrow-up-right"></i> Предлагаю
-												</a>
-											</li>
-
-											<li>
-												<a title="Инвестиции в отрасль обращения с отходами - ищу" href="index.php?page=ads&parent_id=75&adtype=1">
-													<i class="bi bi-arrow-down-left"></i> Ищу
-												</a>
-											</li>
-
-										</ul>
-									</li>
-									<li>
-										<span>
-											Работа</span>
-
-										<ul id="job-panel">
-											<li>
-												<a title="Вакансии" href="index.php?page=ads&parent_id=5&adtype=0">
-													<i class="bi bi-arrow-up-right"></i> Предлагаю
-												</a>
-											</li>
-
-											<li>
-												<a title="Претенденты на работу" href="index.php?page=ads&parent_id=5&adtype=1">
-													<i class="bi bi-arrow-down-left"></i> Ищу
-												</a>
-											</li>
-
-										</ul>
-									</li>
-								</ul>
-							</nav>
-							<nav class="navbar__items dragscroll">
-								<div class="navbar__languages">
-									<span id="navbar__lable" class="navbar__lable _icon-triangle">UK</span>
-									<div id="navbar__dropdown" class="navbar__dropdown">
-										<a href="#" class="navbar__link h3">RU</a>
-										<a href="#" class="navbar__link h3">EN</a>
-									</div>
-								</div>
-								<a class="navbar__item" href="#" data-menu-opener="href">Объявления,
-									Визитки</a>
-								<a class="navbar__item" href="#" data-menu-opener="href">Мероприятия</a>
-								<a class="navbar__item" href="#" data-menu-opener="href">Издания</a>
-								<a class="navbar__item" href="#" data-menu-opener="href">Статьи</a>
-								<a class="navbar__item" href="#" data-menu-opener="href">Законодательство</a>
-							</nav>
+				<!-- <div class="login__container"> -->
+				<div class="login__body">
+					<div class="login__navbar navbar">
+						<div class="navbar__container">
+							<div class="navbar__body">
+								<nav id="menu">
+									<ul id="categories">
+										<li aria-current="location">
+											<span>
+												Вторсырье</span>
+
+											<ul id="recyclables-subcategories-panel">
+												<li aria-current="location">
+													<span>
+														Полимеры</span>
+
+													<ul id="plastic-waste-panel" class="lvl-3">
+														<li>
+															<a title="Продам отходы пластмасс" href="index.php?page=ads&category_id=20&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Куплю отходы пластмасс" href="index.php?page=ads&category_id=20&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Макулатура</span>
+
+													<ul id="waste-paper-panel" class="lvl-3">
+														<li>
+															<a title="Продажа макулатуры" href="index.php?page=ads&category_id=19&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Покупка макулатуры" href="index.php?page=ads&category_id=19&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Металлы</span>
+
+													<ul id="scrap-metal-panel" class="lvl-3">
+														<li>
+															<a title="Продажа металлолома" href="index.php?page=ads&category_id=34&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Покупка металлолома" href="index.php?page=ads&category_id=34&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Стекло</span>
+
+													<ul id="waste-glass-panel" class="lvl-3">
+														<li>
+															<a title="Продажа стеклобоя" href="index.php?page=ads&category_id=33&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Покупка стеклобоя" href="index.php?page=ads&category_id=33&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Шины, резина</span>
+
+													<ul id="waste-tyres-panel" class="lvl-3">
+														<li>
+															<a title="Предлагаю отработанные шины, отходы резины" href="index.php?page=ads&category_id=18&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Ищу отработанные шины, отходы резины" href="index.php?page=ads&category_id=18&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Древесина</span>
+
+													<ul id="timber-waste-panel" class="lvl-3">
+														<li>
+															<a title="Отходы древесины - предложение" href="index.php?page=ads&category_id=17&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Отходы древесины - спрос" href="index.php?page=ads&category_id=17&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Пищевые отходы</span>
+
+													<ul id="food-waste-panel" class="lvl-3">
+														<li>
+															<a title="Предлагаю пищевые отходы " href="index.php?page=ads&category_id=15&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Нужны пищевые отходы " href="index.php?page=ads&category_id=15&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Разная биомасса</span>
+
+													<ul id="biomass-panel" class="lvl-3">
+														<li>
+															<a title="Разные отходы растительного и животного происхождения - предложение" href="index.php?page=ads&category_id=14&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Разные отходы растительного и животного происхождения - потребность" href="index.php?page=ads&category_id=14&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Текстиль, кожа</span>
+
+													<ul id="textile-waste-panel" class="lvl-3">
+														<li>
+															<a title="Отходы текстиля, кожи - предлагаю" href="index.php?page=ads&category_id=31&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Отходы текстиля, кожи - нужны" href="index.php?page=ads&category_id=31&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Нефтепродукты</span>
+
+													<ul id="waste-oil-panel" class="lvl-3">
+														<li>
+															<a title="Нефтешламы, отработанные нефтепродукты  - предлагаю" href="index.php?page=ads&category_id=23&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Нефтешламы, отработанные нефтепродукты - ищу" href="index.php?page=ads&category_id=23&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Графит, уголь</span>
+
+													<ul id="carbon-waste-panel" class="lvl-3">
+														<li>
+															<a title="Бой графита, штыб, отработанный активированный уголь - реализую" href="index.php?page=ads&category_id=25&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Бой графита, штыб, отработанный активированный уголь - приобрету" href="index.php?page=ads&category_id=25&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Шламы, шлаки, щебень</span>
+
+													<ul id="sludge-panel" class="lvl-3">
+														<li>
+															<a title="Шламы, шлаки, щебень - предложение " href="index.php?page=ads&category_id=29&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Шламы, шлаки, щебень - потребность" href="index.php?page=ads&category_id=29&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Огнеупоры, абразивы</span>
+
+													<ul id="refractory-waste-panel" class="lvl-3">
+														<li>
+															<a title="Отходы огнеупоров, абразивов - продам" href="index.php?page=ads&category_id=24&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Отходы огнеупоров, абразивов - куплю" href="index.php?page=ads&category_id=24&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Химикаты</span>
+
+													<ul id="chemical-waste-panel" class="lvl-3">
+														<li>
+															<a title="Кислоты, соли, щелочи, растворители, лаки, краски и т.п. - предлагаю" href="index.php?page=ads&category_id=28&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Кислоты, соли, щелочи, растворители, лаки, краски и т.п. - ищу" href="index.php?page=ads&category_id=28&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Катализаторы</span>
+
+													<ul id="spent-catalysts-panel" class="lvl-3">
+														<li>
+															<a title="Отработанные катализаторы - продам" href="index.php?page=ads&category_id=30&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Отработанные катализаторы - куплю" href="index.php?page=ads&category_id=30&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Аккумуляторы</span>
+
+													<ul id="waste-batteries-panel" class="lvl-3">
+														<li>
+															<a title="Отработанные аккумуляторы - продам" href="index.php?page=ads&category_id=32&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Отработанные  аккумуляторы - куплю" href="index.php?page=ads&category_id=32&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Электронные отходы</span>
+
+													<ul id="electronic-waste-panel" class="lvl-3">
+														<li>
+															<a title="Компьютерный и электронный лом - продажа" href="index.php?page=ads&category_id=77&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Компьютерный и электронный лом - покупка" href="index.php?page=ads&category_id=77&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Лом оборудования, машин</span>
+
+													<ul id="broken-equipment-panel" class="lvl-3">
+														<li>
+															<a title="Лом оборудования, машин - предлагаю" href="index.php?page=ads&category_id=35&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Лом оборудования, машин - ищу" href="index.php?page=ads&category_id=35&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Комбинированные материалы</span>
+
+													<ul id="composite-waste-panel" class="lvl-3">
+														<li>
+															<a title="Комбинированные и многослойные материалы - предлагаю" href="index.php?page=ads&category_id=27&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Комбинированные и многослойные материалы - ищу" href="index.php?page=ads&category_id=27&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Отходы строительства, сноса </span>
+
+													<ul id="construction-waste-panel" class="lvl-3">
+														<li>
+															<a title="Отходы строительства, сноса - предлагаю" href="index.php?page=ads&category_id=78&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Отходы строительства, сноса - ищу" href="index.php?page=ads&category_id=78&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Нетипичное вторсырье</span>
+
+													<ul id="recyclable-materials-panel" class="lvl-3">
+														<li>
+															<a title="Необычное вторсырье - предлагаю" href="index.php?page=ads&category_id=26&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Необычное вторсырье - ищу" href="index.php?page=ads&category_id=26&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+
+											</ul>
+										</li>
+										<li>
+											<span>
+												Секонд-хенд</span>
+
+											<ul id="reuse-subcategories-panel">
+												<li>
+													<span>
+														Тара стеклянная</span>
+
+													<ul id="glass-containers-panel" class="lvl-3">
+														<li>
+															<a title="Возвратная стеклянная тара - продам" href="index.php?page=ads&category_id=106&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Возвратная стеклянная тара - куплю" href="index.php?page=ads&category_id=106&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Тара металлическая</span>
+
+													<ul id="metal-containers-panel" class="lvl-3">
+														<li>
+															<a title="Подержанная металлическая тара - предложение" href="index.php?page=ads&category_id=101&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Подержанная металлическая тара - спрос" href="index.php?page=ads&category_id=101&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Тара полимерная</span>
+
+													<ul id="polymer-containers-panel" class="lvl-3">
+														<li>
+															<a title="Полимерная тара для повторного использования - реализую" href="index.php?page=ads&category_id=102&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Полимерная тара для повторного использования - приобрету" href="index.php?page=ads&category_id=102&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Тара картонная</span>
+
+													<ul id="cardboard-containers-panel" class="lvl-3">
+														<li>
+															<a title="Бывшая в употреблении картонная тара - реализую" href="index.php?page=ads&category_id=104&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Бывшая в употреблении картонная тара - приобрету" href="index.php?page=ads&category_id=104&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Тара деревянная</span>
+
+													<ul id="wooden-containers-panel" class="lvl-3">
+														<li>
+															<a title="Оборотная деревянная тара - продам" href="index.php?page=ads&category_id=103&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Оборотная деревянная тара - куплю" href="index.php?page=ads&category_id=103&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Одежда, обувь</span>
+
+													<ul id="used-outfits-panel" class="lvl-3">
+														<li>
+															<a title="Секонд-хенд одежда, обувь - предлагаю" href="index.php?page=ads&category_id=93&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Секонд-хенд одежда, обувь - ищу" href="index.php?page=ads&category_id=93&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Бытовая техника</span>
+
+													<ul id="used-white-goods-panel" class="lvl-3">
+														<li>
+															<a title="Подержанная бытовая техника - продам" href="index.php?page=ads&category_id=94&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Подержанная бытовая техника - куплю" href="index.php?page=ads&category_id=94&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Мебель</span>
+
+													<ul id="used-furniture-panel" class="lvl-3">
+														<li>
+															<a title="Подержанная мебель - продам" href="index.php?page=ads&category_id=99&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Подержанная мебель - куплю" href="index.php?page=ads&category_id=99&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Компьютеры, оргтехника, телефоны</span>
+
+													<ul id="used-gadgets-panel" class="lvl-3">
+														<li>
+															<a title="Бывшие в употреблении компьютеры, оргтехника, телефоны - реализую" href="index.php?page=ads&category_id=96&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Бывшие в употреблении компьютеры, оргтехника, телефоны - приобрету" href="index.php?page=ads&category_id=96&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Механизмы, машины, запчасти</span>
+
+													<ul id="used-machinery-panel" class="lvl-3">
+														<li>
+															<a title="Бывшие в употреблении механизмы, машины, запчасти - реализую" href="index.php?page=ads&category_id=97&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Бывшие в употреблении механизмы, машины, запчасти - приобрету" href="index.php?page=ads&category_id=97&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Необычные товары</span>
+
+													<ul id="used-items-panel" class="lvl-3">
+														<li>
+															<a title="Бывшие в употреблении необычные товары - предлагаю" href="index.php?page=ads&category_id=98&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Бывшие в употреблении необычные товары - ищу" href="index.php?page=ads&category_id=98&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+
+											</ul>
+										</li>
+										<li>
+											<span>
+												Технологии, оборудование</span>
+
+											<ul id="equipment-subcategories-panel">
+												<li>
+													<span>
+														Полимеры</span>
+
+													<ul id="plastic-recycling-panel" class="lvl-3">
+														<li>
+															<a title="Оборудование для рециклинга полимеров - продажа" href="index.php?page=ads&category_id=60&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Оборудование для рециклинга полимеров - покупка" href="index.php?page=ads&category_id=60&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Макулатура</span>
+
+													<ul id="paper-recycling-panel" class="lvl-3">
+														<li>
+															<a title="Оборудование для переработки макулатуры - продам" href="index.php?page=ads&category_id=59&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Оборудование для переработки макулатуры - куплю" href="index.php?page=ads&category_id=59&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Древесина</span>
+
+													<ul id="timber-recycling-panel" class="lvl-3">
+														<li>
+															<a title="Технологии, оборудование по утилизации древесины - предлагаю" href="index.php?page=ads&category_id=57&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Технологии, оборудование по утилизации древесины - ищу" href="index.php?page=ads&category_id=57&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Пищевые отходы</span>
+
+													<ul id="food-recycling-panel" class="lvl-3">
+														<li>
+															<a title="Технологии, оборудование для утилизации пищевых отходов - предлагаю" href="index.php?page=ads&category_id=56&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Технологии, оборудование для утилизации пищевых отходов  - ищу" href="index.php?page=ads&category_id=56&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Разная биомасса</span>
+
+													<ul id="biomass-recycling-panel" class="lvl-3">
+														<li>
+															<a title="Средства утилизации различных отходов растительного и животного происхождения - предлагаю" href="index.php?page=ads&category_id=55&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Средства утилизации различных отходов растительного и животного происхождения - ищу" href="index.php?page=ads&category_id=55&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Твердые бытовые отходы</span>
+
+													<ul id="municipal-solid-waste-panel" class="lvl-3">
+														<li>
+															<a title="Техника и оборудование для обращения с ТБО - продажа" href="index.php?page=ads&category_id=40&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Техника и оборудование для обращения с ТБО - покупка" href="index.php?page=ads&category_id=40&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Шины, резина</span>
+
+													<ul id="tyre-recycling-panel" class="lvl-3">
+														<li>
+															<a title="Оборудование для рециклинга шин, резины - продам" href="index.php?page=ads&category_id=58&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Оборудование для рециклинга шин, резины - куплю" href="index.php?page=ads&category_id=58&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Металлы</span>
+
+													<ul id="metal-recycling-panel" class="lvl-3">
+														<li>
+															<a title="Оборудование для утилизации металлолома - продажа" href="index.php?page=ads&category_id=51&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Оборудование для утилизации металлолома - покупка" href="index.php?page=ads&category_id=51&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Нефтепродукты</span>
+
+													<ul id="oil-recycling-panel" class="lvl-3">
+														<li>
+															<a title="Технологии, оборудование для утилизации нефтепродуктов - предложение" href="index.php?page=ads&category_id=54&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Технологии, оборудование для утилизации нефтепродуктов - поиск" href="index.php?page=ads&category_id=54&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Графит, уголь</span>
+
+													<ul id="graphite-recycling-panel" class="lvl-3">
+														<li>
+															<a title="Устройства для утилизации графита, регенерации активированного угля - реализую" href="index.php?page=ads&category_id=52&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Устройства для утилизации графита, регенерации активированного угля - приобрету" href="index.php?page=ads&category_id=52&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Шламы, шлаки, щебень</span>
+
+													<ul id="sludge-treatment-panel" class="lvl-3">
+														<li>
+															<a title="Средства утилизации шламов, шлаков, щебня - предлагаю" href="index.php?page=ads&category_id=46&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Средства утилизации шламов, шлаков, щебня - ищу" href="index.php?page=ads&category_id=46&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Огнеупоры, абразивы</span>
+
+													<ul id="refractory-waste-treatment-panel" class="lvl-3">
+														<li>
+															<a title="Оборудование для утилизации огнеупоров, абразивов - продам" href="index.php?page=ads&category_id=53&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Оборудование для утилизации огнеупоров, абразивов - куплю" href="index.php?page=ads&category_id=53&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Текстиль, кожа</span>
+
+													<ul id="textile-recycling-panel" class="lvl-3">
+														<li>
+															<a title="Оборудование для утилизации текстиля и кожи - продам" href="index.php?page=ads&category_id=48&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Оборудование для утилизации текстиля и кожи - куплю" href="index.php?page=ads&category_id=48&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Стекло</span>
+
+													<ul id="glass-recycling-panel" class="lvl-3">
+														<li>
+															<a title="Оборудование для утилизации стеклобоя - продажа" href="index.php?page=ads&category_id=50&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Оборудование для утилизации стеклобоя - покупка" href="index.php?page=ads&category_id=50&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Комбинированные материалы</span>
+
+													<ul id="composite-material-recycling-panel" class="lvl-3">
+														<li>
+															<a title="Средства утилизации комбинированных и многослойных материалов - предложение" href="index.php?page=ads&category_id=44&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Средства утилизации комбинированных и многослойных материалов - спрос" href="index.php?page=ads&category_id=44&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Химикаты</span>
+
+													<ul id="chemical-waste-treatment-panel" class="lvl-3">
+														<li>
+															<a title="Средства утилизации кислот, солей, щелочей, растворителей, лаков, красок и т.п. отходов - предлагаю" href="index.php?page=ads&category_id=45&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Средства утилизации кислот, солей, щелочей, растворителей, лаков, красок и т.п. отходов - ищу" href="index.php?page=ads&category_id=45&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Катализаторы</span>
+
+													<ul id="catalyst-recycling-panel" class="lvl-3">
+														<li>
+															<a title="Аппараты для рециклинга катализаторов - предлагаю" href="index.php?page=ads&category_id=47&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Аппараты для рециклинга катализаторов - ищу" href="index.php?page=ads&category_id=47&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Аккумуляторы</span>
+
+													<ul id="battery-recycling-panel" class="lvl-3">
+														<li>
+															<a title="Приспособления для утилизации аккумуляторов - предлагаю" href="index.php?page=ads&category_id=49&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Приспособления для утилизации аккумуляторов - ищу" href="index.php?page=ads&category_id=49&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Электронные отходы</span>
+
+													<ul id="electronics-recycling-panel" class="lvl-3">
+														<li>
+															<a title="Оборудование для утилизации электроники - продам" href="index.php?page=ads&category_id=79&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Оборудование для утилизации электроники - куплю" href="index.php?page=ads&category_id=79&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Медицинские отходы</span>
+
+													<ul id="medical-waste-treatment-panel" class="lvl-3">
+														<li>
+															<a title="Устройства для обезвреживания медицинских отходов - предлагаю" href="index.php?page=ads&category_id=43&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Устройства для обезвреживания медицинских отходов - ищу " href="index.php?page=ads&category_id=43&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Агрохимикаты</span>
+
+													<ul id="banned-pesticides-management-panel" class="lvl-3">
+														<li>
+															<a title="Средства обезвреживания непригодных пестицидов - предлагаю" href="index.php?page=ads&category_id=42&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Средства обезвреживания непригодных пестицидов - ищу" href="index.php?page=ads&category_id=42&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Гальванические отходы</span>
+
+													<ul id="galvanic-sludge-treatment-panel" class="lvl-3">
+														<li>
+															<a title="Средства обращения с гальваническими отходами - предлагаю" href="index.php?page=ads&category_id=38&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Средства обращения с гальваническими отходами - ищу" href="index.php?page=ads&category_id=38&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Ртутьсодержащие отходы</span>
+
+													<ul id="mercury-waste-treatment-panel" class="lvl-3">
+														<li>
+															<a title="Оборудование по переработке ртутьсодержащих отходов - предлагаю" href="index.php?page=ads&category_id=39&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Оборудование по переработке ртутьсодержащих отходов - ищу" href="index.php?page=ads&category_id=39&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Лом машин</span>
+
+													<ul id="vehicle-recycling-panel" class="lvl-3">
+														<li>
+															<a title="Техника для утилизации непригодных транспортных средств -  продам" href="index.php?page=ads&category_id=80&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Техника для утилизации непригодных транспортных средств - куплю " href="index.php?page=ads&category_id=80&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Отходы строительства, сноса</span>
+
+													<ul id="construction-waste-recycling-panel" class="lvl-3">
+														<li>
+															<a title="Техника для переработки отходов строительства и сноса - предлагаю " href="index.php?page=ads&category_id=74&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Техника для переработки отходов строительства и сноса - ищу" href="index.php?page=ads&category_id=74&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Газообразные отходы</span>
+
+													<ul id="gas-treatment-panel" class="lvl-3">
+														<li>
+															<a title="Аппараты и методы газоочистки и пылеулавливания - предлагаю" href="index.php?page=ads&category_id=73&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Аппараты и методы газоочистки и пылеулавливания - ищу " href="index.php?page=ads&category_id=73&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Сточные воды</span>
+
+													<ul id="sewage-treatment-panel" class="lvl-3">
+														<li>
+															<a title="Технологии, оборудование для очистки сточных вод - продам" href="index.php?page=ads&category_id=41&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Технологии, оборудование для очистки сточных вод - куплю" href="index.php?page=ads&category_id=41&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Радиоактивные отходы</span>
+
+													<ul id="radioactive-waste-treatment-panel" class="lvl-3">
+														<li>
+															<a title="Методы и средства обращения с радиоактивными отходами - предлагаю" href="index.php?page=ads&category_id=37&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Методы и средства обращения с радиоактивными отходами - ищу " href="index.php?page=ads&category_id=37&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Нетипичные отходы</span>
+
+													<ul id="waste-treatment-panel" class="lvl-3">
+														<li>
+															<a title="Методы и средства переработки нетипичных отходов - предлагаю" href="index.php?page=ads&category_id=36&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Методы и средства переработки нетипичных отходов -  ищу" href="index.php?page=ads&category_id=36&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+
+											</ul>
+										</li>
+										<li>
+											<span>
+												Продукция из вторсырья</span>
+
+											<ul id="recycled-products-subcategories-panel">
+												<li>
+													<span>
+														Полимеры</span>
+
+													<ul id="recycled-plastic-panel" class="lvl-3">
+														<li>
+															<a title="Товары из вторичных полимеров - продажа" href="index.php?page=ads&category_id=66&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Товары из вторичных полимеров - купля " href="index.php?page=ads&category_id=66&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Древесина и др. биомасса</span>
+
+													<ul id="recycled-timber-panel" class="lvl-3">
+														<li>
+															<a title="Продукция из древесного вторсырья и другой биомассы - продам" href="index.php?page=ads&category_id=63&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Продукция из древесного вторсырья и другой биомассы - куплю " href="index.php?page=ads&category_id=63&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Шины, резина</span>
+
+													<ul id="recycled-rubber-panel" class="lvl-3">
+														<li>
+															<a title="Товары из вторичного резинового сырья - продам" href="index.php?page=ads&category_id=64&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Товары из вторичного резинового сырья - куплю " href="index.php?page=ads&category_id=64&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Макулатура</span>
+
+													<ul id="recycled-paper-panel" class="lvl-3">
+														<li>
+															<a title="Продукция из переработанной макулатуры - продажа" href="index.php?page=ads&category_id=65&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Продукция из переработанной макулатуры - покупка" href="index.php?page=ads&category_id=65&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Текстиль, кожа</span>
+
+													<ul id="recycled-textile-panel" class="lvl-3">
+														<li>
+															<a title="Изделия из вторичного текстильного сырья и кожи - реализую " href="index.php?page=ads&category_id=62&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Изделия из вторичного текстильного сырья и кожи - приобрету" href="index.php?page=ads&category_id=62&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Графит, уголь</span>
+
+													<ul id="recycled-carbon-panel" class="lvl-3">
+														<li>
+															<a title="Изделия из вторичных углеродных материалов - реализую" href="index.php?page=ads&category_id=81&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Изделия из вторичных углеродных материалов - приобрету " href="index.php?page=ads&category_id=81&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Нефтепродукты</span>
+
+													<ul id="recycled-oil-panel" class="lvl-3">
+														<li>
+															<a title="Товары из нефтешламов, отработанных нефтяных масел - продам" href="index.php?page=ads&category_id=82&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Товары из нефтешламов, отработанных нефтяных масел - куплю " href="index.php?page=ads&category_id=82&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Шламы, шлаки, щебень</span>
+
+													<ul id="recycled-sludge-panel" class="lvl-3">
+														<li>
+															<a title="Продукция из шламов, шлаков, щебня - продам" href="index.php?page=ads&category_id=83&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Продукция из шламов, шлаков, щебня - куплю" href="index.php?page=ads&category_id=83&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Нетрадиционное вторсырье</span>
+
+													<ul id="recycled-materials-panel" class="lvl-3">
+														<li>
+															<a title="Продукция из нетрадиционного вторсырья - продажа" href="index.php?page=ads&category_id=61&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Продукция из нетрадиционного вторсырья - покупка" href="index.php?page=ads&category_id=61&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+
+											</ul>
+										</li>
+										<li>
+											<span>
+												Услуги</span>
+
+											<ul id="services-subcategories-panel">
+												<li>
+													<span>
+														Переработка вторсырья</span>
+
+													<ul id="recycling-services-panel" class="lvl-3">
+														<li>
+															<a title="Услуги по утилизации вторсырья - окажу" href="index.php?page=ads&category_id=100&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Услуги по утилизации вторсырья - нужны " href="index.php?page=ads&category_id=100&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Лизинг, аренда</span>
+
+													<ul id="leasing-panel" class="lvl-3">
+														<li>
+															<a title="Лизинг, аренда оборудования, помещений - предлагаю" href="index.php?page=ads&category_id=72&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Лизинг, аренда оборудования, помещений - ищу " href="index.php?page=ads&category_id=72&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Сбор, транспортировка, размещение</span>
+
+													<ul id="logistics-panel" class="lvl-3">
+														<li>
+															<a title="Услуги по сбору, транспортировке, размещению отходов - предлагаю" href="index.php?page=ads&category_id=71&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Услуги по сбору, транспортировке, размещению отходов - требуются" href="index.php?page=ads&category_id=71&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Обезвреживание, уничтожение</span>
+
+													<ul id="hazardous-waste-management-panel" class="lvl-3">
+														<li>
+															<a title="Услуги по обезвреживанию, уничтожению отходов - предложение" href="index.php?page=ads&category_id=70&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Услуги по обезвреживанию, уничтожению отходов - спрос" href="index.php?page=ads&category_id=70&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Паспортизация, мониторинг, консалтинг</span>
+
+													<ul id="waste-inventory-panel" class="lvl-3">
+														<li>
+															<a title="Услуги по паспортизации, мониторингу, консалтингу - предложение" href="index.php?page=ads&category_id=69&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Услуги по паспортизации, мониторингу, консалтингу - спрос" href="index.php?page=ads&category_id=69&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Аудит, сертификация, страхование</span>
+
+													<ul id="environmental-audit-panel" class="lvl-3">
+														<li>
+															<a title="Услуги по экологическому аудиту, сертификации, страхованию - предоставлю" href="index.php?page=ads&category_id=68&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Услуги по экологическому аудиту, сертификации, страхованию - нужны " href="index.php?page=ads&category_id=68&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Проектирование, строительство</span>
+
+													<ul id="construction-services-panel" class="lvl-3">
+														<li>
+															<a title="Услуги по проектированию, строительству, рекультивации - предлагаю" href="index.php?page=ads&category_id=84&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Услуги по проектированию, строительству, рекультивации - ищу " href="index.php?page=ads&category_id=84&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Ремонт оборудования</span>
+
+													<ul id="equipment-repairs-panel" class="lvl-3">
+														<li>
+															<a title="Услуги по ремонту оборудования - предложение" href="index.php?page=ads&category_id=90&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Услуги по ремонту оборудования - спрос " href="index.php?page=ads&category_id=90&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Охрана труда</span>
+
+													<ul id="health-and-safety-panel" class="lvl-3">
+														<li>
+															<a title="Услуги по охране труда и технике безопасности - оказываю" href="index.php?page=ads&category_id=85&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Услуги по охране труда и технике безопасности - требуются" href="index.php?page=ads&category_id=85&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Юридическое сопровождение</span>
+
+													<ul id="legal-support-panel" class="lvl-3">
+														<li>
+															<a title="Юридические услуги - предложение" href="index.php?page=ads&category_id=86&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Юридические услуги - потребность" href="index.php?page=ads&category_id=86&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+												<li>
+													<span>
+														Необычные услуги</span>
+
+													<ul id="waste-management-panel" class="lvl-3">
+														<li>
+															<a title="Необычные услуги по обращению с отходами - предлагаю" href="index.php?page=ads&category_id=67&adtype=0">
+																<i class="bi bi-arrow-up-right"></i> Предлагаю
+															</a>
+														</li>
+
+														<li>
+															<a title="Необычные услуги по обращению с отходами - требуются" href="index.php?page=ads&category_id=67&adtype=1">
+																<i class="bi bi-arrow-down-left"></i> Ищу
+															</a>
+														</li>
+
+													</ul>
+												</li>
+
+											</ul>
+										</li>
+										<li>
+											<span>
+												Запчасти, узлы </span>
+
+											<ul id="spare-parts-panel">
+												<li>
+													<a title="Запасные части, узлы - предлагаю" href="index.php?page=ads&parent_id=87&adtype=0">
+														<i class="bi bi-arrow-up-right"></i> Предлагаю
+													</a>
+												</li>
+
+												<li>
+													<a title="Запасные части, узлы - приобрету" href="index.php?page=ads&parent_id=87&adtype=1">
+														<i class="bi bi-arrow-down-left"></i> Ищу
+													</a>
+												</li>
+
+											</ul>
+										</li>
+										<li>
+											<span>
+												Средства защиты </span>
+
+											<ul id="personal-protective-equipment-panel">
+												<li>
+													<a title="Средства индивидуальной защиты - продам" href="index.php?page=ads&parent_id=88&adtype=0">
+														<i class="bi bi-arrow-up-right"></i> Предлагаю
+													</a>
+												</li>
+
+												<li>
+													<a title="Средства индивидуальной защиты - куплю" href="index.php?page=ads&parent_id=88&adtype=1">
+														<i class="bi bi-arrow-down-left"></i> Ищу
+													</a>
+												</li>
+
+											</ul>
+										</li>
+										<li>
+											<span>
+												Средства измерений </span>
+
+											<ul id="metrology-panel">
+												<li>
+													<a title="Средства измерений - предложение" href="index.php?page=ads&parent_id=89&adtype=0">
+														<i class="bi bi-arrow-up-right"></i> Предлагаю
+													</a>
+												</li>
+
+												<li>
+													<a title="Средства измерений - спрос" href="index.php?page=ads&parent_id=89&adtype=1">
+														<i class="bi bi-arrow-down-left"></i> Ищу
+													</a>
+												</li>
+
+											</ul>
+										</li>
+										<li>
+											<span>
+												Готовый бизнес</span>
+
+											<ul id="business-panel">
+												<li>
+													<a title="Готовый бизнес по управлению отходами - продам" href="index.php?page=ads&parent_id=105&adtype=0">
+														<i class="bi bi-arrow-up-right"></i> Предлагаю
+													</a>
+												</li>
+
+												<li>
+													<a title="Готовый бизнес по управлению отходами - куплю" href="index.php?page=ads&parent_id=105&adtype=1">
+														<i class="bi bi-arrow-down-left"></i> Ищу
+													</a>
+												</li>
+
+											</ul>
+										</li>
+										<li>
+											<span>
+												Инвестиции</span>
+
+											<ul id="investment-panel">
+												<li>
+													<a title="Инвестиции в отрасль обращения с отходами - предлагаю" href="index.php?page=ads&parent_id=75&adtype=0">
+														<i class="bi bi-arrow-up-right"></i> Предлагаю
+													</a>
+												</li>
+
+												<li>
+													<a title="Инвестиции в отрасль обращения с отходами - ищу" href="index.php?page=ads&parent_id=75&adtype=1">
+														<i class="bi bi-arrow-down-left"></i> Ищу
+													</a>
+												</li>
+
+											</ul>
+										</li>
+										<li>
+											<span>
+												Работа</span>
+
+											<ul id="job-panel">
+												<li>
+													<a title="Вакансии" href="index.php?page=ads&parent_id=5&adtype=0">
+														<i class="bi bi-arrow-up-right"></i> Предлагаю
+													</a>
+												</li>
+
+												<li>
+													<a title="Претенденты на работу" href="index.php?page=ads&parent_id=5&adtype=1">
+														<i class="bi bi-arrow-down-left"></i> Ищу
+													</a>
+												</li>
+
+											</ul>
+										</li>
+									</ul>
+								</nav>
+								<nav id="scrollbar-nav" class="navbar__wrapper">
+									<ul id="scrollbar-content" class="navbar__content">
+										<li class="navbar__languages">
+											<span id="navbar__lable" class="navbar__lable _icon-triangle">UK</span>
+											<div id="navbar__dropdown" class="navbar__dropdown">
+												<a href="#" class="navbar__dropdown-link h3">RU</a>
+												<a href="#" class="navbar__dropdown-link h3">EN</a>
+											</div>
+										</li>
+										<li class="navbar__item"><a class="navbar__link" href="#" data-menu-opener="href">Объявления,
+												Визитки</a></li>
+										<li class="navbar__item"><a class="navbar__link" href="#" data-menu-opener="href">Мероприятия</a>
+										</li>
+										<li class="navbar__item"><a class="navbar__link" href="#" data-menu-opener="href">Издания</a></li>
+										<li class="navbar__item"><a class="navbar__link" href="#" data-menu-opener="href">Статьи</a></li>
+										<li class="navbar__item"><a class="navbar__link" href="#" data-menu-opener="href">Законодательство</a>
+										</li>
+									</ul>
+								</nav>
+								<button id="scrollbar-btn-left" class="navbar__btn _left _icon-arrow" type="button">
+								</button>
+								<button id="scrollbar-btn-right" class="navbar__btn _right _icon-arrow" type="button">
+								</button>
+							</div>
 						</div>
-						<div class="login__forms forms-login">
-							<div data-tabs class="forms-login__inner">
-								<div class="forms-login__nav nav-forms-login">
-									<nav data-tabs-titles class="nav-forms-login__body">
-										<button type="button" class="nav-forms-login__title h4 _tab-active">Вход</button>
-										<button type="button" class="nav-forms-login__title h4">Регистрация</button>
-									</nav>
-								</div>
-								<div data-tabs-body class="forms-login__content content-forms-login">
-									<div class="content-forms-login__body">
-										<form action="#" class="content-forms-login__form">
-											<div class="content-forms-login__inputs">
-												<div class="content-forms-login__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Email" class="input">
-												</div>
-												<div class="content-forms-login__input _btn-viewpass">
-													<input autocomplete="off" type="password" name="form[]" data-error="Ошибка" placeholder="Пароль" class="input">
-													<button type="button" class="content-forms-login__viewpass _icon-eye-close"></button>
-												</div>
-											</div>
-											<div class="content-forms-login__line">
-												<div class="checkbox">
-													<input id="c_1" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]">
-													<label for="c_1" class="checkbox__label"><span class="checkbox__text h4">Запомнить</span></label>
-												</div>
-												<a href="" class="content-forms-login__link h4">Забыли пароль?</a>
-											</div>
-											<button type="submit" class="content-forms-login__button">Войти</button>
-											<div class="content-forms-login__social">
-												<span class="content-forms-login__lable h4">Войти через</span>
-												<div class="content-forms-login__links">
-													<a href="" class="content-forms-login__facebook _icon-facebook"></a>
-													<a href="" class="content-forms-login__google _icon-google"></a>
-												</div>
-											</div>
-										</form>
+					</div>
+					<div class="login__forms forms-login">
+						<div class="forms-login__container">
+							<div class="forms-login__body">
+								<div data-tabs class="forms-login__inner">
+									<div class="forms-login__nav nav-forms-login">
+										<nav data-tabs-titles class="nav-forms-login__body">
+											<button type="button" class="nav-forms-login__title h4 _tab-active">Вход</button>
+											<button type="button" class="nav-forms-login__title h4">Регистрация</button>
+										</nav>
 									</div>
-									<div class="content-forms-login__body">
-										<form action="#" class="content-forms-login__form">
-											<div class="content-forms-login__inputs">
-												<div class="content-forms-login__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Email" class="input">
+									<div data-tabs-body class="forms-login__content content-forms-login">
+										<div class="content-forms-login__body">
+											<form action="#" class="content-forms-login__form">
+												<div class="content-forms-login__inputs">
+													<div class="content-forms-login__input">
+														<input type="text" name="form[]" data-error="Введен не верный email" data-required="email" placeholder="Email" class="input">
+													</div>
+													<div class="content-forms-login__input _btn-viewpass">
+														<input autocomplete="off" type="password" name="form[]" data-error="Введен не верный пароль" data-required placeholder="Пароль" class="input">
+														<button type="button" class="content-forms-login__viewpass _icon-eye-close"></button>
+													</div>
 												</div>
-												<div class="content-forms-login__input _btn-viewpass">
-													<input autocomplete="off" type="password" name="form[]" data-error="Ошибка" placeholder="Придумайте пароль" class="input">
-													<button type="button" class="content-forms-login__viewpass _icon-eye-close"></button>
+												<div class="content-forms-login__line">
+													<div class="checkbox">
+														<input id="c_1" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]">
+														<label for="c_1" class="checkbox__label"><span class="checkbox__text h4">Запомнить</span></label>
+													</div>
+													<a href="" class="content-forms-login__link h4">Забыли пароль?</a>
 												</div>
-											</div>
-											<div class="content-forms-login__line">
-												<div class="content-forms-login__text h5">
-													<p>Не менее 6 символов.</p>
-													<p>Регистрируясь, Вы соглашаетесь с <a href="">правилами</a> сайта
-														“Мир отходов” и обязуетесь соблюдать их.</p>
-												</div>
-												<!-- <div class="checkbox">
-													<input id="c_2" data-error="Ошибка" class="checkbox__input"
-														type="checkbox" value="1" name="form[]">
-													<label for="c_2" class="checkbox__label"><span
-															class="checkbox__text h4">Запомнить</span></label>
-												</div>
-												<a href="" class="content-forms-login__link h4">Забыли пароль?</a> -->
-											</div>
-											<button type="submit" class="content-forms-login__button">Зарегистрироваться</button>
-											<div class="content-forms-login__bottom">
-												<a href="#" class="content-forms-login__login h4">Есть аккаунт?</a>
+												<button type="submit" class="content-forms-login__button">Войти</button>
 												<div class="content-forms-login__social">
 													<span class="content-forms-login__lable h4">Войти через</span>
 													<div class="content-forms-login__links">
@@ -1825,40 +1809,81 @@
 														<a href="" class="content-forms-login__google _icon-google"></a>
 													</div>
 												</div>
-											</div>
-										</form>
-										<!-- <form action="#" class="content-forms-login__form">
-											<div class="content-forms-login__input">
-												<input autocomplete="off" type="text" name="form[]" data-error="Ошибка"
-													placeholder="" class="input">
-											</div>
-											<div class="content-forms-login__input">
-												<input autocomplete="off" type="text" name="form[]" data-error="Ошибка"
-													placeholder="" class="input">
-											</div>
-											<div class="content-forms-login__line">
-												<div class="checkbox">
-													<input id="c_1" data-error="Ошибка" class="checkbox__input"
-														type="checkbox" value="1" name="form[]">
-													<label for="c_1" class="checkbox__label"><span
-															class="checkbox__text">Текст</span></label>
+											</form>
+										</div>
+										<div class="content-forms-login__body">
+											<form action="#" class="content-forms-login__form">
+												<div class="content-forms-login__inputs">
+													<div class="content-forms-login__input">
+														<input autocomplete="off" type="text" name="form[]" data-error="Введен не верный email" data-required="email" placeholder="Email" class="input">
+													</div>
+													<div class="content-forms-login__input _btn-viewpass">
+														<input autocomplete="off" type="password" name="form[]" data-error="Введен не верный пароль" data-required placeholder="Придумайте пароль" class="input">
+														<button type="button" class="content-forms-login__viewpass _icon-eye-close"></button>
+													</div>
 												</div>
-												<a href="" class="content-forms-login__link">Забыли пароль?</a>
-											</div>
-											<button type="submit" class="content-forms-login__button">Войти</button>
-											<div class="content-forms-login__social">
-												<span class="content-forms-login__lable">Войти через</span>
-												<a href="" class="content-forms-login__facebook _icon-facebook"></a>
-												<a href="" class="content-forms-login__google _icon-google"></a>
-											</div>
-										</form> -->
+												<div class="content-forms-login__line">
+													<div class="content-forms-login__text h5">
+														<p>Не менее 6 символов.</p>
+														<p>Регистрируясь, Вы соглашаетесь с <a href="">правилами</a>
+															сайта
+															“Мир отходов” и обязуетесь соблюдать их.</p>
+													</div>
+													<!-- <div class="checkbox">
+																<input id="c_2" data-error="Ошибка" class="checkbox__input"
+																	type="checkbox" value="1" name="form[]">
+																<label for="c_2" class="checkbox__label"><span
+																		class="checkbox__text h4">Запомнить</span></label>
+															</div>
+															<a href="" class="content-forms-login__link h4">Забыли пароль?</a> -->
+												</div>
+												<button type="submit" class="content-forms-login__button">Зарегистрироваться</button>
+												<div class="content-forms-login__bottom">
+													<a href="#" class="content-forms-login__login h4">Есть аккаунт?</a>
+													<div class="content-forms-login__social">
+														<span class="content-forms-login__lable h4">Войти через</span>
+														<div class="content-forms-login__links">
+															<a href="" class="content-forms-login__facebook _icon-facebook"></a>
+															<a href="" class="content-forms-login__google _icon-google"></a>
+														</div>
+													</div>
+												</div>
+											</form>
+											<!-- <form action="#" class="content-forms-login__form">
+														<div class="content-forms-login__input">
+															<input autocomplete="off" type="text" name="form[]" data-error="Ошибка"
+																placeholder="" class="input">
+														</div>
+														<div class="content-forms-login__input">
+															<input autocomplete="off" type="text" name="form[]" data-error="Ошибка"
+																placeholder="" class="input">
+														</div>
+														<div class="content-forms-login__line">
+															<div class="checkbox">
+																<input id="c_1" data-error="Ошибка" class="checkbox__input"
+																	type="checkbox" value="1" name="form[]">
+																<label for="c_1" class="checkbox__label"><span
+																		class="checkbox__text">Текст</span></label>
+															</div>
+															<a href="" class="content-forms-login__link">Забыли пароль?</a>
+														</div>
+														<button type="submit" class="content-forms-login__button">Войти</button>
+														<div class="content-forms-login__social">
+															<span class="content-forms-login__lable">Войти через</span>
+															<a href="" class="content-forms-login__facebook _icon-facebook"></a>
+															<a href="" class="content-forms-login__google _icon-google"></a>
+														</div>
+													</form> -->
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<!-- </div> -->
 			</div>
+			<!-- </div> -->
 		</main>
 		<footer class="footer">
 			<div class="footer__container">
@@ -1906,7 +1931,6 @@
 			}
 		}
 	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/dragscroll/0.0.8/dragscroll.min.js?_v=20230315141833"></script>
 	<!-- 
 <div id="popup" aria-hidden="true" class="popup">
 	<div class="popup__wrapper">
@@ -1919,7 +1943,151 @@
 </div>
  -->
 
-	<script src="js/app.min.js?_v=20230315141833"></script>
+	<script src="js/app.min.js?_v=20230321181813"></script>
+	<script>
+		if (document.documentElement.clientWidth < 992) {
+			var SETTINGS = {
+				navBarTravelling: false,
+				navBarTravelDirection: "",
+				navBarTravelDistance: 150
+			}
+
+			document.documentElement.classList.remove("no-js");
+			document.documentElement.classList.add("js");
+
+			// Out advancer buttons
+			var pnAdvancerLeft = document.getElementById("scrollbar-btn-left");
+			var pnAdvancerRight = document.getElementById("scrollbar-btn-right");
+
+			var pnProductNav = document.getElementById("scrollbar-nav");
+			var pnProductNavContents = document.getElementById("scrollbar-content");
+
+			pnProductNav.setAttribute("data-overflowing", determineOverflow(pnProductNavContents, pnProductNav));
+
+			// Handle the scroll of the horizontal container
+			var last_known_scroll_position = 0;
+			var ticking = false;
+
+			function doSomething(scroll_pos) {
+				pnProductNav.setAttribute("data-overflowing", determineOverflow(pnProductNavContents, pnProductNav));
+			}
+
+			pnProductNav.addEventListener("scroll", function() {
+				last_known_scroll_position = window.scrollY;
+				if (!ticking) {
+					window.requestAnimationFrame(function() {
+						doSomething(last_known_scroll_position);
+						ticking = false;
+					});
+				}
+				ticking = true;
+			});
+
+
+			pnAdvancerLeft.addEventListener("click", function() {
+				// If in the middle of a move return
+				if (SETTINGS.navBarTravelling === true) {
+					return;
+				}
+				// If we have content overflowing both sides or on the left
+				if (determineOverflow(pnProductNavContents, pnProductNav) === "left" || determineOverflow(pnProductNavContents, pnProductNav) === "both") {
+					// Find how far this panel has been scrolled
+					var availableScrollLeft = pnProductNav.scrollLeft;
+					// If the space available is less than two lots of our desired distance, just move the whole amount
+					// otherwise, move by the amount in the settings
+					if (availableScrollLeft < SETTINGS.navBarTravelDistance * 2) {
+						pnProductNavContents.style.transform = "translateX(" + availableScrollLeft + "px)";
+					} else {
+						pnProductNavContents.style.transform = "translateX(" + SETTINGS.navBarTravelDistance + "px)";
+					}
+					// We do want a transition (this is set in CSS) when moving so remove the class that would prevent that
+					pnProductNavContents.classList.remove("_no-transition");
+					// Update our settings
+					SETTINGS.navBarTravelDirection = "left";
+					SETTINGS.navBarTravelling = true;
+				}
+				// Now update the attribute in the DOM
+				pnProductNav.setAttribute("data-overflowing", determineOverflow(pnProductNavContents, pnProductNav));
+			});
+
+			pnAdvancerRight.addEventListener("click", function() {
+				// If in the middle of a move return
+				if (SETTINGS.navBarTravelling === true) {
+					return;
+				}
+				// If we have content overflowing both sides or on the right
+				if (determineOverflow(pnProductNavContents, pnProductNav) === "right" || determineOverflow(pnProductNavContents, pnProductNav) === "both") {
+					// Get the right edge of the container and content
+					var navBarRightEdge = pnProductNavContents.getBoundingClientRect().right;
+					var navBarScrollerRightEdge = pnProductNav.getBoundingClientRect().right;
+					// Now we know how much space we have available to scroll
+					var availableScrollRight = Math.floor(navBarRightEdge - navBarScrollerRightEdge);
+					// If the space available is less than two lots of our desired distance, just move the whole amount
+					// otherwise, move by the amount in the settings
+					if (availableScrollRight < SETTINGS.navBarTravelDistance * 2) {
+						pnProductNavContents.style.transform = "translateX(-" + availableScrollRight + "px)";
+					} else {
+						pnProductNavContents.style.transform = "translateX(-" + SETTINGS.navBarTravelDistance + "px)";
+					}
+					// We do want a transition (this is set in CSS) when moving so remove the class that would prevent that
+					pnProductNavContents.classList.remove("_no-transition");
+					// Update our settings
+					SETTINGS.navBarTravelDirection = "right";
+					SETTINGS.navBarTravelling = true;
+				}
+				// Now update the attribute in the DOM
+				pnProductNav.setAttribute("data-overflowing", determineOverflow(pnProductNavContents, pnProductNav));
+			});
+
+			pnProductNavContents.addEventListener(
+				"transitionend",
+				function() {
+					// get the value of the transform, apply that to the current scroll position (so get the scroll pos first) and then remove the transform
+					var styleOfTransform = window.getComputedStyle(pnProductNavContents, null);
+					var tr = styleOfTransform.getPropertyValue("-webkit-transform") || styleOfTransform.getPropertyValue("transform");
+					// If there is no transition we want to default to 0 and not null
+					var amount = Math.abs(parseInt(tr.split(",")[4]) || 0);
+					pnProductNavContents.style.transform = "none";
+					pnProductNavContents.classList.add("_no-transition");
+					// Now lets set the scroll position
+					if (SETTINGS.navBarTravelDirection === "left") {
+						pnProductNav.scrollLeft = pnProductNav.scrollLeft - amount;
+					} else {
+						pnProductNav.scrollLeft = pnProductNav.scrollLeft + amount;
+					}
+					SETTINGS.navBarTravelling = false;
+				},
+				false
+			);
+
+			// Handle setting the currently active link
+			pnProductNavContents.addEventListener("click", function(e) {
+				var links = [].slice.call(document.querySelectorAll(".pn-ProductNav_Link"));
+				links.forEach(function(item) {
+					item.setAttribute("aria-selected", "false");
+				})
+				e.target.setAttribute("aria-selected", "true");
+			})
+
+			function determineOverflow(content, container) {
+				var containerMetrics = container.getBoundingClientRect();
+				var containerMetricsRight = Math.floor(containerMetrics.right);
+				var containerMetricsLeft = Math.floor(containerMetrics.left);
+				var contentMetrics = content.getBoundingClientRect();
+				var contentMetricsRight = Math.floor(contentMetrics.right);
+				var contentMetricsLeft = Math.floor(contentMetrics.left);
+				if (containerMetricsLeft > contentMetricsLeft && containerMetricsRight < contentMetricsRight) {
+					return "both";
+				} else if (contentMetricsLeft < containerMetricsLeft) {
+					return "left";
+				} else if (contentMetricsRight > containerMetricsRight) {
+					return "right";
+				} else {
+					return "none";
+				}
+			}
+		}
+	</script>
 </body>
 
 </html>

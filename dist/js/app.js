@@ -382,7 +382,7 @@
     }
     (() => {
         "use strict";
-        const modules_flsModules = {};
+        const flsModules = {};
         function isWebp() {
             function testWebP(callback) {
                 let webP = new Image;
@@ -471,6 +471,25 @@
         };
         let _slideToggle = (target, duration = 500) => {
             if (target.hidden) return _slideDown(target, duration); else return _slideUp(target, duration);
+        };
+        let bodyLockStatus = true;
+        let bodyUnlock = (delay = 500) => {
+            let body = document.querySelector("body");
+            if (bodyLockStatus) {
+                let lock_padding = document.querySelectorAll("[data-lp]");
+                setTimeout((() => {
+                    for (let index = 0; index < lock_padding.length; index++) {
+                        const el = lock_padding[index];
+                        el.style.paddingRight = "0px";
+                    }
+                    body.style.paddingRight = "0px";
+                    document.documentElement.classList.remove("lock");
+                }), delay);
+                bodyLockStatus = false;
+                setTimeout((function() {
+                    bodyLockStatus = true;
+                }), delay);
+            }
         };
         function tabs() {
             const tabs = document.querySelectorAll("[data-tabs]");
@@ -569,7 +588,11 @@
                 }
             }
         }
-        function functions_FLS(message) {
+        function menuClose() {
+            bodyUnlock();
+            document.documentElement.classList.remove("menu-open");
+        }
+        function FLS(message) {
             setTimeout((() => {
                 if (window.FLS) console.log(message);
             }), 0);
@@ -617,6 +640,35 @@
                 }
             }
         }
+        let gotoblock_gotoBlock = (targetBlock, noHeader = false, speed = 500, offsetTop = 0) => {
+            const targetBlockElement = document.querySelector(targetBlock);
+            if (targetBlockElement) {
+                let headerItem = "";
+                let headerItemHeight = 0;
+                if (noHeader) {
+                    headerItem = "header.header";
+                    headerItemHeight = document.querySelector(headerItem).offsetHeight;
+                }
+                let options = {
+                    speedAsDuration: true,
+                    speed,
+                    header: headerItem,
+                    offset: offsetTop,
+                    easing: "easeOutQuad"
+                };
+                document.documentElement.classList.contains("menu-open") ? menuClose() : null;
+                if ("undefined" !== typeof SmoothScroll) (new SmoothScroll).animateScroll(targetBlockElement, "", options); else {
+                    let targetBlockElementPosition = targetBlockElement.getBoundingClientRect().top + scrollY;
+                    targetBlockElementPosition = headerItemHeight ? targetBlockElementPosition - headerItemHeight : targetBlockElementPosition;
+                    targetBlockElementPosition = offsetTop ? targetBlockElementPosition - offsetTop : targetBlockElementPosition;
+                    window.scrollTo({
+                        top: targetBlockElementPosition,
+                        behavior: "smooth"
+                    });
+                }
+                FLS(`[gotoBlock]: Юхуу...едем к ${targetBlock}`);
+            } else FLS(`[gotoBlock]: Ой ой..Такого блока нет на странице: ${targetBlock}`);
+        };
         function formFieldsInit(options = {
             viewPass: false
         }) {
@@ -708,11 +760,11 @@
                         const checkbox = checkboxes[index];
                         checkbox.checked = false;
                     }
-                    if (modules_flsModules.select) {
+                    if (flsModules.select) {
                         let selects = form.querySelectorAll(".select");
                         if (selects.length) for (let index = 0; index < selects.length; index++) {
                             const select = selects[index].querySelector("select");
-                            modules_flsModules.select.selectBuild(select);
+                            flsModules.select.selectBuild(select);
                         }
                     }
                 }), 0);
@@ -721,6 +773,71 @@
                 return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(formRequiredItem.value);
             }
         };
+        function formSubmit(options = {
+            validate: true
+        }) {
+            const forms = document.forms;
+            if (forms.length) for (const form of forms) {
+                form.addEventListener("submit", (function(e) {
+                    const form = e.target;
+                    formSubmitAction(form, e);
+                }));
+                form.addEventListener("reset", (function(e) {
+                    const form = e.target;
+                    formValidate.formClean(form);
+                }));
+            }
+            async function formSubmitAction(form, e) {
+                const error = !form.hasAttribute("data-no-validate") ? formValidate.getErrors(form) : 0;
+                if (0 === error) {
+                    const ajax = form.hasAttribute("data-ajax");
+                    if (ajax) {
+                        e.preventDefault();
+                        const formAction = form.getAttribute("action") ? form.getAttribute("action").trim() : "#";
+                        const formMethod = form.getAttribute("method") ? form.getAttribute("method").trim() : "GET";
+                        const formData = new FormData(form);
+                        form.classList.add("_sending");
+                        const response = await fetch(formAction, {
+                            method: formMethod,
+                            body: formData
+                        });
+                        if (response.ok) {
+                            await response.json();
+                            form.classList.remove("_sending");
+                            formSent(form);
+                        } else {
+                            alert("Ошибка");
+                            form.classList.remove("_sending");
+                        }
+                    } else if (form.hasAttribute("data-dev")) {
+                        e.preventDefault();
+                        formSent(form);
+                    }
+                } else {
+                    e.preventDefault();
+                    const formError = form.querySelector("._form-error");
+                    if (formError && form.hasAttribute("data-goto-error")) gotoblock_gotoBlock(formError, true, 1e3);
+                }
+            }
+            function formSent(form) {
+                document.dispatchEvent(new CustomEvent("formSent", {
+                    detail: {
+                        form
+                    }
+                }));
+                setTimeout((() => {
+                    if (flsModules.popup) {
+                        const popup = form.dataset.popupMessage;
+                        popup ? flsModules.popup.open(popup) : null;
+                    }
+                }), 0);
+                formValidate.formClean(form);
+                formLogging(`Форма отправлена!`);
+            }
+            function formLogging(message) {
+                FLS(`[Формы]: ${message}`);
+            }
+        }
         class SelectConstructor {
             constructor(props, data = null) {
                 let defaultConfig = {
@@ -1031,10 +1148,10 @@
                 }));
             }
             setLogging(message) {
-                this.config.logging ? functions_FLS(`[select]: ${message}`) : null;
+                this.config.logging ? FLS(`[select]: ${message}`) : null;
             }
         }
-        modules_flsModules.select = new SelectConstructor({});
+        flsModules.select = new SelectConstructor({});
         var lazyload_min = __webpack_require__(732);
         new lazyload_min({
             elements_selector: "[data-src],[data-srcset]",
@@ -8011,11 +8128,46 @@
             var hash = $(location).attr("hash");
             openSubmenu(hash);
         }));
+        $((function() {
+            $(".header__body .search-btn").on("click", (function(e) {
+                e.preventDefault();
+                var search = $(".searchbar-wrapper");
+                search.toggleClass("hide");
+                $(".searchbar-input").val("");
+                $(".header__body .search-btn img").attr("src", (function(index, attr) {
+                    return "img/header/close.png" != attr ? "img/header/close.png" : "img/header/03.png";
+                }));
+            }));
+            function sendSearchString(value) {
+                value = $(".searchbar-input").val();
+                $($.ajax({
+                    type: "Post",
+                    url: "url",
+                    data: value,
+                    success: function(response) {}
+                }));
+                $(".header__body .search-btn img").attr("src", (function(index, attr) {
+                    return "img/header/close.png" != attr ? "img/header/close.png" : "img/header/03.png";
+                }));
+                $(".searchbar-wrapper").addClass("hide");
+                $(".searchbar-input").val("");
+            }
+            $(document).keyup((function(e) {
+                var value = $(".searchbar-input").val();
+                if ("Enter" === e.key && "" !== value) sendSearchString(value);
+            }));
+            $(".searchbar-btn").on("click", (function(e) {
+                e.preventDefault();
+                var value = $(".searchbar-input").val();
+                if ("" !== value) sendSearchString();
+            }));
+        }));
         window["FLS"] = true;
         isWebp();
         tabs();
         formFieldsInit({
             viewPass: true
         });
+        formSubmit();
     })();
 })();
