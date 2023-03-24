@@ -6,10 +6,11 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230321184414">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230325000507">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<meta name="viewport" content="width=device-width minimum-scale=1.0 maximum-scale=1.0 user-scalable=no" />
 </head>
 
 <body>
@@ -41,137 +42,144 @@
 				<button class="searchbar-btn" type="button">Найти</button>
 			</div>
 		</div>
-		<main class="page">
+		<main class="page _login">
 			<div class="completing">
-				<div class="completing__container">
-					<div class="completing__body">
-						<div class="completing__forms forms-completing">
-							<div data-tabs class="forms-completing__inner">
-								<div class="forms-completing__title">Завершение регистрации</div>
-								<nav data-tabs-titles class="forms-completing__nav nav-forms-completing">
-									<button type="button" class="nav-forms-completing__title h4 _tab-active">Предприятие
-										<div class="nav-forms-completing__tip">
-											<span class="nav-forms-completing__item">?</span>
-											<div class="nav-forms-completing__popup h5">
-												<p>Доступны все услуги сайта</p>
-											</div>
-										</div>
-									</button>
-									<button type="button" class="nav-forms-completing__title h4">Предприниматель
-										<div class="nav-forms-completing__tip">
-											<span class="nav-forms-completing__item">?</span>
-											<div class="nav-forms-completing__popup h5">
-												<p>Доступны все услуги сайта</p>
-											</div>
-										</div>
-									</button>
-									<button type="button" class="nav-forms-completing__title h4">Частное лицо
-										<div class="nav-forms-completing__tip">
-											<span class="nav-forms-completing__item">?</span>
-											<div class="nav-forms-completing__popup h5">
-												<p>Не может добавить визитку, мероприятия и объявления о предложении
-													работы</p>
-											</div>
-										</div>
-									</button>
-								</nav>
-								<div data-tabs-body class="forms-completing__content content-forms-completing">
-									<div class="content-forms-completing__body">
-										<form action="#" class="content-forms-completing__form">
-											<div class="content-forms-completing__select _star _icon-star">
-												<select name="form[]" class="select-country">
-													<option value="1" selected>Украина</option>
-													<option value="2">Украина 2</option>
-													<option value="3">Украина 3</option>
-													<option value="4">Украина 4</option>
-													<option value="5">Украина 5</option>
-													<option value="6">Украина 6</option>
-													<option value="7">Украина 7</option>
-												</select>
-											</div>
-											<div class="content-forms-completing__input  _star _icon-star">
-												<input autocomplete="off" type="text" name="form[]" data-required data-error="Ошибка" placeholder="Населенный пункт" class="input _min-fontsize">
-												<span class="content-forms-completing__subinput h5">При необходимости
-													укажите область, край, провинцию и др.</span>
-											</div>
-											<div class="content-forms-completing__input  _star _icon-star">
-												<input autocomplete="off" type="text" name="form[]" data-required data-error="Ошибка" placeholder="Полное название предприятия" class="input _min-fontsize">
-												<span class="content-forms-completing__subinput h5">Например: Украинский
-													институт вторичных ресурсов <br> или Альтаир, ООО.</span>
-											</div>
-											<div class="content-forms-completing__input  _star _icon-star">
-												<input autocomplete="off" type="text" name="form[]" data-required data-error="Ошибка" placeholder="Контактное лицо" class="input _min-fontsize">
-												<span class="content-forms-completing__subinput h5">Укажите имя (и
-													отчество)</span>
-											</div>
-											<div class="content-forms-completing__phone phone-content-forms _star _icon-star">
-												<div class="phone-content-forms__body">
-													<button type="button" class="phone-content-forms__button _btn-first-phone"></button>
-													<div class="phone-content-forms__inner _01">
-														<select name="form[]" class="select-phone">
-															<option value="1" selected data-asset="Украина">+380
-															</option>
-															<option value="2" data-asset="Австрия">+43</option>
-															<option value="3" data-asset="Азербайджан">+994</option>
-															<option value="4" data-asset="Армения">+374</option>
-															<option value="5" data-asset="Белоруссия">+375</option>
-															<option value="6" data-asset="Бельгия">+32</option>
-															<option value="7" data-asset="Болгария">+359</option>
-															<option value="8" data-asset="Великобритания">+44</option>
-															<option value="9" data-asset="Венгрия">+36</option>
-															<option value="10" data-asset="Германия">+49</option>
-															<option value="11" data-asset="Греция">+30</option>
-															<option value="12" data-asset="Грузия">+995</option>
-															<option value="13" data-asset="Дания">+45</option>
-														</select>
-														<input autocomplete="off" type="tel" name="form[]" data-error="Ошибка" data-required placeholder="Номер телефона" class="input _min-fontsize">
-													</div>
+				<!-- <div class="completing__container"> -->
+				<div class="completing__body">
+					<div class="completing__forms forms-completing">
+						<div class="forms-completing__container">
+							<div class="forms-completing__body">
+								<div data-tabs class="forms-completing__inner">
+									<div class="forms-completing__title">Завершение регистрации</div>
+									<nav data-tabs-titles class="forms-completing__nav nav-forms-completing">
+										<button type="button" class="nav-forms-completing__title h4 _tab-active">Предприятие
+											<div class="nav-forms-completing__tip">
+												<span class="nav-forms-completing__item">?</span>
+												<div class="nav-forms-completing__popup h5">
+													<p>Доступны все услуги сайта</p>
 												</div>
-												<div class="phone-content-forms__out"></div>
 											</div>
-											<button type="submit" class="content-forms-completing__button h4">Сохранить</button>
-										</form>
-									</div>
-									<div class="content-forms-completing__body">
-										<form action="#" class="content-forms-completing__form">
-											<div class="content-forms-completing__select _star _icon-star">
-												<select name="form[]" class="select-country">
-													<option value="1" selected>Украина</option>
-													<option value="2">Украина 2</option>
-													<option value="3">Украина 3</option>
-													<option value="4">Украина 4</option>
-													<option value="5">Украина 5</option>
-													<option value="6">Украина 6</option>
-													<option value="7">Украина 7</option>
-												</select>
+										</button>
+										<button type="button" class="nav-forms-completing__title h4">Предприниматель
+											<div class="nav-forms-completing__tip">
+												<span class="nav-forms-completing__item">?</span>
+												<div class="nav-forms-completing__popup h5">
+													<p>Доступны все услуги сайта</p>
+												</div>
 											</div>
-											<div class="content-forms-completing__input  _star _icon-star">
-												<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" data-required placeholder="Населенный пункт" class="input _min-fontsize">
-												<span class="content-forms-completing__subinput h5">При необходимости
-													укажите область, край, провинцию и др.</span>
+										</button>
+										<button type="button" class="nav-forms-completing__title h4">Частное лицо
+											<div class="nav-forms-completing__tip">
+												<span class="nav-forms-completing__item">?</span>
+												<div class="nav-forms-completing__popup h5">
+													<p>Не может добавить визитку, мероприятия и объявления о предложении
+														работы</p>
+												</div>
 											</div>
-											<div class="content-forms-completing__input  _star _icon-star">
-												<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" data-required placeholder="ФИО предпринимателя" class="input _min-fontsize">
-												<!-- <div class="content-forms-completing__checkbox"> -->
-												<!-- <div class="checkbox-completing">
-                                                        <input checked id="c_3" data-error="Ошибка"
-                                                            class="checkbox__input" type="checkbox" value="1"
-                                                            name="form[]">
-                                                        <label for="c_3" class="checkbox__label"><span
-                                                                class="checkbox__text h5">Контактное лицо - сам
-                                                                предприниматель</span></label>
-                                                    </div> -->
-												<!-- <div class="checkbox-completing">
-                                                        <input id="c_4" data-error="Ошибка" class="checkbox__input"
-                                                        type="checkbox" value="2" name="form[]">
-                                                        <label for="c_4" class="checkbox__label"><span
-                                                                class="checkbox__text h5">Контактное лицо - наемный
-                                                                работник</span></label>
+										</button>
+									</nav>
+									<div data-tabs-body class="forms-completing__content content-forms-completing">
+										<div class="content-forms-completing__body">
+											<form action="#" class="content-forms-completing__form">
+												<div class="content-forms-completing__select _star _icon-star">
+													<select name="form[]" class="select-country">
+														<option value="1" selected>Украина</option>
+														<option value="2">Украина 2</option>
+														<option value="3">Украина 3</option>
+														<option value="4">Украина 4</option>
+														<option value="5">Украина 5</option>
+														<option value="6">Украина 6</option>
+														<option value="7">Украина 7</option>
+													</select>
+												</div>
+												<div class="content-forms-completing__input  _star _icon-star">
+													<input autocomplete="off" type="text" name="form[]" data-required data-error="Ошибка" placeholder="Населенный пункт" class="input _min-fontsize">
+													<span class="content-forms-completing__subinput h5">При
+														необходимости
+														укажите область, край, провинцию и др.</span>
+												</div>
+												<div class="content-forms-completing__input  _star _icon-star">
+													<input autocomplete="off" type="text" name="form[]" data-required data-error="Ошибка" placeholder="Полное название предприятия" class="input _min-fontsize">
+													<span class="content-forms-completing__subinput h5">Например:
+														Украинский
+														институт вторичных ресурсов <br> или Альтаир, ООО.</span>
+												</div>
+												<div class="content-forms-completing__input  _star _icon-star">
+													<input autocomplete="off" type="text" name="form[]" data-required data-error="Ошибка" placeholder="Контактное лицо" class="input _min-fontsize">
+													<span class="content-forms-completing__subinput h5">Укажите имя (и
+														отчество)</span>
+												</div>
+												<div class="content-forms-completing__phone phone-content-forms _star _icon-star">
+													<div class="phone-content-forms__body">
+														<button type="button" class="phone-content-forms__button _btn-first-phone"></button>
+														<div class="phone-content-forms__inner _01">
+															<select name="form[]" class="select-phone">
+																<option value="1" selected data-asset="Украина">+380
+																</option>
+																<option value="2" data-asset="Австрия">+43</option>
+																<option value="3" data-asset="Азербайджан">+994</option>
+																<option value="4" data-asset="Армения">+374</option>
+																<option value="5" data-asset="Белоруссия">+375</option>
+																<option value="6" data-asset="Бельгия">+32</option>
+																<option value="7" data-asset="Болгария">+359</option>
+																<option value="8" data-asset="Великобритания">+44
+																</option>
+																<option value="9" data-asset="Венгрия">+36</option>
+																<option value="10" data-asset="Германия">+49</option>
+																<option value="11" data-asset="Греция">+30</option>
+																<option value="12" data-asset="Грузия">+995</option>
+																<option value="13" data-asset="Дания">+45</option>
+															</select>
+															<input autocomplete="off" type="tel" name="form[]" data-error="Ошибка" data-required placeholder="Номер телефона" class="input _min-fontsize">
+														</div>
+													</div>
+													<div class="phone-content-forms__out"></div>
+												</div>
+												<button type="submit" class="content-forms-completing__button h4">Сохранить</button>
+											</form>
+										</div>
+										<div class="content-forms-completing__body">
+											<form action="#" class="content-forms-completing__form">
+												<div class="content-forms-completing__select _star _icon-star">
+													<select name="form[]" class="select-country">
+														<option value="1" selected>Украина</option>
+														<option value="2">Украина 2</option>
+														<option value="3">Украина 3</option>
+														<option value="4">Украина 4</option>
+														<option value="5">Украина 5</option>
+														<option value="6">Украина 6</option>
+														<option value="7">Украина 7</option>
+													</select>
+												</div>
+												<div class="content-forms-completing__input  _star _icon-star">
+													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" data-required placeholder="Населенный пункт" class="input _min-fontsize">
+													<span class="content-forms-completing__subinput h5">При
+														необходимости
+														укажите область, край, провинцию и др.</span>
+												</div>
+												<div class="content-forms-completing__input  _star _icon-star">
+													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" data-required placeholder="ФИО предпринимателя" class="input _min-fontsize">
+													<!-- <div class="content-forms-completing__checkbox"> -->
+													<!-- <div class="checkbox-completing">
+                                                                <input checked id="c_3" data-error="Ошибка"
+                                                                    class="checkbox__input" type="checkbox" value="1"
+                                                                    name="form[]">
+                                                                <label for="c_3" class="checkbox__label"><span
+                                                                        class="checkbox__text h5">Контактное лицо - сам
+                                                                        предприниматель</span></label>
                                                             </div> -->
-												<!-- </div> -->
+													<!-- <div class="checkbox-completing">
+                                                                <input id="c_4" data-error="Ошибка" class="checkbox__input"
+                                                                type="checkbox" value="2" name="form[]">
+                                                                <label for="c_4" class="checkbox__label"><span
+                                                                        class="checkbox__text h5">Контактное лицо - наемный
+                                                                        работник</span></label>
+                                                                    </div> -->
+													<!-- </div> -->
+												</div>
 												<div class="content-forms-completing__options options">
 													<div class="options__item">
-														<input hidden id="o_1" class="options__input" type="radio" value="1" name="option">
+														<input checked id="o_1" class="options__input" type="radio" value="1" name="option">
 														<label for="o_1" class="options__label contacts-close"><span class="options__text h5">Контактное лицо - сам
 																предприниматель</span></label>
 													</div>
@@ -181,96 +189,100 @@
 																работник</span></label>
 													</div>
 												</div>
-											</div>
-											<div class="content-forms-completing__input _contacts _star _icon-star">
-												<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" data-required placeholder="Контактное лицо" class="input _min-fontsize">
-												<span class="content-forms-completing__subinput h5">Укажите имя (и
-													отчество)</span>
-											</div>
-											<div class="content-forms-completing__phone phone-content-forms _star _icon-star">
-												<div class="phone-content-forms__body">
-													<button type="button" class="phone-content-forms__button _btn-second-phone"></button>
-													<div class="phone-content-forms__inner _02">
-														<select name="form[]" class="select-phone">
-															<option value="1" selected data-asset="Украина">+380
-															</option>
-															<option value="2" data-asset="Австрия">+43</option>
-															<option value="3" data-asset="Азербайджан">+994</option>
-															<option value="4" data-asset="Армения">+374</option>
-															<option value="5" data-asset="Белоруссия">+375</option>
-															<option value="6" data-asset="Бельгия">+32</option>
-															<option value="7" data-asset="Болгария">+359</option>
-															<option value="8" data-asset="Великобритания">+44</option>
-															<option value="9" data-asset="Венгрия">+36</option>
-															<option value="10" data-asset="Германия">+49</option>
-															<option value="11" data-asset="Греция">+30</option>
-															<option value="12" data-asset="Грузия">+995</option>
-															<option value="13" data-asset="Дания">+45</option>
-														</select>
-														<input autocomplete="off" type="tel" name="form[]" data-error="Ошибка" data-required placeholder="Номер телефона" class="input _min-fontsize">
-													</div>
+												<div class="content-forms-completing__input _contacts _star _icon-star">
+													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" data-required placeholder="Контактное лицо" class="input _min-fontsize">
+													<span class="content-forms-completing__subinput h5">Укажите имя (и
+														отчество)</span>
 												</div>
-												<div class="phone-content-forms__out _second"></div>
-											</div>
-											<button type="submit" class="content-forms-completing__button h4">Сохранить</button>
-										</form>
-									</div>
-									<div class="content-forms-completing__body">
-										<form action="#" class="content-forms-completing__form">
-											<div class="content-forms-completing__select _star _icon-star">
-												<select name="form[]" class="select-country">
-													<option value="1" selected>Украина</option>
-													<option value="2">Украина 2</option>
-													<option value="3">Украина 3</option>
-													<option value="4">Украина 4</option>
-													<option value="5">Украина 5</option>
-													<option value="6">Украина 6</option>
-													<option value="7">Украина 7</option>
-												</select>
-											</div>
-											<div class="content-forms-completing__input  _star _icon-star">
-												<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" data-required placeholder="Населенный пункт" class="input _min-fontsize">
-												<span class="content-forms-completing__subinput h5">При необходимости
-													укажите область, край, провинцию и др.</span>
-											</div>
-											<div class="content-forms-completing__input  _star _icon-star">
-												<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" data-required placeholder="Частное лицо" class="input _min-fontsize">
-												<span class="content-forms-completing__subinput h5">Укажите имя (и
-													отчество)</span>
-											</div>
-											<div class="content-forms-completing__phone phone-content-forms">
-												<div class="phone-content-forms__body">
-													<button type="button" class="phone-content-forms__button _btn-third-phone"></button>
-													<div class="phone-content-forms__inner _03">
-														<select name="form[]" class="select-phone">
-															<option value="1" selected data-asset="Украина">+380
-															</option>
-															<option value="2" data-asset="Австрия">+43</option>
-															<option value="3" data-asset="Азербайджан">+994</option>
-															<option value="4" data-asset="Армения">+374</option>
-															<option value="5" data-asset="Белоруссия">+375</option>
-															<option value="6" data-asset="Бельгия">+32</option>
-															<option value="7" data-asset="Болгария">+359</option>
-															<option value="8" data-asset="Великобритания">+44</option>
-															<option value="9" data-asset="Венгрия">+36</option>
-															<option value="10" data-asset="Германия">+49</option>
-															<option value="11" data-asset="Греция">+30</option>
-															<option value="12" data-asset="Грузия">+995</option>
-															<option value="13" data-asset="Дания">+45</option>
-														</select>
-														<input autocomplete="off" type="tel" name="form[]" data-error="Ошибка" data-required placeholder="Номер телефона" class="input _min-fontsize">
+												<div class="content-forms-completing__phone phone-content-forms _star _icon-star">
+													<div class="phone-content-forms__body">
+														<button type="button" class="phone-content-forms__button _btn-second-phone"></button>
+														<div class="phone-content-forms__inner _02">
+															<select name="form[]" class="select-phone">
+																<option value="1" selected data-asset="Украина">+380
+																</option>
+																<option value="2" data-asset="Австрия">+43</option>
+																<option value="3" data-asset="Азербайджан">+994</option>
+																<option value="4" data-asset="Армения">+374</option>
+																<option value="5" data-asset="Белоруссия">+375</option>
+																<option value="6" data-asset="Бельгия">+32</option>
+																<option value="7" data-asset="Болгария">+359</option>
+																<option value="8" data-asset="Великобритания">+44
+																</option>
+																<option value="9" data-asset="Венгрия">+36</option>
+																<option value="10" data-asset="Германия">+49</option>
+																<option value="11" data-asset="Греция">+30</option>
+																<option value="12" data-asset="Грузия">+995</option>
+																<option value="13" data-asset="Дания">+45</option>
+															</select>
+															<input autocomplete="off" type="tel" name="form[]" data-error="Ошибка" data-required placeholder="Номер телефона" class="input _min-fontsize">
+														</div>
 													</div>
+													<div class="phone-content-forms__out _second"></div>
 												</div>
-												<div class="phone-content-forms__out _third"></div>
-											</div>
-											<button type="submit" class="content-forms-completing__button h4">Сохранить</button>
-										</form>
+												<button type="submit" class="content-forms-completing__button h4">Сохранить</button>
+											</form>
+										</div>
+										<div class="content-forms-completing__body">
+											<form action="#" class="content-forms-completing__form">
+												<div class="content-forms-completing__select _star _icon-star">
+													<select name="form[]" class="select-country">
+														<option value="1" selected>Украина</option>
+														<option value="2">Украина 2</option>
+														<option value="3">Украина 3</option>
+														<option value="4">Украина 4</option>
+														<option value="5">Украина 5</option>
+														<option value="6">Украина 6</option>
+														<option value="7">Украина 7</option>
+													</select>
+												</div>
+												<div class="content-forms-completing__input  _star _icon-star">
+													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" data-required placeholder="Населенный пункт" class="input _min-fontsize">
+													<span class="content-forms-completing__subinput h5">При
+														необходимости
+														укажите область, край, провинцию и др.</span>
+												</div>
+												<div class="content-forms-completing__input  _star _icon-star">
+													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" data-required placeholder="Частное лицо" class="input _min-fontsize">
+													<span class="content-forms-completing__subinput h5">Укажите имя (и
+														отчество)</span>
+												</div>
+												<div class="content-forms-completing__phone phone-content-forms">
+													<div class="phone-content-forms__body">
+														<button type="button" class="phone-content-forms__button _btn-third-phone"></button>
+														<div class="phone-content-forms__inner _03">
+															<select name="form[]" class="select-phone">
+																<option value="1" selected data-asset="Украина">+380
+																</option>
+																<option value="2" data-asset="Австрия">+43</option>
+																<option value="3" data-asset="Азербайджан">+994</option>
+																<option value="4" data-asset="Армения">+374</option>
+																<option value="5" data-asset="Белоруссия">+375</option>
+																<option value="6" data-asset="Бельгия">+32</option>
+																<option value="7" data-asset="Болгария">+359</option>
+																<option value="8" data-asset="Великобритания">+44
+																</option>
+																<option value="9" data-asset="Венгрия">+36</option>
+																<option value="10" data-asset="Германия">+49</option>
+																<option value="11" data-asset="Греция">+30</option>
+																<option value="12" data-asset="Грузия">+995</option>
+																<option value="13" data-asset="Дания">+45</option>
+															</select>
+															<input autocomplete="off" type="tel" name="form[]" data-error="Ошибка" placeholder="Номер телефона" class="input _min-fontsize">
+														</div>
+													</div>
+													<div class="phone-content-forms__out _third"></div>
+												</div>
+												<button type="submit" class="content-forms-completing__button h4">Сохранить</button>
+											</form>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<!-- </div> -->
 			</div>
 		</main>
 		<footer class="footer">
@@ -403,7 +415,7 @@
 </div>
  -->
 
-	<script src="js/app.min.js?_v=20230321184414"></script>
+	<script src="js/app.min.js?_v=20230325000507"></script>
 </body>
 
 </html>
