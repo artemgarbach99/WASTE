@@ -491,6 +491,84 @@
                 }), delay);
             }
         };
+        function spollers() {
+            const spollersArray = document.querySelectorAll("[data-spollers]");
+            if (spollersArray.length > 0) {
+                const spollersRegular = Array.from(spollersArray).filter((function(item, index, self) {
+                    return !item.dataset.spollers.split(",")[0];
+                }));
+                if (spollersRegular.length) initSpollers(spollersRegular);
+                let mdQueriesArray = dataMediaQueries(spollersArray, "spollers");
+                if (mdQueriesArray && mdQueriesArray.length) mdQueriesArray.forEach((mdQueriesItem => {
+                    mdQueriesItem.matchMedia.addEventListener("change", (function() {
+                        initSpollers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+                    }));
+                    initSpollers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+                }));
+                function initSpollers(spollersArray, matchMedia = false) {
+                    spollersArray.forEach((spollersBlock => {
+                        spollersBlock = matchMedia ? spollersBlock.item : spollersBlock;
+                        if (matchMedia.matches || !matchMedia) {
+                            spollersBlock.classList.add("_spoller-init");
+                            initSpollerBody(spollersBlock);
+                            spollersBlock.addEventListener("click", setSpollerAction);
+                        } else {
+                            spollersBlock.classList.remove("_spoller-init");
+                            initSpollerBody(spollersBlock, false);
+                            spollersBlock.removeEventListener("click", setSpollerAction);
+                        }
+                    }));
+                }
+                function initSpollerBody(spollersBlock, hideSpollerBody = true) {
+                    let spollerTitles = spollersBlock.querySelectorAll("[data-spoller]");
+                    if (spollerTitles.length) {
+                        spollerTitles = Array.from(spollerTitles).filter((item => item.closest("[data-spollers]") === spollersBlock));
+                        spollerTitles.forEach((spollerTitle => {
+                            if (hideSpollerBody) {
+                                spollerTitle.removeAttribute("tabindex");
+                                if (!spollerTitle.classList.contains("_spoller-active")) spollerTitle.nextElementSibling.hidden = true;
+                            } else {
+                                spollerTitle.setAttribute("tabindex", "-1");
+                                spollerTitle.nextElementSibling.hidden = false;
+                            }
+                        }));
+                    }
+                }
+                function setSpollerAction(e) {
+                    const el = e.target;
+                    if (el.closest("[data-spoller]")) {
+                        const spollerTitle = el.closest("[data-spoller]");
+                        const spollersBlock = spollerTitle.closest("[data-spollers]");
+                        const oneSpoller = spollersBlock.hasAttribute("data-one-spoller");
+                        const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
+                        if (!spollersBlock.querySelectorAll("._slide").length) {
+                            if (oneSpoller && !spollerTitle.classList.contains("_spoller-active")) hideSpollersBody(spollersBlock);
+                            spollerTitle.classList.toggle("_spoller-active");
+                            _slideToggle(spollerTitle.nextElementSibling, spollerSpeed);
+                        }
+                        e.preventDefault();
+                    }
+                }
+                function hideSpollersBody(spollersBlock) {
+                    const spollerActiveTitle = spollersBlock.querySelector("[data-spoller]._spoller-active");
+                    const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
+                    if (spollerActiveTitle && !spollersBlock.querySelectorAll("._slide").length) {
+                        spollerActiveTitle.classList.remove("_spoller-active");
+                        _slideUp(spollerActiveTitle.nextElementSibling, spollerSpeed);
+                    }
+                }
+                const spollersClose = document.querySelectorAll("[data-spoller-close]");
+                if (spollersClose.length) document.addEventListener("click", (function(e) {
+                    const el = e.target;
+                    if (!el.closest("[data-spollers]")) spollersClose.forEach((spollerClose => {
+                        const spollersBlock = spollerClose.closest("[data-spollers]");
+                        const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
+                        spollerClose.classList.remove("_spoller-active");
+                        _slideUp(spollerClose.nextElementSibling, spollerSpeed);
+                    }));
+                }));
+            }
+        }
         function tabs() {
             const tabs = document.querySelectorAll("[data-tabs]");
             let tabsActiveHash = [];
@@ -1167,6 +1245,102 @@
                 }));
             }
         }), 0);
+        function DynamicAdapt(type) {
+            this.type = type;
+        }
+        DynamicAdapt.prototype.init = function() {
+            const _this = this;
+            this.оbjects = [];
+            this.daClassname = "_dynamic_adapt_";
+            this.nodes = document.querySelectorAll("[data-da]");
+            for (let i = 0; i < this.nodes.length; i++) {
+                const node = this.nodes[i];
+                const data = node.dataset.da.trim();
+                const dataArray = data.split(",");
+                const оbject = {};
+                оbject.element = node;
+                оbject.parent = node.parentNode;
+                оbject.destination = document.querySelector(dataArray[0].trim());
+                оbject.breakpoint = dataArray[1] ? dataArray[1].trim() : "767";
+                оbject.place = dataArray[2] ? dataArray[2].trim() : "last";
+                оbject.index = this.indexInParent(оbject.parent, оbject.element);
+                this.оbjects.push(оbject);
+            }
+            this.arraySort(this.оbjects);
+            this.mediaQueries = Array.prototype.map.call(this.оbjects, (function(item) {
+                return "(" + this.type + "-width: " + item.breakpoint + "px)," + item.breakpoint;
+            }), this);
+            this.mediaQueries = Array.prototype.filter.call(this.mediaQueries, (function(item, index, self) {
+                return Array.prototype.indexOf.call(self, item) === index;
+            }));
+            for (let i = 0; i < this.mediaQueries.length; i++) {
+                const media = this.mediaQueries[i];
+                const mediaSplit = String.prototype.split.call(media, ",");
+                const matchMedia = window.matchMedia(mediaSplit[0]);
+                const mediaBreakpoint = mediaSplit[1];
+                const оbjectsFilter = Array.prototype.filter.call(this.оbjects, (function(item) {
+                    return item.breakpoint === mediaBreakpoint;
+                }));
+                matchMedia.addListener((function() {
+                    _this.mediaHandler(matchMedia, оbjectsFilter);
+                }));
+                this.mediaHandler(matchMedia, оbjectsFilter);
+            }
+        };
+        DynamicAdapt.prototype.mediaHandler = function(matchMedia, оbjects) {
+            if (matchMedia.matches) for (let i = 0; i < оbjects.length; i++) {
+                const оbject = оbjects[i];
+                оbject.index = this.indexInParent(оbject.parent, оbject.element);
+                this.moveTo(оbject.place, оbject.element, оbject.destination);
+            } else for (let i = оbjects.length - 1; i >= 0; i--) {
+                const оbject = оbjects[i];
+                if (оbject.element.classList.contains(this.daClassname)) this.moveBack(оbject.parent, оbject.element, оbject.index);
+            }
+        };
+        DynamicAdapt.prototype.moveTo = function(place, element, destination) {
+            element.classList.add(this.daClassname);
+            if ("last" === place || place >= destination.children.length) {
+                destination.insertAdjacentElement("beforeend", element);
+                return;
+            }
+            if ("first" === place) {
+                destination.insertAdjacentElement("afterbegin", element);
+                return;
+            }
+            destination.children[place].insertAdjacentElement("beforebegin", element);
+        };
+        DynamicAdapt.prototype.moveBack = function(parent, element, index) {
+            element.classList.remove(this.daClassname);
+            if (void 0 !== parent.children[index]) parent.children[index].insertAdjacentElement("beforebegin", element); else parent.insertAdjacentElement("beforeend", element);
+        };
+        DynamicAdapt.prototype.indexInParent = function(parent, element) {
+            const array = Array.prototype.slice.call(parent.children);
+            return Array.prototype.indexOf.call(array, element);
+        };
+        DynamicAdapt.prototype.arraySort = function(arr) {
+            if ("min" === this.type) Array.prototype.sort.call(arr, (function(a, b) {
+                if (a.breakpoint === b.breakpoint) {
+                    if (a.place === b.place) return 0;
+                    if ("first" === a.place || "last" === b.place) return -1;
+                    if ("last" === a.place || "first" === b.place) return 1;
+                    return a.place - b.place;
+                }
+                return a.breakpoint - b.breakpoint;
+            })); else {
+                Array.prototype.sort.call(arr, (function(a, b) {
+                    if (a.breakpoint === b.breakpoint) {
+                        if (a.place === b.place) return 0;
+                        if ("first" === a.place || "last" === b.place) return 1;
+                        if ("last" === a.place || "first" === b.place) return -1;
+                        return b.place - a.place;
+                    }
+                    return b.breakpoint - a.breakpoint;
+                }));
+                return;
+            }
+        };
+        const da = new DynamicAdapt("max");
+        da.init();
         /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
@@ -8164,6 +8338,7 @@
         }));
         window["FLS"] = true;
         isWebp();
+        spollers();
         tabs();
         formFieldsInit({
             viewPass: true
