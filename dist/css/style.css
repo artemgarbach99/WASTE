@@ -5973,7 +5973,9 @@ a.mm-navbar__title {
   }
 
   .tabs-allowed .tabs-trigger {
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 
   .tabs-allowed .tabs-panel {
