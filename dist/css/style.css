@@ -760,6 +760,9 @@ textarea.input {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .select_select-sort .select__title {
@@ -5826,6 +5829,8 @@ a.mm-navbar__title {
   font-size: 0.75rem;
   line-height: 1.1666666667;
   white-space: nowrap;
+  color: #2B74B9;
+  font-weight: 600;
 }
 
 .promote-line-main__data {
@@ -6425,6 +6430,9 @@ a.mm-navbar__title {
     border-radius: 3px;
     gap: 0.0625rem;
     padding: 0 0.1875rem;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 
   .office-header__lable span {
@@ -6433,8 +6441,10 @@ a.mm-navbar__title {
 
   .office-header__dropdown {
     top: 3.125rem;
+    right: auto;
     -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.22);
             box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.22);
+    width: 13.4375rem;
   }
 
   .footer__content {
@@ -6745,8 +6755,8 @@ a.mm-navbar__title {
   }
 
   .select_select-sort .select__options {
-    right: 0;
     left: auto;
+    min-width: 12.5rem;
   }
 
   .forms-login__inner {
