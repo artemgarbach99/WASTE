@@ -5829,6 +5829,10 @@ a.mm-navbar__title {
   font-size: 0.75rem;
   line-height: 1.1666666667;
   white-space: nowrap;
+  color: #113921;
+}
+
+.promote-line-main__lable._link {
   color: #2B74B9;
   font-weight: 600;
 }
