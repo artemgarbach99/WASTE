@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>addition-form</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230520235940">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<meta name="viewport" content="width=device-width minimum-scale=1.0 maximum-scale=1.0 user-scalable=no" />
+</head>
+
+<body class="office-header-item">
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__body">
+					<a href="#" class="header__logo"></a>
+					<div class="header__item _add-item">
+						<a href="#" class="header__link _add-link _icon-plus"><span>Добавить</span></a>
+					</div>
+					<div class="header__item _login-item">
+						<a href="#" class="header__link"><img data-src="img/header/02.png" alt=""><span>Вход /
+								Регистрация</span></a>
+					</div>
+					<div class="header__item _office-item">
+						<div class="header__office office-header">
+							<img data-src="img/header/05.png" alt="">
+							<a href="#" class="office-header__lable _icon-arrow">
+								<span>Личный кабинет</span>
+							</a>
+							<ul class="office-header__dropdown">
+								<li class="office-header__item">
+									<a href="#" class="office-header__link h4">Объявления</a>
+								</li>
+								<li class="office-header__item">
+									<a href="#" class="office-header__link h4">Визитка</a>
+								</li>
+								<li class="office-header__item">
+									<a href="#" class="office-header__link h4">Мероприятия</a>
+								</li>
+								<li class="office-header__item">
+									<a href="#" class="office-header__link h4">Издания</a>
+								</li>
+								<li class="office-header__item">
+									<a href="#" class="office-header__link h4">Платежи и счет</a>
+								</li>
+								<li class="office-header__item">
+									<a href="#" class="office-header__link h4">Настройки</a>
+								</li>
+								<li class="office-header__item">
+									<a href="#" class="office-header__link h4">Выход</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="header__item search-btn">
+						<button class="header__link _close-btn"><img data-src="img/header/03.png" alt=""><span>Поиск</span></button>
+					</div>
+					<div class="header__item">
+						<a href="#" class="header__link"><img data-src="img/header/04.png" alt=""><span>Избранное</span></a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="searchbar-wrapper hide" bis_skin_checked="1">
+			<div class="searchbar" bis_skin_checked="1">
+				<input type="text" class="searchbar-input" placeholder="Поиск по сайту">
+				<button class="searchbar-btn" type="button">Найти</button>
+			</div>
+		</div>
+		<main class="page">
+			<div class="addition-form">
+				<div class="addition-form__container">
+					<form action="#" class="addition-form__body">
+						<div class="addition-form__language language-top-content">
+							<span id="navbar__lable" class="language-top-content__lable _icon-triangle">UK</span>
+							<div id="navbar__dropdown" class="language-top-content__dropdown">
+								<a href="#" class="language-top-content__dropdown-link">RU</a>
+								<a href="#" class="language-top-content__dropdown-link">EN</a>
+							</div>
+						</div>
+						<button type="button" class="addition-form__close _icon-plus"></button>
+						<div class="addition-form__header header-addition-form">
+							<div class="header-addition-form__title">Добавить объявление</div>
+							<div class="header-addition-form__breadcrumps">
+								<div class="header-addition-form__lable h5">Для изменения раздела нажмите на
+									соответствующий
+									пункт:</div>
+								<div class="header-addition-form__items">
+									<div class="header-addition-form__item">Объявления</div>
+									<div class="header-addition-form__item">Технологии, оборудование</div>
+									<div class="header-addition-form__item">Химикаты</div>
+									<div class="header-addition-form__item _active">Предлагаю</div>
+								</div>
+							</div>
+						</div>
+						<div class="addition-form__caption caption-addition-form">
+							<div class="caption-addition-form__lable h4">Заголовок</div>
+							<div class="caption-addition-form__row">
+								<div class="caption-addition-form__input _star _icon-star">
+									<input id="input" maxlength="29" autocomplete="off" type="text" name="form[]" data-required data-error="Ошибка" placeholder="Установка для получения" class="input">
+									<label for="input">Осталось знаков (с пробелами): <span data-limitLabel></span></label>
+									<!-- <span>Осталось знаков (с пробелами): </span> -->
+								</div>
+								<div class="caption-addition-form__text">
+									<p>Контакты следует указывать в специальных полях. Запрещены ссылки на сайты и
+										использование заглавных букв вне правил грамматики.</p>
+								</div>
+							</div>
+						</div>
+						<div class="addition-form__product product-addition-form">
+							<div class="product-addition-form__photo">
+								<div class="product-addition-form__top">
+									<div class="product-addition-form__lable h4">Фото товара
+									</div>
+									<span class="h5">(не более 10)</span>
+								</div>
+								<div class="product-addition-form__items">
+									<span class="product-addition-form__header h5">Перетяните фото для изменения
+										порядка.</span>
+									<div class="product-addition-form__line">
+										<button type="submit" class="product-addition-form__button _icon-plus"></button>
+										<div class="product-addition-form__slider swiper-product-addition">
+											<div class="product-addition-form__wrapper swiper-wrapper">
+												<div class="product-addition-form__slide swiper-slide">
+													<div class="product-addition-form__image">
+														<img data-src="img/addition-form/01.png" alt="">
+													</div>
+													<div class="product-addition-form__description description-product-addition">
+														<div class="description-product-addition__lable" id="1">Описание
+														</div>
+														<div class="description-product-addition__dropdown" id="1">
+															<div class="description-product-addition__inner">
+																<textarea class="description-product-addition__textarea required" id="desinp" name="desinp" maxlength="50" rows="3"></textarea>
+																<span id="1" class="description-product-addition__count"></span>
+															</div>
+															<button type="button" class="description-product-addition__button">Сохранить
+																описание</button>
+														</div>
+													</div>
+												</div>
+												<div class="product-addition-form__slide swiper-slide">
+													<div class="product-addition-form__image">
+														<img data-src="img/addition-form/01.png" alt="">
+													</div>
+													<div class="product-addition-form__description description-product-addition">
+														<div class="description-product-addition__lable" id="2">Описание
+														</div>
+														<div class="description-product-addition__dropdown" id="2">
+															<div class="description-product-addition__inner">
+																<textarea class="description-product-addition__textarea required" id="desinp" name="desinp" maxlength="50" rows="3"></textarea>
+																<span id="2" class="description-product-addition__count"></span>
+															</div>
+															<button type="button" class="description-product-addition__button">Сохранить
+																описание</button>
+														</div>
+													</div>
+												</div>
+												<div class="product-addition-form__slide swiper-slide">
+													<div class="product-addition-form__image">
+														<img data-src="img/addition-form/01.png" alt="">
+													</div>
+													<div class="product-addition-form__description description-product-addition">
+														<div class="description-product-addition__lable" id="3">Описание
+														</div>
+														<div class="description-product-addition__dropdown" id="3">
+															<div class="description-product-addition__inner">
+																<textarea class="description-product-addition__textarea required" id="desinp" name="desinp" maxlength="50" rows="3"></textarea>
+																<span id="3" class="description-product-addition__count"></span>
+															</div>
+															<button type="button" class="description-product-addition__button">Сохранить
+																описание</button>
+														</div>
+													</div>
+												</div>
+												<div class="product-addition-form__slide swiper-slide">
+													<div class="product-addition-form__image">
+														<img data-src="img/addition-form/01.png" alt="">
+													</div>
+													<div class="product-addition-form__description description-product-addition">
+														<div class="description-product-addition__lable" id="4">Описание
+														</div>
+														<div class="description-product-addition__dropdown" id="4">
+															<div class="description-product-addition__inner">
+																<textarea class="description-product-addition__textarea required" id="desinp" name="desinp" maxlength="50" rows="3"></textarea>
+																<span id="4" class="description-product-addition__count"></span>
+															</div>
+															<button type="button" class="description-product-addition__button">Сохранить
+																описание</button>
+														</div>
+													</div>
+												</div>
+												<div class="product-addition-form__slide swiper-slide">
+													<div class="product-addition-form__image">
+														<img data-src="img/addition-form/01.png" alt="">
+													</div>
+													<div class="product-addition-form__description description-product-addition">
+														<div class="description-product-addition__lable" id="5">Описание
+														</div>
+														<div class="description-product-addition__dropdown" id="5">
+															<div class="description-product-addition__inner">
+																<textarea class="description-product-addition__textarea required" id="desinp" name="desinp" maxlength="50" rows="3"></textarea>
+																<span id="5" class="description-product-addition__count"></span>
+															</div>
+															<button type="button" class="description-product-addition__button">Сохранить
+																описание</button>
+														</div>
+													</div>
+												</div>
+												<div class="product-addition-form__slide swiper-slide">
+													<div class="product-addition-form__image">
+														<img data-src="img/addition-form/01.png" alt="">
+													</div>
+													<div class="product-addition-form__description description-product-addition">
+														<div class="description-product-addition__lable" id="6">Описание
+														</div>
+														<div class="description-product-addition__dropdown" id="6">
+															<div class="description-product-addition__inner">
+																<textarea class="description-product-addition__textarea required" id="desinp" name="desinp" maxlength="50" rows="3"></textarea>
+																<span id="6" class="description-product-addition__count"></span>
+															</div>
+															<button type="button" class="description-product-addition__button">Сохранить
+																описание</button>
+														</div>
+													</div>
+												</div>
+											</div>
+											<button type="button" class="product-addition-form__button-prev _icon-arrow"></button>
+											<button type="button" class="product-addition-form__button-next _icon-arrow"></button>
+										</div>
+									</div>
+									<span class="product-addition-form__subtext h5">Пояснение под фото может включать
+										название товара, марку, характеристики и др.</span>
+								</div>
+							</div>
+							<div class="product-addition-form__equipment">
+								<div class="product-addition-form__top">
+									<div class="product-addition-form__lable _icon-star">Описание технологий,
+										оборудования
+									</div>
+								</div>
+								<textarea name="Текст" id="" class="product-addition-form__textarea"></textarea>
+							</div>
+						</div>
+						<div class="addition-form__quantity quantity-addition-form">
+							<div class="quantity-addition-form__column">
+								<div class="quantity-addition-form__lable h4">Количество:</div>
+								<div class="quantity-addition-form__input">
+									<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="2 установки" class="input">
+									<span class="quantity-addition-form__subtext h5">Например: 1 линия, 2 дробилки, 3
+										пресса и т.д.</span>
+								</div>
+							</div>
+							<div class="quantity-addition-form__column">
+								<div class="quantity-addition-form__lable h4">Цена:</div>
+								<div class="quantity-addition-form__input">
+									<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="25 000 грн за 1 установку" class="input">
+									<span class="quantity-addition-form__subtext h5">Например: договорная, 150 тыс. грн
+										и т.д.</span>
+								</div>
+							</div>
+						</div>
+						<div class="addition-form__shipping shipping-addition-form">
+							<div class="shipping-addition-form__row">
+								<div class="shipping-addition-form__column">
+									<div class="shipping-addition-form__lable h4">Обеспечение доставки:</div>
+									<div class="shipping-addition-form__select">
+										<select name="form[]" class="select-shipping">
+											<option value="1" selected>Не указано</option>
+											<option value="2">Да</option>
+											<option value="3">Нет</option>
+											<option value="4">По договоренности</option>
+										</select>
+									</div>
+									<!-- <div class="shipping-addition-form__input">
+                                        <input autocomplete="off" type="text" name="form[]" data-error="Ошибка"
+                                            placeholder="2 установки" class="input">
+                                        <span class="shipping-addition-form__subtext h5">Например: 1 линия, 2 дробилки,
+                                            3
+                                            пресса и т.д.</span>
+                                    </div> -->
+								</div>
+								<div class="shipping-addition-form__column">
+									<div class="shipping-addition-form__lable h4">Место отгрузки:</div>
+									<div class="shipping-addition-form__input">
+										<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Киев" class="input">
+										<span class="shipping-addition-form__subtext h5">Населенный пункт, где Вы
+											отгружаете товар, например: Белая Церковь, Киевская обл.</span>
+									</div>
+								</div>
+							</div>
+							<button type="submit" class="shipping-addition-form__button h4 _icon-plus">Добавить видео с
+								youtube.com</button>
+						</div>
+						<div class="addition-form__contacts contacts-addition-form">
+							<div class="contacts-addition-form__row">
+								<div class="contacts-addition-form__column">
+									<div class="contacts-addition-form__lable h4">Контактное лицо</div>
+									<div class="contacts-addition-form__input _star _icon-star">
+										<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" data-required placeholder="Анастасия" class="input">
+									</div>
+								</div>
+								<div class="contacts-addition-form__column">
+									<div class="contacts-addition-form__lable h4">Email</div>
+									<div class="contacts-addition-form__input">
+										<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="email@gmail.com" class="input">
+										<div class="checkbox">
+											<input id="c_1" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]">
+											<label for="c_1" class="checkbox__label"><span class="checkbox__text h5">Скрыть email при показе
+													объявления</span></label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="contacts-addition-form__row-phone">
+								<div class="contacts-addition-form__column">
+									<div class="contacts-addition-form__phone phone-content-forms">
+										<div class="phone-content-forms__body">
+											<button type="button" class="phone-content-forms__button _btn-first-phone"></button>
+											<div class="phone-content-forms__inner _01">
+												<select name="form[]" class="select-phone">
+													<option value="1" selected data-asset="Украина">+380
+													</option>
+													<option value="2" data-asset="Австрия">+43</option>
+													<option value="3" data-asset="Азербайджан">+994</option>
+													<option value="4" data-asset="Армения">+374</option>
+													<option value="5" data-asset="Белоруссия">+375</option>
+													<option value="6" data-asset="Бельгия">+32</option>
+													<option value="7" data-asset="Болгария">+359</option>
+													<option value="8" data-asset="Великобритания">+44
+													</option>
+													<option value="9" data-asset="Венгрия">+36</option>
+													<option value="10" data-asset="Германия">+49</option>
+													<option value="11" data-asset="Греция">+30</option>
+													<option value="12" data-asset="Грузия">+995</option>
+													<option value="13" data-asset="Дания">+45</option>
+												</select>
+												<input autocomplete="off" type="tel" name="form[]" data-error="Ошибка" data-required placeholder="Номер телефона" class="input _min-fontsize">
+											</div>
+										</div>
+										<div class="phone-content-forms__out"></div>
+									</div>
+								</div>
+								<div class="contacts-addition-form__column">
+									<div class="contacts-addition-form__text h5 _contacts">
+										<p> Хотя бы одно поле должно быть заполнено (Email
+											или один телефон)</p>
+									</div>
+								</div>
+							</div>
+							<div class="contacts-addition-form__buttons">
+								<div class="contacts-addition-form__buttons-wrap">
+									<button type="submit" class="contacts-addition-form__button h4 _promote">Сохранить и
+										рекламировать</button>
+									<button type="submit" class="contacts-addition-form__button h4 _save">Сохранить</button>
+								</div>
+								<div class="contacts-addition-form__text h5 _buttons">
+									<p> Объявление, в том числе рекламируемое, должно отвечать <a href="#">правилам
+											сайта
+										</a> “Мир отходов”</p>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__inner">
+					<div class="footer__content row d-sm-flex justify-content-sm-center">
+						<ul class="footer__content--item col-md-8 d-flex justify-content-md-around text-center flex-md-row flex-sm-column">
+							<li class="footer__content--list"><a href="#">Рассылки</a></li>
+							<li class="footer__content--list"><a href="#">Реклама</a></li>
+							<li class="footer__content--list"><a href="#">Помощь</a></li>
+							<li class="footer__content--list"><a href="#">О нас</a></li>
+						</ul>
+						<ul class="footer__content--social col-md-4">
+							<li>
+								<a href="#"><img data-src="img/footer/01.png" alt=""></a>
+							</li>
+							<li>
+								<a href="#"><img data-src="img/footer/02.png" alt=""></a>
+							</li>
+							<li>
+								<a href="#"><img data-src="img/footer/03.png" alt=""></a>
+							</li>
+							<li>
+								<a href="#"><img data-src="img/footer/04.png" alt=""></a>
+							</li>
+						</ul>
+					</div>
+					<p class="footer__warn">
+						Администрация сайта <span>"Мир отходов"</span> не несет
+						ответственности за содержание объявлений, визиток и статей, а также
+						за осуществление сделок, заключенных на основе информации,
+						размещенной на сайте
+						<span>"Мир отходов"</span>
+					</p>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script>
+		class LimitLabel {
+			/**
+			 *
+			 * @param {element} 
+			 * @param {element} 
+			 * @param {element} 
+			 * @param {function}
+			 */
+			constructor(args) {
+				if (args instanceof Element) {
+					this.input = args;
+				} else {
+					this.input = args.input;
+					this.textCallback = args.textCallback;
+				}
+
+				this.limit = this.input.getAttribute('maxlength');
+
+				this.label = (args.label) ? args.label : document.querySelectorAll(`
+      [for="${this.input.getAttribute('id')}"] [data-limitLabel],
+      [for="${this.input.getAttribute('id')}"] ~ [data-limitLabel],
+      [for="${this.input.getAttribute('id')}"] ~ * [data-limitLabel]
+    `)[0];
+
+				this.forceLimit();
+				this.updateLabel();
+
+				this.input.addEventListener('input', () => {
+					this.updateLabel();
+				});
+			}
+
+			forceLimit() {
+				if (this.input.value.length > this.limit)
+					this.input.value = this.input.value.substring(0, this.limit);
+			}
+
+			updateLabel() {
+				this.label.innerText = this.labelText();
+			}
+
+			labelText() {
+				if (this.textCallback) {
+					return this.textCallback(this.remaining, this.input.value, this.limit);
+				} else {
+					let characterLabel = {
+						singular: '',
+						plural: ''
+					};
+					let plurality = (this.remaining === 1) ? characterLabel.singular : characterLabel.plural;
+
+					return `${this.remaining} ${plurality}`;
+				}
+			}
+
+			get remaining() {
+				let currentLength = this.input.value.length;
+				let charactersRemaining = this.limit - currentLength;
+
+				return charactersRemaining;
+			}
+		}
+
+
+		let inputs = document.querySelectorAll('.caption-addition-form__input input[type="text"]');
+
+		inputs.forEach((input) => {
+			new LimitLabel(input)
+		});
+
+		// Custom label selection
+
+		// let customInput = document.querySelector('.custom input[type="text"]');
+		// let customLabel = document.querySelector('.customLabel');
+
+		// function customText(remaining, value, limit) {
+		//     if (!value) {
+		//         return `I'm empty! Put up to ${limit} letters in here.`;
+		//     } else {
+		//         switch (remaining) {
+		//             case 0:
+		//                 return 'All outta button presses! Gotta get rid of some stuff.';
+		//                 break;
+		//             default:
+		//                 let plural = (remaining === 1) ? 'press' : 'presses';
+		//                 return `You only have ${remaining} button ${plural} left!`;
+		//                 break;
+		//         }
+		//     }
+		// }
+
+		// let custom = new LimitLabel({
+		//     input: customInput,
+		//     label: customLabel,
+		//     textCallback: customText,
+		// });
+	</script>
+	<script>
+		const addPhone = document.querySelector('._btn-first-phone');
+
+		function closeAudit() {
+			this.parentElement.remove();
+			addressesCountFirst--;
+		}
+
+		let addressesCountFirst = 0;
+
+		const addAudit = function() {
+			if (addressesCountFirst <= 1) {
+				const elemKod = document.querySelector('.phone-content-forms__inner._01').outerHTML;
+				const elemOutKod = document.querySelector('.phone-content-forms__out');
+				elemOutKod.style.marginTop = "30px";
+				elemOutKod.innerHTML += '<div class="phone-content-forms__body">' + '<button type="button" class="phone-content-forms__button-close _01">' + '</button>' + elemKod + '</div>';
+				const closePhone = document.querySelectorAll('.phone-content-forms__button-close._01');
+				closePhone.forEach(element => element.addEventListener('click', closeAudit))
+				addressesCountFirst++;
+			}
+		};
+
+		addPhone.addEventListener("click", addAudit);
+	</script>
+	<script>
+		const lableOffice = document.querySelector('.office-header__lable');
+		const dropdownOffice = document.querySelector('.office-header__dropdown')
+
+		lableOffice.addEventListener("click", function(e) {
+			dropdownOffice.classList.toggle('office-dropdown-open');
+
+			if (dropdownOffice.classList.contains('office-dropdown-open')) {
+				lableOffice.classList.add('_active')
+			} else {
+				lableOffice.classList.remove('_active')
+			}
+		});
+
+
+		// document.addEventListener('mousedown', function (e) {
+		//     if (e.target.closest('.office-header__dropdown') === null) {
+		//         dropdownOffice.classList.remove('office-dropdown-open');
+		//     }
+		// });
+	</script>
+	<script>
+		const lableLanguage = document.querySelector('.language-top-content__lable');
+		const dropdownLanguage = document.querySelector('.language-top-content__dropdown')
+
+		lableLanguage.addEventListener("click", function(e) {
+			dropdownLanguage.classList.toggle('dropdown-open');
+
+			if (dropdownLanguage.classList.contains('dropdown-open')) {
+				lableLanguage.classList.add('lable-active')
+			} else {
+				lableLanguage.classList.remove('lable-active')
+			}
+		});
+	</script>
+	<script src="js/app.min.js?_v=20230520235940"></script>
+</body>
+
+</html>
