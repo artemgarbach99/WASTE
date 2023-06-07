@@ -3984,6 +3984,7 @@
                 spaceBetween: 10,
                 autoHeight: false,
                 speed: 800,
+                allowTouchMove: false,
                 navigation: {
                     prevEl: ".product-addition-form__button-prev",
                     nextEl: ".product-addition-form__button-next"

@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230604191516">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230607231011">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -128,7 +128,7 @@
 											<div class="product-addition-form__wrapper swiper-wrapper">
 												<div class="product-addition-form__slide swiper-slide">
 													<div class="product-addition-form__image">
-														<img data-src="img/addition-form/01.png" alt="">
+														<img data-src="img/addition-form/test01.jpg" alt="">
 													</div>
 													<div class="product-addition-form__description description-product-addition">
 														<div class="description-product-addition__lable" id="1">Описание
@@ -145,7 +145,7 @@
 												</div>
 												<div class="product-addition-form__slide swiper-slide">
 													<div class="product-addition-form__image">
-														<img data-src="img/addition-form/01.png" alt="">
+														<img data-src="img/addition-form/test02.jpg" alt="">
 													</div>
 													<div class="product-addition-form__description description-product-addition">
 														<div class="description-product-addition__lable" id="2">Описание
@@ -162,7 +162,7 @@
 												</div>
 												<div class="product-addition-form__slide swiper-slide">
 													<div class="product-addition-form__image">
-														<img data-src="img/addition-form/01.png" alt="">
+														<img data-src="img/addition-form/test03.jpg" alt="">
 													</div>
 													<div class="product-addition-form__description description-product-addition">
 														<div class="description-product-addition__lable" id="3">Описание
@@ -528,6 +528,60 @@
 		addPhone.addEventListener("click", addAudit);
 	</script>
 	<script>
+		const tasksListElement = document.querySelector('.product-addition-form__wrapper');
+		const taskElements = tasksListElement.querySelectorAll('.product-addition-form__slide');
+		for (const task of taskElements) {
+			task.draggable = true;
+		}
+		tasksListElement.addEventListener(`dragstart`, (evt) => {
+			evt.target.classList.add(`selected`);
+		})
+		tasksListElement.addEventListener(`dragend`, (evt) => {
+			evt.target.classList.remove(`selected`);
+		});
+		tasksListElement.addEventListener(`dragover`, (evt) => {
+			evt.preventDefault();
+			const activeElement = tasksListElement.querySelector(`.selected`);
+			const currentElement = evt.target;
+			const isMoveable = activeElement !== currentElement &&
+				currentElement.classList.contains(`product-addition-form__slide`);
+			if (!isMoveable) {
+				return;
+			}
+			const nextElement = (currentElement === activeElement.nextElementSibling) ?
+				currentElement.nextElementSibling :
+				currentElement;
+			tasksListElement.insertBefore(activeElement, nextElement);
+		});
+		const getNextElement = (cursorPosition, currentElement) => {
+			const currentElementCoord = currentElement.getBoundingClientRect();
+			const currentElementCenter = currentElementCoord.x + currentElementCoord.width / 2;
+			const nextElement = (cursorPosition < currentElementCenter) ?
+				currentElement :
+				currentElement.nextElementSibling;
+			return nextElement;
+		};
+		tasksListElement.addEventListener(`dragover`, (evt) => {
+			evt.preventDefault();
+			const activeElement = tasksListElement.querySelector(`.selected`);
+			const currentElement = evt.target;
+			const isMoveable = activeElement !== currentElement &&
+				currentElement.classList.contains(`product-addition-form__slide`);
+			if (!isMoveable) {
+				return;
+			}
+			const nextElement = getNextElement(evt.clientX, currentElement);
+			if (
+				nextElement &&
+				activeElement === nextElement.previousElementSibling ||
+				activeElement === nextElement
+			) {
+				return;
+			}
+			tasksListElement.insertBefore(activeElement, nextElement);
+		});
+	</script>
+	<script>
 		const lableOffice = document.querySelector('.office-header__lable');
 		const dropdownOffice = document.querySelector('.office-header__dropdown')
 
@@ -562,7 +616,7 @@
 			}
 		});
 	</script>
-	<script src="js/app.min.js?_v=20230604191516"></script>
+	<script src="js/app.min.js?_v=20230607231011"></script>
 </body>
 
 </html>
