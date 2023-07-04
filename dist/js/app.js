@@ -3980,7 +3980,7 @@
                 modules: [ Navigation ],
                 observer: true,
                 observeParents: true,
-                slidesPerView: 5,
+                slidesPerView: "5",
                 spaceBetween: 10,
                 autoHeight: false,
                 speed: 800,
@@ -4155,6 +4155,18 @@
                     //! test
                                 }
             }));
+        }));
+        let advertisingInput = document.querySelectorAll(".items-advertising__input");
+        advertisingInput.forEach((function(el) {
+            el.oninput = function() {
+                this.value = this.value.substr(0, 2);
+            };
+        }));
+        const lableServiceDetails = document.querySelector(".more-advertising__title");
+        const dropdownServiceDetails = document.querySelector(".more-advertising__dropdown");
+        lableServiceDetails.addEventListener("click", (function(e) {
+            dropdownServiceDetails.classList.toggle("dropdown-open");
+            if (dropdownServiceDetails.classList.contains("dropdown-open")) lableServiceDetails.classList.add("lable-active"); else lableServiceDetails.classList.remove("lable-active");
         }));
         /*!
  * jQuery JavaScript Library v3.5.1

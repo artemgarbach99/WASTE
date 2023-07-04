@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230607231011">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230704220736">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -123,7 +123,7 @@
 									<span class="product-addition-form__header h5">Перетяните фото для изменения
 										порядка.</span>
 									<div class="product-addition-form__line">
-										<button type="submit" class="product-addition-form__button _icon-plus"></button>
+										<button type="button" class="product-addition-form__button _icon-plus"></button>
 										<div class="product-addition-form__slider swiper-product-addition">
 											<div class="product-addition-form__wrapper swiper-wrapper">
 												<div class="product-addition-form__slide swiper-slide">
@@ -406,6 +406,30 @@
 		</footer>
 	</div>
 	<script>
+		const addSlide = document.querySelector('.product-addition-form__button');
+
+		function deleteSlide() {
+			this.parentElement.remove();
+			addressesCountFirst--;
+		}
+
+		let slideCountFirst = 0;
+
+		const addAuditSlide = function() {
+			if (slideCountFirst <= 7) {
+				const elemKod = document.querySelector('.product-addition-form__slide').outerHTML;
+				const elemOutKod = document.querySelector('.product-addition-form__wrapper');
+				// elemOutKod.style.marginTop = "30px";
+				elemOutKod.innerHTML += elemKod;
+				const deleteSlideBtn = document.querySelectorAll('.product-addition-form__image');
+				deleteSlideBtn.forEach(element => element.addEventListener('click', deleteSlide))
+				slideCountFirst++;
+			}
+		};
+
+		addSlide.addEventListener("click", addAuditSlide);
+	</script>
+	<script>
 		class LimitLabel {
 			/**
 			 *
@@ -528,49 +552,46 @@
 		addPhone.addEventListener("click", addAudit);
 	</script>
 	<script>
-		const tasksListElement = document.querySelector('.product-addition-form__wrapper');
-		const taskElements = tasksListElement.querySelectorAll('.product-addition-form__slide');
+		const tasksListElement = document.querySelector(`.product-addition-form__wrapper`);
+		const taskElements = tasksListElement.querySelectorAll(`.product-addition-form__slide`);
+
 		for (const task of taskElements) {
 			task.draggable = true;
 		}
+
 		tasksListElement.addEventListener(`dragstart`, (evt) => {
 			evt.target.classList.add(`selected`);
-		})
+		});
+
 		tasksListElement.addEventListener(`dragend`, (evt) => {
 			evt.target.classList.remove(`selected`);
 		});
-		tasksListElement.addEventListener(`dragover`, (evt) => {
-			evt.preventDefault();
-			const activeElement = tasksListElement.querySelector(`.selected`);
-			const currentElement = evt.target;
-			const isMoveable = activeElement !== currentElement &&
-				currentElement.classList.contains(`product-addition-form__slide`);
-			if (!isMoveable) {
-				return;
-			}
-			const nextElement = (currentElement === activeElement.nextElementSibling) ?
-				currentElement.nextElementSibling :
-				currentElement;
-			tasksListElement.insertBefore(activeElement, nextElement);
-		});
+
 		const getNextElement = (cursorPosition, currentElement) => {
 			const currentElementCoord = currentElement.getBoundingClientRect();
 			const currentElementCenter = currentElementCoord.x + currentElementCoord.width / 2;
+
 			const nextElement = (cursorPosition < currentElementCenter) ?
 				currentElement :
 				currentElement.nextElementSibling;
+
 			return nextElement;
 		};
+
 		tasksListElement.addEventListener(`dragover`, (evt) => {
 			evt.preventDefault();
+
 			const activeElement = tasksListElement.querySelector(`.selected`);
 			const currentElement = evt.target;
 			const isMoveable = activeElement !== currentElement &&
 				currentElement.classList.contains(`product-addition-form__slide`);
+
 			if (!isMoveable) {
 				return;
 			}
+
 			const nextElement = getNextElement(evt.clientX, currentElement);
+
 			if (
 				nextElement &&
 				activeElement === nextElement.previousElementSibling ||
@@ -578,6 +599,7 @@
 			) {
 				return;
 			}
+
 			tasksListElement.insertBefore(activeElement, nextElement);
 		});
 	</script>
@@ -616,7 +638,7 @@
 			}
 		});
 	</script>
-	<script src="js/app.min.js?_v=20230607231011"></script>
+	<script src="js/app.min.js?_v=20230704220736"></script>
 </body>
 
 </html>
