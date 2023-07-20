@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230720113053">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230720130150">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -121,9 +121,10 @@
 											<div class="items-advertising__row">
 												<div class="items-advertising__quantity">
 													<span>Количество месяцев</span>
-													<input class="items-advertising__input" autocomplete="off" type="number" name="form[]" data-error="Ошибка" placeholder="3">
+													<input class="items-advertising__input" autocomplete="off" type="number" name="form[]" data-error="Ошибка" placeholder="3" id="inpt">
 												</div>
-												<div class="items-advertising__price">2700 грн</div>
+												<!-- <input type="text" id="res" name="result" /> -->
+												<div id="res" class="items-advertising__price">2700 грн</div>
 												<button type="submit" class="items-advertising__btn _icon-settings">Изменить</button>
 											</div>
 										</div>
@@ -191,8 +192,10 @@
 									<div class="advertising-addition__cost cost-advertising">
 										<div class="cost-advertising__title">Стоимость услуги</div>
 										<div class="cost-advertising__button"><span>Стоимость
-												услуги</span> 900
-											грн за 1 месяц</div>
+												услуги</span>
+											900
+											грн за 1 месяц
+										</div>
 										<div class="cost-advertising__more more-advertising">
 											<div class="more-advertising__title _no-close _icon-arrow">подробнее
 												об услуге</div>
@@ -658,6 +661,16 @@
 				lableServiceDetails02.classList.remove('lable-active')
 			}
 		});
+
+		const input = document.getElementById("inpt");
+		const inputResult = document.getElementById("res");
+
+		input.addEventListener("keyup", function() {
+			inputResult.innerHTML = input.value * 900 + " грн";
+			// inputResult.value + 'грв'
+
+			// result.innerHTML = this.value;
+		});
 	</script>
 	<script>
 		const lableOffice = document.querySelector('.office-header__lable');
@@ -708,7 +721,7 @@
 			}
 		});
 	</script>
-	<script src="js/app.min.js?_v=20230720113053"></script>
+	<script src="js/app.min.js?_v=20230720130150"></script>
 </body>
 
 </html>
