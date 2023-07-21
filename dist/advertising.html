@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230720130150">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230721114443">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -121,10 +121,9 @@
 											<div class="items-advertising__row">
 												<div class="items-advertising__quantity">
 													<span>Количество месяцев</span>
-													<input class="items-advertising__input" autocomplete="off" type="number" name="form[]" data-error="Ошибка" placeholder="3" id="inpt">
+													<input class="items-advertising__input" autocomplete="off" type="number" name="form[]" data-error="Ошибка" placeholder="" id="1">
 												</div>
-												<!-- <input type="text" id="res" name="result" /> -->
-												<div id="res" class="items-advertising__price">2700 грн</div>
+												<div id="1" class="items-advertising__price">0 грн</div>
 												<button type="submit" class="items-advertising__btn _icon-settings">Изменить</button>
 											</div>
 										</div>
@@ -152,9 +151,9 @@
 											<div class="items-advertising__row">
 												<div class="items-advertising__quantity">
 													<span>Количество месяцев</span>
-													<input class="items-advertising__input" autocomplete="off" type="number" name="form[]" data-error="Ошибка" placeholder="3">
+													<input class="items-advertising__input" autocomplete="off" type="number" name="form[]" data-error="Ошибка" placeholder="" id="2">
 												</div>
-												<div class="items-advertising__price">900 грн</div>
+												<div id="2" class="items-advertising__price">0 грн</div>
 												<button type="submit" class="items-advertising__btn _icon-settings">Изменить</button>
 											</div>
 										</div>
@@ -182,9 +181,9 @@
 											<div class="items-advertising__row">
 												<div class="items-advertising__quantity">
 													<span>Количество месяцев</span>
-													<input class="items-advertising__input" autocomplete="off" type="number" name="form[]" data-error="Ошибка" placeholder="3">
+													<input class="items-advertising__input" autocomplete="off" type="number" name="form[]" data-error="Ошибка" placeholder="" id="3">
 												</div>
-												<div class="items-advertising__price">1800 грн</div>
+												<div id="3" class="items-advertising__price">0 грн</div>
 												<button type="submit" class="items-advertising__btn _icon-settings">Изменить</button>
 											</div>
 										</div>
@@ -334,9 +333,9 @@
 										<div class="items-advertising__row">
 											<div class="items-advertising__quantity">
 												<span>Количество недель</span>
-												<input class="items-advertising__input" autocomplete="off" type="number" name="form[]" data-error="Ошибка" placeholder="3">
+												<input class="items-advertising__input" autocomplete="off" type="number" name="form[]" data-error="Ошибка" placeholder="" id="4">
 											</div>
-											<div class="items-advertising__price">1800 грн</div>
+											<div id="4" class="items-advertising__price">0 грн</div>
 											<button type="submit" class="items-advertising__btn _icon-settings">Изменить</button>
 										</div>
 									</div>
@@ -356,9 +355,9 @@
 										<div class="items-advertising__row">
 											<div class="items-advertising__quantity">
 												<span>Количество недель</span>
-												<input class="items-advertising__input" autocomplete="off" type="number" name="form[]" data-error="Ошибка" placeholder="3">
+												<input class="items-advertising__input" autocomplete="off" type="number" name="form[]" data-error="Ошибка" placeholder="" id="5">
 											</div>
-											<div class="items-advertising__price">1800 грн</div>
+											<div id="5" class="items-advertising__price">0 грн</div>
 											<button type="submit" class="items-advertising__btn _icon-settings">Изменить</button>
 										</div>
 									</div>
@@ -382,9 +381,9 @@
 										<div class="items-advertising__row">
 											<div class="items-advertising__quantity">
 												<span>Количество недель</span>
-												<input class="items-advertising__input" autocomplete="off" type="number" name="form[]" data-error="Ошибка" placeholder="3">
+												<input class="items-advertising__input" autocomplete="off" type="number" name="form[]" data-error="Ошибка" placeholder="" id="6">
 											</div>
-											<div class="items-advertising__price">1800 грн</div>
+											<div id="6" class="items-advertising__price">0 грн</div>
 											<button type="submit" class="items-advertising__btn _icon-settings">Изменить</button>
 										</div>
 									</div>
@@ -662,14 +661,21 @@
 			}
 		});
 
-		const input = document.getElementById("inpt");
-		const inputResult = document.getElementById("res");
 
-		input.addEventListener("keyup", function() {
-			inputResult.innerHTML = input.value * 900 + " грн";
-			// inputResult.value + 'грв'
 
-			// result.innerHTML = this.value;
+		const input = document.querySelectorAll(".items-advertising__input");
+		const inputResult = document.querySelector(".items-advertising__price");
+
+		// input.addEventListener("keyup", function () {
+		//     inputResult.innerHTML = input.value * 900 + " грн";
+		// });
+
+		input.forEach(function(element) {
+			element.addEventListener("keyup", function() {
+				let getShowBody = element.getAttribute("id");
+				result = element.value * 900 + " грн";
+				document.querySelector(".items-advertising__price[id='" + getShowBody + "']").innerHTML = result;
+			})
 		});
 	</script>
 	<script>
@@ -721,7 +727,7 @@
 			}
 		});
 	</script>
-	<script src="js/app.min.js?_v=20230720130150"></script>
+	<script src="js/app.min.js?_v=20230721114443"></script>
 </body>
 
 </html>
