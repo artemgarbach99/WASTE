@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230721114443">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230722231421">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -569,7 +569,9 @@
 							</div>
 						</div>
 						<div class="advertising-addition__payment payment-advertising">
-							<div class="payment-advertising__title">Всего к оплате 1400 грн</div>
+							<div class="payment-advertising__title">Всего к оплате:
+								<span class="payment-advertising__title-price"></span>
+							</div>
 							<div class="payment-advertising__buttons">
 								<button type="submit" class="payment-advertising__button _grey">Не
 									рекламировать</button>
@@ -664,17 +666,30 @@
 
 
 		const input = document.querySelectorAll(".items-advertising__input");
-		const inputResult = document.querySelector(".items-advertising__price");
+		const inputResult = document.querySelectorAll(".items-advertising__price");
+		const totalАmount = document.querySelector(".payment-advertising__title-price");
 
 		// input.addEventListener("keyup", function () {
 		//     inputResult.innerHTML = input.value * 900 + " грн";
 		// });
+
+
 
 		input.forEach(function(element) {
 			element.addEventListener("keyup", function() {
 				let getShowBody = element.getAttribute("id");
 				result = element.value * 900 + " грн";
 				document.querySelector(".items-advertising__price[id='" + getShowBody + "']").innerHTML = result;
+				let sum = 0
+				for (let item of inputResult) {
+					// получить числовое значение поля input
+					const value = parseInt(item.innerHTML);
+					// если значение является числовым - добавить в сумму
+					if (!isNaN(value)) {
+						sum += value;
+					}
+				}
+				totalАmount.textContent = sum + " грн";
 			})
 		});
 	</script>
@@ -727,7 +742,7 @@
 			}
 		});
 	</script>
-	<script src="js/app.min.js?_v=20230721114443"></script>
+	<script src="js/app.min.js?_v=20230722231421"></script>
 </body>
 
 </html>

@@ -7452,6 +7452,12 @@ a.mm-navbar__title {
   font-size: 0.9375rem;
 }
 
+/* Firefox */
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .breadcrumps-items-advertising {
   display: -webkit-box;
   display: -ms-flexbox;
