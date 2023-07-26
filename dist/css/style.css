@@ -7879,6 +7879,10 @@ input[type=number] {
   color: #113921;
 }
 
+.payment-advertising__title-price {
+  padding-left: 0.3125rem;
+}
+
 .payment-advertising__buttons {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9389,6 +9393,10 @@ input[type=number] {
 
   .items-advertising__item {
     padding: 0.9375rem;
+  }
+
+  .items-advertising__quantity {
+    gap: 0.3125rem;
   }
 
   .items-advertising__quantity span {
