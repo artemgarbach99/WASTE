@@ -3980,7 +3980,7 @@
                 modules: [ Navigation ],
                 observer: true,
                 observeParents: true,
-                slidesPerView: "5",
+                slidesPerView: "auto",
                 spaceBetween: 10,
                 autoHeight: false,
                 speed: 800,
@@ -4116,46 +4116,6 @@
         };
         const da = new DynamicAdapt("max");
         da.init();
-        //!
-        //!
-        //!
-        //!
-        //!
-        //!
-        //!
-        //!
-        //! test
-        //! arrows
-        //! inputSearch
-        //! language dropdown
-        const textArea = document.querySelectorAll(".description-product-addition__textarea");
-        const textCount = document.querySelectorAll(".description-product-addition__count");
-        const cartDetailsBtn = document.querySelectorAll(".description-product-addition__lable");
-        const cartDetailsBody = document.querySelectorAll(".description-product-addition__dropdown");
-        for (let i = 0; i < cartDetailsBtn.length; i++) cartDetailsBtn.forEach((function(element) {
-            element.addEventListener("click", (function() {
-                let getShowBody = element.getAttribute("id");
-                if (this.classList) {
-                    for (let j = 0; j < cartDetailsBtn.length; j++) {
-                        cartDetailsBody.forEach((function(element) {
-                            element.classList.remove("_show-dropdown");
-                        }));
-                        textCount.forEach((function(element) {
-                            element.classList.remove("_show");
-                            element.innerHTML = "";
-                        }));
-                    }
-                    document.querySelector(".description-product-addition__dropdown[id='" + getShowBody + "']").classList.add("_show-dropdown");
-                    document.querySelector(".description-product-addition__count[id='" + getShowBody + "']").classList.add("_show");
-                    textArea.forEach((function(element) {
-                        element.addEventListener("keyup", (function() {
-                            document.querySelector(".description-product-addition__count[id='" + getShowBody + "']").innerHTML = "Осталось знаков: " + (50 - this.value.length);
-                        }));
-                    }));
-                    //! test
-                                }
-            }));
-        }));
         /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
