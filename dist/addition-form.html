@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230808002555">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230810133630">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -571,13 +571,14 @@
 	</script>
 	<script>
 		//? добавление и удаление карточек товара с описанием и токрытием его (актуальный)
-		let button1 = document.querySelector('.product-addition-form__button');
-		let panelGroup = document.querySelector('.product-addition-form__wrapper')
+		const button1 = document.querySelector('.product-addition-form__button');
+		const panelGroup = document.querySelector('.product-addition-form__wrapper')
 
 		let idCard = 1;
 
-		button1.addEventListener('click', function() {
+		button1.addEventListener("click", addElement);
 
+		function addElement() {
 			let description = document.createElement('div')
 			let lableDescription = document.createElement('div')
 			let dropDescription = document.createElement('div')
@@ -596,9 +597,21 @@
 			panel1.appendChild(closeBtn)
 			panel1.appendChild(description)
 
+			// images
+			// let img = document.createElement('img')
+			// closeBtn.appendChild(img)
+			// img.src = "img/addition-form/test01.jpg";
+
+
+			// image test
 			let img = document.createElement('img')
 			closeBtn.appendChild(img)
-			img.src = "img/addition-form/test01.jpg";
+			img.src = getImage();
+
+			function getImage() {
+				const random = Math.floor(Math.random() * 4);
+				return 'img/addition-form/test0' + random + '.jpg';
+			}
 
 			description.setAttribute('class', 'product-addition-form__description description-product-addition')
 			lableDescription.setAttribute('class', 'description-product-addition__lable')
@@ -661,7 +674,6 @@
 								})
 							}
 							document.querySelector(".description-product-addition__dropdown[id='" + getShowBody + "']").classList.add("_show-dropdown");
-							// document.querySelector(".description-product-addition__count").classList.add("_show");
 							document.querySelector(".description-product-addition__count[id='" + getShowBody + "']").classList.add("_show");
 							textArea.forEach(function(element) {
 								element.addEventListener('keyup', function() {
@@ -672,117 +684,64 @@
 					})
 				});
 			}
-		})
-	</script>
-	<!-- <script>
-    const tasksListElement = document.querySelector(`.product-addition-form__wrapper`);
-    const taskElements = tasksListElement.querySelectorAll(`.product-addition-form__slide`);
 
-    for (const task of taskElements) {
-        task.draggable = true;
-    }
+			// drag working!
+			const dropzoneSource = document.querySelector(".source");
+			const dropzones = [...document.querySelectorAll(".dropzone")];
+			const draggables = [...document.querySelectorAll(".draggable")];
 
-    tasksListElement.addEventListener(`dragstart`, (evt) => {
-        evt.target.classList.add(`selected`);
-    });
+			const dropDown = [...document.querySelectorAll(".description-product-addition__dropdown")];
 
-    tasksListElement.addEventListener(`dragend`, (evt) => {
-        evt.target.classList.remove(`selected`);
-    });
+			function getDragAfterElement(container, y) {
+				const draggableElements = [
+					...container.querySelectorAll(".draggable:not(.is-dragging)")
+				];
 
-    const getNextElement = (cursorPosition, currentElement) => {
-        const currentElementCoord = currentElement.getBoundingClientRect();
-        const currentElementCenter = currentElementCoord.x + currentElementCoord.width / 2;
-
-        const nextElement = (cursorPosition < currentElementCenter) ?
-            currentElement :
-            currentElement.nextElementSibling;
-
-        return nextElement;
-    };
-
-    tasksListElement.addEventListener(`dragover`, (evt) => {
-        evt.preventDefault();
-
-        const activeElement = tasksListElement.querySelector(`.selected`);
-        const currentElement = evt.target;
-        const isMoveable = activeElement !== currentElement &&
-            currentElement.classList.contains(`product-addition-form__slide`);
-
-        if (!isMoveable) {
-            return;
-        }
-
-        const nextElement = getNextElement(evt.clientX, currentElement);
-
-        if (
-            nextElement &&
-            activeElement === nextElement.previousElementSibling ||
-            activeElement === nextElement
-        ) {
-            return;
-        }
-
-        tasksListElement.insertBefore(activeElement, nextElement);
-    });
-
-</script> -->
-
-
-	<script>
-		const dropzoneSource = document.querySelector(".source");
-		const dropzone = document.querySelector(".target");
-		const dropzones = [...document.querySelectorAll(".dropzone")];
-		const draggables = [...document.querySelectorAll(".draggable")];
-
-		function getDragAfterElement(container, y) {
-			const draggableElements = [
-				...container.querySelectorAll(".draggable:not(.is-dragging)")
-			];
-
-			return draggableElements.reduce(
-				(closest, child) => {
-					const box = child.getBoundingClientRect();
-					const offset = y - box.left - box.width / 2;
-
-					// const offset = y - box.top - box.height / 2;
-
-					if (offset < 0 && offset > closest.offset) {
-						return {
-							offset,
-							element: child
-						};
-					} else {
-						return closest;
+				return draggableElements.reduce(
+					(closest, child) => {
+						const box = child.getBoundingClientRect();
+						const offset = y - box.left - box.width / 2;
+						if (offset < 0 && offset > closest.offset) {
+							return {
+								offset,
+								element: child
+							};
+						} else {
+							return closest;
+						}
+					}, {
+						offset: Number.NEGATIVE_INFINITY
 					}
-				}, {
-					offset: Number.NEGATIVE_INFINITY
-				}
-			).element;
+				).element;
+			}
+
+			draggables.forEach((draggable) => {
+				draggable.addEventListener("dragstart", (e) => {
+					draggable.classList.add("is-dragging");
+
+					dropDown.forEach((el) => {
+						el.classList.remove("_show-dropdown");
+					});
+				});
+
+				draggable.addEventListener("dragend", (e) => {
+					draggable.classList.remove("is-dragging");
+				});
+			});
+
+			dropzones.forEach((zone) => {
+				zone.addEventListener("dragover", (e) => {
+					e.preventDefault();
+					const afterElement = getDragAfterElement(zone, e.clientX);
+					const draggable = document.querySelector(".is-dragging");
+					if (afterElement === null) {
+						zone.appendChild(draggable);
+					} else {
+						zone.insertBefore(draggable, afterElement);
+					}
+				});
+			});
 		}
-
-		draggables.forEach((draggable) => {
-			draggable.addEventListener("dragstart", (e) => {
-				draggable.classList.add("is-dragging");
-			});
-
-			draggable.addEventListener("dragend", (e) => {
-				draggable.classList.remove("is-dragging");
-			});
-		});
-
-		dropzones.forEach((zone) => {
-			zone.addEventListener("dragover", (e) => {
-				e.preventDefault();
-				const afterElement = getDragAfterElement(zone, e.clientX);
-				const draggable = document.querySelector(".is-dragging");
-				if (afterElement === null) {
-					zone.appendChild(draggable);
-				} else {
-					zone.insertBefore(draggable, afterElement);
-				}
-			});
-		});
 	</script>
 	<script>
 		const lableOffice = document.querySelector('.office-header__lable');
@@ -819,7 +778,7 @@
 			}
 		});
 	</script>
-	<script src="js/app.min.js?_v=20230808002555"></script>
+	<script src="js/app.min.js?_v=20230810133630"></script>
 </body>
 
 </html>
