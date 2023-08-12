@@ -6819,6 +6819,8 @@ a.mm-navbar__title {
       -ms-flex: 0 0 4.0625rem;
           flex: 0 0 4.0625rem;
   cursor: move;
+  -ms-touch-action: none;
+      touch-action: none;
 }
 
 .product-addition-form__image {

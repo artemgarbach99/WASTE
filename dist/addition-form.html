@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230810133630">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230812233701">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -121,7 +121,7 @@
 								</div>
 								<div class="product-addition-form__items">
 									<span class="product-addition-form__header h5">Перетяните фото для изменения
-										порядка.</span>
+										порядка. Нажмите на фото для удаление.</span>
 									<div class="product-addition-form__line">
 										<button type="button" class="product-addition-form__button _icon-plus"></button>
 										<div class="product-addition-form__slider swiper-product-addition">
@@ -689,7 +689,6 @@
 			const dropzoneSource = document.querySelector(".source");
 			const dropzones = [...document.querySelectorAll(".dropzone")];
 			const draggables = [...document.querySelectorAll(".draggable")];
-
 			const dropDown = [...document.querySelectorAll(".description-product-addition__dropdown")];
 
 			function getDragAfterElement(container, y) {
@@ -709,6 +708,8 @@
 						} else {
 							return closest;
 						}
+
+
 					}, {
 						offset: Number.NEGATIVE_INFINITY
 					}
@@ -723,7 +724,6 @@
 						el.classList.remove("_show-dropdown");
 					});
 				});
-
 				draggable.addEventListener("dragend", (e) => {
 					draggable.classList.remove("is-dragging");
 				});
@@ -778,7 +778,7 @@
 			}
 		});
 	</script>
-	<script src="js/app.min.js?_v=20230810133630"></script>
+	<script src="js/app.min.js?_v=20230812233701"></script>
 </body>
 
 </html>
