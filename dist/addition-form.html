@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230812233701">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230816132109">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -628,6 +628,7 @@
 			//? кнопка "Сохранить описание"
 			let button = document.createElement('button')
 			button.setAttribute('class', 'description-product-addition__button')
+			button.setAttribute('type', 'button')
 			button.textContent = 'Сохранить описание';
 			//? textareaBody
 			let textareaBody = document.createElement('textarea')
@@ -647,6 +648,7 @@
 			lableDescription.id = `${idCard++}`;
 			dropDescription.id = +lableDescription.id
 			count.id = +lableDescription.id
+			button.id = +lableDescription.id
 
 			//? удаление карточки
 			closeBtn.onclick = function() {
@@ -659,6 +661,32 @@
 			const textArea = document.querySelectorAll('.description-product-addition__textarea')
 			const textCount = document.querySelectorAll('.description-product-addition__count')
 
+
+			// test
+
+			// textArea.forEach((el) => {
+			//     el.addEventListener('change', (e) => {
+			//         lableDescription.textContent = 'Изменить';
+			//         console.log('refresh');
+			//     });
+			// })
+
+			// button = document.querySelectorAll('.description-product-addition__button');
+
+			// button.forEach((el) => {
+			//     el.addEventListener('click', () => {
+			//         dropDown.forEach((el) => {
+			//             el.classList.remove("_show-dropdown");
+			//         });
+			//         // lableDescription.forEach((el) => {
+			//         //     // el.textContent = 'Изменить';
+			//         //     document.querySelector(".description-product-addition__button[id='" + getShowBody + "']").textContent = 'Изменить';
+			//         // });
+			//     });
+			// })
+			//========================================================================================================================================================
+
+
 			for (let i = 0; i < lableDescription.length; i++) {
 				lableDescription.forEach(function(element) {
 					element.addEventListener("click", function() {
@@ -668,18 +696,103 @@
 								dropDescription.forEach(function(element) {
 									element.classList.remove('_show-dropdown');
 								})
-								textCount.forEach(function(element) {
-									element.classList.remove('_show');
-									element.innerHTML = "";
-								})
+								// textCount.forEach(function (element) {
+								//     element.classList.remove('_show');
+								//     element.innerHTML = "";
+								// })
 							}
 							document.querySelector(".description-product-addition__dropdown[id='" + getShowBody + "']").classList.add("_show-dropdown");
 							document.querySelector(".description-product-addition__count[id='" + getShowBody + "']").classList.add("_show");
+
+							// document.querySelector(".description-product-addition__count[id='" + getShowBody + "']").innerHTML = "Осталось знаков: " + 50;
+							// textCount.innerHTML = "0";
+
+
 							textArea.forEach(function(element) {
 								element.addEventListener('keyup', function() {
-									document.querySelector(".description-product-addition__count[id='" + getShowBody + "']").innerHTML = "Осталось знаков: " + (50 - this.value.length);
+
+									// document.querySelector(".description-product-addition__count[id='" + getShowBody + "']").innerHTML = "Осталось знаков: " + (50 - this.value.length);
 								})
 							})
+
+
+							button = document.querySelectorAll('.description-product-addition__button');
+
+							button.forEach((el) => {
+								el.addEventListener('click', () => {
+									dropDown.forEach((el) => {
+										el.classList.remove("_show-dropdown");
+									});
+
+									// let id = document.getElementById('" + getShowBody + "');
+
+									// console.log(id);
+
+									// lableDescription.forEach((el) => {
+									//     let result = el + [id = '" + getShowBody + "'];
+
+									//     result.textContent = 'Изменить';
+
+									// el.textContent = 'Изменить';
+									// });
+
+
+									// lableDescription.forEach((el) => {
+									//     let result = el + getShowBody.id; // Concatenating the current element with the value of getShowBody
+									//     console.log(result);
+									//     el.textContent = 'Изменить'; // Setting the text content of the current element to 'Изменить'
+									// });
+
+									//                                 let myObject = {};
+									// myObject.id = "exampleID"; 
+
+									// lableDescription.forEach((el) => {
+									//     document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Изменить';
+									// });
+
+									// id = element.getElementById(getShowBody);
+									// id.textContent = 'Изменить';
+									// console.log(element);
+									// el.id = getShowBody;
+									// el.textContent = 'Изменить';
+									// el.textContent = "[id='" + getShowBody + "']".textContent + 'Изменить';
+
+									// lableDescription.forEach((el) => {
+									// lableDescription.textContent = 'Изменить';
+									// el + id='" + getShowBody + "'.textContent = 'Изменить';
+									// });
+
+
+									// lableDescription.forEach((el) => {
+									//     el = document.getElementById(getShowBody);
+									//     el.textContent = "Изменить";
+									// });
+
+									// let getShowBody = element.getAttribute("id");
+									// lableDescription.forEach((el) => {
+									//     document.querySelector(".description-product-addition__lable").[id = '" + getShowBody + "'].textContent = 'Изменить';
+									// });
+
+
+									// const labelElement = document.querySelectorAll('.description-product-addition__lable');
+									// const targetId = getShowBody; // assuming getShowBody has a value corresponding to the desired ID
+									// labelElement.forEach((el) => {
+									//     if (el) {
+									//         const targetElement = document.getElementById(targetId);
+
+									//         if (targetElement) {
+									//             el.textContent = 'Изменить';
+									//         }
+									//     }
+									// })
+
+
+
+									// work with bag
+									document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Изменить';
+								});
+							})
+							// document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Изменить';
 						}
 					})
 				});
@@ -778,7 +891,7 @@
 			}
 		});
 	</script>
-	<script src="js/app.min.js?_v=20230812233701"></script>
+	<script src="js/app.min.js?_v=20230816132109"></script>
 </body>
 
 </html>
