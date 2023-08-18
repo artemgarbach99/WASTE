@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230816140823">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230818130341">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -649,6 +649,7 @@
 			dropDescription.id = +lableDescription.id
 			count.id = +lableDescription.id
 			button.id = +lableDescription.id
+			textareaBody.id = +lableDescription.id
 
 			//? удаление карточки
 			closeBtn.onclick = function() {
@@ -707,8 +708,10 @@
 								element.addEventListener('keyup', function() {
 									document.querySelector(".description-product-addition__count[id='" + getShowBody + "']").innerHTML = "Осталось знаков: " + (50 - this.value.length);
 								})
+								element.addEventListener('click', function() {
+									element.focus();
+								})
 							})
-
 
 							button = document.querySelectorAll('.description-product-addition__button');
 
@@ -718,75 +721,15 @@
 										el.classList.remove("_show-dropdown");
 									});
 
-									// let id = document.getElementById('" + getShowBody + "');
-
-									// console.log(id);
-
-									// lableDescription.forEach((el) => {
-									//     let result = el + [id = '" + getShowBody + "'];
-
-									//     result.textContent = 'Изменить';
-
-									// el.textContent = 'Изменить';
-									// });
-
-
-									// lableDescription.forEach((el) => {
-									//     let result = el + getShowBody.id; // Concatenating the current element with the value of getShowBody
-									//     console.log(result);
-									//     el.textContent = 'Изменить'; // Setting the text content of the current element to 'Изменить'
-									// });
-
-									//                                 let myObject = {};
-									// myObject.id = "exampleID"; 
-
-									// lableDescription.forEach((el) => {
-									//     document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Изменить';
-									// });
-
-									// id = element.getElementById(getShowBody);
-									// id.textContent = 'Изменить';
-									// console.log(element);
-									// el.id = getShowBody;
-									// el.textContent = 'Изменить';
-									// el.textContent = "[id='" + getShowBody + "']".textContent + 'Изменить';
-
-									// lableDescription.forEach((el) => {
-									// lableDescription.textContent = 'Изменить';
-									// el + id='" + getShowBody + "'.textContent = 'Изменить';
-									// });
-
-
-									// lableDescription.forEach((el) => {
-									//     el = document.getElementById(getShowBody);
-									//     el.textContent = "Изменить";
-									// });
-
-									// let getShowBody = element.getAttribute("id");
-									// lableDescription.forEach((el) => {
-									//     document.querySelector(".description-product-addition__lable").[id = '" + getShowBody + "'].textContent = 'Изменить';
-									// });
-
-
-									// const labelElement = document.querySelectorAll('.description-product-addition__lable');
-									// const targetId = getShowBody; // assuming getShowBody has a value corresponding to the desired ID
-									// labelElement.forEach((el) => {
-									//     if (el) {
-									//         const targetElement = document.getElementById(targetId);
-
-									//         if (targetElement) {
-									//             el.textContent = 'Изменить';
-									//         }
-									//     }
-									// })
-
-
-
-									// work with bag
-									document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Изменить';
+									textArea.forEach(() => {
+										if (document.querySelector(".description-product-addition__textarea[id='" + getShowBody + "']").value == "") {
+											document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
+										} else {
+											document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Изменить';
+										}
+									})
 								});
 							})
-							// document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Изменить';
 						}
 					})
 				});
@@ -885,7 +828,7 @@
 			}
 		});
 	</script>
-	<script src="js/app.min.js?_v=20230816140823"></script>
+	<script src="js/app.min.js?_v=20230818130341"></script>
 </body>
 
 </html>
