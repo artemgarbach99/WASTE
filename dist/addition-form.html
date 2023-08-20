@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230818130341">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230820223723">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -592,20 +592,20 @@
 			panel1.setAttribute('class', 'product-addition-form__slide swiper-slide draggable')
 			panelGroup.appendChild(panel1);
 
-			let closeBtn = document.createElement('div')
-			closeBtn.setAttribute('class', 'product-addition-form__image')
-			panel1.appendChild(closeBtn)
+			let deleteItem = document.createElement('div')
+			deleteItem.setAttribute('class', 'product-addition-form__image')
+			panel1.appendChild(deleteItem)
 			panel1.appendChild(description)
 
 			// images
 			// let img = document.createElement('img')
-			// closeBtn.appendChild(img)
+			// deleteItem.appendChild(img)
 			// img.src = "img/addition-form/test01.jpg";
 
 
 			// image test
 			let img = document.createElement('img')
-			closeBtn.appendChild(img)
+			deleteItem.appendChild(img)
 			img.src = getImage();
 
 			function getImage() {
@@ -638,9 +638,14 @@
 			textareaBody.setAttribute('maxlength', '50')
 			textareaBody.setAttribute('rows', '3')
 
+			// closeButton
+			let closeButton = document.createElement('div')
+			closeButton.setAttribute('class', 'description-product-addition__close _icon-plus')
+
 			// let text = '<div id="id1"><span class="class1"> Текст1 </span> </div>';
 			dropDescription.appendChild(inner)
 			dropDescription.appendChild(button)
+			dropDescription.appendChild(closeButton)
 			inner.appendChild(textareaBody)
 			inner.appendChild(count)
 
@@ -650,70 +655,70 @@
 			count.id = +lableDescription.id
 			button.id = +lableDescription.id
 			textareaBody.id = +lableDescription.id
+			closeButton.id = +lableDescription.id
 
 			//? удаление карточки
-			closeBtn.onclick = function() {
+			deleteItem.onclick = function() {
 				panel1.parentNode.removeChild(panel1);
 			}
 
 			lableDescription = document.querySelectorAll('.description-product-addition__lable');
 			dropDescription = document.querySelectorAll('.description-product-addition__dropdown')
 
-			const textArea = document.querySelectorAll('.description-product-addition__textarea')
-			const textCount = document.querySelectorAll('.description-product-addition__count')
 
-
-			// test
-
-			// textArea.forEach((el) => {
-			//     el.addEventListener('change', (e) => {
-			//         lableDescription.textContent = 'Изменить';
-			//         console.log('refresh');
-			//     });
-			// })
-
-			// button = document.querySelectorAll('.description-product-addition__button');
-
-			// button.forEach((el) => {
-			//     el.addEventListener('click', () => {
-			//         dropDown.forEach((el) => {
-			//             el.classList.remove("_show-dropdown");
-			//         });
-			//         // lableDescription.forEach((el) => {
-			//         //     // el.textContent = 'Изменить';
-			//         //     document.querySelector(".description-product-addition__button[id='" + getShowBody + "']").textContent = 'Изменить';
-			//         // });
-			//     });
-			// })
-			//========================================================================================================================================================
+			// const textArea = document.querySelectorAll('.description-product-addition__textarea')
+			// const textCount = document.querySelectorAll('.description-product-addition__count')
 
 
 			for (let i = 0; i < lableDescription.length; i++) {
 				lableDescription.forEach(function(element) {
 					element.addEventListener("click", function() {
 						let getShowBody = element.getAttribute("id");
+
+						// let textArea = document.querySelectorAll(".description-product-addition__textarea[id='" + getShowBody + "']");
+						textareaBody = document.querySelectorAll(".description-product-addition__textarea[id='" + getShowBody + "']");
+						// let textCount = document.querySelectorAll(".description-product-addition__count[id='" + getShowBody + "']");
+						count = document.querySelectorAll(".description-product-addition__count[id='" + getShowBody + "']");
+
 						if (this.classList) {
 							for (let j = 0; j < lableDescription.length; j++) {
 								dropDescription.forEach(function(element) {
 									element.classList.remove('_show-dropdown');
 								})
-								textCount.forEach(function(element) {
+								count.forEach(function(element) {
 									element.classList.remove('_show');
 									element.innerHTML = "";
 								})
 							}
 							document.querySelector(".description-product-addition__dropdown[id='" + getShowBody + "']").classList.add("_show-dropdown");
-							document.querySelector(".description-product-addition__count[id='" + getShowBody + "']").classList.add("_show");
-							textArea.forEach(function(element) {
+							// document.querySelector(".description-product-addition__count[id='" + getShowBody + "']").classList.add("_show");
+							// textCount.classList.add("_show");
+							count.forEach(element => {
+								element.classList.add("_show");
+							});
+
+							textareaBody.forEach(function(element) {
 								element.addEventListener('keyup', function() {
-									document.querySelector(".description-product-addition__count[id='" + getShowBody + "']").innerHTML = "Осталось знаков: " + (50 - this.value.length);
+									// document.querySelector(".description-product-addition__count[id='" + getShowBody + "']").innerHTML = "Осталось знаков: " + (50 - this.value.length);
+									// textCount.innerHTML = "Осталось знаков: " + (50 - this.value.length);
+									count.forEach(element => {
+										element.innerHTML = "Осталось знаков: " + (50 - this.value.length);
+									});
 								})
 								element.addEventListener('click', function() {
 									element.focus();
 								})
+								// element.addEventListener("mousedown", function (event) {
+								//     return false
+								// });
+
+
+
+
 							})
 
-							button = document.querySelectorAll('.description-product-addition__button');
+							// button = document.querySelectorAll('.description-product-addition__button');
+							button = document.querySelectorAll(".description-product-addition__button[id='" + getShowBody + "']");
 
 							button.forEach((el) => {
 								el.addEventListener('click', () => {
@@ -721,15 +726,45 @@
 										el.classList.remove("_show-dropdown");
 									});
 
-									textArea.forEach(() => {
-										if (document.querySelector(".description-product-addition__textarea[id='" + getShowBody + "']").value == "") {
+									// textArea.forEach(() => {
+									//     if (document.querySelector(".description-product-addition__textarea[id='" + getShowBody + "']").value == "") {
+									//         document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
+									//     } else {
+									//         document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Изменить';
+									//     }
+									// })
+
+
+									textareaBody.forEach((el) => {
+										if (el.value == "") {
 											document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
 										} else {
 											document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Изменить';
 										}
 									})
+
 								});
 							})
+
+							closeButton = document.querySelectorAll(".description-product-addition__close[id='" + getShowBody + "']");
+
+							function closeDropDownBtn() {
+								dropDown.forEach((el) => {
+									el.classList.remove("_show-dropdown");
+								});
+								// textArea.forEach(() => {
+								//     document.querySelector(".description-product-addition__textarea[id='" + getShowBody + "']").value = "";
+								//     document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
+								// })
+
+								textareaBody.forEach((el) => {
+									el.value = "";
+									document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
+								})
+							}
+
+							closeButton.forEach(element => element.addEventListener('click', closeDropDownBtn))
+
 						}
 					})
 				});
@@ -769,13 +804,21 @@
 			draggables.forEach((draggable) => {
 				draggable.addEventListener("dragstart", (e) => {
 					draggable.classList.add("is-dragging");
-
-					dropDown.forEach((el) => {
-						el.classList.remove("_show-dropdown");
+					dropDown.forEach(element => {
+						element.classList.remove("_show-dropdown");
 					});
 				});
 				draggable.addEventListener("dragend", (e) => {
 					draggable.classList.remove("is-dragging");
+				});
+			});
+
+
+			// отключение выделение и работы drag
+			dropDown.forEach(element => {
+				element.addEventListener("mousedown", function(event) {
+					event.preventDefault();
+					event.stopPropagation();
 				});
 			});
 
@@ -828,7 +871,7 @@
 			}
 		});
 	</script>
-	<script src="js/app.min.js?_v=20230818130341"></script>
+	<script src="js/app.min.js?_v=20230820223723"></script>
 </body>
 
 </html>
