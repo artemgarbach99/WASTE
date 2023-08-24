@@ -6737,17 +6737,24 @@ a.mm-navbar__title {
 }
 
 .product-addition-form__lable {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
   font-weight: 500;
   color: #113921;
-  position: relative;
 }
 
 .product-addition-form__lable::before {
-  position: absolute;
-  top: 0.125rem;
-  right: -0.625rem;
   color: #E77373;
   font-size: 0.4375rem;
+  margin-top: -0.4375rem;
 }
 
 .product-addition-form__items {
@@ -9303,6 +9310,10 @@ input[type=number] {
 
   .product-addition-form__photo {
     width: 100%;
+  }
+
+  .product-addition-form__items {
+    padding: 0.625rem 0.625rem;
   }
 
   .quantity-addition-form {

@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230820223723">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230824120710">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -642,7 +642,6 @@
 			let closeButton = document.createElement('div')
 			closeButton.setAttribute('class', 'description-product-addition__close _icon-plus')
 
-			// let text = '<div id="id1"><span class="class1"> Текст1 </span> </div>';
 			dropDescription.appendChild(inner)
 			dropDescription.appendChild(button)
 			dropDescription.appendChild(closeButton)
@@ -675,9 +674,7 @@
 					element.addEventListener("click", function() {
 						let getShowBody = element.getAttribute("id");
 
-						// let textArea = document.querySelectorAll(".description-product-addition__textarea[id='" + getShowBody + "']");
 						textareaBody = document.querySelectorAll(".description-product-addition__textarea[id='" + getShowBody + "']");
-						// let textCount = document.querySelectorAll(".description-product-addition__count[id='" + getShowBody + "']");
 						count = document.querySelectorAll(".description-product-addition__count[id='" + getShowBody + "']");
 
 						if (this.classList) {
@@ -699,8 +696,6 @@
 
 							textareaBody.forEach(function(element) {
 								element.addEventListener('keyup', function() {
-									// document.querySelector(".description-product-addition__count[id='" + getShowBody + "']").innerHTML = "Осталось знаков: " + (50 - this.value.length);
-									// textCount.innerHTML = "Осталось знаков: " + (50 - this.value.length);
 									count.forEach(element => {
 										element.innerHTML = "Осталось знаков: " + (50 - this.value.length);
 									});
@@ -708,16 +703,11 @@
 								element.addEventListener('click', function() {
 									element.focus();
 								})
-								// element.addEventListener("mousedown", function (event) {
-								//     return false
-								// });
-
-
-
-
+								element.addEventListener('mousedown', function() {
+									element.select();
+								})
 							})
 
-							// button = document.querySelectorAll('.description-product-addition__button');
 							button = document.querySelectorAll(".description-product-addition__button[id='" + getShowBody + "']");
 
 							button.forEach((el) => {
@@ -725,16 +715,6 @@
 									dropDown.forEach((el) => {
 										el.classList.remove("_show-dropdown");
 									});
-
-									// textArea.forEach(() => {
-									//     if (document.querySelector(".description-product-addition__textarea[id='" + getShowBody + "']").value == "") {
-									//         document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
-									//     } else {
-									//         document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Изменить';
-									//     }
-									// })
-
-
 									textareaBody.forEach((el) => {
 										if (el.value == "") {
 											document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
@@ -818,8 +798,7 @@
 			dropDown.forEach(element => {
 				element.addEventListener("mousedown", function(event) {
 					event.preventDefault();
-					event.stopPropagation();
-				});
+				})
 			});
 
 			dropzones.forEach((zone) => {
@@ -871,7 +850,7 @@
 			}
 		});
 	</script>
-	<script src="js/app.min.js?_v=20230820223723"></script>
+	<script src="js/app.min.js?_v=20230824120710"></script>
 </body>
 
 </html>
