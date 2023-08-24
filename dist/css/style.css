@@ -6807,6 +6807,10 @@ a.mm-navbar__title {
   font-size: 1.6875rem;
 }
 
+.product-addition-form__button._disable {
+  background-color: #8D8D8D;
+}
+
 .product-addition-form__slider {
   position: relative;
   min-width: 0px;
