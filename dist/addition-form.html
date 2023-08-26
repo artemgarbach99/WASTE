@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230824153655">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230826125830">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -673,9 +673,7 @@
 				lableDescription = document.querySelectorAll('.description-product-addition__lable');
 				dropDescription = document.querySelectorAll('.description-product-addition__dropdown')
 
-
-				// const textArea = document.querySelectorAll('.description-product-addition__textarea')
-				// const textCount = document.querySelectorAll('.description-product-addition__count')
+				panel1 = document.querySelectorAll('.product-addition-form__slide')
 
 
 				for (let i = 0; i < lableDescription.length; i++) {
@@ -697,6 +695,13 @@
 									})
 								}
 								document.querySelector(".description-product-addition__dropdown[id='" + getShowBody + "']").classList.add("_show-dropdown");
+
+
+								handleMouseDown()
+								// panel1.setAttribute('draggable', 'false');
+
+
+
 								// document.querySelector(".description-product-addition__count[id='" + getShowBody + "']").classList.add("_show");
 								// textCount.classList.add("_show");
 								count.forEach(element => {
@@ -712,9 +717,14 @@
 									element.addEventListener('click', function() {
 										element.focus();
 									})
-									element.addEventListener('mousedown', function() {
-										element.select();
-									})
+									// element.addEventListener('mousedown', function () {
+									//     element.change();
+									// })
+									// dropDescription.forEach(element => {
+									//     element.removeEventListener('mousedown', handleMouseDown);
+									// });
+
+
 								})
 
 								button = document.querySelectorAll(".description-product-addition__button[id='" + getShowBody + "']");
@@ -723,6 +733,10 @@
 									el.addEventListener('click', () => {
 										dropDescription.forEach((el) => {
 											el.classList.remove("_show-dropdown");
+											// panel1.setAttribute('draggable', 'true');
+											panel1.forEach(element => {
+												element.setAttribute('draggable', 'true');
+											});
 										});
 										textareaBody.forEach((el) => {
 											if (el.value == "") {
@@ -740,6 +754,11 @@
 								function closeDropDownBtn() {
 									dropDescription.forEach((el) => {
 										el.classList.remove("_show-dropdown");
+										// panel1.setAttribute('draggable', 'true');
+										panel1.forEach(element => {
+											element.setAttribute('draggable', 'true');
+										});
+
 									});
 									// textArea.forEach(() => {
 									//     document.querySelector(".description-product-addition__textarea[id='" + getShowBody + "']").value = "";
@@ -760,6 +779,14 @@
 				}
 
 				DragAndDrop();
+
+				function handleMouseDown() {
+					// panel1.setAttribute('draggable', 'false');
+					panel1.forEach(element => {
+						element.setAttribute('draggable', 'false');
+					});
+				}
+
 				itemCount++;
 			}
 			if (itemCount === 6) {
@@ -802,9 +829,9 @@
 			draggables.forEach((draggable) => {
 				draggable.addEventListener("dragstart", (e) => {
 					draggable.classList.add("is-dragging");
-					dropDown.forEach(element => {
-						element.classList.remove("_show-dropdown");
-					});
+					// dropDown.forEach(element => {
+					//     element.classList.remove("_show-dropdown");
+					// });
 				});
 				draggable.addEventListener("dragend", (e) => {
 					draggable.classList.remove("is-dragging");
@@ -812,11 +839,11 @@
 			});
 
 			// отключение выделение и работы drag
-			dropDown.forEach(element => {
-				element.addEventListener("mousedown", function(event) {
-					event.preventDefault();
-				})
-			});
+			// dropDown.forEach(element => {
+			//     element.addEventListener("mousedown", function (event) {
+			//         event.preventDefault();
+			//     })
+			// });
 
 			dropzones.forEach((zone) => {
 				zone.addEventListener("dragover", (e) => {
@@ -867,7 +894,7 @@
 			}
 		});
 	</script>
-	<script src="js/app.min.js?_v=20230824153655"></script>
+	<script src="js/app.min.js?_v=20230826125830"></script>
 </body>
 
 </html>
