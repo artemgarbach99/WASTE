@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230826125830">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230826140132">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -673,7 +673,7 @@
 				lableDescription = document.querySelectorAll('.description-product-addition__lable');
 				dropDescription = document.querySelectorAll('.description-product-addition__dropdown')
 
-				panel1 = document.querySelectorAll('.product-addition-form__slide')
+				let Slide = document.querySelectorAll('.product-addition-form__slide')
 
 
 				for (let i = 0; i < lableDescription.length; i++) {
@@ -734,7 +734,7 @@
 										dropDescription.forEach((el) => {
 											el.classList.remove("_show-dropdown");
 											// panel1.setAttribute('draggable', 'true');
-											panel1.forEach(element => {
+											Slide.forEach(element => {
 												element.setAttribute('draggable', 'true');
 											});
 										});
@@ -755,7 +755,7 @@
 									dropDescription.forEach((el) => {
 										el.classList.remove("_show-dropdown");
 										// panel1.setAttribute('draggable', 'true');
-										panel1.forEach(element => {
+										Slide.forEach(element => {
 											element.setAttribute('draggable', 'true');
 										});
 
@@ -782,7 +782,7 @@
 
 				function handleMouseDown() {
 					// panel1.setAttribute('draggable', 'false');
-					panel1.forEach(element => {
+					Slide.forEach(element => {
 						element.setAttribute('draggable', 'false');
 					});
 				}
@@ -894,7 +894,7 @@
 			}
 		});
 	</script>
-	<script src="js/app.min.js?_v=20230826125830"></script>
+	<script src="js/app.min.js?_v=20230826140132"></script>
 </body>
 
 </html>
