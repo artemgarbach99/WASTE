@@ -6831,6 +6831,18 @@ a.mm-navbar__title {
           flex: 0 0 4.0625rem;
   cursor: move;
   background-color: #FFFFFF;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+}
+
+.product-addition-form__slide.visible {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+  -webkit-transition: all 0.3s ease 0.4s;
+  -o-transition: all 0.3s ease 0.4s;
+  transition: all 0.3s ease 0.4s;
 }
 
 .product-addition-form__image {
