@@ -3980,7 +3980,7 @@
                 modules: [ Navigation ],
                 observer: true,
                 observeParents: true,
-                slidesPerView: "auto",
+                slidesPerView: 5,
                 spaceBetween: 10,
                 autoHeight: false,
                 speed: 800,
@@ -3991,10 +3991,15 @@
                 },
                 breakpoints: {
                     320: {
-                        slidesPerView: "auto",
-                        spaceBetween: 15
+                        slidesPerView: 2
                     },
-                    768: {
+                    370: {
+                        slidesPerView: 3
+                    },
+                    450: {
+                        slidesPerView: 4
+                    },
+                    550: {
                         slidesPerView: 5,
                         spaceBetween: 10
                     }
