@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230829131542">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230831133707">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -123,7 +123,8 @@
 									<span class="product-addition-form__header h5">Перетяните фото для изменения
 										порядка. Нажмите на фото для удаление.</span>
 									<div class="product-addition-form__line">
-										<button type="button" class="product-addition-form__button _icon-plus"></button>
+										<input type="file" class="product-addition-form__button _icon-plus">
+										<!-- <button type="button" class="product-addition-form__button _icon-plus"></button> -->
 										<div class="product-addition-form__slider swiper-product-addition">
 											<div data-limit="7" class="product-addition-form__wrapper swiper-wrapper dropzone source">
 												<!-- <div draggable="true"
@@ -571,6 +572,7 @@
 	</script>
 	<script>
 		const button1 = document.querySelector('.product-addition-form__button');
+
 		const panelGroup = document.querySelector('.product-addition-form__wrapper')
 
 		let idCard = 1;
@@ -603,21 +605,46 @@
 				panel1.appendChild(deleteItem)
 				panel1.appendChild(description)
 
-				// images
+
 				// let img = document.createElement('img')
 				// deleteItem.appendChild(img)
-				// img.src = "img/addition-form/test01.jpg";
+				// img.src = getImage();
 
+				// function getImage() {
+				//     const random = Math.floor(Math.random() * 4);
+				//     return 'img/addition-form/test0' + random + '.jpg';
+				// }
+				//========================================================================================================================================================
 
-				// image test
 				let img = document.createElement('img')
+				img.setAttribute('class', 'description-product-addition__image-source')
 				deleteItem.appendChild(img)
-				img.src = getImage();
 
-				function getImage() {
-					const random = Math.floor(Math.random() * 4);
-					return 'img/addition-form/test0' + random + '.jpg';
-				}
+				// Обработчик события изменения значения input
+				button1.addEventListener('change', function() {
+					// Проверяем, есть ли выбран файл
+					if (button1.files && button1.files[0]) {
+						const file = button1.files[0];
+						// Создаем объект FileReader
+						const reader = new FileReader();
+						// Задаем функцию, которая будет вызвана после чтения файла
+						reader.onload = function(e) {
+							// Получаем URL картинки
+							const url = e.target.result;
+							// Вставляем URL в атрибут src изображения
+							img.src = url;
+
+							deleteItem = document.querySelectorAll('.product-addition-form__image');
+
+							deleteItem.forEach(element => {
+								let getIdImage = element.getAttribute("id");
+								img = document.querySelectorAll(".description-product-addition__image-source[id='" + getIdImage + "']");
+							});
+						};
+						// Читаем файл как URL
+						reader.readAsDataURL(file);
+					}
+				});
 
 				description.setAttribute('class', 'product-addition-form__description description-product-addition')
 				lableDescription.setAttribute('class', 'description-product-addition__lable')
@@ -661,6 +688,8 @@
 				button.id = +lableDescription.id
 				textareaBody.id = +lableDescription.id
 				closeButton.id = +lableDescription.id
+				deleteItem.id = +lableDescription.id
+				img.id = +lableDescription.id
 
 				//? удаление карточки
 				deleteItem.onclick = function() {
@@ -961,7 +990,7 @@
 			}
 		});
 	</script>
-	<script src="js/app.min.js?_v=20230829131542"></script>
+	<script src="js/app.min.js?_v=20230831133707"></script>
 </body>
 
 </html>
