@@ -6785,6 +6785,10 @@ a.mm-navbar__title {
   position: relative;
 }
 
+.product-addition-form__input-file {
+  display: none;
+}
+
 .product-addition-form__button {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6802,9 +6806,11 @@ a.mm-navbar__title {
   background-color: #22B14C;
   border-radius: 5px;
   cursor: pointer;
-  z-index: 3;
-  font-size: 0px;
-  content-visibility: hidden;
+}
+
+.product-addition-form__button::before {
+  color: #FFFFFF;
+  font-size: 1.6875rem;
 }
 
 .product-addition-form__button._disable {
