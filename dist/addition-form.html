@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230831214601">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230905212539">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -123,12 +123,12 @@
 									<span class="product-addition-form__header h5">Перетяните фото для изменения
 										порядка. Нажмите на фото для удаление.</span>
 									<div class="product-addition-form__line">
-										<!-- <input type="file" class="product-addition-form__button _icon-plus"> -->
 
 										<input type="file" id="openFile" class="product-addition-form__input-file" />
 										<label for="openFile" class="product-addition-form__button _icon-plus"></label>
 
 										<!-- <button type="button" class="product-addition-form__button _icon-plus"></button> -->
+
 										<div class="product-addition-form__slider swiper-product-addition">
 											<div data-limit="7" class="product-addition-form__wrapper swiper-wrapper dropzone source">
 												<!-- <div draggable="true"
@@ -576,246 +576,181 @@
 	</script>
 	<script>
 		const button1 = document.querySelector('.product-addition-form__button');
-
-		const panelGroup = document.querySelector('.product-addition-form__wrapper')
-
-		let idCard = 1;
-
-		button1.addEventListener("click", addElement);
-
-		let itemCount = 0;
-
+		const panelGroup = document.querySelector('.product-addition-form__wrapper');
 		const limit = document.querySelector('.product-addition-form__wrapper');
 		const itemsLimit = parseInt(limit.getAttribute('data-limit'));
+		let idCard = 1;
+		let itemCount = 0;
 
-		// addElement
+		const input = document.querySelector('.product-addition-form__input-file');
+		input.addEventListener('change', handleInputChange);
+
+		function handleInputChange() {
+			if (input.files && input.files[0]) {
+				const file = input.files[0];
+				const reader = new FileReader();
+				reader.onload = handleFileLoad;
+				reader.readAsDataURL(file);
+				console.log('Файл выбран');
+				addElement();
+			} else {
+				console.log('Файл не выбран');
+				return null;
+			}
+		}
+
+		function handleFileLoad(e) {
+			const url = e.target.result;
+			let id;
+			const deleteItems = document.querySelectorAll('.product-addition-form__image');
+			deleteItems.forEach(element => {
+				id = element.getAttribute("id");
+			});
+			const img = document.querySelector(".description-product-addition__image-source[id='" + id + "']");
+			img.src = url;
+		}
+
 		function addElement() {
 			if (itemCount < itemsLimit) {
-				let description = document.createElement('div')
-				let lableDescription = document.createElement('div')
-				let dropDescription = document.createElement('div')
+				const description = document.createElement('div');
+				const lableDescription = document.createElement('div');
+				const dropDescription = document.createElement('div');
+				const count = document.createElement('span');
+				const panel1 = document.createElement('div');
+				const deleteItem = document.createElement('div');
+				const img = document.createElement('img');
+				const button = document.createElement('button');
+				const textareaBody = document.createElement('textarea');
+				const closeButton = document.createElement('div');
+				const inner = document.createElement('div');
 
-				//? количество
-				let count = document.createElement('span')
-				count.setAttribute('class', 'description-product-addition__count')
-
-				let panel1 = document.createElement('div');
-				panel1.setAttribute('draggable', 'true');
-				panel1.setAttribute('class', 'product-addition-form__slide swiper-slide draggable')
-				panelGroup.appendChild(panel1);
-
-				let deleteItem = document.createElement('div')
 				deleteItem.setAttribute('class', 'product-addition-form__image')
-				panel1.appendChild(deleteItem)
-				panel1.appendChild(description)
-
-
-				// let img = document.createElement('img')
-				// deleteItem.appendChild(img)
-				// img.src = getImage();
-
-				// function getImage() {
-				//     const random = Math.floor(Math.random() * 4);
-				//     return 'img/addition-form/test0' + random + '.jpg';
-				// }
-				//========================================================================================================================================================
-
-				let img = document.createElement('img')
 				img.setAttribute('class', 'description-product-addition__image-source')
-				deleteItem.appendChild(img)
-
-				const input = document.querySelector('.product-addition-form__input-file');
-
-				// Обработчик события изменения значения input
-				input.addEventListener('change', function() {
-					// Проверяем, есть ли выбран файл
-					if (input.files && input.files[0]) {
-						const file = input.files[0];
-						// Создаем объект FileReader
-						const reader = new FileReader();
-						// Задаем функцию, которая будет вызвана после чтения файла
-						reader.onload = function(e) {
-							// Получаем URL картинки
-							const url = e.target.result;
-							// Вставляем URL в атрибут src изображения
-							img.src = url;
-
-							deleteItem = document.querySelectorAll('.product-addition-form__image');
-
-							deleteItem.forEach(element => {
-								let getIdImage = element.getAttribute("id");
-								img = document.querySelectorAll(".description-product-addition__image-source[id='" + getIdImage + "']");
-							});
-						};
-						// Читаем файл как URL
-						reader.readAsDataURL(file);
-					}
-				});
-
-				description.setAttribute('class', 'product-addition-form__description description-product-addition')
-				lableDescription.setAttribute('class', 'description-product-addition__lable')
-				dropDescription.setAttribute('class', 'description-product-addition__dropdown')
+				count.setAttribute('class', 'description-product-addition__count');
+				panel1.setAttribute('draggable', 'true');
+				panel1.setAttribute('class', 'product-addition-form__slide swiper-slide draggable');
+				panelGroup.appendChild(panel1);
+				panel1.appendChild(deleteItem);
+				panel1.appendChild(description);
+				deleteItem.appendChild(img);
+				description.setAttribute('class', 'product-addition-form__description description-product-addition');
+				lableDescription.setAttribute('class', 'description-product-addition__lable');
+				dropDescription.setAttribute('class', 'description-product-addition__dropdown');
 				lableDescription.textContent = 'Описание';
-				description.appendChild(lableDescription)
-				description.appendChild(dropDescription)
-
-				//? inner
-				let inner = document.createElement('div')
-				inner.setAttribute('class', 'description-product-addition__inner')
-
-
-				//? кнопка "Сохранить описание"
-				let button = document.createElement('button')
-				button.setAttribute('class', 'description-product-addition__button')
-				button.setAttribute('type', 'button')
+				description.appendChild(lableDescription);
+				description.appendChild(dropDescription);
+				inner.setAttribute('class', 'description-product-addition__inner');
+				button.setAttribute('class', 'description-product-addition__button');
+				button.setAttribute('type', 'button');
 				button.textContent = 'Сохранить описание';
-				//? textareaBody
-				let textareaBody = document.createElement('textarea')
-				textareaBody.setAttribute('class', 'description-product-addition__textarea required')
-				textareaBody.setAttribute('id', 'desinp')
-				textareaBody.setAttribute('name', 'desinp')
-				textareaBody.setAttribute('maxlength', '50')
-				textareaBody.setAttribute('rows', '3')
+				textareaBody.setAttribute('class', 'description-product-addition__textarea required');
+				textareaBody.setAttribute('id', 'desinp');
+				textareaBody.setAttribute('name', 'desinp');
+				textareaBody.setAttribute('maxlength', '50');
+				textareaBody.setAttribute('rows', '3');
+				closeButton.setAttribute('class', 'description-product-addition__close _icon-plus');
+				dropDescription.appendChild(inner);
+				dropDescription.appendChild(button);
+				dropDescription.appendChild(closeButton);
+				inner.appendChild(textareaBody);
+				inner.appendChild(count);
 
-				// closeButton
-				let closeButton = document.createElement('div')
-				closeButton.setAttribute('class', 'description-product-addition__close _icon-plus')
+				const currentId = idCard++;
 
-				dropDescription.appendChild(inner)
-				dropDescription.appendChild(button)
-				dropDescription.appendChild(closeButton)
-				inner.appendChild(textareaBody)
-				inner.appendChild(count)
+				lableDescription.id = currentId;
+				dropDescription.id = currentId;
+				count.id = currentId;
+				button.id = currentId;
+				textareaBody.id = currentId;
+				closeButton.id = currentId;
+				deleteItem.id = currentId;
+				img.id = currentId;
 
-				//? добавление id к заголовку / вып. меню / количеству "Описание"
-				lableDescription.id = `${idCard++}`;
-				dropDescription.id = +lableDescription.id
-				count.id = +lableDescription.id
-				button.id = +lableDescription.id
-				textareaBody.id = +lableDescription.id
-				closeButton.id = +lableDescription.id
-				deleteItem.id = +lableDescription.id
-				img.id = +lableDescription.id
+				deleteItem.addEventListener('click', deleteSlide);
 
-				//? удаление карточки
-				deleteItem.onclick = function() {
-					panel1.parentNode.removeChild(panel1);
+				const lableDescriptions = document.querySelectorAll('.description-product-addition__lable');
+				const dropDescriptions = document.querySelectorAll('.description-product-addition__dropdown');
+				const slides = document.querySelectorAll('.product-addition-form__slide');
+
+				for (let i = 0; i < lableDescriptions.length; i++) {
+					lableDescriptions[i].addEventListener("click", function() {
+						const getShowBody = this.getAttribute("id");
+						const textareaBodies = document.querySelectorAll(".description-product-addition__textarea[id='" + getShowBody + "']");
+						const counts = document.querySelectorAll(".description-product-addition__count[id='" + getShowBody + "']");
+
+						dropDescriptions.forEach(element => {
+							element.classList.remove('_show-dropdown');
+						});
+						counts.forEach(element => {
+							element.classList.remove('_show');
+							element.innerHTML = "";
+						});
+
+						document.querySelector(".description-product-addition__dropdown[id='" + getShowBody + "']").classList.add("_show-dropdown");
+						handleMouseDown();
+						counts.forEach(element => {
+							element.classList.add("_show");
+						});
+						textareaBodies.forEach(function(element) {
+							element.addEventListener('keyup', function() {
+								counts.forEach(element => {
+									element.innerHTML = "Осталось знаков: " + (50 - this.value.length);
+								});
+							});
+							element.addEventListener('click', function() {
+								element.focus();
+							});
+						});
+
+						const button = document.querySelectorAll(".description-product-addition__button[id='" + getShowBody + "']");
+
+						button.forEach(element => {
+							element.addEventListener('click', function() {
+								dropDescriptions.forEach(element => {
+									element.classList.remove("_show-dropdown");
+									slides.forEach(element => {
+										element.setAttribute('draggable', 'true');
+									});
+								});
+								textareaBodies.forEach(element => {
+									if (element.value == "") {
+										document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
+									} else {
+										document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Изменить';
+									}
+								});
+							});
+						});
+
+						const closeButton = document.querySelectorAll(".description-product-addition__close[id='" + getShowBody + "']");
+
+						closeButton.forEach(element => {
+							element.addEventListener('click', function() {
+								dropDescriptions.forEach(element => {
+									element.classList.remove("_show-dropdown");
+									slides.forEach(element => {
+										element.setAttribute('draggable', 'true');
+									});
+								});
+								textareaBodies.forEach(element => {
+									element.value = "";
+									document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
+								});
+							});
+						});
+
+					});
+				}
+
+				function deleteSlide() {
+					panel1.remove();
 					itemCount--;
 					button1.classList.remove("_disable");
 					overflowSlider();
 				}
 
-				lableDescription = document.querySelectorAll('.description-product-addition__lable');
-				dropDescription = document.querySelectorAll('.description-product-addition__dropdown')
-
-				let Slide = document.querySelectorAll('.product-addition-form__slide')
-
-
-				for (let i = 0; i < lableDescription.length; i++) {
-					lableDescription.forEach(function(element) {
-						element.addEventListener("click", function() {
-							let getShowBody = element.getAttribute("id");
-
-							textareaBody = document.querySelectorAll(".description-product-addition__textarea[id='" + getShowBody + "']");
-							count = document.querySelectorAll(".description-product-addition__count[id='" + getShowBody + "']");
-
-							if (this.classList) {
-								for (let j = 0; j < lableDescription.length; j++) {
-									dropDescription.forEach(function(element) {
-										element.classList.remove('_show-dropdown');
-									})
-									count.forEach(function(element) {
-										element.classList.remove('_show');
-										element.innerHTML = "";
-									})
-								}
-								document.querySelector(".description-product-addition__dropdown[id='" + getShowBody + "']").classList.add("_show-dropdown");
-
-
-								handleMouseDown()
-								// panel1.setAttribute('draggable', 'false');
-
-
-
-								// document.querySelector(".description-product-addition__count[id='" + getShowBody + "']").classList.add("_show");
-								// textCount.classList.add("_show");
-								count.forEach(element => {
-									element.classList.add("_show");
-								});
-
-								textareaBody.forEach(function(element) {
-									element.addEventListener('keyup', function() {
-										count.forEach(element => {
-											element.innerHTML = "Осталось знаков: " + (50 - this.value.length);
-										});
-									})
-									element.addEventListener('click', function() {
-										element.focus();
-									})
-									// element.addEventListener('mousedown', function () {
-									//     element.change();
-									// })
-									// dropDescription.forEach(element => {
-									//     element.removeEventListener('mousedown', handleMouseDown);
-									// });
-
-
-								})
-
-								button = document.querySelectorAll(".description-product-addition__button[id='" + getShowBody + "']");
-
-								button.forEach((el) => {
-									el.addEventListener('click', () => {
-										dropDescription.forEach((el) => {
-											el.classList.remove("_show-dropdown");
-											// panel1.setAttribute('draggable', 'true');
-											Slide.forEach(element => {
-												element.setAttribute('draggable', 'true');
-											});
-										});
-										textareaBody.forEach((el) => {
-											if (el.value == "") {
-												document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
-											} else {
-												document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Изменить';
-											}
-										})
-
-									});
-								})
-
-								closeButton = document.querySelectorAll(".description-product-addition__close[id='" + getShowBody + "']");
-
-								function closeDropDownBtn() {
-									dropDescription.forEach((el) => {
-										el.classList.remove("_show-dropdown");
-										// panel1.setAttribute('draggable', 'true');
-										Slide.forEach(element => {
-											element.setAttribute('draggable', 'true');
-										});
-
-									});
-									// textArea.forEach(() => {
-									//     document.querySelector(".description-product-addition__textarea[id='" + getShowBody + "']").value = "";
-									//     document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
-									// })
-
-									textareaBody.forEach((el) => {
-										el.value = "";
-										document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
-									})
-								}
-
-								closeButton.forEach(element => element.addEventListener('click', closeDropDownBtn))
-
-							}
-						})
-					});
-				}
-
-
 				function handleMouseDown() {
-					Slide.forEach(element => {
+					slides.forEach(element => {
 						element.setAttribute('draggable', 'false');
 					});
 				}
@@ -899,10 +834,8 @@
 			const slides = document.querySelectorAll('.product-addition-form__slide');
 			const prevButton = document.querySelector('.product-addition-form__button-prev');
 			const nextButton = document.querySelector('.product-addition-form__button-next');
-			// const visibleSlidesCount = 5;
-
-
 			let visibleSlidesCount = 5;
+			let currentSlideIndex = 0;
 
 			function checkResolution() {
 				if (window.innerWidth <= 550) {
@@ -917,16 +850,11 @@
 			}
 
 			checkResolution();
-
 			window.addEventListener('resize', checkResolution);
-
-
-
-			let currentSlideIndex = 0;
 
 			function updateVisibleSlides() {
 				slides.forEach((slide, index) => {
-					if (index >= currentSlideIndex && index < currentSlideIndex + visibleSlidesCount) {
+					if (index >= currentSlideIndex && index < currentSlideIndex + visibleSlidesCount && index >= 0) {
 						slide.classList.add('visible');
 					} else {
 						slide.classList.remove('visible');
@@ -997,7 +925,7 @@
 			}
 		});
 	</script>
-	<script src="js/app.min.js?_v=20230831214601"></script>
+	<script src="js/app.min.js?_v=20230905212539"></script>
 </body>
 
 </html>

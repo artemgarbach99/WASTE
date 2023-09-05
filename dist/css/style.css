@@ -6806,6 +6806,8 @@ a.mm-navbar__title {
   background-color: #22B14C;
   border-radius: 5px;
   cursor: pointer;
+  position: relative;
+  z-index: 3;
 }
 
 .product-addition-form__button::before {
@@ -6905,6 +6907,7 @@ a.mm-navbar__title {
   top: 50%;
   left: -2.1875rem;
   margin-top: -0.9375rem;
+  z-index: 4;
 }
 
 .product-addition-form__button-prev::before {
@@ -6929,6 +6932,7 @@ a.mm-navbar__title {
   top: 50%;
   right: -2.1875rem;
   margin-top: -0.9375rem;
+  z-index: 4;
 }
 
 .product-addition-form__button-next::before {
