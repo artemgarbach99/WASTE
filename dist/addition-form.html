@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230915160136">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230919223840">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -316,7 +316,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20230915160136"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20230919223840"></script>
 	<script>
 		const DropItem = document.getElementById('drop-items');
 		new Sortable(DropItem, {
@@ -521,7 +521,7 @@
 				img.setAttribute('class', 'description-product-addition__image-source')
 				count.setAttribute('class', 'description-product-addition__count');
 				// panel1.setAttribute('draggable', 'true');
-				panel1.setAttribute('class', 'product-addition-form__slide swiper-slide draggable');
+				panel1.setAttribute('class', 'product-addition-form__slide');
 				panelGroup.appendChild(panel1);
 				panel1.appendChild(deleteItem);
 				panel1.appendChild(description);
@@ -560,80 +560,25 @@
 				img.id = currentId;
 				panel1.id = currentId;
 
+
+
+
+
 				deleteItem.addEventListener('click', deleteSlide);
+
+				// if (document.documentElement.classList.contains('touch')) {
+				//     deleteItem.addEventListener('touchstart', deleteSlide);
+				//     console.log('touchstart');
+				// } else {
+				//     deleteItem.addEventListener('click', deleteSlide);
+				//     console.log('click');
+				// }
 
 				const lableDescriptions = document.querySelectorAll('.description-product-addition__lable');
 				const dropDescriptions = document.querySelectorAll('.description-product-addition__dropdown');
 				const slides = document.querySelectorAll('.product-addition-form__slide');
 
 				for (let i = 0; i < lableDescriptions.length; i++) {
-					// lableDescriptions[i].addEventListener("click", function () {
-					//     const getShowBody = this.getAttribute("id");
-					//     const textareaBodies = document.querySelectorAll(".description-product-addition__textarea[id='" + getShowBody + "']");
-					//     const counts = document.querySelectorAll(".description-product-addition__count[id='" + getShowBody + "']");
-
-					//     dropDescriptions.forEach(element => {
-					//         element.classList.remove('_show-dropdown');
-					//     });
-					//     counts.forEach(element => {
-					//         element.classList.remove('_show');
-					//         element.innerHTML = "";
-					//     });
-
-					//     document.querySelector(".description-product-addition__dropdown[id='" + getShowBody + "']").classList.add("_show-dropdown");
-					//     // handleMouseDown();
-					//     counts.forEach(element => {
-					//         element.classList.add("_show");
-					//     });
-					//     textareaBodies.forEach(function (element) {
-					//         element.addEventListener('keyup', function () {
-					//             counts.forEach(element => {
-					//                 element.innerHTML = "Осталось знаков: " + (50 - this.value.length);
-					//             });
-					//         });
-					//         element.addEventListener('click', function () {
-					//             element.focus();
-					//         });
-					//     });
-
-					//     const button = document.querySelectorAll(".description-product-addition__button[id='" + getShowBody + "']");
-
-					//     button.forEach(element => {
-					//         element.addEventListener('click', function () {
-					//             dropDescriptions.forEach(element => {
-					//                 element.classList.remove("_show-dropdown");
-					//                 // slides.forEach(element => {
-					//                 //     element.setAttribute('draggable', 'true');
-					//                 // });
-					//             });
-					//             textareaBodies.forEach(element => {
-					//                 if (element.value == "") {
-					//                     document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
-					//                 } else {
-					//                     document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Изменить';
-					//                 }
-					//             });
-					//         });
-					//     });
-
-					//     const closeButton = document.querySelectorAll(".description-product-addition__close[id='" + getShowBody + "']");
-
-					//     closeButton.forEach(element => {
-					//         element.addEventListener('click', function () {
-					//             dropDescriptions.forEach(element => {
-					//                 element.classList.remove("_show-dropdown");
-					//                 // slides.forEach(element => {
-					//                 //     element.setAttribute('draggable', 'true');
-					//                 // });
-					//             });
-					//             textareaBodies.forEach(element => {
-					//                 element.value = "";
-					//                 document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
-					//             });
-					//         });
-					//     });
-					// });
-
 					lableDescriptions[i].addEventListener("click", openDropMenu)
 					lableDescriptions[i].addEventListener("touchstart", openDropMenu)
 				}
@@ -688,21 +633,21 @@
 								}
 							});
 						});
-						element.addEventListener('touchstart', function() {
-							dropDescriptions.forEach(element => {
-								element.classList.remove("_show-dropdown");
-								// slides.forEach(element => {
-								//     element.setAttribute('draggable', 'true');
-								// });
-							});
-							textareaBodies.forEach(element => {
-								if (element.value == "") {
-									document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
-								} else {
-									document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Изменить';
-								}
-							});
-						});
+						// element.addEventListener('touchstart', function () {
+						//     dropDescriptions.forEach(element => {
+						//         element.classList.remove("_show-dropdown");
+						//         // slides.forEach(element => {
+						//         //     element.setAttribute('draggable', 'true');
+						//         // });
+						//     });
+						//     textareaBodies.forEach(element => {
+						//         if (element.value == "") {
+						//             document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
+						//         } else {
+						//             document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Изменить';
+						//         }
+						//     });
+						// });
 					});
 
 					const closeButton = document.querySelectorAll(".description-product-addition__close[id='" + getShowBody + "']");
@@ -720,18 +665,18 @@
 								document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
 							});
 						});
-						element.addEventListener('touchstart', function() {
-							dropDescriptions.forEach(element => {
-								element.classList.remove("_show-dropdown");
-								// slides.forEach(element => {
-								//     element.setAttribute('draggable', 'true');
-								// });
-							});
-							textareaBodies.forEach(element => {
-								element.value = "";
-								document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
-							});
-						});
+						// element.addEventListener('touchstart', function () {
+						//     dropDescriptions.forEach(element => {
+						//         element.classList.remove("_show-dropdown");
+						//         // slides.forEach(element => {
+						//         //     element.setAttribute('draggable', 'true');
+						//         // });
+						//     });
+						//     textareaBodies.forEach(element => {
+						//         element.value = "";
+						//         document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
+						//     });
+						// });
 					});
 				}
 
@@ -790,7 +735,7 @@
 			}
 		});
 	</script>
-	<script src="js/app.min.js?_v=20230915160136"></script>
+	<script src="js/app.min.js?_v=20230919223840"></script>
 </body>
 
 </html>
