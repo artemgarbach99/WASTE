@@ -6699,9 +6699,20 @@ a.mm-navbar__title {
 }
 
 .caption-addition-form__text p {
-  font-size: 0.875rem;
-  line-height: 1.2142857143;
   color: #8D8D8D;
+}
+
+.caption-addition-form__text._desk {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.caption-addition-form__text._mob {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1.25rem;
 }
 
 .product-addition-form {
@@ -8115,6 +8126,10 @@ input[type=number] {
   .promote-line-main__data-mob {
     display: none;
   }
+
+  .caption-addition-form__text._mob {
+    display: none;
+  }
 }
 
 @media (min-width: 61.99875em) {
@@ -8684,46 +8699,6 @@ input[type=number] {
 }
 
 @media (max-width: 47.99875em) {
-  .input._min-fontsize {
-    font-size: 0.875rem;
-    line-height: 1.2142857143;
-  }
-
-  .input._min-fontsize::-webkit-input-placeholder {
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.2142857143;
-    color: #8D8D8D;
-  }
-
-  .input._min-fontsize::-moz-placeholder {
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.2142857143;
-    color: #8D8D8D;
-  }
-
-  .input._min-fontsize:-ms-input-placeholder {
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.2142857143;
-    color: #8D8D8D;
-  }
-
-  .input._min-fontsize::-ms-input-placeholder {
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.2142857143;
-    color: #8D8D8D;
-  }
-
-  .input._min-fontsize::placeholder {
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.2142857143;
-    color: #8D8D8D;
-  }
-
   .options {
     padding-top: 0;
   }
@@ -8755,11 +8730,6 @@ input[type=number] {
 
   .select_select-country .select__option {
     padding: 1.125rem 1.25rem;
-    font-size: 0.875rem;
-  }
-
-  .select_select-phone .select__title {
-    padding: 1.125rem 0.625rem;
     font-size: 0.875rem;
   }
 
@@ -9287,6 +9257,10 @@ input[type=number] {
             flex: auto;
   }
 
+  .caption-addition-form__text._desk {
+    display: none;
+  }
+
   .quantity-addition-form {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -9567,7 +9541,52 @@ input[type=number] {
 
 @media (max-width: 29.99875em) {
   .input {
-    padding: 1.125rem 1.25rem;
+    padding: 1.125rem 0.625rem;
+  }
+
+  .input._min-fontsize {
+    font-size: 0.75rem;
+    line-height: 1.4166666667;
+  }
+
+  .input._min-fontsize::-webkit-input-placeholder {
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.4166666667;
+    color: #8D8D8D;
+  }
+
+  .input._min-fontsize::-moz-placeholder {
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.4166666667;
+    color: #8D8D8D;
+  }
+
+  .input._min-fontsize:-ms-input-placeholder {
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.4166666667;
+    color: #8D8D8D;
+  }
+
+  .input._min-fontsize::-ms-input-placeholder {
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.4166666667;
+    color: #8D8D8D;
+  }
+
+  .input._min-fontsize::placeholder {
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.4166666667;
+    color: #8D8D8D;
+  }
+
+  .select_select-phone .select__title {
+    padding: 1.125rem 0.625rem;
+    font-size: 0.875rem;
   }
 
   .select_select-sort .select__options {
@@ -9609,6 +9628,10 @@ input[type=number] {
 
   .content-forms-login__viewpass {
     right: 1.25rem;
+  }
+
+  .phone-content-forms__body {
+    gap: 0.625rem;
   }
 
   .top-content-tabs__row {
@@ -9807,6 +9830,10 @@ input[type=number] {
 
   .nav-forms-completing__title {
     font-size: 0.625rem;
+  }
+
+  .addition-form__body {
+    margin: 0 -0.625rem;
   }
 
   .cost-advertising__button span {
