@@ -6865,6 +6865,7 @@ a.mm-navbar__title {
   height: 4.0625rem;
   position: relative;
   border-radius: 5px;
+  overflow: hidden;
 }
 
 .product-addition-form__image:hover {
@@ -7017,6 +7018,7 @@ a.mm-navbar__title {
   color: #FFFFFF;
   padding: 0.125rem 0px;
   cursor: pointer;
+  z-index: 3;
 }
 
 .description-product-addition__dropdown {
