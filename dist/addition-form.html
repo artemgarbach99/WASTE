@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230928152943">
+	<link rel="stylesheet" href="css/style.min.css?_v=20231004104611">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -2017,11 +2017,13 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20230928152943"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20231004104611"></script>
 	<script>
 		const DropItem = document.getElementById('drop-items');
 		new Sortable(DropItem, {
 			animation: 150,
+			filter: ".description-product-addition__dropdown",
+			preventOnFilter: true,
 		});
 	</script>
 	<script>
@@ -2267,10 +2269,6 @@
 					deleteItem.addEventListener('click', deleteSlide);
 				}
 
-
-
-
-
 				const lableDescriptions = document.querySelectorAll('.description-product-addition__lable');
 				const dropDescriptions = document.querySelectorAll('.description-product-addition__dropdown');
 				const slides = document.querySelectorAll('.product-addition-form__slide');
@@ -2335,7 +2333,13 @@
 							element.classList.remove("_show-dropdown");
 						});
 						textareaBodies.forEach(element => {
-							if (element.value == "") {
+							// if (element.value == "") {
+							//     document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
+							// } else {
+							//     document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Изменить';
+							// }
+
+							if (element.value === null || element.value === "") {
 								document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
 							} else {
 								document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Изменить';
@@ -2413,7 +2417,7 @@
 			}
 		});
 	</script>
-	<script src="js/app.min.js?_v=20230928152943"></script>
+	<script src="js/app.min.js?_v=20231004104611"></script>
 </body>
 
 </html>
