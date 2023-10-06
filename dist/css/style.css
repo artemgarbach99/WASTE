@@ -7033,10 +7033,6 @@ a.mm-navbar__title {
   font-size: 0.75rem;
   line-height: 1.1666666667;
   color: #113921;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
 }
 
 .description-product-addition__count {
