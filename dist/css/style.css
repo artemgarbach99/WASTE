@@ -4748,6 +4748,9 @@ a.mm-navbar__title {
   height: 3.375rem;
   border-radius: 5px;
   background-color: #22B14C;
+  -webkit-transition: background-color 0.3s ease-in 0s;
+  -o-transition: background-color 0.3s ease-in 0s;
+  transition: background-color 0.3s ease-in 0s;
   position: relative;
   cursor: pointer;
 }
@@ -4766,6 +4769,13 @@ a.mm-navbar__title {
   width: 1.4375rem;
   height: 0.0625rem;
   background-color: #FFFFFF;
+}
+
+.phone-content-forms__button._disable {
+  background-color: #8D8D8D;
+  -webkit-transition: background-color 0.3s ease-in 0s;
+  -o-transition: background-color 0.3s ease-in 0s;
+  transition: background-color 0.3s ease-in 0s;
 }
 
 .phone-content-forms__button-close {
@@ -8575,6 +8585,12 @@ input[type=number] {
     -webkit-box-flex: 0;
         -ms-flex: none;
             flex: none;
+  }
+
+  .contacts-addition-form__column._number {
+    -webkit-box-flex: 1;
+        -ms-flex: auto;
+            flex: auto;
   }
 
   .contacts-addition-form__input {

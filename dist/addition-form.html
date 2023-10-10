@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20231006211321">
+	<link rel="stylesheet" href="css/style.min.css?_v=20231010210629">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -1913,7 +1913,7 @@
 								</div>
 							</div>
 							<div class="contacts-addition-form__row-phone">
-								<div class="contacts-addition-form__column">
+								<div class="contacts-addition-form__column _number">
 									<div class="contacts-addition-form__phone phone-content-forms">
 										<div class="phone-content-forms__body">
 											<button type="button" class="phone-content-forms__button _btn-first-phone"></button>
@@ -1941,7 +1941,7 @@
 										<div class="phone-content-forms__out"></div>
 									</div>
 								</div>
-								<div class="contacts-addition-form__column">
+								<div class="contacts-addition-form__column _number">
 									<div class="contacts-addition-form__text h5 _contacts">
 										<p> Хотя бы одно поле должно быть заполнено (Email
 											или один телефон)</p>
@@ -2001,7 +2001,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20231006211321"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20231010210629"></script>
 	<script>
 		const DropItem = document.getElementById('drop-items');
 		new Sortable(DropItem, {
@@ -2109,28 +2109,36 @@
 		// });
 	</script>
 	<script>
-		const addPhone = document.querySelector('._btn-first-phone');
+		function addPhone() {
+			const addPhoneButton = document.querySelector('._btn-first-phone');
 
-		function closeAudit() {
-			this.parentElement.remove();
-			addressesCountFirst--;
-		}
-
-		let addressesCountFirst = 0;
-
-		const addAudit = function() {
-			if (addressesCountFirst <= 1) {
-				const elemKod = document.querySelector('.phone-content-forms__inner._01').outerHTML;
-				const elemOutKod = document.querySelector('.phone-content-forms__out');
-				elemOutKod.style.marginTop = "30px";
-				elemOutKod.innerHTML += '<div class="phone-content-forms__body">' + '<button type="button" class="phone-content-forms__button-close _01">' + '</button>' + elemKod + '</div>';
-				const closePhone = document.querySelectorAll('.phone-content-forms__button-close._01');
-				closePhone.forEach(element => element.addEventListener('click', closeAudit))
-				addressesCountFirst++;
+			function closeAudit() {
+				this.parentElement.remove();
+				addPhoneButton.classList.remove("_disable");
+				addressesCountFirst--;
 			}
-		};
 
-		addPhone.addEventListener("click", addAudit);
+			let addressesCountFirst = 0;
+			let addressesCountLimit = 1
+
+			function addAudit() {
+				if (addressesCountFirst <= addressesCountLimit) {
+					const elemKod = document.querySelector('.phone-content-forms__inner._01').outerHTML;
+					const elemOutKod = document.querySelector('.phone-content-forms__out');
+					elemOutKod.style.marginTop = "30px";
+					elemOutKod.innerHTML += '<div class="phone-content-forms__body">' + '<button type="button" class="phone-content-forms__button-close _01">' + '</button>' + elemKod + '</div>';
+					const closePhone = document.querySelectorAll('.phone-content-forms__button-close._01');
+					closePhone.forEach(element => element.addEventListener('click', closeAudit))
+					addressesCountFirst++;
+				}
+				if (addressesCountFirst === 2) {
+					addPhoneButton.classList.add("_disable");
+				}
+			};
+
+			addPhoneButton.addEventListener("click", addAudit);
+		}
+		addPhone()
 	</script>
 	<script>
 		const button1 = document.querySelector('.product-addition-form__button');
@@ -2401,7 +2409,7 @@
 			}
 		});
 	</script>
-	<script src="js/app.min.js?_v=20231006211321"></script>
+	<script src="js/app.min.js?_v=20231010210629"></script>
 </body>
 
 </html>

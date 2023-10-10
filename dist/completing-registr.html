@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20231006211321">
+	<link rel="stylesheet" href="css/style.min.css?_v=20231010210629">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -356,6 +356,7 @@
 
 		function closeAudit() {
 			this.parentElement.remove();
+			addPhone.classList.remove("_disable");
 			addressesCountFirst--;
 		}
 
@@ -371,6 +372,9 @@
 				closePhone.forEach(element => element.addEventListener('click', closeAudit))
 				addressesCountFirst++;
 			}
+			if (addressesCountFirst === 2) {
+				addPhone.classList.add("_disable");
+			}
 		};
 
 		addPhone.addEventListener("click", addAudit);
@@ -380,6 +384,7 @@
 
 		function closeAudit02() {
 			this.parentElement.remove();
+			addPhoneSecond.classList.remove("_disable");
 			addressesCountSecond--;
 		}
 
@@ -395,6 +400,9 @@
 				closePhone02.forEach(element => element.addEventListener('click', closeAudit02))
 				addressesCountSecond++;
 			}
+			if (addressesCountSecond === 2) {
+				addPhoneSecond.classList.add("_disable");
+			}
 		};
 
 		addPhoneSecond.addEventListener("click", addAudit02);
@@ -404,6 +412,7 @@
 
 		function closeAudit03() {
 			this.parentElement.remove();
+			addPhoneThird.classList.remove("_disable");
 			addressesCountTwird--;
 		}
 
@@ -418,6 +427,9 @@
 				const closePhone03 = document.querySelectorAll('.phone-content-forms__button-close._03');
 				closePhone03.forEach(element => element.addEventListener('click', closeAudit03))
 				addressesCountTwird++;
+			}
+			if (addressesCountTwird === 2) {
+				addPhoneThird.classList.add("_disable");
 			}
 		};
 
@@ -445,7 +457,7 @@
 </div>
  -->
 
-	<script src="js/app.min.js?_v=20231006211321"></script>
+	<script src="js/app.min.js?_v=20231010210629"></script>
 </body>
 
 </html>
