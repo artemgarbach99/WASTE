@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20231010210629">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240201230745">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -1789,7 +1789,8 @@
 									пункт:</div>
 								<div class="header-addition-form__items">
 									<a href="#" class="header-addition-form__item" data-menu-opener="href">Объявления</a>
-									<a href="#" class="header-addition-form__item" data-menu-opener="href">Технологии, оборудование</a>
+									<a href="#" class="header-addition-form__item" data-menu-opener="href">Технологии,
+										оборудование</a>
 									<a href="#" class="header-addition-form__item" data-menu-opener="href">Химикаты</a>
 									<span class="header-addition-form__item _active">Предлагаю</span>
 								</div>
@@ -1797,7 +1798,8 @@
 						</div>
 						<div class="addition-form__caption caption-addition-form">
 							<div class="caption-addition-form__text _mob">
-								<p class="h5">Контакты следует указывать в специальных полях. Запрещены ссылки на сайты и
+								<p class="h5">Контакты следует указывать в специальных полях. Запрещены ссылки на сайты
+									и
 									использование заглавных букв вне правил грамматики.</p>
 							</div>
 							<div class="caption-addition-form__lable h4">Заголовок</div>
@@ -1808,7 +1810,8 @@
 									<!-- <span>Осталось знаков (с пробелами): </span> -->
 								</div>
 								<div class="caption-addition-form__text _desk">
-									<p class="h5">Контакты следует указывать в специальных полях. Запрещены ссылки на сайты и
+									<p class="h5">Контакты следует указывать в специальных полях. Запрещены ссылки на
+										сайты и
 										использование заглавных букв вне правил грамматики.</p>
 								</div>
 							</div>
@@ -1916,8 +1919,8 @@
 								<div class="contacts-addition-form__column _number">
 									<div class="contacts-addition-form__phone phone-content-forms">
 										<div class="phone-content-forms__body">
-											<button type="button" class="phone-content-forms__button _btn-first-phone"></button>
-											<div class="phone-content-forms__inner _01">
+											<button type="button" id="4" class="phone-content-forms__button _btn-first-phone"></button>
+											<div id="4" class="phone-content-forms__inner _01">
 												<select name="form[]" class="select-phone">
 													<option value="1" selected data-asset="Украина">+380
 													</option>
@@ -1938,7 +1941,7 @@
 												<input autocomplete="off" type="tel" name="form[]" data-error="Ошибка" data-required placeholder="Номер телефона" class="input _min-fontsize">
 											</div>
 										</div>
-										<div class="phone-content-forms__out"></div>
+										<div id="4" class="phone-content-forms__out"></div>
 									</div>
 								</div>
 								<div class="contacts-addition-form__column _number">
@@ -2001,7 +2004,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20231010210629"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20240201230745"></script>
 	<script>
 		const DropItem = document.getElementById('drop-items');
 		new Sortable(DropItem, {
@@ -2108,37 +2111,100 @@
 		//     textCallback: customText,
 		// });
 	</script>
-	<script>
-		function addPhone() {
-			const addPhoneButton = document.querySelector('._btn-first-phone');
+	<!-- <script>
+        function addPhone() {
+            const addPhoneButton = document.querySelector('._btn-first-phone');
 
-			function closeAudit() {
-				this.parentElement.remove();
-				addPhoneButton.classList.remove("_disable");
-				addressesCountFirst--;
+            function closeAudit() {
+                this.parentElement.remove();
+                addPhoneButton.classList.remove("_disable");
+                addressesCountFirst--;
+            }
+
+            let addressesCountFirst = 0;
+            let addressesCountLimit = 1
+
+            function addAudit() {
+                if (addressesCountFirst <= addressesCountLimit) {
+                    const elemKod = document.querySelector('.phone-content-forms__inner._01').outerHTML;
+                    const elemOutKod = document.querySelector('.phone-content-forms__out');
+                    elemOutKod.style.marginTop = "30px";
+                    elemOutKod.innerHTML += '<div class="phone-content-forms__body">' + '<button type="button" class="phone-content-forms__button-close _01">' + '</button>' + elemKod + '</div>';
+                    const closePhone = document.querySelectorAll('.phone-content-forms__button-close._01');
+                    closePhone.forEach(element => element.addEventListener('click', closeAudit))
+                    addressesCountFirst++;
+                }
+                if (addressesCountFirst === 2) {
+                    addPhoneButton.classList.add("_disable");
+                }
+            };
+
+            addPhoneButton.addEventListener("click", addAudit);
+        }
+        addPhone()
+    </script> -->
+	<script>
+		const addPhoneButton = document.querySelectorAll(
+			".phone-content-forms__button"
+		);
+
+		addPhoneButton.forEach((element) => {
+			let CountPhones = 0;
+			const limitItems = 2;
+			const id = element.getAttribute("id");
+			const addPhoneBtn = document.querySelectorAll(".phone-content-forms__button[id='" + id + "']");
+
+			function addPhoneBody() {
+				let currentElementId = this.getAttribute("id");
+				const elemKod = document.querySelector(
+					".phone-content-forms__inner[id='" + currentElementId + "']"
+				).outerHTML;
+				const elemOutKod = document.querySelectorAll(
+					".phone-content-forms__out[id='" + currentElementId + "']"
+				);
+
+				elemOutKod.forEach((element) => {
+					if (CountPhones < limitItems) {
+						const formBody = document.createElement("div");
+						const buttonClose = document.createElement("button");
+						formBody.style.marginTop = "30px";
+						buttonClose.setAttribute(
+							"class",
+							"phone-content-forms__button-close"
+						);
+						buttonClose.setAttribute("type", "button");
+						buttonClose.id = currentElementId;
+						formBody.setAttribute("class", "phone-content-forms__body");
+						element.appendChild(formBody);
+						formBody.appendChild(buttonClose);
+						formBody.insertAdjacentHTML("beforeend", elemKod);
+
+						const buttonsClose = document.querySelectorAll(
+							".phone-content-forms__button-close[id='" + currentElementId + "']"
+						);
+						buttonsClose.forEach((element) =>
+							element.addEventListener("click", deletePhoneBody)
+						);
+
+						CountPhones++;
+					}
+					if (CountPhones === limitItems) {
+						addPhoneBtn.forEach((element) => {
+							element.classList.add("_disable");
+						});
+					}
+				});
 			}
 
-			let addressesCountFirst = 0;
-			let addressesCountLimit = 1
-
-			function addAudit() {
-				if (addressesCountFirst <= addressesCountLimit) {
-					const elemKod = document.querySelector('.phone-content-forms__inner._01').outerHTML;
-					const elemOutKod = document.querySelector('.phone-content-forms__out');
-					elemOutKod.style.marginTop = "30px";
-					elemOutKod.innerHTML += '<div class="phone-content-forms__body">' + '<button type="button" class="phone-content-forms__button-close _01">' + '</button>' + elemKod + '</div>';
-					const closePhone = document.querySelectorAll('.phone-content-forms__button-close._01');
-					closePhone.forEach(element => element.addEventListener('click', closeAudit))
-					addressesCountFirst++;
-				}
-				if (addressesCountFirst === 2) {
-					addPhoneButton.classList.add("_disable");
-				}
-			};
-
-			addPhoneButton.addEventListener("click", addAudit);
-		}
-		addPhone()
+			function deletePhoneBody() {
+				this.parentElement.remove();
+				addPhoneBtn.forEach((element) => {
+					element.classList.remove("_disable");
+				});
+				CountPhones--;
+			}
+			element.addEventListener("click", addPhoneBody);
+		});
 	</script>
 	<script>
 		const button1 = document.querySelector('.product-addition-form__button');
@@ -2409,7 +2475,7 @@
 			}
 		});
 	</script>
-	<script src="js/app.min.js?_v=20231010210629"></script>
+	<script src="js/app.min.js?_v=20240201230745"></script>
 </body>
 
 </html>

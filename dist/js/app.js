@@ -373,7 +373,7 @@
     var __webpack_module_cache__ = {};
     function __webpack_require__(moduleId) {
         var cachedModule = __webpack_module_cache__[moduleId];
-        if (void 0 !== cachedModule) return cachedModule.exports;
+        if (cachedModule !== void 0) return cachedModule.exports;
         var module = __webpack_module_cache__[moduleId] = {
             exports: {}
         };
@@ -387,12 +387,12 @@
             function testWebP(callback) {
                 let webP = new Image;
                 webP.onload = webP.onerror = function() {
-                    callback(2 == webP.height);
+                    callback(webP.height == 2);
                 };
                 webP.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
             }
             testWebP((function(support) {
-                let className = true === support ? "webp" : "no-webp";
+                let className = support === true ? "webp" : "no-webp";
                 document.documentElement.classList.add(className);
             }));
         }
@@ -758,7 +758,7 @@
                     easing: "easeOutQuad"
                 };
                 document.documentElement.classList.contains("menu-open") ? menuClose() : null;
-                if ("undefined" !== typeof SmoothScroll) (new SmoothScroll).animateScroll(targetBlockElement, "", options); else {
+                if (typeof SmoothScroll !== "undefined") (new SmoothScroll).animateScroll(targetBlockElement, "", options); else {
                     let targetBlockElementPosition = targetBlockElement.getBoundingClientRect().top + scrollY;
                     targetBlockElementPosition = headerItemHeight ? targetBlockElementPosition - headerItemHeight : targetBlockElementPosition;
                     targetBlockElementPosition = offsetTop ? targetBlockElementPosition - offsetTop : targetBlockElementPosition;
@@ -779,7 +779,7 @@
             }));
             document.body.addEventListener("focusin", (function(e) {
                 const targetElement = e.target;
-                if ("INPUT" === targetElement.tagName || "TEXTAREA" === targetElement.tagName) {
+                if (targetElement.tagName === "INPUT" || targetElement.tagName === "TEXTAREA") {
                     if (targetElement.dataset.placeholder) targetElement.placeholder = "";
                     if (!targetElement.hasAttribute("data-no-focus-classes")) {
                         targetElement.classList.add("_form-focus");
@@ -790,7 +790,7 @@
             }));
             document.body.addEventListener("focusout", (function(e) {
                 const targetElement = e.target;
-                if ("INPUT" === targetElement.tagName || "TEXTAREA" === targetElement.tagName) {
+                if (targetElement.tagName === "INPUT" || targetElement.tagName === "TEXTAREA") {
                     if (targetElement.dataset.placeholder) targetElement.placeholder = targetElement.dataset.placeholder;
                     if (!targetElement.hasAttribute("data-no-focus-classes")) {
                         targetElement.classList.remove("_form-focus");
@@ -813,19 +813,19 @@
                 let error = 0;
                 let formRequiredItems = form.querySelectorAll("*[data-required]");
                 if (formRequiredItems.length) formRequiredItems.forEach((formRequiredItem => {
-                    if ((null !== formRequiredItem.offsetParent || "SELECT" === formRequiredItem.tagName) && !formRequiredItem.disabled) error += this.validateInput(formRequiredItem);
+                    if ((formRequiredItem.offsetParent !== null || formRequiredItem.tagName === "SELECT") && !formRequiredItem.disabled) error += this.validateInput(formRequiredItem);
                 }));
                 return error;
             },
             validateInput(formRequiredItem) {
                 let error = 0;
-                if ("email" === formRequiredItem.dataset.required) {
+                if (formRequiredItem.dataset.required === "email") {
                     formRequiredItem.value = formRequiredItem.value.replace(" ", "");
                     if (this.emailTest(formRequiredItem)) {
                         this.addError(formRequiredItem);
                         error++;
                     } else this.removeError(formRequiredItem);
-                } else if ("checkbox" === formRequiredItem.type && !formRequiredItem.checked) {
+                } else if (formRequiredItem.type === "checkbox" && !formRequiredItem.checked) {
                     this.addError(formRequiredItem);
                     error++;
                 } else if (!formRequiredItem.value) {
@@ -890,7 +890,7 @@
             }
             async function formSubmitAction(form, e) {
                 const error = !form.hasAttribute("data-no-validate") ? formValidate.getErrors(form) : 0;
-                if (0 === error) {
+                if (error === 0) {
                     const ajax = form.hasAttribute("data-ajax");
                     if (ajax) {
                         e.preventDefault();
@@ -1046,7 +1046,7 @@
                 if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelect)) || targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTag))) {
                     const selectItem = targetElement.closest(".select") ? targetElement.closest(".select") : document.querySelector(`.${this.selectClasses.classSelect}[data-id="${targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTag)).dataset.selectId}"]`);
                     const originalSelect = this.getSelectElement(selectItem).originalSelect;
-                    if ("click" === targetType) {
+                    if (targetType === "click") {
                         if (!originalSelect.disabled) if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTag))) {
                             const targetTag = targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTag));
                             const optionItem = document.querySelector(`.${this.selectClasses.classSelect}[data-id="${targetTag.dataset.selectId}"] .select__option[data-value="${targetTag.dataset.value}"]`);
@@ -1055,9 +1055,9 @@
                             const optionItem = targetElement.closest(this.getSelectClass(this.selectClasses.classSelectOption));
                             this.optionAction(selectItem, originalSelect, optionItem);
                         }
-                    } else if ("focusin" === targetType || "focusout" === targetType) {
-                        if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelect))) "focusin" === targetType ? selectItem.classList.add(this.selectClasses.classSelectFocus) : selectItem.classList.remove(this.selectClasses.classSelectFocus);
-                    } else if ("keydown" === targetType && "Escape" === e.code) this.selectsСlose();
+                    } else if (targetType === "focusin" || targetType === "focusout") {
+                        if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelect))) targetType === "focusin" ? selectItem.classList.add(this.selectClasses.classSelectFocus) : selectItem.classList.remove(this.selectClasses.classSelectFocus);
+                    } else if (targetType === "keydown" && e.code === "Escape") this.selectsСlose();
                 } else this.selectsСlose();
             }
             selectsСlose(selectOneGroup) {
@@ -1238,7 +1238,7 @@
                     selectOptionsItems.forEach((selectOptionsItem => {
                         if (selectOptionsItem.textContent.toUpperCase().indexOf(selectInput.value.toUpperCase()) >= 0) selectOptionsItem.hidden = false; else selectOptionsItem.hidden = true;
                     }));
-                    true === selectOptions.hidden ? _this.selectAction(selectItem) : null;
+                    selectOptions.hidden === true ? _this.selectAction(selectItem) : null;
                 }));
             }
             selectCallback(selectItem, originalSelect) {
@@ -1322,11 +1322,11 @@
         };
         DynamicAdapt.prototype.moveTo = function(place, element, destination) {
             element.classList.add(this.daClassname);
-            if ("last" === place || place >= destination.children.length) {
+            if (place === "last" || place >= destination.children.length) {
                 destination.insertAdjacentElement("beforeend", element);
                 return;
             }
-            if ("first" === place) {
+            if (place === "first") {
                 destination.insertAdjacentElement("afterbegin", element);
                 return;
             }
@@ -1334,18 +1334,18 @@
         };
         DynamicAdapt.prototype.moveBack = function(parent, element, index) {
             element.classList.remove(this.daClassname);
-            if (void 0 !== parent.children[index]) parent.children[index].insertAdjacentElement("beforebegin", element); else parent.insertAdjacentElement("beforeend", element);
+            if (parent.children[index] !== void 0) parent.children[index].insertAdjacentElement("beforebegin", element); else parent.insertAdjacentElement("beforeend", element);
         };
         DynamicAdapt.prototype.indexInParent = function(parent, element) {
             const array = Array.prototype.slice.call(parent.children);
             return Array.prototype.indexOf.call(array, element);
         };
         DynamicAdapt.prototype.arraySort = function(arr) {
-            if ("min" === this.type) Array.prototype.sort.call(arr, (function(a, b) {
+            if (this.type === "min") Array.prototype.sort.call(arr, (function(a, b) {
                 if (a.breakpoint === b.breakpoint) {
                     if (a.place === b.place) return 0;
-                    if ("first" === a.place || "last" === b.place) return -1;
-                    if ("last" === a.place || "first" === b.place) return 1;
+                    if (a.place === "first" || b.place === "last") return -1;
+                    if (a.place === "last" || b.place === "first") return 1;
                     return a.place - b.place;
                 }
                 return a.breakpoint - b.breakpoint;
@@ -1353,8 +1353,8 @@
                 Array.prototype.sort.call(arr, (function(a, b) {
                     if (a.breakpoint === b.breakpoint) {
                         if (a.place === b.place) return 0;
-                        if ("first" === a.place || "last" === b.place) return 1;
-                        if ("last" === a.place || "first" === b.place) return -1;
+                        if (a.place === "first" || b.place === "last") return 1;
+                        if (a.place === "last" || b.place === "first") return -1;
                         return b.place - a.place;
                     }
                     return b.breakpoint - a.breakpoint;
@@ -1364,6 +1364,40 @@
         };
         const da = new DynamicAdapt("max");
         da.init();
+        //!
+        //!
+        //!
+        //!
+        //!
+        //!
+        //!
+        //!
+        //! test
+        //! arrows
+        function switchLanguage() {
+            const lableLanguage = document.querySelectorAll(".language-top-content__lable");
+            const dropdownLanguages = document.querySelectorAll(".language-top-content__dropdown");
+            lableLanguage.forEach(((element, index) => {
+                const dropdownLanguage = dropdownLanguages[index];
+                element.addEventListener("click", (function(e) {
+                    dropdownLanguage.classList.toggle("dropdown-open");
+                    if (dropdownLanguage.classList.contains("dropdown-open")) element.classList.add("lable-active"); else element.classList.remove("lable-active");
+                }));
+            }));
+        }
+        if (document.querySelector(".language-top-content")) switchLanguage();
+        function promoteMore() {
+            const lablePromote = document.querySelectorAll(".promote-line-main__btn-orange");
+            const dropdownPromotes = document.querySelectorAll(".dropdown-promote");
+            lablePromote.forEach(((element, index) => {
+                const dropdownPromote = dropdownPromotes[index];
+                element.addEventListener("click", (function(e) {
+                    dropdownPromote.classList.toggle("promote-dropdown-open");
+                    if (dropdownPromote.classList.contains("promote-dropdown-open")) element.classList.add("_active"); else element.classList.remove("_active");
+                }));
+            }));
+        }
+        if (document.querySelector(".dropdown-promote")) promoteMore();
         /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
@@ -1379,11 +1413,11 @@
  */
         (function(global, factory) {
             "use strict";
-            if ("object" === typeof module && "object" === typeof module.exports) module.exports = global.document ? factory(global, true) : function(w) {
+            if (typeof module === "object" && typeof module.exports === "object") module.exports = global.document ? factory(global, true) : function(w) {
                 if (!w.document) throw new Error("jQuery requires a window with a document");
                 return factory(w);
             }; else factory(global);
-        })("undefined" !== typeof window ? window : void 0, (function(window, noGlobal) {
+        })(typeof window !== "undefined" ? window : void 0, (function(window, noGlobal) {
             "use strict";
             var arr = [];
             var getProto = Object.getPrototypeOf;
@@ -1402,10 +1436,10 @@
             var ObjectFunctionString = fnToString.call(Object);
             var support = {};
             var isFunction = function isFunction(obj) {
-                return "function" === typeof obj && "number" !== typeof obj.nodeType;
+                return typeof obj === "function" && typeof obj.nodeType !== "number";
             };
             var isWindow = function isWindow(obj) {
-                return null != obj && obj === obj.window;
+                return obj != null && obj === obj.window;
             };
             var document = window.document;
             var preservedScriptAttributes = {
@@ -1425,8 +1459,8 @@
                 doc.head.appendChild(script).parentNode.removeChild(script);
             }
             function toType(obj) {
-                if (null == obj) return obj + "";
-                return "object" === typeof obj || "function" === typeof obj ? class2type[toString.call(obj)] || "object" : typeof obj;
+                if (obj == null) return obj + "";
+                return typeof obj === "object" || typeof obj === "function" ? class2type[toString.call(obj)] || "object" : typeof obj;
             }
             var version = "3.5.1", jQuery = function(selector, context) {
                 return new jQuery.fn.init(selector, context);
@@ -1439,7 +1473,7 @@
                     return slice.call(this);
                 },
                 get: function(num) {
-                    if (null == num) return slice.call(this);
+                    if (num == null) return slice.call(this);
                     return num < 0 ? this[num + this.length] : this[num];
                 },
                 pushStack: function(elems) {
@@ -1487,25 +1521,25 @@
             };
             jQuery.extend = jQuery.fn.extend = function() {
                 var options, name, src, copy, copyIsArray, clone, target = arguments[0] || {}, i = 1, length = arguments.length, deep = false;
-                if ("boolean" === typeof target) {
+                if (typeof target === "boolean") {
                     deep = target;
                     target = arguments[i] || {};
                     i++;
                 }
-                if ("object" !== typeof target && !isFunction(target)) target = {};
+                if (typeof target !== "object" && !isFunction(target)) target = {};
                 if (i === length) {
                     target = this;
                     i--;
                 }
-                for (;i < length; i++) if (null != (options = arguments[i])) for (name in options) {
+                for (;i < length; i++) if ((options = arguments[i]) != null) for (name in options) {
                     copy = options[name];
-                    if ("__proto__" === name || target === copy) continue;
+                    if (name === "__proto__" || target === copy) continue;
                     if (deep && copy && (jQuery.isPlainObject(copy) || (copyIsArray = Array.isArray(copy)))) {
                         src = target[name];
                         if (copyIsArray && !Array.isArray(src)) clone = []; else if (!copyIsArray && !jQuery.isPlainObject(src)) clone = {}; else clone = src;
                         copyIsArray = false;
                         target[name] = jQuery.extend(deep, clone, copy);
-                    } else if (void 0 !== copy) target[name] = copy;
+                    } else if (copy !== void 0) target[name] = copy;
                 }
                 return target;
             };
@@ -1518,11 +1552,11 @@
                 noop: function() {},
                 isPlainObject: function(obj) {
                     var proto, Ctor;
-                    if (!obj || "[object Object]" !== toString.call(obj)) return false;
+                    if (!obj || toString.call(obj) !== "[object Object]") return false;
                     proto = getProto(obj);
                     if (!proto) return true;
                     Ctor = hasOwn.call(proto, "constructor") && proto.constructor;
-                    return "function" === typeof Ctor && fnToString.call(Ctor) === ObjectFunctionString;
+                    return typeof Ctor === "function" && fnToString.call(Ctor) === ObjectFunctionString;
                 },
                 isEmptyObject: function(obj) {
                     var name;
@@ -1538,17 +1572,17 @@
                     var length, i = 0;
                     if (isArrayLike(obj)) {
                         length = obj.length;
-                        for (;i < length; i++) if (false === callback.call(obj[i], i, obj[i])) break;
-                    } else for (i in obj) if (false === callback.call(obj[i], i, obj[i])) break;
+                        for (;i < length; i++) if (callback.call(obj[i], i, obj[i]) === false) break;
+                    } else for (i in obj) if (callback.call(obj[i], i, obj[i]) === false) break;
                     return obj;
                 },
                 makeArray: function(arr, results) {
                     var ret = results || [];
-                    if (null != arr) if (isArrayLike(Object(arr))) jQuery.merge(ret, "string" === typeof arr ? [ arr ] : arr); else push.call(ret, arr);
+                    if (arr != null) if (isArrayLike(Object(arr))) jQuery.merge(ret, typeof arr === "string" ? [ arr ] : arr); else push.call(ret, arr);
                     return ret;
                 },
                 inArray: function(elem, arr, i) {
-                    return null == arr ? -1 : indexOf.call(arr, elem, i);
+                    return arr == null ? -1 : indexOf.call(arr, elem, i);
                 },
                 merge: function(first, second) {
                     var len = +second.length, j = 0, i = first.length;
@@ -1570,25 +1604,25 @@
                         length = elems.length;
                         for (;i < length; i++) {
                             value = callback(elems[i], i, arg);
-                            if (null != value) ret.push(value);
+                            if (value != null) ret.push(value);
                         }
                     } else for (i in elems) {
                         value = callback(elems[i], i, arg);
-                        if (null != value) ret.push(value);
+                        if (value != null) ret.push(value);
                     }
                     return flat(ret);
                 },
                 guid: 1,
                 support
             });
-            if ("function" === typeof Symbol) jQuery.fn[Symbol.iterator] = arr[Symbol.iterator];
+            if (typeof Symbol === "function") jQuery.fn[Symbol.iterator] = arr[Symbol.iterator];
             jQuery.each("Boolean Number String Function Array Date RegExp Object Error Symbol".split(" "), (function(_i, name) {
                 class2type["[object " + name + "]"] = name.toLowerCase();
             }));
             function isArrayLike(obj) {
                 var length = !!obj && "length" in obj && obj.length, type = toType(obj);
                 if (isFunction(obj) || isWindow(obj)) return false;
-                return "array" === type || 0 === length || "number" === typeof length && length > 0 && length - 1 in obj;
+                return type === "array" || length === 0 || typeof length === "number" && length > 0 && length - 1 in obj;
             }
             var Sizzle = 
             /*!
@@ -1620,17 +1654,17 @@
                     needsContext: new RegExp("^" + whitespace + "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" + whitespace + "*((?:-\\d)?\\d*)" + whitespace + "*\\)|)(?=[^-]|$)", "i")
                 }, rhtml = /HTML$/i, rinputs = /^(?:input|select|textarea|button)$/i, rheader = /^h\d$/i, rnative = /^[^{]+\{\s*\[native \w/, rquickExpr = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/, rsibling = /[+~]/, runescape = new RegExp("\\\\[\\da-fA-F]{1,6}" + whitespace + "?|\\\\([^\\r\\n\\f])", "g"), funescape = function(escape, nonHex) {
                     var high = "0x" + escape.slice(1) - 65536;
-                    return nonHex ? nonHex : high < 0 ? String.fromCharCode(high + 65536) : String.fromCharCode(high >> 10 | 55296, 1023 & high | 56320);
+                    return nonHex ? nonHex : high < 0 ? String.fromCharCode(high + 65536) : String.fromCharCode(high >> 10 | 55296, high & 1023 | 56320);
                 }, rcssescape = /([\0-\x1f\x7f]|^-?\d)|^-$|[^\0-\x1f\x7f-\uFFFF\w-]/g, fcssescape = function(ch, asCodePoint) {
                     if (asCodePoint) {
-                        if ("\0" === ch) return "�";
+                        if (ch === "\0") return "�";
                         return ch.slice(0, -1) + "\\" + ch.charCodeAt(ch.length - 1).toString(16) + " ";
                     }
                     return "\\" + ch;
                 }, unloadHandler = function() {
                     setDocument();
                 }, inDisabledFieldset = addCombinator((function(elem) {
-                    return true === elem.disabled && "fieldset" === elem.nodeName.toLowerCase();
+                    return elem.disabled === true && elem.nodeName.toLowerCase() === "fieldset";
                 }), {
                     dir: "parentNode",
                     next: "legend"
@@ -1652,13 +1686,13 @@
                 function Sizzle(selector, context, results, seed) {
                     var m, i, elem, nid, match, groups, newSelector, newContext = context && context.ownerDocument, nodeType = context ? context.nodeType : 9;
                     results = results || [];
-                    if ("string" !== typeof selector || !selector || 1 !== nodeType && 9 !== nodeType && 11 !== nodeType) return results;
+                    if (typeof selector !== "string" || !selector || nodeType !== 1 && nodeType !== 9 && nodeType !== 11) return results;
                     if (!seed) {
                         setDocument(context);
                         context = context || document;
                         if (documentIsHTML) {
-                            if (11 !== nodeType && (match = rquickExpr.exec(selector))) if (m = match[1]) {
-                                if (9 === nodeType) if (elem = context.getElementById(m)) {
+                            if (nodeType !== 11 && (match = rquickExpr.exec(selector))) if (m = match[1]) {
+                                if (nodeType === 9) if (elem = context.getElementById(m)) {
                                     if (elem.id === m) {
                                         results.push(elem);
                                         return results;
@@ -1674,10 +1708,10 @@
                                 push.apply(results, context.getElementsByClassName(m));
                                 return results;
                             }
-                            if (support.qsa && !nonnativeSelectorCache[selector + " "] && (!rbuggyQSA || !rbuggyQSA.test(selector)) && (1 !== nodeType || "object" !== context.nodeName.toLowerCase())) {
+                            if (support.qsa && !nonnativeSelectorCache[selector + " "] && (!rbuggyQSA || !rbuggyQSA.test(selector)) && (nodeType !== 1 || context.nodeName.toLowerCase() !== "object")) {
                                 newSelector = selector;
                                 newContext = context;
-                                if (1 === nodeType && (rdescend.test(selector) || rcombinators.test(selector))) {
+                                if (nodeType === 1 && (rdescend.test(selector) || rcombinators.test(selector))) {
                                     newContext = rsibling.test(selector) && testContext(context.parentNode) || context;
                                     if (newContext !== context || !support.scope) if (nid = context.getAttribute("id")) nid = nid.replace(rcssescape, fcssescape); else context.setAttribute("id", nid = expando);
                                     groups = tokenize(selector);
@@ -1726,7 +1760,7 @@
                     while (i--) Expr.attrHandle[arr[i]] = handler;
                 }
                 function siblingCheck(a, b) {
-                    var cur = b && a, diff = cur && 1 === a.nodeType && 1 === b.nodeType && a.sourceIndex - b.sourceIndex;
+                    var cur = b && a, diff = cur && a.nodeType === 1 && b.nodeType === 1 && a.sourceIndex - b.sourceIndex;
                     if (diff) return diff;
                     if (cur) while (cur = cur.nextSibling) if (cur === b) return -1;
                     return a ? 1 : -1;
@@ -1734,19 +1768,19 @@
                 function createInputPseudo(type) {
                     return function(elem) {
                         var name = elem.nodeName.toLowerCase();
-                        return "input" === name && elem.type === type;
+                        return name === "input" && elem.type === type;
                     };
                 }
                 function createButtonPseudo(type) {
                     return function(elem) {
                         var name = elem.nodeName.toLowerCase();
-                        return ("input" === name || "button" === name) && elem.type === type;
+                        return (name === "input" || name === "button") && elem.type === type;
                     };
                 }
                 function createDisabledPseudo(disabled) {
                     return function(elem) {
                         if ("form" in elem) {
-                            if (elem.parentNode && false === elem.disabled) {
+                            if (elem.parentNode && elem.disabled === false) {
                                 if ("label" in elem) if ("label" in elem.parentNode) return elem.parentNode.disabled === disabled; else return elem.disabled === disabled;
                                 return elem.isDisabled === disabled || elem.isDisabled !== !disabled && inDisabledFieldset(elem) === disabled;
                             }
@@ -1765,7 +1799,7 @@
                     }));
                 }
                 function testContext(context) {
-                    return context && "undefined" !== typeof context.getElementsByTagName && context;
+                    return context && typeof context.getElementsByTagName !== "undefined" && context;
                 }
                 support = Sizzle.support = {};
                 isXML = Sizzle.isXML = function(elem) {
@@ -1774,14 +1808,14 @@
                 };
                 setDocument = Sizzle.setDocument = function(node) {
                     var hasCompare, subWindow, doc = node ? node.ownerDocument || node : preferredDoc;
-                    if (doc == document || 9 !== doc.nodeType || !doc.documentElement) return document;
+                    if (doc == document || doc.nodeType !== 9 || !doc.documentElement) return document;
                     document = doc;
                     docElem = document.documentElement;
                     documentIsHTML = !isXML(document);
                     if (preferredDoc != document && (subWindow = document.defaultView) && subWindow.top !== subWindow) if (subWindow.addEventListener) subWindow.addEventListener("unload", unloadHandler, false); else if (subWindow.attachEvent) subWindow.attachEvent("onunload", unloadHandler);
                     support.scope = assert((function(el) {
                         docElem.appendChild(el).appendChild(document.createElement("div"));
-                        return "undefined" !== typeof el.querySelectorAll && !el.querySelectorAll(":scope fieldset div").length;
+                        return typeof el.querySelectorAll !== "undefined" && !el.querySelectorAll(":scope fieldset div").length;
                     }));
                     support.attributes = assert((function(el) {
                         el.className = "i";
@@ -1804,7 +1838,7 @@
                             };
                         };
                         Expr.find["ID"] = function(id, context) {
-                            if ("undefined" !== typeof context.getElementById && documentIsHTML) {
+                            if (typeof context.getElementById !== "undefined" && documentIsHTML) {
                                 var elem = context.getElementById(id);
                                 return elem ? [ elem ] : [];
                             }
@@ -1813,12 +1847,12 @@
                         Expr.filter["ID"] = function(id) {
                             var attrId = id.replace(runescape, funescape);
                             return function(elem) {
-                                var node = "undefined" !== typeof elem.getAttributeNode && elem.getAttributeNode("id");
+                                var node = typeof elem.getAttributeNode !== "undefined" && elem.getAttributeNode("id");
                                 return node && node.value === attrId;
                             };
                         };
                         Expr.find["ID"] = function(id, context) {
-                            if ("undefined" !== typeof context.getElementById && documentIsHTML) {
+                            if (typeof context.getElementById !== "undefined" && documentIsHTML) {
                                 var node, i, elems, elem = context.getElementById(id);
                                 if (elem) {
                                     node = elem.getAttributeNode("id");
@@ -1835,17 +1869,17 @@
                         };
                     }
                     Expr.find["TAG"] = support.getElementsByTagName ? function(tag, context) {
-                        if ("undefined" !== typeof context.getElementsByTagName) return context.getElementsByTagName(tag); else if (support.qsa) return context.querySelectorAll(tag);
+                        if (typeof context.getElementsByTagName !== "undefined") return context.getElementsByTagName(tag); else if (support.qsa) return context.querySelectorAll(tag);
                     } : function(tag, context) {
                         var elem, tmp = [], i = 0, results = context.getElementsByTagName(tag);
-                        if ("*" === tag) {
-                            while (elem = results[i++]) if (1 === elem.nodeType) tmp.push(elem);
+                        if (tag === "*") {
+                            while (elem = results[i++]) if (elem.nodeType === 1) tmp.push(elem);
                             return tmp;
                         }
                         return results;
                     };
                     Expr.find["CLASS"] = support.getElementsByClassName && function(className, context) {
-                        if ("undefined" !== typeof context.getElementsByClassName && documentIsHTML) return context.getElementsByClassName(className);
+                        if (typeof context.getElementsByClassName !== "undefined" && documentIsHTML) return context.getElementsByClassName(className);
                     };
                     rbuggyMatches = [];
                     rbuggyQSA = [];
@@ -1871,9 +1905,9 @@
                             input.setAttribute("type", "hidden");
                             el.appendChild(input).setAttribute("name", "D");
                             if (el.querySelectorAll("[name=d]").length) rbuggyQSA.push("name" + whitespace + "*[*^$|!~]?=");
-                            if (2 !== el.querySelectorAll(":enabled").length) rbuggyQSA.push(":enabled", ":disabled");
+                            if (el.querySelectorAll(":enabled").length !== 2) rbuggyQSA.push(":enabled", ":disabled");
                             docElem.appendChild(el).disabled = true;
-                            if (2 !== el.querySelectorAll(":disabled").length) rbuggyQSA.push(":enabled", ":disabled");
+                            if (el.querySelectorAll(":disabled").length !== 2) rbuggyQSA.push(":enabled", ":disabled");
                             el.querySelectorAll("*,:x");
                             rbuggyQSA.push(",.*:");
                         }));
@@ -1887,8 +1921,8 @@
                     rbuggyMatches = rbuggyMatches.length && new RegExp(rbuggyMatches.join("|"));
                     hasCompare = rnative.test(docElem.compareDocumentPosition);
                     contains = hasCompare || rnative.test(docElem.contains) ? function(a, b) {
-                        var adown = 9 === a.nodeType ? a.documentElement : a, bup = b && b.parentNode;
-                        return a === bup || !!(bup && 1 === bup.nodeType && (adown.contains ? adown.contains(bup) : a.compareDocumentPosition && 16 & a.compareDocumentPosition(bup)));
+                        var adown = a.nodeType === 9 ? a.documentElement : a, bup = b && b.parentNode;
+                        return a === bup || !!(bup && bup.nodeType === 1 && (adown.contains ? adown.contains(bup) : a.compareDocumentPosition && a.compareDocumentPosition(bup) & 16));
                     } : function(a, b) {
                         if (b) while (b = b.parentNode) if (b === a) return true;
                         return false;
@@ -1901,12 +1935,12 @@
                         var compare = !a.compareDocumentPosition - !b.compareDocumentPosition;
                         if (compare) return compare;
                         compare = (a.ownerDocument || a) == (b.ownerDocument || b) ? a.compareDocumentPosition(b) : 1;
-                        if (1 & compare || !support.sortDetached && b.compareDocumentPosition(a) === compare) {
+                        if (compare & 1 || !support.sortDetached && b.compareDocumentPosition(a) === compare) {
                             if (a == document || a.ownerDocument == preferredDoc && contains(preferredDoc, a)) return -1;
                             if (b == document || b.ownerDocument == preferredDoc && contains(preferredDoc, b)) return 1;
                             return sortInput ? indexOf(sortInput, a) - indexOf(sortInput, b) : 0;
                         }
-                        return 4 & compare ? -1 : 1;
+                        return compare & 4 ? -1 : 1;
                     } : function(a, b) {
                         if (a === b) {
                             hasDuplicate = true;
@@ -1930,7 +1964,7 @@
                     setDocument(elem);
                     if (support.matchesSelector && documentIsHTML && !nonnativeSelectorCache[expr + " "] && (!rbuggyMatches || !rbuggyMatches.test(expr)) && (!rbuggyQSA || !rbuggyQSA.test(expr))) try {
                         var ret = matches.call(elem, expr);
-                        if (ret || support.disconnectedMatch || elem.document && 11 !== elem.document.nodeType) return ret;
+                        if (ret || support.disconnectedMatch || elem.document && elem.document.nodeType !== 11) return ret;
                     } catch (e) {
                         nonnativeSelectorCache(expr, true);
                     }
@@ -1943,7 +1977,7 @@
                 Sizzle.attr = function(elem, name) {
                     if ((elem.ownerDocument || elem) != document) setDocument(elem);
                     var fn = Expr.attrHandle[name.toLowerCase()], val = fn && hasOwn.call(Expr.attrHandle, name.toLowerCase()) ? fn(elem, name, !documentIsHTML) : void 0;
-                    return void 0 !== val ? val : support.attributes || !documentIsHTML ? elem.getAttribute(name) : (val = elem.getAttributeNode(name)) && val.specified ? val.value : null;
+                    return val !== void 0 ? val : support.attributes || !documentIsHTML ? elem.getAttribute(name) : (val = elem.getAttributeNode(name)) && val.specified ? val.value : null;
                 };
                 Sizzle.escape = function(sel) {
                     return (sel + "").replace(rcssescape, fcssescape);
@@ -1965,7 +1999,7 @@
                 };
                 getText = Sizzle.getText = function(elem) {
                     var node, ret = "", i = 0, nodeType = elem.nodeType;
-                    if (!nodeType) while (node = elem[i++]) ret += getText(node); else if (1 === nodeType || 9 === nodeType || 11 === nodeType) if ("string" === typeof elem.textContent) return elem.textContent; else for (elem = elem.firstChild; elem; elem = elem.nextSibling) ret += getText(elem); else if (3 === nodeType || 4 === nodeType) return elem.nodeValue;
+                    if (!nodeType) while (node = elem[i++]) ret += getText(node); else if (nodeType === 1 || nodeType === 9 || nodeType === 11) if (typeof elem.textContent === "string") return elem.textContent; else for (elem = elem.firstChild; elem; elem = elem.nextSibling) ret += getText(elem); else if (nodeType === 3 || nodeType === 4) return elem.nodeValue;
                     return ret;
                 };
                 Expr = Sizzle.selectors = {
@@ -1994,15 +2028,15 @@
                         ATTR: function(match) {
                             match[1] = match[1].replace(runescape, funescape);
                             match[3] = (match[3] || match[4] || match[5] || "").replace(runescape, funescape);
-                            if ("~=" === match[2]) match[3] = " " + match[3] + " ";
+                            if (match[2] === "~=") match[3] = " " + match[3] + " ";
                             return match.slice(0, 4);
                         },
                         CHILD: function(match) {
                             match[1] = match[1].toLowerCase();
-                            if ("nth" === match[1].slice(0, 3)) {
+                            if (match[1].slice(0, 3) === "nth") {
                                 if (!match[3]) Sizzle.error(match[0]);
-                                match[4] = +(match[4] ? match[5] + (match[6] || 1) : 2 * ("even" === match[3] || "odd" === match[3]));
-                                match[5] = +(match[7] + match[8] || "odd" === match[3]);
+                                match[4] = +(match[4] ? match[5] + (match[6] || 1) : 2 * (match[3] === "even" || match[3] === "odd"));
+                                match[5] = +(match[7] + match[8] || match[3] === "odd");
                             } else if (match[3]) Sizzle.error(match[0]);
                             return match;
                         },
@@ -2019,7 +2053,7 @@
                     filter: {
                         TAG: function(nodeNameSelector) {
                             var nodeName = nodeNameSelector.replace(runescape, funescape).toLowerCase();
-                            return "*" === nodeNameSelector ? function() {
+                            return nodeNameSelector === "*" ? function() {
                                 return true;
                             } : function(elem) {
                                 return elem.nodeName && elem.nodeName.toLowerCase() === nodeName;
@@ -2028,21 +2062,21 @@
                         CLASS: function(className) {
                             var pattern = classCache[className + " "];
                             return pattern || (pattern = new RegExp("(^|" + whitespace + ")" + className + "(" + whitespace + "|$)")) && classCache(className, (function(elem) {
-                                return pattern.test("string" === typeof elem.className && elem.className || "undefined" !== typeof elem.getAttribute && elem.getAttribute("class") || "");
+                                return pattern.test(typeof elem.className === "string" && elem.className || typeof elem.getAttribute !== "undefined" && elem.getAttribute("class") || "");
                             }));
                         },
                         ATTR: function(name, operator, check) {
                             return function(elem) {
                                 var result = Sizzle.attr(elem, name);
-                                if (null == result) return "!=" === operator;
+                                if (result == null) return operator === "!=";
                                 if (!operator) return true;
                                 result += "";
-                                return "=" === operator ? result === check : "!=" === operator ? result !== check : "^=" === operator ? check && 0 === result.indexOf(check) : "*=" === operator ? check && result.indexOf(check) > -1 : "$=" === operator ? check && result.slice(-check.length) === check : "~=" === operator ? (" " + result.replace(rwhitespace, " ") + " ").indexOf(check) > -1 : "|=" === operator ? result === check || result.slice(0, check.length + 1) === check + "-" : false;
+                                return operator === "=" ? result === check : operator === "!=" ? result !== check : operator === "^=" ? check && result.indexOf(check) === 0 : operator === "*=" ? check && result.indexOf(check) > -1 : operator === "$=" ? check && result.slice(-check.length) === check : operator === "~=" ? (" " + result.replace(rwhitespace, " ") + " ").indexOf(check) > -1 : operator === "|=" ? result === check || result.slice(0, check.length + 1) === check + "-" : false;
                             };
                         },
                         CHILD: function(type, what, _argument, first, last) {
-                            var simple = "nth" !== type.slice(0, 3), forward = "last" !== type.slice(-4), ofType = "of-type" === what;
-                            return 1 === first && 0 === last ? function(elem) {
+                            var simple = type.slice(0, 3) !== "nth", forward = type.slice(-4) !== "last", ofType = what === "of-type";
+                            return first === 1 && last === 0 ? function(elem) {
                                 return !!elem.parentNode;
                             } : function(elem, _context, xml) {
                                 var cache, uniqueCache, outerCache, node, nodeIndex, start, dir = simple !== forward ? "nextSibling" : "previousSibling", parent = elem.parentNode, name = ofType && elem.nodeName.toLowerCase(), useCache = !xml && !ofType, diff = false;
@@ -2050,8 +2084,8 @@
                                     if (simple) {
                                         while (dir) {
                                             node = elem;
-                                            while (node = node[dir]) if (ofType ? node.nodeName.toLowerCase() === name : 1 === node.nodeType) return false;
-                                            start = dir = "only" === type && !start && "nextSibling";
+                                            while (node = node[dir]) if (ofType ? node.nodeName.toLowerCase() === name : node.nodeType === 1) return false;
+                                            start = dir = type === "only" && !start && "nextSibling";
                                         }
                                         return true;
                                     }
@@ -2064,7 +2098,7 @@
                                         nodeIndex = cache[0] === dirruns && cache[1];
                                         diff = nodeIndex && cache[2];
                                         node = nodeIndex && parent.childNodes[nodeIndex];
-                                        while (node = ++nodeIndex && node && node[dir] || (diff = nodeIndex = 0) || start.pop()) if (1 === node.nodeType && ++diff && node === elem) {
+                                        while (node = ++nodeIndex && node && node[dir] || (diff = nodeIndex = 0) || start.pop()) if (node.nodeType === 1 && ++diff && node === elem) {
                                             uniqueCache[type] = [ dirruns, nodeIndex, diff ];
                                             break;
                                         }
@@ -2077,7 +2111,7 @@
                                             nodeIndex = cache[0] === dirruns && cache[1];
                                             diff = nodeIndex;
                                         }
-                                        if (false === diff) while (node = ++nodeIndex && node && node[dir] || (diff = nodeIndex = 0) || start.pop()) if ((ofType ? node.nodeName.toLowerCase() === name : 1 === node.nodeType) && ++diff) {
+                                        if (diff === false) while (node = ++nodeIndex && node && node[dir] || (diff = nodeIndex = 0) || start.pop()) if ((ofType ? node.nodeName.toLowerCase() === name : node.nodeType === 1) && ++diff) {
                                             if (useCache) {
                                                 outerCache = node[expando] || (node[expando] = {});
                                                 uniqueCache = outerCache[node.uniqueID] || (outerCache[node.uniqueID] = {});
@@ -2141,9 +2175,9 @@
                                 do {
                                     if (elemLang = documentIsHTML ? elem.lang : elem.getAttribute("xml:lang") || elem.getAttribute("lang")) {
                                         elemLang = elemLang.toLowerCase();
-                                        return elemLang === lang || 0 === elemLang.indexOf(lang + "-");
+                                        return elemLang === lang || elemLang.indexOf(lang + "-") === 0;
                                     }
-                                } while ((elem = elem.parentNode) && 1 === elem.nodeType);
+                                } while ((elem = elem.parentNode) && elem.nodeType === 1);
                                 return false;
                             };
                         })),
@@ -2161,11 +2195,11 @@
                         disabled: createDisabledPseudo(true),
                         checked: function(elem) {
                             var nodeName = elem.nodeName.toLowerCase();
-                            return "input" === nodeName && !!elem.checked || "option" === nodeName && !!elem.selected;
+                            return nodeName === "input" && !!elem.checked || nodeName === "option" && !!elem.selected;
                         },
                         selected: function(elem) {
                             if (elem.parentNode) elem.parentNode.selectedIndex;
-                            return true === elem.selected;
+                            return elem.selected === true;
                         },
                         empty: function(elem) {
                             for (elem = elem.firstChild; elem; elem = elem.nextSibling) if (elem.nodeType < 6) return false;
@@ -2182,11 +2216,11 @@
                         },
                         button: function(elem) {
                             var name = elem.nodeName.toLowerCase();
-                            return "input" === name && "button" === elem.type || "button" === name;
+                            return name === "input" && elem.type === "button" || name === "button";
                         },
                         text: function(elem) {
                             var attr;
-                            return "input" === elem.nodeName.toLowerCase() && "text" === elem.type && (null == (attr = elem.getAttribute("type")) || "text" === attr.toLowerCase());
+                            return elem.nodeName.toLowerCase() === "input" && elem.type === "text" && ((attr = elem.getAttribute("type")) == null || attr.toLowerCase() === "text");
                         },
                         first: createPositionalPseudo((function() {
                             return [ 0 ];
@@ -2273,15 +2307,15 @@
                     return selector;
                 }
                 function addCombinator(matcher, combinator, base) {
-                    var dir = combinator.dir, skip = combinator.next, key = skip || dir, checkNonElements = base && "parentNode" === key, doneName = done++;
+                    var dir = combinator.dir, skip = combinator.next, key = skip || dir, checkNonElements = base && key === "parentNode", doneName = done++;
                     return combinator.first ? function(elem, context, xml) {
-                        while (elem = elem[dir]) if (1 === elem.nodeType || checkNonElements) return matcher(elem, context, xml);
+                        while (elem = elem[dir]) if (elem.nodeType === 1 || checkNonElements) return matcher(elem, context, xml);
                         return false;
                     } : function(elem, context, xml) {
                         var oldCache, uniqueCache, outerCache, newCache = [ dirruns, doneName ];
                         if (xml) {
-                            while (elem = elem[dir]) if (1 === elem.nodeType || checkNonElements) if (matcher(elem, context, xml)) return true;
-                        } else while (elem = elem[dir]) if (1 === elem.nodeType || checkNonElements) {
+                            while (elem = elem[dir]) if (elem.nodeType === 1 || checkNonElements) if (matcher(elem, context, xml)) return true;
+                        } else while (elem = elem[dir]) if (elem.nodeType === 1 || checkNonElements) {
                             outerCache = elem[expando] || (elem[expando] = {});
                             uniqueCache = outerCache[elem.uniqueID] || (outerCache[elem.uniqueID] = {});
                             if (skip && skip === elem.nodeName.toLowerCase()) elem = elem[dir] || elem; else if ((oldCache = uniqueCache[key]) && oldCache[0] === dirruns && oldCache[1] === doneName) return newCache[2] = oldCache[2]; else {
@@ -2305,7 +2339,7 @@
                     return results;
                 }
                 function condense(unmatched, map, filter, context, xml) {
-                    var elem, newUnmatched = [], i = 0, len = unmatched.length, mapped = null != map;
+                    var elem, newUnmatched = [], i = 0, len = unmatched.length, mapped = map != null;
                     for (;i < len; i++) if (elem = unmatched[i]) if (!filter || filter(elem, context, xml)) {
                         newUnmatched.push(elem);
                         if (mapped) map.push(i);
@@ -2357,7 +2391,7 @@
                             j = ++i;
                             for (;j < len; j++) if (Expr.relative[tokens[j].type]) break;
                             return setMatcher(i > 1 && elementMatcher(matchers), i > 1 && toSelector(tokens.slice(0, i - 1).concat({
-                                value: " " === tokens[i - 2].type ? "*" : ""
+                                value: tokens[i - 2].type === " " ? "*" : ""
                             })).replace(rtrim, "$1"), matcher, i < j && matcherFromTokens(tokens.slice(i, j)), j < len && matcherFromTokens(tokens = tokens.slice(j)), j < len && toSelector(tokens));
                         }
                         matchers.push(matcher);
@@ -2366,9 +2400,9 @@
                 }
                 function matcherFromGroupMatchers(elementMatchers, setMatchers) {
                     var bySet = setMatchers.length > 0, byElement = elementMatchers.length > 0, superMatcher = function(seed, context, xml, results, outermost) {
-                        var elem, j, matcher, matchedCount = 0, i = "0", unmatched = seed && [], setMatched = [], contextBackup = outermostContext, elems = seed || byElement && Expr.find["TAG"]("*", outermost), dirrunsUnique = dirruns += null == contextBackup ? 1 : Math.random() || .1, len = elems.length;
+                        var elem, j, matcher, matchedCount = 0, i = "0", unmatched = seed && [], setMatched = [], contextBackup = outermostContext, elems = seed || byElement && Expr.find["TAG"]("*", outermost), dirrunsUnique = dirruns += contextBackup == null ? 1 : Math.random() || .1, len = elems.length;
                         if (outermost) outermostContext = context == document || context || outermost;
-                        for (;i !== len && null != (elem = elems[i]); i++) {
+                        for (;i !== len && (elem = elems[i]) != null; i++) {
                             if (byElement && elem) {
                                 j = 0;
                                 if (!context && elem.ownerDocument != document) {
@@ -2420,11 +2454,11 @@
                     return cached;
                 };
                 select = Sizzle.select = function(selector, context, results, seed) {
-                    var i, tokens, token, type, find, compiled = "function" === typeof selector && selector, match = !seed && tokenize(selector = compiled.selector || selector);
+                    var i, tokens, token, type, find, compiled = typeof selector === "function" && selector, match = !seed && tokenize(selector = compiled.selector || selector);
                     results = results || [];
-                    if (1 === match.length) {
+                    if (match.length === 1) {
                         tokens = match[0] = match[0].slice(0);
-                        if (tokens.length > 2 && "ID" === (token = tokens[0]).type && 9 === context.nodeType && documentIsHTML && Expr.relative[tokens[1].type]) {
+                        if (tokens.length > 2 && (token = tokens[0]).type === "ID" && context.nodeType === 9 && documentIsHTML && Expr.relative[tokens[1].type]) {
                             context = (Expr.find["ID"](token.matches[0].replace(runescape, funescape), context) || [])[0];
                             if (!context) return results; else if (compiled) context = context.parentNode;
                             selector = selector.slice(tokens.shift().value.length);
@@ -2451,26 +2485,26 @@
                 support.detectDuplicates = !!hasDuplicate;
                 setDocument();
                 support.sortDetached = assert((function(el) {
-                    return 1 & el.compareDocumentPosition(document.createElement("fieldset"));
+                    return el.compareDocumentPosition(document.createElement("fieldset")) & 1;
                 }));
                 if (!assert((function(el) {
                     el.innerHTML = "<a href='#'></a>";
-                    return "#" === el.firstChild.getAttribute("href");
+                    return el.firstChild.getAttribute("href") === "#";
                 }))) addHandle("type|href|height|width", (function(elem, name, isXML) {
-                    if (!isXML) return elem.getAttribute(name, "type" === name.toLowerCase() ? 1 : 2);
+                    if (!isXML) return elem.getAttribute(name, name.toLowerCase() === "type" ? 1 : 2);
                 }));
                 if (!support.attributes || !assert((function(el) {
                     el.innerHTML = "<input/>";
                     el.firstChild.setAttribute("value", "");
-                    return "" === el.firstChild.getAttribute("value");
+                    return el.firstChild.getAttribute("value") === "";
                 }))) addHandle("value", (function(elem, _name, isXML) {
-                    if (!isXML && "input" === elem.nodeName.toLowerCase()) return elem.defaultValue;
+                    if (!isXML && elem.nodeName.toLowerCase() === "input") return elem.defaultValue;
                 }));
                 if (!assert((function(el) {
-                    return null == el.getAttribute("disabled");
+                    return el.getAttribute("disabled") == null;
                 }))) addHandle(booleans, (function(elem, name, isXML) {
                     var val;
-                    if (!isXML) return true === elem[name] ? name.toLowerCase() : (val = elem.getAttributeNode(name)) && val.specified ? val.value : null;
+                    if (!isXML) return elem[name] === true ? name.toLowerCase() : (val = elem.getAttributeNode(name)) && val.specified ? val.value : null;
                 }));
                 return Sizzle;
             }(window);
@@ -2483,8 +2517,8 @@
             jQuery.contains = Sizzle.contains;
             jQuery.escapeSelector = Sizzle.escape;
             var dir = function(elem, dir, until) {
-                var matched = [], truncate = void 0 !== until;
-                while ((elem = elem[dir]) && 9 !== elem.nodeType) if (1 === elem.nodeType) {
+                var matched = [], truncate = until !== void 0;
+                while ((elem = elem[dir]) && elem.nodeType !== 9) if (elem.nodeType === 1) {
                     if (truncate && jQuery(elem).is(until)) break;
                     matched.push(elem);
                 }
@@ -2492,7 +2526,7 @@
             };
             var siblings = function(n, elem) {
                 var matched = [];
-                for (;n; n = n.nextSibling) if (1 === n.nodeType && n !== elem) matched.push(n);
+                for (;n; n = n.nextSibling) if (n.nodeType === 1 && n !== elem) matched.push(n);
                 return matched;
             };
             var rneedsContext = jQuery.expr.match.needsContext;
@@ -2507,7 +2541,7 @@
                 if (qualifier.nodeType) return jQuery.grep(elements, (function(elem) {
                     return elem === qualifier !== not;
                 }));
-                if ("string" !== typeof qualifier) return jQuery.grep(elements, (function(elem) {
+                if (typeof qualifier !== "string") return jQuery.grep(elements, (function(elem) {
                     return indexOf.call(qualifier, elem) > -1 !== not;
                 }));
                 return jQuery.filter(qualifier, elements, not);
@@ -2515,15 +2549,15 @@
             jQuery.filter = function(expr, elems, not) {
                 var elem = elems[0];
                 if (not) expr = ":not(" + expr + ")";
-                if (1 === elems.length && 1 === elem.nodeType) return jQuery.find.matchesSelector(elem, expr) ? [ elem ] : [];
+                if (elems.length === 1 && elem.nodeType === 1) return jQuery.find.matchesSelector(elem, expr) ? [ elem ] : [];
                 return jQuery.find.matches(expr, jQuery.grep(elems, (function(elem) {
-                    return 1 === elem.nodeType;
+                    return elem.nodeType === 1;
                 })));
             };
             jQuery.fn.extend({
                 find: function(selector) {
                     var i, ret, len = this.length, self = this;
-                    if ("string" !== typeof selector) return this.pushStack(jQuery(selector).filter((function() {
+                    if (typeof selector !== "string") return this.pushStack(jQuery(selector).filter((function() {
                         for (i = 0; i < len; i++) if (jQuery.contains(self[i], this)) return true;
                     })));
                     ret = this.pushStack([]);
@@ -2537,15 +2571,15 @@
                     return this.pushStack(winnow(this, selector || [], true));
                 },
                 is: function(selector) {
-                    return !!winnow(this, "string" === typeof selector && rneedsContext.test(selector) ? jQuery(selector) : selector || [], false).length;
+                    return !!winnow(this, typeof selector === "string" && rneedsContext.test(selector) ? jQuery(selector) : selector || [], false).length;
                 }
             });
             var rootjQuery, rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/, init = jQuery.fn.init = function(selector, context, root) {
                 var match, elem;
                 if (!selector) return this;
                 root = root || rootjQuery;
-                if ("string" === typeof selector) {
-                    if ("<" === selector[0] && ">" === selector[selector.length - 1] && selector.length >= 3) match = [ null, selector, null ]; else match = rquickExpr.exec(selector);
+                if (typeof selector === "string") {
+                    if (selector[0] === "<" && selector[selector.length - 1] === ">" && selector.length >= 3) match = [ null, selector, null ]; else match = rquickExpr.exec(selector);
                     if (match && (match[1] || !context)) if (match[1]) {
                         context = context instanceof jQuery ? context[0] : context;
                         jQuery.merge(this, jQuery.parseHTML(match[1], context && context.nodeType ? context.ownerDocument || context : document, true));
@@ -2563,7 +2597,7 @@
                     this[0] = selector;
                     this.length = 1;
                     return this;
-                } else if (isFunction(selector)) return void 0 !== root.ready ? root.ready(selector) : selector(jQuery);
+                } else if (isFunction(selector)) return root.ready !== void 0 ? root.ready(selector) : selector(jQuery);
                 return jQuery.makeArray(selector, this);
             };
             init.prototype = jQuery.fn;
@@ -2583,8 +2617,8 @@
                     }));
                 },
                 closest: function(selectors, context) {
-                    var cur, i = 0, l = this.length, matched = [], targets = "string" !== typeof selectors && jQuery(selectors);
-                    if (!rneedsContext.test(selectors)) for (;i < l; i++) for (cur = this[i]; cur && cur !== context; cur = cur.parentNode) if (cur.nodeType < 11 && (targets ? targets.index(cur) > -1 : 1 === cur.nodeType && jQuery.find.matchesSelector(cur, selectors))) {
+                    var cur, i = 0, l = this.length, matched = [], targets = typeof selectors !== "string" && jQuery(selectors);
+                    if (!rneedsContext.test(selectors)) for (;i < l; i++) for (cur = this[i]; cur && cur !== context; cur = cur.parentNode) if (cur.nodeType < 11 && (targets ? targets.index(cur) > -1 : cur.nodeType === 1 && jQuery.find.matchesSelector(cur, selectors))) {
                         matched.push(cur);
                         break;
                     }
@@ -2592,24 +2626,24 @@
                 },
                 index: function(elem) {
                     if (!elem) return this[0] && this[0].parentNode ? this.first().prevAll().length : -1;
-                    if ("string" === typeof elem) return indexOf.call(jQuery(elem), this[0]);
+                    if (typeof elem === "string") return indexOf.call(jQuery(elem), this[0]);
                     return indexOf.call(this, elem.jquery ? elem[0] : elem);
                 },
                 add: function(selector, context) {
                     return this.pushStack(jQuery.uniqueSort(jQuery.merge(this.get(), jQuery(selector, context))));
                 },
                 addBack: function(selector) {
-                    return this.add(null == selector ? this.prevObject : this.prevObject.filter(selector));
+                    return this.add(selector == null ? this.prevObject : this.prevObject.filter(selector));
                 }
             });
             function sibling(cur, dir) {
-                while ((cur = cur[dir]) && 1 !== cur.nodeType) ;
+                while ((cur = cur[dir]) && cur.nodeType !== 1) ;
                 return cur;
             }
             jQuery.each({
                 parent: function(elem) {
                     var parent = elem.parentNode;
-                    return parent && 11 !== parent.nodeType ? parent : null;
+                    return parent && parent.nodeType !== 11 ? parent : null;
                 },
                 parents: function(elem) {
                     return dir(elem, "parentNode");
@@ -2642,15 +2676,15 @@
                     return siblings(elem.firstChild);
                 },
                 contents: function(elem) {
-                    if (null != elem.contentDocument && getProto(elem.contentDocument)) return elem.contentDocument;
+                    if (elem.contentDocument != null && getProto(elem.contentDocument)) return elem.contentDocument;
                     if (nodeName(elem, "template")) elem = elem.content || elem;
                     return jQuery.merge([], elem.childNodes);
                 }
             }, (function(name, fn) {
                 jQuery.fn[name] = function(until, selector) {
                     var matched = jQuery.map(this, fn, until);
-                    if ("Until" !== name.slice(-5)) selector = until;
-                    if (selector && "string" === typeof selector) matched = jQuery.filter(selector, matched);
+                    if (name.slice(-5) !== "Until") selector = until;
+                    if (selector && typeof selector === "string") matched = jQuery.filter(selector, matched);
                     if (this.length > 1) {
                         if (!guaranteedUnique[name]) jQuery.uniqueSort(matched);
                         if (rparentsprev.test(name)) matched.reverse();
@@ -2667,13 +2701,13 @@
                 return object;
             }
             jQuery.Callbacks = function(options) {
-                options = "string" === typeof options ? createOptions(options) : jQuery.extend({}, options);
+                options = typeof options === "string" ? createOptions(options) : jQuery.extend({}, options);
                 var firing, memory, fired, locked, list = [], queue = [], firingIndex = -1, fire = function() {
                     locked = locked || options.once;
                     fired = firing = true;
                     for (;queue.length; firingIndex = -1) {
                         memory = queue.shift();
-                        while (++firingIndex < list.length) if (false === list[firingIndex].apply(memory[0], memory[1]) && options.stopOnFalse) {
+                        while (++firingIndex < list.length) if (list[firingIndex].apply(memory[0], memory[1]) === false && options.stopOnFalse) {
                             firingIndex = list.length;
                             memory = false;
                         }
@@ -2692,7 +2726,7 @@
                                 jQuery.each(args, (function(_, arg) {
                                     if (isFunction(arg)) {
                                         if (!options.unique || !self.has(arg)) list.push(arg);
-                                    } else if (arg && arg.length && "string" !== toType(arg)) add(arg);
+                                    } else if (arg && arg.length && toType(arg) !== "string") add(arg);
                                 }));
                             })(arguments);
                             if (memory && !firing) fire();
@@ -2800,7 +2834,7 @@
                                         if (depth < maxDepth) return;
                                         returned = handler.apply(that, args);
                                         if (returned === deferred.promise()) throw new TypeError("Thenable self-resolution");
-                                        then = returned && ("object" === typeof returned || "function" === typeof returned) && returned.then;
+                                        then = returned && (typeof returned === "object" || typeof returned === "function") && returned.then;
                                         if (isFunction(then)) if (special) then.call(returned, resolve(maxDepth, deferred, Identity, special), resolve(maxDepth, deferred, Thrower, special)); else {
                                             maxDepth++;
                                             then.call(returned, resolve(maxDepth, deferred, Identity, special), resolve(maxDepth, deferred, Thrower, special), resolve(maxDepth, deferred, Identity, deferred.notifyWith));
@@ -2838,7 +2872,7 @@
                             })).promise();
                         },
                         promise: function(obj) {
-                            return null != obj ? jQuery.extend(obj, promise) : promise;
+                            return obj != null ? jQuery.extend(obj, promise) : promise;
                         }
                     }, deferred = {};
                     jQuery.each(tuples, (function(i, tuple) {
@@ -2863,12 +2897,12 @@
                         return function(value) {
                             resolveContexts[i] = this;
                             resolveValues[i] = arguments.length > 1 ? slice.call(arguments) : value;
-                            if (!--remaining) master.resolveWith(resolveContexts, resolveValues);
+                            if (! --remaining) master.resolveWith(resolveContexts, resolveValues);
                         };
                     };
                     if (remaining <= 1) {
                         adoptValue(singleValue, master.done(updateFunc(i)).resolve, master.reject, !remaining);
-                        if ("pending" === master.state() || isFunction(resolveValues[i] && resolveValues[i].then)) return master.then();
+                        if (master.state() === "pending" || isFunction(resolveValues[i] && resolveValues[i].then)) return master.then();
                     }
                     while (i--) adoptValue(resolveValues[i], updateFunc(i), master.reject);
                     return master.promise();
@@ -2894,9 +2928,9 @@
                 isReady: false,
                 readyWait: 1,
                 ready: function(wait) {
-                    if (true === wait ? --jQuery.readyWait : jQuery.isReady) return;
+                    if (wait === true ? --jQuery.readyWait : jQuery.isReady) return;
                     jQuery.isReady = true;
-                    if (true !== wait && --jQuery.readyWait > 0) return;
+                    if (wait !== true && --jQuery.readyWait > 0) return;
                     readyList.resolveWith(document, [ jQuery ]);
                 }
             });
@@ -2906,16 +2940,16 @@
                 window.removeEventListener("load", completed);
                 jQuery.ready();
             }
-            if ("complete" === document.readyState || "loading" !== document.readyState && !document.documentElement.doScroll) window.setTimeout(jQuery.ready); else {
+            if (document.readyState === "complete" || document.readyState !== "loading" && !document.documentElement.doScroll) window.setTimeout(jQuery.ready); else {
                 document.addEventListener("DOMContentLoaded", completed);
                 window.addEventListener("load", completed);
             }
             var access = function(elems, fn, key, value, chainable, emptyGet, raw) {
-                var i = 0, len = elems.length, bulk = null == key;
-                if ("object" === toType(key)) {
+                var i = 0, len = elems.length, bulk = key == null;
+                if (toType(key) === "object") {
                     chainable = true;
                     for (i in key) access(elems, fn, i, key[i], true, emptyGet, raw);
-                } else if (void 0 !== value) {
+                } else if (value !== void 0) {
                     chainable = true;
                     if (!isFunction(value)) raw = true;
                     if (bulk) if (raw) {
@@ -2941,7 +2975,7 @@
                 return string.replace(rmsPrefix, "ms-").replace(rdashAlpha, fcamelCase);
             }
             var acceptData = function(owner) {
-                return 1 === owner.nodeType || 9 === owner.nodeType || !+owner.nodeType;
+                return owner.nodeType === 1 || owner.nodeType === 9 || !+owner.nodeType;
             };
             function Data() {
                 this.expando = jQuery.expando + Data.uid++;
@@ -2961,21 +2995,21 @@
                 },
                 set: function(owner, data, value) {
                     var prop, cache = this.cache(owner);
-                    if ("string" === typeof data) cache[camelCase(data)] = value; else for (prop in data) cache[camelCase(prop)] = data[prop];
+                    if (typeof data === "string") cache[camelCase(data)] = value; else for (prop in data) cache[camelCase(prop)] = data[prop];
                     return cache;
                 },
                 get: function(owner, key) {
-                    return void 0 === key ? this.cache(owner) : owner[this.expando] && owner[this.expando][camelCase(key)];
+                    return key === void 0 ? this.cache(owner) : owner[this.expando] && owner[this.expando][camelCase(key)];
                 },
                 access: function(owner, key, value) {
-                    if (void 0 === key || key && "string" === typeof key && void 0 === value) return this.get(owner, key);
+                    if (key === void 0 || key && typeof key === "string" && value === void 0) return this.get(owner, key);
                     this.set(owner, key, value);
-                    return void 0 !== value ? value : key;
+                    return value !== void 0 ? value : key;
                 },
                 remove: function(owner, key) {
                     var i, cache = owner[this.expando];
-                    if (void 0 === cache) return;
-                    if (void 0 !== key) {
+                    if (cache === void 0) return;
+                    if (key !== void 0) {
                         if (Array.isArray(key)) key = key.map(camelCase); else {
                             key = camelCase(key);
                             key = key in cache ? [ key ] : key.match(rnothtmlwhite) || [];
@@ -2983,30 +3017,30 @@
                         i = key.length;
                         while (i--) delete cache[key[i]];
                     }
-                    if (void 0 === key || jQuery.isEmptyObject(cache)) if (owner.nodeType) owner[this.expando] = void 0; else delete owner[this.expando];
+                    if (key === void 0 || jQuery.isEmptyObject(cache)) if (owner.nodeType) owner[this.expando] = void 0; else delete owner[this.expando];
                 },
                 hasData: function(owner) {
                     var cache = owner[this.expando];
-                    return void 0 !== cache && !jQuery.isEmptyObject(cache);
+                    return cache !== void 0 && !jQuery.isEmptyObject(cache);
                 }
             };
             var dataPriv = new Data;
             var dataUser = new Data;
             var rbrace = /^(?:\{[\w\W]*\}|\[[\w\W]*\])$/, rmultiDash = /[A-Z]/g;
             function getData(data) {
-                if ("true" === data) return true;
-                if ("false" === data) return false;
-                if ("null" === data) return null;
+                if (data === "true") return true;
+                if (data === "false") return false;
+                if (data === "null") return null;
                 if (data === +data + "") return +data;
                 if (rbrace.test(data)) return JSON.parse(data);
                 return data;
             }
             function dataAttr(elem, key, data) {
                 var name;
-                if (void 0 === data && 1 === elem.nodeType) {
+                if (data === void 0 && elem.nodeType === 1) {
                     name = "data-" + key.replace(rmultiDash, "-$&").toLowerCase();
                     data = elem.getAttribute(name);
-                    if ("string" === typeof data) {
+                    if (typeof data === "string") {
                         try {
                             data = getData(data);
                         } catch (e) {}
@@ -3035,14 +3069,14 @@
             jQuery.fn.extend({
                 data: function(key, value) {
                     var i, name, data, elem = this[0], attrs = elem && elem.attributes;
-                    if (void 0 === key) {
+                    if (key === void 0) {
                         if (this.length) {
                             data = dataUser.get(elem);
-                            if (1 === elem.nodeType && !dataPriv.get(elem, "hasDataAttrs")) {
+                            if (elem.nodeType === 1 && !dataPriv.get(elem, "hasDataAttrs")) {
                                 i = attrs.length;
                                 while (i--) if (attrs[i]) {
                                     name = attrs[i].name;
-                                    if (0 === name.indexOf("data-")) {
+                                    if (name.indexOf("data-") === 0) {
                                         name = camelCase(name.slice(5));
                                         dataAttr(elem, name, data[name]);
                                     }
@@ -3052,16 +3086,16 @@
                         }
                         return data;
                     }
-                    if ("object" === typeof key) return this.each((function() {
+                    if (typeof key === "object") return this.each((function() {
                         dataUser.set(this, key);
                     }));
                     return access(this, (function(value) {
                         var data;
-                        if (elem && void 0 === value) {
+                        if (elem && value === void 0) {
                             data = dataUser.get(elem, key);
-                            if (void 0 !== data) return data;
+                            if (data !== void 0) return data;
                             data = dataAttr(elem, key);
-                            if (void 0 !== data) return data;
+                            if (data !== void 0) return data;
                             return;
                         }
                         this.each((function() {
@@ -3090,12 +3124,12 @@
                     var queue = jQuery.queue(elem, type), startLength = queue.length, fn = queue.shift(), hooks = jQuery._queueHooks(elem, type), next = function() {
                         jQuery.dequeue(elem, type);
                     };
-                    if ("inprogress" === fn) {
+                    if (fn === "inprogress") {
                         fn = queue.shift();
                         startLength--;
                     }
                     if (fn) {
-                        if ("fx" === type) queue.unshift("inprogress");
+                        if (type === "fx") queue.unshift("inprogress");
                         delete hooks.stop;
                         fn.call(elem, next, hooks);
                     }
@@ -3113,16 +3147,16 @@
             jQuery.fn.extend({
                 queue: function(type, data) {
                     var setter = 2;
-                    if ("string" !== typeof type) {
+                    if (typeof type !== "string") {
                         data = type;
                         type = "fx";
                         setter--;
                     }
                     if (arguments.length < setter) return jQuery.queue(this[0], type);
-                    return void 0 === data ? this : this.each((function() {
+                    return data === void 0 ? this : this.each((function() {
                         var queue = jQuery.queue(this, type, data);
                         jQuery._queueHooks(this, type);
-                        if ("fx" === type && "inprogress" !== queue[0]) jQuery.dequeue(this, type);
+                        if (type === "fx" && queue[0] !== "inprogress") jQuery.dequeue(this, type);
                     }));
                 },
                 dequeue: function(type) {
@@ -3135,9 +3169,9 @@
                 },
                 promise: function(type, obj) {
                     var tmp, count = 1, defer = jQuery.Deferred(), elements = this, i = this.length, resolve = function() {
-                        if (!--count) defer.resolveWith(elements, [ elements ]);
+                        if (! --count) defer.resolveWith(elements, [ elements ]);
                     };
-                    if ("string" !== typeof type) {
+                    if (typeof type !== "string") {
                         obj = type;
                         type = void 0;
                     }
@@ -3167,14 +3201,14 @@
             };
             var isHiddenWithinTree = function(elem, el) {
                 elem = el || elem;
-                return "none" === elem.style.display || "" === elem.style.display && isAttached(elem) && "none" === jQuery.css(elem, "display");
+                return elem.style.display === "none" || elem.style.display === "" && isAttached(elem) && jQuery.css(elem, "display") === "none";
             };
             function adjustCSS(elem, prop, valueParts, tween) {
                 var adjusted, scale, maxIterations = 20, currentValue = tween ? function() {
                     return tween.cur();
                 } : function() {
                     return jQuery.css(elem, prop, "");
-                }, initial = currentValue(), unit = valueParts && valueParts[3] || (jQuery.cssNumber[prop] ? "" : "px"), initialInUnit = elem.nodeType && (jQuery.cssNumber[prop] || "px" !== unit && +initial) && rcssNum.exec(jQuery.css(elem, prop));
+                }, initial = currentValue(), unit = valueParts && valueParts[3] || (jQuery.cssNumber[prop] ? "" : "px"), initialInUnit = elem.nodeType && (jQuery.cssNumber[prop] || unit !== "px" && +initial) && rcssNum.exec(jQuery.css(elem, prop));
                 if (initialInUnit && initialInUnit[3] !== unit) {
                     initial /= 2;
                     unit = unit || initialInUnit[3];
@@ -3206,7 +3240,7 @@
                 temp = doc.body.appendChild(doc.createElement(nodeName));
                 display = jQuery.css(temp, "display");
                 temp.parentNode.removeChild(temp);
-                if ("none" === display) display = "block";
+                if (display === "none") display = "block";
                 defaultDisplayMap[nodeName] = display;
                 return display;
             }
@@ -3217,17 +3251,17 @@
                     if (!elem.style) continue;
                     display = elem.style.display;
                     if (show) {
-                        if ("none" === display) {
+                        if (display === "none") {
                             values[index] = dataPriv.get(elem, "display") || null;
                             if (!values[index]) elem.style.display = "";
                         }
-                        if ("" === elem.style.display && isHiddenWithinTree(elem)) values[index] = getDefaultDisplay(elem);
-                    } else if ("none" !== display) {
+                        if (elem.style.display === "" && isHiddenWithinTree(elem)) values[index] = getDefaultDisplay(elem);
+                    } else if (display !== "none") {
                         values[index] = "none";
                         dataPriv.set(elem, "display", display);
                     }
                 }
-                for (index = 0; index < length; index++) if (null != values[index]) elements[index].style.display = values[index];
+                for (index = 0; index < length; index++) if (values[index] != null) elements[index].style.display = values[index];
                 return elements;
             }
             jQuery.fn.extend({
@@ -3238,7 +3272,7 @@
                     return showHide(this);
                 },
                 toggle: function(state) {
-                    if ("boolean" === typeof state) return state ? this.show() : this.hide();
+                    if (typeof state === "boolean") return state ? this.show() : this.hide();
                     return this.each((function() {
                         if (isHiddenWithinTree(this)) jQuery(this).show(); else jQuery(this).hide();
                     }));
@@ -3271,8 +3305,8 @@
             if (!support.option) wrapMap.optgroup = wrapMap.option = [ 1, "<select multiple='multiple'>", "</select>" ];
             function getAll(context, tag) {
                 var ret;
-                if ("undefined" !== typeof context.getElementsByTagName) ret = context.getElementsByTagName(tag || "*"); else if ("undefined" !== typeof context.querySelectorAll) ret = context.querySelectorAll(tag || "*"); else ret = [];
-                if (void 0 === tag || tag && nodeName(context, tag)) return jQuery.merge([ context ], ret);
+                if (typeof context.getElementsByTagName !== "undefined") ret = context.getElementsByTagName(tag || "*"); else if (typeof context.querySelectorAll !== "undefined") ret = context.querySelectorAll(tag || "*"); else ret = [];
+                if (tag === void 0 || tag && nodeName(context, tag)) return jQuery.merge([ context ], ret);
                 return ret;
             }
             function setGlobalEval(elems, refElements) {
@@ -3284,7 +3318,7 @@
                 var elem, tmp, tag, wrap, attached, j, fragment = context.createDocumentFragment(), nodes = [], i = 0, l = elems.length;
                 for (;i < l; i++) {
                     elem = elems[i];
-                    if (elem || 0 === elem) if ("object" === toType(elem)) jQuery.merge(nodes, elem.nodeType ? [ elem ] : elem); else if (!rhtml.test(elem)) nodes.push(context.createTextNode(elem)); else {
+                    if (elem || elem === 0) if (toType(elem) === "object") jQuery.merge(nodes, elem.nodeType ? [ elem ] : elem); else if (!rhtml.test(elem)) nodes.push(context.createTextNode(elem)); else {
                         tmp = tmp || fragment.appendChild(context.createElement("div"));
                         tag = (rtagName.exec(elem) || [ "", "" ])[1].toLowerCase();
                         wrap = wrapMap[tag] || wrapMap._default;
@@ -3321,7 +3355,7 @@
                 return false;
             }
             function expectSync(elem, type) {
-                return elem === safeActiveElement() === ("focus" === type);
+                return elem === safeActiveElement() === (type === "focus");
             }
             function safeActiveElement() {
                 try {
@@ -3330,18 +3364,18 @@
             }
             function on(elem, types, selector, data, fn, one) {
                 var origFn, type;
-                if ("object" === typeof types) {
-                    if ("string" !== typeof selector) {
+                if (typeof types === "object") {
+                    if (typeof selector !== "string") {
                         data = data || selector;
                         selector = void 0;
                     }
                     for (type in types) on(elem, type, selector, data, types[type], one);
                     return elem;
                 }
-                if (null == data && null == fn) {
+                if (data == null && fn == null) {
                     fn = selector;
                     data = selector = void 0;
-                } else if (null == fn) if ("string" === typeof selector) {
+                } else if (fn == null) if (typeof selector === "string") {
                     fn = data;
                     data = void 0;
                 } else {
@@ -3349,8 +3383,8 @@
                     data = selector;
                     selector = void 0;
                 }
-                if (false === fn) fn = returnFalse; else if (!fn) return elem;
-                if (1 === one) {
+                if (fn === false) fn = returnFalse; else if (!fn) return elem;
+                if (one === 1) {
                     origFn = fn;
                     fn = function(event) {
                         jQuery().off(event);
@@ -3376,7 +3410,7 @@
                     if (!handler.guid) handler.guid = jQuery.guid++;
                     if (!(events = elemData.events)) events = elemData.events = Object.create(null);
                     if (!(eventHandle = elemData.handle)) eventHandle = elemData.handle = function(e) {
-                        return "undefined" !== typeof jQuery && jQuery.event.triggered !== e.type ? jQuery.event.dispatch.apply(elem, arguments) : void 0;
+                        return typeof jQuery !== "undefined" && jQuery.event.triggered !== e.type ? jQuery.event.dispatch.apply(elem, arguments) : void 0;
                     };
                     types = (types || "").match(rnothtmlwhite) || [ "" ];
                     t = types.length;
@@ -3401,7 +3435,7 @@
                         if (!(handlers = events[type])) {
                             handlers = events[type] = [];
                             handlers.delegateCount = 0;
-                            if (!special.setup || false === special.setup.call(elem, data, namespaces, eventHandle)) if (elem.addEventListener) elem.addEventListener(type, eventHandle);
+                            if (!special.setup || special.setup.call(elem, data, namespaces, eventHandle) === false) if (elem.addEventListener) elem.addEventListener(type, eventHandle);
                         }
                         if (special.add) {
                             special.add.call(elem, handleObj);
@@ -3431,14 +3465,14 @@
                         origCount = j = handlers.length;
                         while (j--) {
                             handleObj = handlers[j];
-                            if ((mappedTypes || origType === handleObj.origType) && (!handler || handler.guid === handleObj.guid) && (!tmp || tmp.test(handleObj.namespace)) && (!selector || selector === handleObj.selector || "**" === selector && handleObj.selector)) {
+                            if ((mappedTypes || origType === handleObj.origType) && (!handler || handler.guid === handleObj.guid) && (!tmp || tmp.test(handleObj.namespace)) && (!selector || selector === handleObj.selector || selector === "**" && handleObj.selector)) {
                                 handlers.splice(j, 1);
                                 if (handleObj.selector) handlers.delegateCount--;
                                 if (special.remove) special.remove.call(elem, handleObj);
                             }
                         }
                         if (origCount && !handlers.length) {
-                            if (!special.teardown || false === special.teardown.call(elem, namespaces, elemData.handle)) jQuery.removeEvent(elem, type, elemData.handle);
+                            if (!special.teardown || special.teardown.call(elem, namespaces, elemData.handle) === false) jQuery.removeEvent(elem, type, elemData.handle);
                             delete events[type];
                         }
                     }
@@ -3449,17 +3483,17 @@
                     args[0] = event;
                     for (i = 1; i < arguments.length; i++) args[i] = arguments[i];
                     event.delegateTarget = this;
-                    if (special.preDispatch && false === special.preDispatch.call(this, event)) return;
+                    if (special.preDispatch && special.preDispatch.call(this, event) === false) return;
                     handlerQueue = jQuery.event.handlers.call(this, event, handlers);
                     i = 0;
                     while ((matched = handlerQueue[i++]) && !event.isPropagationStopped()) {
                         event.currentTarget = matched.elem;
                         j = 0;
-                        while ((handleObj = matched.handlers[j++]) && !event.isImmediatePropagationStopped()) if (!event.rnamespace || false === handleObj.namespace || event.rnamespace.test(handleObj.namespace)) {
+                        while ((handleObj = matched.handlers[j++]) && !event.isImmediatePropagationStopped()) if (!event.rnamespace || handleObj.namespace === false || event.rnamespace.test(handleObj.namespace)) {
                             event.handleObj = handleObj;
                             event.data = handleObj.data;
                             ret = ((jQuery.event.special[handleObj.origType] || {}).handle || handleObj.handler).apply(matched.elem, args);
-                            if (void 0 !== ret) if (false === (event.result = ret)) {
+                            if (ret !== void 0) if ((event.result = ret) === false) {
                                 event.preventDefault();
                                 event.stopPropagation();
                             }
@@ -3470,13 +3504,13 @@
                 },
                 handlers: function(event, handlers) {
                     var i, handleObj, sel, matchedHandlers, matchedSelectors, handlerQueue = [], delegateCount = handlers.delegateCount, cur = event.target;
-                    if (delegateCount && cur.nodeType && !("click" === event.type && event.button >= 1)) for (;cur !== this; cur = cur.parentNode || this) if (1 === cur.nodeType && !("click" === event.type && true === cur.disabled)) {
+                    if (delegateCount && cur.nodeType && !(event.type === "click" && event.button >= 1)) for (;cur !== this; cur = cur.parentNode || this) if (cur.nodeType === 1 && !(event.type === "click" && cur.disabled === true)) {
                         matchedHandlers = [];
                         matchedSelectors = {};
                         for (i = 0; i < delegateCount; i++) {
                             handleObj = handlers[i];
                             sel = handleObj.selector + " ";
-                            if (void 0 === matchedSelectors[sel]) matchedSelectors[sel] = handleObj.needsContext ? jQuery(sel, this).index(cur) > -1 : jQuery.find(sel, this, null, [ cur ]).length;
+                            if (matchedSelectors[sel] === void 0) matchedSelectors[sel] = handleObj.needsContext ? jQuery(sel, this).index(cur) > -1 : jQuery.find(sel, this, null, [ cur ]).length;
                             if (matchedSelectors[sel]) matchedHandlers.push(handleObj);
                         }
                         if (matchedHandlers.length) handlerQueue.push({
@@ -3535,14 +3569,14 @@
                     },
                     beforeunload: {
                         postDispatch: function(event) {
-                            if (void 0 !== event.result && event.originalEvent) event.originalEvent.returnValue = event.result;
+                            if (event.result !== void 0 && event.originalEvent) event.originalEvent.returnValue = event.result;
                         }
                     }
                 }
             };
             function leverageNative(el, type, expectSync) {
                 if (!expectSync) {
-                    if (void 0 === dataPriv.get(el, type)) jQuery.event.add(el, type, returnTrue);
+                    if (dataPriv.get(el, type) === void 0) jQuery.event.add(el, type, returnTrue);
                     return;
                 }
                 dataPriv.set(el, type, false);
@@ -3550,7 +3584,7 @@
                     namespace: false,
                     handler: function(event) {
                         var notAsync, result, saved = dataPriv.get(this, type);
-                        if (1 & event.isTrigger && this[type]) {
+                        if (event.isTrigger & 1 && this[type]) {
                             if (!saved.length) {
                                 saved = slice.call(arguments);
                                 dataPriv.set(this, type, saved);
@@ -3581,8 +3615,8 @@
                 if (src && src.type) {
                     this.originalEvent = src;
                     this.type = src.type;
-                    this.isDefaultPrevented = src.defaultPrevented || void 0 === src.defaultPrevented && false === src.returnValue ? returnTrue : returnFalse;
-                    this.target = src.target && 3 === src.target.nodeType ? src.target.parentNode : src.target;
+                    this.isDefaultPrevented = src.defaultPrevented || src.defaultPrevented === void 0 && src.returnValue === false ? returnTrue : returnFalse;
+                    this.target = src.target && src.target.nodeType === 3 ? src.target.parentNode : src.target;
                     this.currentTarget = src.currentTarget;
                     this.relatedTarget = src.relatedTarget;
                 } else this.type = src;
@@ -3646,11 +3680,11 @@
                 touches: true,
                 which: function(event) {
                     var button = event.button;
-                    if (null == event.which && rkeyEvent.test(event.type)) return null != event.charCode ? event.charCode : event.keyCode;
-                    if (!event.which && void 0 !== button && rmouseEvent.test(event.type)) {
-                        if (1 & button) return 1;
-                        if (2 & button) return 3;
-                        if (4 & button) return 2;
+                    if (event.which == null && rkeyEvent.test(event.type)) return event.charCode != null ? event.charCode : event.keyCode;
+                    if (!event.which && button !== void 0 && rmouseEvent.test(event.type)) {
+                        if (button & 1) return 1;
+                        if (button & 2) return 3;
+                        if (button & 4) return 2;
                         return 0;
                     }
                     return event.which;
@@ -3706,15 +3740,15 @@
                         jQuery(types.delegateTarget).off(handleObj.namespace ? handleObj.origType + "." + handleObj.namespace : handleObj.origType, handleObj.selector, handleObj.handler);
                         return this;
                     }
-                    if ("object" === typeof types) {
+                    if (typeof types === "object") {
                         for (type in types) this.off(type, selector, types[type]);
                         return this;
                     }
-                    if (false === selector || "function" === typeof selector) {
+                    if (selector === false || typeof selector === "function") {
                         fn = selector;
                         selector = void 0;
                     }
-                    if (false === fn) fn = returnFalse;
+                    if (fn === false) fn = returnFalse;
                     return this.each((function() {
                         jQuery.event.remove(this, types, fn, selector);
                     }));
@@ -3722,20 +3756,20 @@
             });
             var rnoInnerhtml = /<script|<style|<link/i, rchecked = /checked\s*(?:[^=]|=\s*.checked.)/i, rcleanScript = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;
             function manipulationTarget(elem, content) {
-                if (nodeName(elem, "table") && nodeName(11 !== content.nodeType ? content : content.firstChild, "tr")) return jQuery(elem).children("tbody")[0] || elem;
+                if (nodeName(elem, "table") && nodeName(content.nodeType !== 11 ? content : content.firstChild, "tr")) return jQuery(elem).children("tbody")[0] || elem;
                 return elem;
             }
             function disableScript(elem) {
-                elem.type = (null !== elem.getAttribute("type")) + "/" + elem.type;
+                elem.type = (elem.getAttribute("type") !== null) + "/" + elem.type;
                 return elem;
             }
             function restoreScript(elem) {
-                if ("true/" === (elem.type || "").slice(0, 5)) elem.type = elem.type.slice(5); else elem.removeAttribute("type");
+                if ((elem.type || "").slice(0, 5) === "true/") elem.type = elem.type.slice(5); else elem.removeAttribute("type");
                 return elem;
             }
             function cloneCopyEvent(src, dest) {
                 var i, l, type, pdataOld, udataOld, udataCur, events;
-                if (1 !== dest.nodeType) return;
+                if (dest.nodeType !== 1) return;
                 if (dataPriv.hasData(src)) {
                     pdataOld = dataPriv.get(src);
                     events = pdataOld.events;
@@ -3752,12 +3786,12 @@
             }
             function fixInput(src, dest) {
                 var nodeName = dest.nodeName.toLowerCase();
-                if ("input" === nodeName && rcheckableType.test(src.type)) dest.checked = src.checked; else if ("input" === nodeName || "textarea" === nodeName) dest.defaultValue = src.defaultValue;
+                if (nodeName === "input" && rcheckableType.test(src.type)) dest.checked = src.checked; else if (nodeName === "input" || nodeName === "textarea") dest.defaultValue = src.defaultValue;
             }
             function domManip(collection, args, callback, ignored) {
                 args = flat(args);
                 var fragment, first, scripts, hasScripts, node, doc, i = 0, l = collection.length, iNoClone = l - 1, value = args[0], valueIsFunction = isFunction(value);
-                if (valueIsFunction || l > 1 && "string" === typeof value && !support.checkClone && rchecked.test(value)) return collection.each((function(index) {
+                if (valueIsFunction || l > 1 && typeof value === "string" && !support.checkClone && rchecked.test(value)) return collection.each((function(index) {
                     var self = collection.eq(index);
                     if (valueIsFunction) args[0] = value.call(this, index, self.html());
                     domManip(self, args, callback, ignored);
@@ -3765,7 +3799,7 @@
                 if (l) {
                     fragment = buildFragment(args, collection[0].ownerDocument, false, collection, ignored);
                     first = fragment.firstChild;
-                    if (1 === fragment.childNodes.length) fragment = first;
+                    if (fragment.childNodes.length === 1) fragment = first;
                     if (first || ignored) {
                         scripts = jQuery.map(getAll(fragment, "script"), disableScript);
                         hasScripts = scripts.length;
@@ -3782,7 +3816,7 @@
                             jQuery.map(scripts, restoreScript);
                             for (i = 0; i < hasScripts; i++) {
                                 node = scripts[i];
-                                if (rscriptType.test(node.type || "") && !dataPriv.access(node, "globalEval") && jQuery.contains(doc, node)) if (node.src && "module" !== (node.type || "").toLowerCase()) {
+                                if (rscriptType.test(node.type || "") && !dataPriv.access(node, "globalEval") && jQuery.contains(doc, node)) if (node.src && (node.type || "").toLowerCase() !== "module") {
                                     if (jQuery._evalUrl && !node.noModule) jQuery._evalUrl(node.src, {
                                         nonce: node.nonce || node.getAttribute("nonce")
                                     }, doc);
@@ -3795,8 +3829,8 @@
             }
             function remove(elem, selector, keepData) {
                 var node, nodes = selector ? jQuery.filter(selector, elem) : elem, i = 0;
-                for (;null != (node = nodes[i]); i++) {
-                    if (!keepData && 1 === node.nodeType) jQuery.cleanData(getAll(node));
+                for (;(node = nodes[i]) != null; i++) {
+                    if (!keepData && node.nodeType === 1) jQuery.cleanData(getAll(node));
                     if (node.parentNode) {
                         if (keepData && isAttached(node)) setGlobalEval(getAll(node, "script"));
                         node.parentNode.removeChild(node);
@@ -3810,7 +3844,7 @@
                 },
                 clone: function(elem, dataAndEvents, deepDataAndEvents) {
                     var i, l, srcElements, destElements, clone = elem.cloneNode(true), inPage = isAttached(elem);
-                    if (!support.noCloneChecked && (1 === elem.nodeType || 11 === elem.nodeType) && !jQuery.isXMLDoc(elem)) {
+                    if (!support.noCloneChecked && (elem.nodeType === 1 || elem.nodeType === 11) && !jQuery.isXMLDoc(elem)) {
                         destElements = getAll(clone);
                         srcElements = getAll(elem);
                         for (i = 0, l = srcElements.length; i < l; i++) fixInput(srcElements[i], destElements[i]);
@@ -3826,7 +3860,7 @@
                 },
                 cleanData: function(elems) {
                     var data, elem, type, special = jQuery.event.special, i = 0;
-                    for (;void 0 !== (elem = elems[i]); i++) if (acceptData(elem)) {
+                    for (;(elem = elems[i]) !== void 0; i++) if (acceptData(elem)) {
                         if (data = elem[dataPriv.expando]) {
                             if (data.events) for (type in data.events) if (special[type]) jQuery.event.remove(elem, type); else jQuery.removeEvent(elem, type, data.handle);
                             elem[dataPriv.expando] = void 0;
@@ -3844,14 +3878,14 @@
                 },
                 text: function(value) {
                     return access(this, (function(value) {
-                        return void 0 === value ? jQuery.text(this) : this.empty().each((function() {
-                            if (1 === this.nodeType || 11 === this.nodeType || 9 === this.nodeType) this.textContent = value;
+                        return value === void 0 ? jQuery.text(this) : this.empty().each((function() {
+                            if (this.nodeType === 1 || this.nodeType === 11 || this.nodeType === 9) this.textContent = value;
                         }));
                     }), null, value, arguments.length);
                 },
                 append: function() {
                     return domManip(this, arguments, (function(elem) {
-                        if (1 === this.nodeType || 11 === this.nodeType || 9 === this.nodeType) {
+                        if (this.nodeType === 1 || this.nodeType === 11 || this.nodeType === 9) {
                             var target = manipulationTarget(this, elem);
                             target.appendChild(elem);
                         }
@@ -3859,7 +3893,7 @@
                 },
                 prepend: function() {
                     return domManip(this, arguments, (function(elem) {
-                        if (1 === this.nodeType || 11 === this.nodeType || 9 === this.nodeType) {
+                        if (this.nodeType === 1 || this.nodeType === 11 || this.nodeType === 9) {
                             var target = manipulationTarget(this, elem);
                             target.insertBefore(elem, target.firstChild);
                         }
@@ -3877,15 +3911,15 @@
                 },
                 empty: function() {
                     var elem, i = 0;
-                    for (;null != (elem = this[i]); i++) if (1 === elem.nodeType) {
+                    for (;(elem = this[i]) != null; i++) if (elem.nodeType === 1) {
                         jQuery.cleanData(getAll(elem, false));
                         elem.textContent = "";
                     }
                     return this;
                 },
                 clone: function(dataAndEvents, deepDataAndEvents) {
-                    dataAndEvents = null == dataAndEvents ? false : dataAndEvents;
-                    deepDataAndEvents = null == deepDataAndEvents ? dataAndEvents : deepDataAndEvents;
+                    dataAndEvents = dataAndEvents == null ? false : dataAndEvents;
+                    deepDataAndEvents = deepDataAndEvents == null ? dataAndEvents : deepDataAndEvents;
                     return this.map((function() {
                         return jQuery.clone(this, dataAndEvents, deepDataAndEvents);
                     }));
@@ -3893,13 +3927,13 @@
                 html: function(value) {
                     return access(this, (function(value) {
                         var elem = this[0] || {}, i = 0, l = this.length;
-                        if (void 0 === value && 1 === elem.nodeType) return elem.innerHTML;
-                        if ("string" === typeof value && !rnoInnerhtml.test(value) && !wrapMap[(rtagName.exec(value) || [ "", "" ])[1].toLowerCase()]) {
+                        if (value === void 0 && elem.nodeType === 1) return elem.innerHTML;
+                        if (typeof value === "string" && !rnoInnerhtml.test(value) && !wrapMap[(rtagName.exec(value) || [ "", "" ])[1].toLowerCase()]) {
                             value = jQuery.htmlPrefilter(value);
                             try {
                                 for (;i < l; i++) {
                                     elem = this[i] || {};
-                                    if (1 === elem.nodeType) {
+                                    if (elem.nodeType === 1) {
                                         jQuery.cleanData(getAll(elem, false));
                                         elem.innerHTML = value;
                                     }
@@ -3962,13 +3996,13 @@
                     div.style.cssText = "position:relative;display:block;box-sizing:border-box;overflow:scroll;" + "margin:auto;border:1px;padding:1px;" + "width:60%;top:1%";
                     documentElement.appendChild(container).appendChild(div);
                     var divStyle = window.getComputedStyle(div);
-                    pixelPositionVal = "1%" !== divStyle.top;
-                    reliableMarginLeftVal = 12 === roundPixelMeasures(divStyle.marginLeft);
+                    pixelPositionVal = divStyle.top !== "1%";
+                    reliableMarginLeftVal = roundPixelMeasures(divStyle.marginLeft) === 12;
                     div.style.right = "60%";
-                    pixelBoxStylesVal = 36 === roundPixelMeasures(divStyle.right);
-                    boxSizingReliableVal = 36 === roundPixelMeasures(divStyle.width);
+                    pixelBoxStylesVal = roundPixelMeasures(divStyle.right) === 36;
+                    boxSizingReliableVal = roundPixelMeasures(divStyle.width) === 36;
                     div.style.position = "absolute";
-                    scrollboxSizeVal = 12 === roundPixelMeasures(div.offsetWidth / 3);
+                    scrollboxSizeVal = roundPixelMeasures(div.offsetWidth / 3) === 12;
                     documentElement.removeChild(container);
                     div = null;
                 }
@@ -3979,7 +4013,7 @@
                 if (!div.style) return;
                 div.style.backgroundClip = "content-box";
                 div.cloneNode(true).style.backgroundClip = "";
-                support.clearCloneStyle = "content-box" === div.style.backgroundClip;
+                support.clearCloneStyle = div.style.backgroundClip === "content-box";
                 jQuery.extend(support, {
                     boxSizingReliable: function() {
                         computeStyleTests();
@@ -4003,7 +4037,7 @@
                     },
                     reliableTrDimensions: function() {
                         var table, tr, trChild, trStyle;
-                        if (null == reliableTrDimensionsVal) {
+                        if (reliableTrDimensionsVal == null) {
                             table = document.createElement("table");
                             tr = document.createElement("tr");
                             trChild = document.createElement("div");
@@ -4024,7 +4058,7 @@
                 computed = computed || getStyles(elem);
                 if (computed) {
                     ret = computed.getPropertyValue(name) || computed[name];
-                    if ("" === ret && !isAttached(elem)) ret = jQuery.style(elem, name);
+                    if (ret === "" && !isAttached(elem)) ret = jQuery.style(elem, name);
                     if (!support.pixelBoxStyles() && rnumnonpx.test(ret) && rboxStyle.test(name)) {
                         width = style.width;
                         minWidth = style.minWidth;
@@ -4036,7 +4070,7 @@
                         style.maxWidth = maxWidth;
                     }
                 }
-                return void 0 !== ret ? ret + "" : ret;
+                return ret !== void 0 ? ret + "" : ret;
             }
             function addGetHookIf(conditionFn, hookFn) {
                 return {
@@ -4076,29 +4110,29 @@
                 return matches ? Math.max(0, matches[2] - (subtract || 0)) + (matches[3] || "px") : value;
             }
             function boxModelAdjustment(elem, dimension, box, isBorderBox, styles, computedVal) {
-                var i = "width" === dimension ? 1 : 0, extra = 0, delta = 0;
+                var i = dimension === "width" ? 1 : 0, extra = 0, delta = 0;
                 if (box === (isBorderBox ? "border" : "content")) return 0;
                 for (;i < 4; i += 2) {
-                    if ("margin" === box) delta += jQuery.css(elem, box + cssExpand[i], true, styles);
+                    if (box === "margin") delta += jQuery.css(elem, box + cssExpand[i], true, styles);
                     if (!isBorderBox) {
                         delta += jQuery.css(elem, "padding" + cssExpand[i], true, styles);
-                        if ("padding" !== box) delta += jQuery.css(elem, "border" + cssExpand[i] + "Width", true, styles); else extra += jQuery.css(elem, "border" + cssExpand[i] + "Width", true, styles);
+                        if (box !== "padding") delta += jQuery.css(elem, "border" + cssExpand[i] + "Width", true, styles); else extra += jQuery.css(elem, "border" + cssExpand[i] + "Width", true, styles);
                     } else {
-                        if ("content" === box) delta -= jQuery.css(elem, "padding" + cssExpand[i], true, styles);
-                        if ("margin" !== box) delta -= jQuery.css(elem, "border" + cssExpand[i] + "Width", true, styles);
+                        if (box === "content") delta -= jQuery.css(elem, "padding" + cssExpand[i], true, styles);
+                        if (box !== "margin") delta -= jQuery.css(elem, "border" + cssExpand[i] + "Width", true, styles);
                     }
                 }
                 if (!isBorderBox && computedVal >= 0) delta += Math.max(0, Math.ceil(elem["offset" + dimension[0].toUpperCase() + dimension.slice(1)] - computedVal - delta - extra - .5)) || 0;
                 return delta;
             }
             function getWidthOrHeight(elem, dimension, extra) {
-                var styles = getStyles(elem), boxSizingNeeded = !support.boxSizingReliable() || extra, isBorderBox = boxSizingNeeded && "border-box" === jQuery.css(elem, "boxSizing", false, styles), valueIsBorderBox = isBorderBox, val = curCSS(elem, dimension, styles), offsetProp = "offset" + dimension[0].toUpperCase() + dimension.slice(1);
+                var styles = getStyles(elem), boxSizingNeeded = !support.boxSizingReliable() || extra, isBorderBox = boxSizingNeeded && jQuery.css(elem, "boxSizing", false, styles) === "border-box", valueIsBorderBox = isBorderBox, val = curCSS(elem, dimension, styles), offsetProp = "offset" + dimension[0].toUpperCase() + dimension.slice(1);
                 if (rnumnonpx.test(val)) {
                     if (!extra) return val;
                     val = "auto";
                 }
-                if ((!support.boxSizingReliable() && isBorderBox || !support.reliableTrDimensions() && nodeName(elem, "tr") || "auto" === val || !parseFloat(val) && "inline" === jQuery.css(elem, "display", false, styles)) && elem.getClientRects().length) {
-                    isBorderBox = "border-box" === jQuery.css(elem, "boxSizing", false, styles);
+                if ((!support.boxSizingReliable() && isBorderBox || !support.reliableTrDimensions() && nodeName(elem, "tr") || val === "auto" || !parseFloat(val) && jQuery.css(elem, "display", false, styles) === "inline") && elem.getClientRects().length) {
+                    isBorderBox = jQuery.css(elem, "boxSizing", false, styles) === "border-box";
                     valueIsBorderBox = offsetProp in elem;
                     if (valueIsBorderBox) val = elem[offsetProp];
                 }
@@ -4111,7 +4145,7 @@
                         get: function(elem, computed) {
                             if (computed) {
                                 var ret = curCSS(elem, "opacity");
-                                return "" === ret ? "1" : ret;
+                                return ret === "" ? "1" : ret;
                             }
                         }
                     }
@@ -4140,22 +4174,22 @@
                 },
                 cssProps: {},
                 style: function(elem, name, value, extra) {
-                    if (!elem || 3 === elem.nodeType || 8 === elem.nodeType || !elem.style) return;
+                    if (!elem || elem.nodeType === 3 || elem.nodeType === 8 || !elem.style) return;
                     var ret, type, hooks, origName = camelCase(name), isCustomProp = rcustomProp.test(name), style = elem.style;
                     if (!isCustomProp) name = finalPropName(origName);
                     hooks = jQuery.cssHooks[name] || jQuery.cssHooks[origName];
-                    if (void 0 !== value) {
+                    if (value !== void 0) {
                         type = typeof value;
-                        if ("string" === type && (ret = rcssNum.exec(value)) && ret[1]) {
+                        if (type === "string" && (ret = rcssNum.exec(value)) && ret[1]) {
                             value = adjustCSS(elem, name, ret);
                             type = "number";
                         }
-                        if (null == value || value !== value) return;
-                        if ("number" === type && !isCustomProp) value += ret && ret[3] || (jQuery.cssNumber[origName] ? "" : "px");
-                        if (!support.clearCloneStyle && "" === value && 0 === name.indexOf("background")) style[name] = "inherit";
-                        if (!hooks || !("set" in hooks) || void 0 !== (value = hooks.set(elem, value, extra))) if (isCustomProp) style.setProperty(name, value); else style[name] = value;
+                        if (value == null || value !== value) return;
+                        if (type === "number" && !isCustomProp) value += ret && ret[3] || (jQuery.cssNumber[origName] ? "" : "px");
+                        if (!support.clearCloneStyle && value === "" && name.indexOf("background") === 0) style[name] = "inherit";
+                        if (!hooks || !("set" in hooks) || (value = hooks.set(elem, value, extra)) !== void 0) if (isCustomProp) style.setProperty(name, value); else style[name] = value;
                     } else {
-                        if (hooks && "get" in hooks && void 0 !== (ret = hooks.get(elem, false, extra))) return ret;
+                        if (hooks && "get" in hooks && (ret = hooks.get(elem, false, extra)) !== void 0) return ret;
                         return style[name];
                     }
                 },
@@ -4164,11 +4198,11 @@
                     if (!isCustomProp) name = finalPropName(origName);
                     hooks = jQuery.cssHooks[name] || jQuery.cssHooks[origName];
                     if (hooks && "get" in hooks) val = hooks.get(elem, true, extra);
-                    if (void 0 === val) val = curCSS(elem, name, styles);
-                    if ("normal" === val && name in cssNormalTransform) val = cssNormalTransform[name];
-                    if ("" === extra || extra) {
+                    if (val === void 0) val = curCSS(elem, name, styles);
+                    if (val === "normal" && name in cssNormalTransform) val = cssNormalTransform[name];
+                    if (extra === "" || extra) {
                         num = parseFloat(val);
-                        return true === extra || isFinite(num) ? num || 0 : val;
+                        return extra === true || isFinite(num) ? num || 0 : val;
                     }
                     return val;
                 }
@@ -4181,9 +4215,9 @@
                         })) : getWidthOrHeight(elem, dimension, extra);
                     },
                     set: function(elem, value, extra) {
-                        var matches, styles = getStyles(elem), scrollboxSizeBuggy = !support.scrollboxSize() && "absolute" === styles.position, boxSizingNeeded = scrollboxSizeBuggy || extra, isBorderBox = boxSizingNeeded && "border-box" === jQuery.css(elem, "boxSizing", false, styles), subtract = extra ? boxModelAdjustment(elem, dimension, extra, isBorderBox, styles) : 0;
+                        var matches, styles = getStyles(elem), scrollboxSizeBuggy = !support.scrollboxSize() && styles.position === "absolute", boxSizingNeeded = scrollboxSizeBuggy || extra, isBorderBox = boxSizingNeeded && jQuery.css(elem, "boxSizing", false, styles) === "border-box", subtract = extra ? boxModelAdjustment(elem, dimension, extra, isBorderBox, styles) : 0;
                         if (isBorderBox && scrollboxSizeBuggy) subtract -= Math.ceil(elem["offset" + dimension[0].toUpperCase() + dimension.slice(1)] - parseFloat(styles[dimension]) - boxModelAdjustment(elem, dimension, "border", false, styles) - .5);
-                        if (subtract && (matches = rcssNum.exec(value)) && "px" !== (matches[3] || "px")) {
+                        if (subtract && (matches = rcssNum.exec(value)) && (matches[3] || "px") !== "px") {
                             elem.style[dimension] = value;
                             value = jQuery.css(elem, dimension);
                         }
@@ -4205,12 +4239,12 @@
             }, (function(prefix, suffix) {
                 jQuery.cssHooks[prefix + suffix] = {
                     expand: function(value) {
-                        var i = 0, expanded = {}, parts = "string" === typeof value ? value.split(" ") : [ value ];
+                        var i = 0, expanded = {}, parts = typeof value === "string" ? value.split(" ") : [ value ];
                         for (;i < 4; i++) expanded[prefix + cssExpand[i] + suffix] = parts[i] || parts[i - 2] || parts[0];
                         return expanded;
                     }
                 };
-                if ("margin" !== prefix) jQuery.cssHooks[prefix + suffix].set = setPositiveNumber;
+                if (prefix !== "margin") jQuery.cssHooks[prefix + suffix].set = setPositiveNumber;
             }));
             jQuery.fn.extend({
                 css: function(name, value) {
@@ -4222,7 +4256,7 @@
                             for (;i < len; i++) map[name[i]] = jQuery.css(elem, name[i], false, styles);
                             return map;
                         }
-                        return void 0 !== value ? jQuery.style(elem, name, value) : jQuery.css(elem, name);
+                        return value !== void 0 ? jQuery.style(elem, name, value) : jQuery.css(elem, name);
                     }), name, value, arguments.length > 1);
                 }
             });
@@ -4259,12 +4293,12 @@
                 _default: {
                     get: function(tween) {
                         var result;
-                        if (1 !== tween.elem.nodeType || null != tween.elem[tween.prop] && null == tween.elem.style[tween.prop]) return tween.elem[tween.prop];
+                        if (tween.elem.nodeType !== 1 || tween.elem[tween.prop] != null && tween.elem.style[tween.prop] == null) return tween.elem[tween.prop];
                         result = jQuery.css(tween.elem, tween.prop, "");
-                        return !result || "auto" === result ? 0 : result;
+                        return !result || result === "auto" ? 0 : result;
                     },
                     set: function(tween) {
-                        if (jQuery.fx.step[tween.prop]) jQuery.fx.step[tween.prop](tween); else if (1 === tween.elem.nodeType && (jQuery.cssHooks[tween.prop] || null != tween.elem.style[finalPropName(tween.prop)])) jQuery.style(tween.elem, tween.prop, tween.now + tween.unit); else tween.elem[tween.prop] = tween.now;
+                        if (jQuery.fx.step[tween.prop]) jQuery.fx.step[tween.prop](tween); else if (tween.elem.nodeType === 1 && (jQuery.cssHooks[tween.prop] || tween.elem.style[finalPropName(tween.prop)] != null)) jQuery.style(tween.elem, tween.prop, tween.now + tween.unit); else tween.elem[tween.prop] = tween.now;
                     }
                 }
             };
@@ -4287,7 +4321,7 @@
             var fxNow, inProgress, rfxtypes = /^(?:toggle|show|hide)$/, rrun = /queueHooks$/;
             function schedule() {
                 if (inProgress) {
-                    if (false === document.hidden && window.requestAnimationFrame) window.requestAnimationFrame(schedule); else window.setTimeout(schedule, jQuery.fx.interval);
+                    if (document.hidden === false && window.requestAnimationFrame) window.requestAnimationFrame(schedule); else window.setTimeout(schedule, jQuery.fx.interval);
                     jQuery.fx.tick();
                 }
             }
@@ -4317,7 +4351,7 @@
                 var prop, value, toggle, hooks, oldfire, propTween, restoreDisplay, display, isBox = "width" in props || "height" in props, anim = this, orig = {}, style = elem.style, hidden = elem.nodeType && isHiddenWithinTree(elem), dataShow = dataPriv.get(elem, "fxshow");
                 if (!opts.queue) {
                     hooks = jQuery._queueHooks(elem, "fx");
-                    if (null == hooks.unqueued) {
+                    if (hooks.unqueued == null) {
                         hooks.unqueued = 0;
                         oldfire = hooks.empty.fire;
                         hooks.empty.fire = function() {
@@ -4336,32 +4370,32 @@
                     value = props[prop];
                     if (rfxtypes.test(value)) {
                         delete props[prop];
-                        toggle = toggle || "toggle" === value;
-                        if (value === (hidden ? "hide" : "show")) if ("show" === value && dataShow && void 0 !== dataShow[prop]) hidden = true; else continue;
+                        toggle = toggle || value === "toggle";
+                        if (value === (hidden ? "hide" : "show")) if (value === "show" && dataShow && dataShow[prop] !== void 0) hidden = true; else continue;
                         orig[prop] = dataShow && dataShow[prop] || jQuery.style(elem, prop);
                     }
                 }
                 propTween = !jQuery.isEmptyObject(props);
                 if (!propTween && jQuery.isEmptyObject(orig)) return;
-                if (isBox && 1 === elem.nodeType) {
+                if (isBox && elem.nodeType === 1) {
                     opts.overflow = [ style.overflow, style.overflowX, style.overflowY ];
                     restoreDisplay = dataShow && dataShow.display;
-                    if (null == restoreDisplay) restoreDisplay = dataPriv.get(elem, "display");
+                    if (restoreDisplay == null) restoreDisplay = dataPriv.get(elem, "display");
                     display = jQuery.css(elem, "display");
-                    if ("none" === display) if (restoreDisplay) display = restoreDisplay; else {
+                    if (display === "none") if (restoreDisplay) display = restoreDisplay; else {
                         showHide([ elem ], true);
                         restoreDisplay = elem.style.display || restoreDisplay;
                         display = jQuery.css(elem, "display");
                         showHide([ elem ]);
                     }
-                    if ("inline" === display || "inline-block" === display && null != restoreDisplay) if ("none" === jQuery.css(elem, "float")) {
+                    if (display === "inline" || display === "inline-block" && restoreDisplay != null) if (jQuery.css(elem, "float") === "none") {
                         if (!propTween) {
                             anim.done((function() {
                                 style.display = restoreDisplay;
                             }));
-                            if (null == restoreDisplay) {
+                            if (restoreDisplay == null) {
                                 display = style.display;
-                                restoreDisplay = "none" === display ? "" : display;
+                                restoreDisplay = display === "none" ? "" : display;
                             }
                         }
                         style.display = "inline-block";
@@ -4511,13 +4545,13 @@
                 }
             });
             jQuery.speed = function(speed, easing, fn) {
-                var opt = speed && "object" === typeof speed ? jQuery.extend({}, speed) : {
+                var opt = speed && typeof speed === "object" ? jQuery.extend({}, speed) : {
                     complete: fn || !fn && easing || isFunction(speed) && speed,
                     duration: speed,
                     easing: fn && easing || easing && !isFunction(easing) && easing
                 };
-                if (jQuery.fx.off) opt.duration = 0; else if ("number" !== typeof opt.duration) if (opt.duration in jQuery.fx.speeds) opt.duration = jQuery.fx.speeds[opt.duration]; else opt.duration = jQuery.fx.speeds._default;
-                if (null == opt.queue || true === opt.queue) opt.queue = "fx";
+                if (jQuery.fx.off) opt.duration = 0; else if (typeof opt.duration !== "number") if (opt.duration in jQuery.fx.speeds) opt.duration = jQuery.fx.speeds[opt.duration]; else opt.duration = jQuery.fx.speeds._default;
+                if (opt.queue == null || opt.queue === true) opt.queue = "fx";
                 opt.old = opt.complete;
                 opt.complete = function() {
                     if (isFunction(opt.old)) opt.old.call(this);
@@ -4537,7 +4571,7 @@
                         if (empty || dataPriv.get(this, "finish")) anim.stop(true);
                     };
                     doAnimation.finish = doAnimation;
-                    return empty || false === optall.queue ? this.each(doAnimation) : this.queue(optall.queue, doAnimation);
+                    return empty || optall.queue === false ? this.each(doAnimation) : this.queue(optall.queue, doAnimation);
                 },
                 stop: function(type, clearQueue, gotoEnd) {
                     var stopQueue = function(hooks) {
@@ -4545,18 +4579,18 @@
                         delete hooks.stop;
                         stop(gotoEnd);
                     };
-                    if ("string" !== typeof type) {
+                    if (typeof type !== "string") {
                         gotoEnd = clearQueue;
                         clearQueue = type;
                         type = void 0;
                     }
                     if (clearQueue) this.queue(type || "fx", []);
                     return this.each((function() {
-                        var dequeue = true, index = null != type && type + "queueHooks", timers = jQuery.timers, data = dataPriv.get(this);
+                        var dequeue = true, index = type != null && type + "queueHooks", timers = jQuery.timers, data = dataPriv.get(this);
                         if (index) {
                             if (data[index] && data[index].stop) stopQueue(data[index]);
                         } else for (index in data) if (data[index] && data[index].stop && rrun.test(index)) stopQueue(data[index]);
-                        for (index = timers.length; index--; ) if (timers[index].elem === this && (null == type || timers[index].queue === type)) {
+                        for (index = timers.length; index--; ) if (timers[index].elem === this && (type == null || timers[index].queue === type)) {
                             timers[index].anim.stop(gotoEnd);
                             dequeue = false;
                             timers.splice(index, 1);
@@ -4565,7 +4599,7 @@
                     }));
                 },
                 finish: function(type) {
-                    if (false !== type) type = type || "fx";
+                    if (type !== false) type = type || "fx";
                     return this.each((function() {
                         var index, data = dataPriv.get(this), queue = data[type + "queue"], hooks = data[type + "queueHooks"], timers = jQuery.timers, length = queue ? queue.length : 0;
                         data.finish = true;
@@ -4583,7 +4617,7 @@
             jQuery.each([ "toggle", "show", "hide" ], (function(_i, name) {
                 var cssFn = jQuery.fn[name];
                 jQuery.fn[name] = function(speed, easing, callback) {
-                    return null == speed || "boolean" === typeof speed ? cssFn.apply(this, arguments) : this.animate(genFx(name, true), speed, easing, callback);
+                    return speed == null || typeof speed === "boolean" ? cssFn.apply(this, arguments) : this.animate(genFx(name, true), speed, easing, callback);
                 };
             }));
             jQuery.each({
@@ -4646,12 +4680,12 @@
             (function() {
                 var input = document.createElement("input"), select = document.createElement("select"), opt = select.appendChild(document.createElement("option"));
                 input.type = "checkbox";
-                support.checkOn = "" !== input.value;
+                support.checkOn = input.value !== "";
                 support.optSelected = opt.selected;
                 input = document.createElement("input");
                 input.value = "t";
                 input.type = "radio";
-                support.radioValue = "t" === input.value;
+                support.radioValue = input.value === "t";
             })();
             var boolHook, attrHandle = jQuery.expr.attrHandle;
             jQuery.fn.extend({
@@ -4667,26 +4701,26 @@
             jQuery.extend({
                 attr: function(elem, name, value) {
                     var ret, hooks, nType = elem.nodeType;
-                    if (3 === nType || 8 === nType || 2 === nType) return;
-                    if ("undefined" === typeof elem.getAttribute) return jQuery.prop(elem, name, value);
-                    if (1 !== nType || !jQuery.isXMLDoc(elem)) hooks = jQuery.attrHooks[name.toLowerCase()] || (jQuery.expr.match.bool.test(name) ? boolHook : void 0);
-                    if (void 0 !== value) {
-                        if (null === value) {
+                    if (nType === 3 || nType === 8 || nType === 2) return;
+                    if (typeof elem.getAttribute === "undefined") return jQuery.prop(elem, name, value);
+                    if (nType !== 1 || !jQuery.isXMLDoc(elem)) hooks = jQuery.attrHooks[name.toLowerCase()] || (jQuery.expr.match.bool.test(name) ? boolHook : void 0);
+                    if (value !== void 0) {
+                        if (value === null) {
                             jQuery.removeAttr(elem, name);
                             return;
                         }
-                        if (hooks && "set" in hooks && void 0 !== (ret = hooks.set(elem, value, name))) return ret;
+                        if (hooks && "set" in hooks && (ret = hooks.set(elem, value, name)) !== void 0) return ret;
                         elem.setAttribute(name, value + "");
                         return value;
                     }
-                    if (hooks && "get" in hooks && null !== (ret = hooks.get(elem, name))) return ret;
+                    if (hooks && "get" in hooks && (ret = hooks.get(elem, name)) !== null) return ret;
                     ret = jQuery.find.attr(elem, name);
-                    return null == ret ? void 0 : ret;
+                    return ret == null ? void 0 : ret;
                 },
                 attrHooks: {
                     type: {
                         set: function(elem, value) {
-                            if (!support.radioValue && "radio" === value && nodeName(elem, "input")) {
+                            if (!support.radioValue && value === "radio" && nodeName(elem, "input")) {
                                 var val = elem.value;
                                 elem.setAttribute("type", value);
                                 if (val) elem.value = val;
@@ -4697,12 +4731,12 @@
                 },
                 removeAttr: function(elem, value) {
                     var name, i = 0, attrNames = value && value.match(rnothtmlwhite);
-                    if (attrNames && 1 === elem.nodeType) while (name = attrNames[i++]) elem.removeAttribute(name);
+                    if (attrNames && elem.nodeType === 1) while (name = attrNames[i++]) elem.removeAttribute(name);
                 }
             });
             boolHook = {
                 set: function(elem, value, name) {
-                    if (false === value) jQuery.removeAttr(elem, name); else elem.setAttribute(name, name);
+                    if (value === false) jQuery.removeAttr(elem, name); else elem.setAttribute(name, name);
                     return name;
                 }
             };
@@ -4713,7 +4747,7 @@
                     if (!isXML) {
                         handle = attrHandle[lowercaseName];
                         attrHandle[lowercaseName] = ret;
-                        ret = null != getter(elem, name, isXML) ? lowercaseName : null;
+                        ret = getter(elem, name, isXML) != null ? lowercaseName : null;
                         attrHandle[lowercaseName] = handle;
                     }
                     return ret;
@@ -4733,16 +4767,16 @@
             jQuery.extend({
                 prop: function(elem, name, value) {
                     var ret, hooks, nType = elem.nodeType;
-                    if (3 === nType || 8 === nType || 2 === nType) return;
-                    if (1 !== nType || !jQuery.isXMLDoc(elem)) {
+                    if (nType === 3 || nType === 8 || nType === 2) return;
+                    if (nType !== 1 || !jQuery.isXMLDoc(elem)) {
                         name = jQuery.propFix[name] || name;
                         hooks = jQuery.propHooks[name];
                     }
-                    if (void 0 !== value) {
-                        if (hooks && "set" in hooks && void 0 !== (ret = hooks.set(elem, value, name))) return ret;
+                    if (value !== void 0) {
+                        if (hooks && "set" in hooks && (ret = hooks.set(elem, value, name)) !== void 0) return ret;
                         return elem[name] = value;
                     }
-                    if (hooks && "get" in hooks && null !== (ret = hooks.get(elem, name))) return ret;
+                    if (hooks && "get" in hooks && (ret = hooks.get(elem, name)) !== null) return ret;
                     return elem[name];
                 },
                 propHooks: {
@@ -4786,7 +4820,7 @@
             }
             function classesToArray(value) {
                 if (Array.isArray(value)) return value;
-                if ("string" === typeof value) return value.match(rnothtmlwhite) || [];
+                if (typeof value === "string") return value.match(rnothtmlwhite) || [];
                 return [];
             }
             jQuery.fn.extend({
@@ -4798,7 +4832,7 @@
                     classes = classesToArray(value);
                     if (classes.length) while (elem = this[i++]) {
                         curValue = getClass(elem);
-                        cur = 1 === elem.nodeType && " " + stripAndCollapse(curValue) + " ";
+                        cur = elem.nodeType === 1 && " " + stripAndCollapse(curValue) + " ";
                         if (cur) {
                             j = 0;
                             while (clazz = classes[j++]) if (cur.indexOf(" " + clazz + " ") < 0) cur += clazz + " ";
@@ -4817,7 +4851,7 @@
                     classes = classesToArray(value);
                     if (classes.length) while (elem = this[i++]) {
                         curValue = getClass(elem);
-                        cur = 1 === elem.nodeType && " " + stripAndCollapse(curValue) + " ";
+                        cur = elem.nodeType === 1 && " " + stripAndCollapse(curValue) + " ";
                         if (cur) {
                             j = 0;
                             while (clazz = classes[j++]) while (cur.indexOf(" " + clazz + " ") > -1) cur = cur.replace(" " + clazz + " ", " ");
@@ -4828,8 +4862,8 @@
                     return this;
                 },
                 toggleClass: function(value, stateVal) {
-                    var type = typeof value, isValidValue = "string" === type || Array.isArray(value);
-                    if ("boolean" === typeof stateVal && isValidValue) return stateVal ? this.addClass(value) : this.removeClass(value);
+                    var type = typeof value, isValidValue = type === "string" || Array.isArray(value);
+                    if (typeof stateVal === "boolean" && isValidValue) return stateVal ? this.addClass(value) : this.removeClass(value);
                     if (isFunction(value)) return this.each((function(i) {
                         jQuery(this).toggleClass(value.call(this, i, getClass(this), stateVal), stateVal);
                     }));
@@ -4840,17 +4874,17 @@
                             self = jQuery(this);
                             classNames = classesToArray(value);
                             while (className = classNames[i++]) if (self.hasClass(className)) self.removeClass(className); else self.addClass(className);
-                        } else if (void 0 === value || "boolean" === type) {
+                        } else if (value === void 0 || type === "boolean") {
                             className = getClass(this);
                             if (className) dataPriv.set(this, "__className__", className);
-                            if (this.setAttribute) this.setAttribute("class", className || false === value ? "" : dataPriv.get(this, "__className__") || "");
+                            if (this.setAttribute) this.setAttribute("class", className || value === false ? "" : dataPriv.get(this, "__className__") || "");
                         }
                     }));
                 },
                 hasClass: function(selector) {
                     var className, elem, i = 0;
                     className = " " + selector + " ";
-                    while (elem = this[i++]) if (1 === elem.nodeType && (" " + stripAndCollapse(getClass(elem)) + " ").indexOf(className) > -1) return true;
+                    while (elem = this[i++]) if (elem.nodeType === 1 && (" " + stripAndCollapse(getClass(elem)) + " ").indexOf(className) > -1) return true;
                     return false;
                 }
             });
@@ -4861,23 +4895,23 @@
                     if (!arguments.length) {
                         if (elem) {
                             hooks = jQuery.valHooks[elem.type] || jQuery.valHooks[elem.nodeName.toLowerCase()];
-                            if (hooks && "get" in hooks && void 0 !== (ret = hooks.get(elem, "value"))) return ret;
+                            if (hooks && "get" in hooks && (ret = hooks.get(elem, "value")) !== void 0) return ret;
                             ret = elem.value;
-                            if ("string" === typeof ret) return ret.replace(rreturn, "");
-                            return null == ret ? "" : ret;
+                            if (typeof ret === "string") return ret.replace(rreturn, "");
+                            return ret == null ? "" : ret;
                         }
                         return;
                     }
                     valueIsFunction = isFunction(value);
                     return this.each((function(i) {
                         var val;
-                        if (1 !== this.nodeType) return;
+                        if (this.nodeType !== 1) return;
                         if (valueIsFunction) val = value.call(this, i, jQuery(this).val()); else val = value;
-                        if (null == val) val = ""; else if ("number" === typeof val) val += ""; else if (Array.isArray(val)) val = jQuery.map(val, (function(value) {
-                            return null == value ? "" : value + "";
+                        if (val == null) val = ""; else if (typeof val === "number") val += ""; else if (Array.isArray(val)) val = jQuery.map(val, (function(value) {
+                            return value == null ? "" : value + "";
                         }));
                         hooks = jQuery.valHooks[this.type] || jQuery.valHooks[this.nodeName.toLowerCase()];
-                        if (!hooks || !("set" in hooks) || void 0 === hooks.set(this, val, "value")) this.value = val;
+                        if (!hooks || !("set" in hooks) || hooks.set(this, val, "value") === void 0) this.value = val;
                     }));
                 }
             });
@@ -4886,12 +4920,12 @@
                     option: {
                         get: function(elem) {
                             var val = jQuery.find.attr(elem, "value");
-                            return null != val ? val : stripAndCollapse(jQuery.text(elem));
+                            return val != null ? val : stripAndCollapse(jQuery.text(elem));
                         }
                     },
                     select: {
                         get: function(elem) {
-                            var value, option, i, options = elem.options, index = elem.selectedIndex, one = "select-one" === elem.type, values = one ? null : [], max = one ? index + 1 : options.length;
+                            var value, option, i, options = elem.options, index = elem.selectedIndex, one = elem.type === "select-one", values = one ? null : [], max = one ? index + 1 : options.length;
                             if (index < 0) i = max; else i = one ? index : 0;
                             for (;i < max; i++) {
                                 option = options[i];
@@ -4922,7 +4956,7 @@
                     }
                 };
                 if (!support.checkOn) jQuery.valHooks[this].get = function(elem) {
-                    return null === elem.getAttribute("value") ? "on" : elem.value;
+                    return elem.getAttribute("value") === null ? "on" : elem.value;
                 };
             }));
             support.focusin = "onfocusin" in window;
@@ -4933,7 +4967,7 @@
                 trigger: function(event, data, elem, onlyHandlers) {
                     var i, cur, tmp, bubbleType, ontype, handle, special, lastElement, eventPath = [ elem || document ], type = hasOwn.call(event, "type") ? event.type : event, namespaces = hasOwn.call(event, "namespace") ? event.namespace.split(".") : [];
                     cur = lastElement = tmp = elem = elem || document;
-                    if (3 === elem.nodeType || 8 === elem.nodeType) return;
+                    if (elem.nodeType === 3 || elem.nodeType === 8) return;
                     if (rfocusMorph.test(type + jQuery.event.triggered)) return;
                     if (type.indexOf(".") > -1) {
                         namespaces = type.split(".");
@@ -4941,15 +4975,15 @@
                         namespaces.sort();
                     }
                     ontype = type.indexOf(":") < 0 && "on" + type;
-                    event = event[jQuery.expando] ? event : new jQuery.Event(type, "object" === typeof event && event);
+                    event = event[jQuery.expando] ? event : new jQuery.Event(type, typeof event === "object" && event);
                     event.isTrigger = onlyHandlers ? 2 : 3;
                     event.namespace = namespaces.join(".");
                     event.rnamespace = event.namespace ? new RegExp("(^|\\.)" + namespaces.join("\\.(?:.*\\.|)") + "(\\.|$)") : null;
                     event.result = void 0;
                     if (!event.target) event.target = elem;
-                    data = null == data ? [ event ] : jQuery.makeArray(data, [ event ]);
+                    data = data == null ? [ event ] : jQuery.makeArray(data, [ event ]);
                     special = jQuery.event.special[type] || {};
-                    if (!onlyHandlers && special.trigger && false === special.trigger.apply(elem, data)) return;
+                    if (!onlyHandlers && special.trigger && special.trigger.apply(elem, data) === false) return;
                     if (!onlyHandlers && !special.noBubble && !isWindow(elem)) {
                         bubbleType = special.delegateType || type;
                         if (!rfocusMorph.test(bubbleType + type)) cur = cur.parentNode;
@@ -4968,11 +5002,11 @@
                         handle = ontype && cur[ontype];
                         if (handle && handle.apply && acceptData(cur)) {
                             event.result = handle.apply(cur, data);
-                            if (false === event.result) event.preventDefault();
+                            if (event.result === false) event.preventDefault();
                         }
                     }
                     event.type = type;
-                    if (!onlyHandlers && !event.isDefaultPrevented()) if ((!special._default || false === special._default.apply(eventPath.pop(), data)) && acceptData(elem)) if (ontype && isFunction(elem[type]) && !isWindow(elem)) {
+                    if (!onlyHandlers && !event.isDefaultPrevented()) if ((!special._default || special._default.apply(eventPath.pop(), data) === false) && acceptData(elem)) if (ontype && isFunction(elem[type]) && !isWindow(elem)) {
                         tmp = elem[ontype];
                         if (tmp) elem[ontype] = null;
                         jQuery.event.triggered = type;
@@ -5032,7 +5066,7 @@
             var rquery = /\?/;
             jQuery.parseXML = function(data) {
                 var xml;
-                if (!data || "string" !== typeof data) return null;
+                if (!data || typeof data !== "string") return null;
                 try {
                     xml = (new window.DOMParser).parseFromString(data, "text/xml");
                 } catch (e) {
@@ -5045,15 +5079,15 @@
             function buildParams(prefix, obj, traditional, add) {
                 var name;
                 if (Array.isArray(obj)) jQuery.each(obj, (function(i, v) {
-                    if (traditional || rbracket.test(prefix)) add(prefix, v); else buildParams(prefix + "[" + ("object" === typeof v && null != v ? i : "") + "]", v, traditional, add);
-                })); else if (!traditional && "object" === toType(obj)) for (name in obj) buildParams(prefix + "[" + name + "]", obj[name], traditional, add); else add(prefix, obj);
+                    if (traditional || rbracket.test(prefix)) add(prefix, v); else buildParams(prefix + "[" + (typeof v === "object" && v != null ? i : "") + "]", v, traditional, add);
+                })); else if (!traditional && toType(obj) === "object") for (name in obj) buildParams(prefix + "[" + name + "]", obj[name], traditional, add); else add(prefix, obj);
             }
             jQuery.param = function(a, traditional) {
                 var prefix, s = [], add = function(key, valueOrFunction) {
                     var value = isFunction(valueOrFunction) ? valueOrFunction() : valueOrFunction;
-                    s[s.length] = encodeURIComponent(key) + "=" + encodeURIComponent(null == value ? "" : value);
+                    s[s.length] = encodeURIComponent(key) + "=" + encodeURIComponent(value == null ? "" : value);
                 };
-                if (null == a) return "";
+                if (a == null) return "";
                 if (Array.isArray(a) || a.jquery && !jQuery.isPlainObject(a)) jQuery.each(a, (function() {
                     add(this.name, this.value);
                 })); else for (prefix in a) buildParams(prefix, a[prefix], traditional, add);
@@ -5072,7 +5106,7 @@
                         return this.name && !jQuery(this).is(":disabled") && rsubmittable.test(this.nodeName) && !rsubmitterTypes.test(type) && (this.checked || !rcheckableType.test(type));
                     })).map((function(_i, elem) {
                         var val = jQuery(this).val();
-                        if (null == val) return null;
+                        if (val == null) return null;
                         if (Array.isArray(val)) return jQuery.map(val, (function(val) {
                             return {
                                 name: elem.name,
@@ -5090,12 +5124,12 @@
             originAnchor.href = location.href;
             function addToPrefiltersOrTransports(structure) {
                 return function(dataTypeExpression, func) {
-                    if ("string" !== typeof dataTypeExpression) {
+                    if (typeof dataTypeExpression !== "string") {
                         func = dataTypeExpression;
                         dataTypeExpression = "*";
                     }
                     var dataType, i = 0, dataTypes = dataTypeExpression.toLowerCase().match(rnothtmlwhite) || [];
-                    if (isFunction(func)) while (dataType = dataTypes[i++]) if ("+" === dataType[0]) {
+                    if (isFunction(func)) while (dataType = dataTypes[i++]) if (dataType[0] === "+") {
                         dataType = dataType.slice(1) || "*";
                         (structure[dataType] = structure[dataType] || []).unshift(func);
                     } else (structure[dataType] = structure[dataType] || []).push(func);
@@ -5108,7 +5142,7 @@
                     inspected[dataType] = true;
                     jQuery.each(structure[dataType] || [], (function(_, prefilterOrFactory) {
                         var dataTypeOrTransport = prefilterOrFactory(options, originalOptions, jqXHR);
-                        if ("string" === typeof dataTypeOrTransport && !seekingTransport && !inspected[dataTypeOrTransport]) {
+                        if (typeof dataTypeOrTransport === "string" && !seekingTransport && !inspected[dataTypeOrTransport]) {
                             options.dataTypes.unshift(dataTypeOrTransport);
                             inspect(dataTypeOrTransport);
                             return false;
@@ -5120,15 +5154,15 @@
             }
             function ajaxExtend(target, src) {
                 var key, deep, flatOptions = jQuery.ajaxSettings.flatOptions || {};
-                for (key in src) if (void 0 !== src[key]) (flatOptions[key] ? target : deep || (deep = {}))[key] = src[key];
+                for (key in src) if (src[key] !== void 0) (flatOptions[key] ? target : deep || (deep = {}))[key] = src[key];
                 if (deep) jQuery.extend(true, target, deep);
                 return target;
             }
             function ajaxHandleResponses(s, jqXHR, responses) {
                 var ct, type, finalDataType, firstDataType, contents = s.contents, dataTypes = s.dataTypes;
-                while ("*" === dataTypes[0]) {
+                while (dataTypes[0] === "*") {
                     dataTypes.shift();
-                    if (void 0 === ct) ct = s.mimeType || jqXHR.getResponseHeader("Content-Type");
+                    if (ct === void 0) ct = s.mimeType || jqXHR.getResponseHeader("Content-Type");
                 }
                 if (ct) for (type in contents) if (contents[type] && contents[type].test(ct)) {
                     dataTypes.unshift(type);
@@ -5158,14 +5192,14 @@
                     if (!prev && isSuccess && s.dataFilter) response = s.dataFilter(response, s.dataType);
                     prev = current;
                     current = dataTypes.shift();
-                    if (current) if ("*" === current) current = prev; else if ("*" !== prev && prev !== current) {
+                    if (current) if (current === "*") current = prev; else if (prev !== "*" && prev !== current) {
                         conv = converters[prev + " " + current] || converters["* " + current];
                         if (!conv) for (conv2 in converters) {
                             tmp = conv2.split(" ");
                             if (tmp[1] === current) {
                                 conv = converters[prev + " " + tmp[0]] || converters["* " + tmp[0]];
                                 if (conv) {
-                                    if (true === conv) conv = converters[conv2]; else if (true !== converters[conv2]) {
+                                    if (conv === true) conv = converters[conv2]; else if (converters[conv2] !== true) {
                                         current = tmp[0];
                                         dataTypes.unshift(tmp[1]);
                                     }
@@ -5173,7 +5207,7 @@
                                 }
                             }
                         }
-                        if (true !== conv) if (conv && s.throws) response = conv(response); else try {
+                        if (conv !== true) if (conv && s.throws) response = conv(response); else try {
                             response = conv(response);
                         } catch (e) {
                             return {
@@ -5234,7 +5268,7 @@
                 ajaxPrefilter: addToPrefiltersOrTransports(prefilters),
                 ajaxTransport: addToPrefiltersOrTransports(transports),
                 ajax: function(url, options) {
-                    if ("object" === typeof url) {
+                    if (typeof url === "object") {
                         options = url;
                         url = void 0;
                     }
@@ -5250,20 +5284,20 @@
                                 }
                                 match = responseHeaders[key.toLowerCase() + " "];
                             }
-                            return null == match ? null : match.join(", ");
+                            return match == null ? null : match.join(", ");
                         },
                         getAllResponseHeaders: function() {
                             return completed ? responseHeadersString : null;
                         },
                         setRequestHeader: function(name, value) {
-                            if (null == completed) {
+                            if (completed == null) {
                                 name = requestHeadersNames[name.toLowerCase()] = requestHeadersNames[name.toLowerCase()] || name;
                                 requestHeaders[name] = value;
                             }
                             return this;
                         },
                         overrideMimeType: function(type) {
-                            if (null == completed) s.mimeType = type;
+                            if (completed == null) s.mimeType = type;
                             return this;
                         },
                         statusCode: function(map) {
@@ -5282,7 +5316,7 @@
                     s.url = ((url || s.url || location.href) + "").replace(rprotocol, location.protocol + "//");
                     s.type = options.method || options.type || s.method || s.type;
                     s.dataTypes = (s.dataType || "*").toLowerCase().match(rnothtmlwhite) || [ "" ];
-                    if (null == s.crossDomain) {
+                    if (s.crossDomain == null) {
                         urlAnchor = document.createElement("a");
                         try {
                             urlAnchor.href = s.url;
@@ -5292,34 +5326,34 @@
                             s.crossDomain = true;
                         }
                     }
-                    if (s.data && s.processData && "string" !== typeof s.data) s.data = jQuery.param(s.data, s.traditional);
+                    if (s.data && s.processData && typeof s.data !== "string") s.data = jQuery.param(s.data, s.traditional);
                     inspectPrefiltersOrTransports(prefilters, s, options, jqXHR);
                     if (completed) return jqXHR;
                     fireGlobals = jQuery.event && s.global;
-                    if (fireGlobals && 0 === jQuery.active++) jQuery.event.trigger("ajaxStart");
+                    if (fireGlobals && jQuery.active++ === 0) jQuery.event.trigger("ajaxStart");
                     s.type = s.type.toUpperCase();
                     s.hasContent = !rnoContent.test(s.type);
                     cacheURL = s.url.replace(rhash, "");
                     if (!s.hasContent) {
                         uncached = s.url.slice(cacheURL.length);
-                        if (s.data && (s.processData || "string" === typeof s.data)) {
+                        if (s.data && (s.processData || typeof s.data === "string")) {
                             cacheURL += (rquery.test(cacheURL) ? "&" : "?") + s.data;
                             delete s.data;
                         }
-                        if (false === s.cache) {
+                        if (s.cache === false) {
                             cacheURL = cacheURL.replace(rantiCache, "$1");
                             uncached = (rquery.test(cacheURL) ? "&" : "?") + "_=" + nonce.guid++ + uncached;
                         }
                         s.url = cacheURL + uncached;
-                    } else if (s.data && s.processData && 0 === (s.contentType || "").indexOf("application/x-www-form-urlencoded")) s.data = s.data.replace(r20, "+");
+                    } else if (s.data && s.processData && (s.contentType || "").indexOf("application/x-www-form-urlencoded") === 0) s.data = s.data.replace(r20, "+");
                     if (s.ifModified) {
                         if (jQuery.lastModified[cacheURL]) jqXHR.setRequestHeader("If-Modified-Since", jQuery.lastModified[cacheURL]);
                         if (jQuery.etag[cacheURL]) jqXHR.setRequestHeader("If-None-Match", jQuery.etag[cacheURL]);
                     }
-                    if (s.data && s.hasContent && false !== s.contentType || options.contentType) jqXHR.setRequestHeader("Content-Type", s.contentType);
-                    jqXHR.setRequestHeader("Accept", s.dataTypes[0] && s.accepts[s.dataTypes[0]] ? s.accepts[s.dataTypes[0]] + ("*" !== s.dataTypes[0] ? ", " + allTypes + "; q=0.01" : "") : s.accepts["*"]);
+                    if (s.data && s.hasContent && s.contentType !== false || options.contentType) jqXHR.setRequestHeader("Content-Type", s.contentType);
+                    jqXHR.setRequestHeader("Accept", s.dataTypes[0] && s.accepts[s.dataTypes[0]] ? s.accepts[s.dataTypes[0]] + (s.dataTypes[0] !== "*" ? ", " + allTypes + "; q=0.01" : "") : s.accepts["*"]);
                     for (i in s.headers) jqXHR.setRequestHeader(i, s.headers[i]);
-                    if (s.beforeSend && (false === s.beforeSend.call(callbackContext, jqXHR, s) || completed)) return jqXHR.abort();
+                    if (s.beforeSend && (s.beforeSend.call(callbackContext, jqXHR, s) === false || completed)) return jqXHR.abort();
                     strAbort = "abort";
                     completeDeferred.add(s.complete);
                     jqXHR.done(s.success);
@@ -5348,7 +5382,7 @@
                         transport = void 0;
                         responseHeadersString = headers || "";
                         jqXHR.readyState = status > 0 ? 4 : 0;
-                        isSuccess = status >= 200 && status < 300 || 304 === status;
+                        isSuccess = status >= 200 && status < 300 || status === 304;
                         if (responses) response = ajaxHandleResponses(s, jqXHR, responses);
                         if (!isSuccess && jQuery.inArray("script", s.dataTypes) > -1) s.converters["text script"] = function() {};
                         response = ajaxConvert(s, response, jqXHR, isSuccess);
@@ -5359,7 +5393,7 @@
                                 modified = jqXHR.getResponseHeader("etag");
                                 if (modified) jQuery.etag[cacheURL] = modified;
                             }
-                            if (204 === status || "HEAD" === s.type) statusText = "nocontent"; else if (304 === status) statusText = "notmodified"; else {
+                            if (status === 204 || s.type === "HEAD") statusText = "nocontent"; else if (status === 304) statusText = "notmodified"; else {
                                 statusText = response.state;
                                 success = response.data;
                                 error = response.error;
@@ -5381,7 +5415,7 @@
                         completeDeferred.fireWith(callbackContext, [ jqXHR, statusText ]);
                         if (fireGlobals) {
                             globalEventContext.trigger("ajaxComplete", [ jqXHR, s ]);
-                            if (!--jQuery.active) jQuery.event.trigger("ajaxStop");
+                            if (! --jQuery.active) jQuery.event.trigger("ajaxStop");
                         }
                     }
                     return jqXHR;
@@ -5411,7 +5445,7 @@
             }));
             jQuery.ajaxPrefilter((function(s) {
                 var i;
-                for (i in s.headers) if ("content-type" === i.toLowerCase()) s.contentType = s.headers[i] || "";
+                for (i in s.headers) if (i.toLowerCase() === "content-type") s.contentType = s.headers[i] || "";
             }));
             jQuery._evalUrl = function(url, options, doc) {
                 return jQuery.ajax({
@@ -5497,7 +5531,7 @@
                             return function() {
                                 if (callback) {
                                     callback = errorCallback = xhr.onload = xhr.onerror = xhr.onabort = xhr.ontimeout = xhr.onreadystatechange = null;
-                                    if ("abort" === type) xhr.abort(); else if ("error" === type) if ("number" !== typeof xhr.status) complete(0, "error"); else complete(xhr.status, xhr.statusText); else complete(xhrSuccessStatus[xhr.status] || xhr.status, xhr.statusText, "text" !== (xhr.responseType || "text") || "string" !== typeof xhr.responseText ? {
+                                    if (type === "abort") xhr.abort(); else if (type === "error") if (typeof xhr.status !== "number") complete(0, "error"); else complete(xhr.status, xhr.statusText); else complete(xhrSuccessStatus[xhr.status] || xhr.status, xhr.statusText, (xhr.responseType || "text") !== "text" || typeof xhr.responseText !== "string" ? {
                                         binary: xhr.response
                                     } : {
                                         text: xhr.responseText
@@ -5507,8 +5541,8 @@
                         };
                         xhr.onload = callback();
                         errorCallback = xhr.onerror = xhr.ontimeout = callback("error");
-                        if (void 0 !== xhr.onabort) xhr.onabort = errorCallback; else xhr.onreadystatechange = function() {
-                            if (4 === xhr.readyState) window.setTimeout((function() {
+                        if (xhr.onabort !== void 0) xhr.onabort = errorCallback; else xhr.onreadystatechange = function() {
+                            if (xhr.readyState === 4) window.setTimeout((function() {
                                 if (callback) errorCallback();
                             }));
                         };
@@ -5542,7 +5576,7 @@
                 }
             });
             jQuery.ajaxPrefilter("script", (function(s) {
-                if (void 0 === s.cache) s.cache = false;
+                if (s.cache === void 0) s.cache = false;
                 if (s.crossDomain) s.type = "GET";
             }));
             jQuery.ajaxTransport("script", (function(s) {
@@ -5556,7 +5590,7 @@
                             }).on("load error", callback = function(evt) {
                                 script.remove();
                                 callback = null;
-                                if (evt) complete("error" === evt.type ? 404 : 200, evt.type);
+                                if (evt) complete(evt.type === "error" ? 404 : 200, evt.type);
                             });
                             document.head.appendChild(script[0]);
                         },
@@ -5576,10 +5610,10 @@
                 }
             });
             jQuery.ajaxPrefilter("json jsonp", (function(s, originalSettings, jqXHR) {
-                var callbackName, overwritten, responseContainer, jsonProp = false !== s.jsonp && (rjsonp.test(s.url) ? "url" : "string" === typeof s.data && 0 === (s.contentType || "").indexOf("application/x-www-form-urlencoded") && rjsonp.test(s.data) && "data");
-                if (jsonProp || "jsonp" === s.dataTypes[0]) {
+                var callbackName, overwritten, responseContainer, jsonProp = s.jsonp !== false && (rjsonp.test(s.url) ? "url" : typeof s.data === "string" && (s.contentType || "").indexOf("application/x-www-form-urlencoded") === 0 && rjsonp.test(s.data) && "data");
+                if (jsonProp || s.dataTypes[0] === "jsonp") {
                     callbackName = s.jsonpCallback = isFunction(s.jsonpCallback) ? s.jsonpCallback() : s.jsonpCallback;
-                    if (jsonProp) s[jsonProp] = s[jsonProp].replace(rjsonp, "$1" + callbackName); else if (false !== s.jsonp) s.url += (rquery.test(s.url) ? "&" : "?") + s.jsonp + "=" + callbackName;
+                    if (jsonProp) s[jsonProp] = s[jsonProp].replace(rjsonp, "$1" + callbackName); else if (s.jsonp !== false) s.url += (rquery.test(s.url) ? "&" : "?") + s.jsonp + "=" + callbackName;
                     s.converters["script json"] = function() {
                         if (!responseContainer) jQuery.error(callbackName + " was not called");
                         return responseContainer[0];
@@ -5590,7 +5624,7 @@
                         responseContainer = arguments;
                     };
                     jqXHR.always((function() {
-                        if (void 0 === overwritten) jQuery(window).removeProp(callbackName); else window[callbackName] = overwritten;
+                        if (overwritten === void 0) jQuery(window).removeProp(callbackName); else window[callbackName] = overwritten;
                         if (s[callbackName]) {
                             s.jsonpCallback = originalSettings.jsonpCallback;
                             oldCallbacks.push(callbackName);
@@ -5604,11 +5638,11 @@
             support.createHTMLDocument = function() {
                 var body = document.implementation.createHTMLDocument("").body;
                 body.innerHTML = "<form></form><form></form>";
-                return 2 === body.childNodes.length;
+                return body.childNodes.length === 2;
             }();
             jQuery.parseHTML = function(data, context, keepScripts) {
-                if ("string" !== typeof data) return [];
-                if ("boolean" === typeof context) {
+                if (typeof data !== "string") return [];
+                if (typeof context === "boolean") {
                     keepScripts = context;
                     context = false;
                 }
@@ -5635,7 +5669,7 @@
                 if (isFunction(params)) {
                     callback = params;
                     params = void 0;
-                } else if (params && "object" === typeof params) type = "POST";
+                } else if (params && typeof params === "object") type = "POST";
                 if (self.length > 0) jQuery.ajax({
                     url,
                     type: type || "GET",
@@ -5659,11 +5693,11 @@
             jQuery.offset = {
                 setOffset: function(elem, options, i) {
                     var curPosition, curLeft, curCSSTop, curTop, curOffset, curCSSLeft, calculatePosition, position = jQuery.css(elem, "position"), curElem = jQuery(elem), props = {};
-                    if ("static" === position) elem.style.position = "relative";
+                    if (position === "static") elem.style.position = "relative";
                     curOffset = curElem.offset();
                     curCSSTop = jQuery.css(elem, "top");
                     curCSSLeft = jQuery.css(elem, "left");
-                    calculatePosition = ("absolute" === position || "fixed" === position) && (curCSSTop + curCSSLeft).indexOf("auto") > -1;
+                    calculatePosition = (position === "absolute" || position === "fixed") && (curCSSTop + curCSSLeft).indexOf("auto") > -1;
                     if (calculatePosition) {
                         curPosition = curElem.position();
                         curTop = curPosition.top;
@@ -5673,18 +5707,18 @@
                         curLeft = parseFloat(curCSSLeft) || 0;
                     }
                     if (isFunction(options)) options = options.call(elem, i, jQuery.extend({}, curOffset));
-                    if (null != options.top) props.top = options.top - curOffset.top + curTop;
-                    if (null != options.left) props.left = options.left - curOffset.left + curLeft;
+                    if (options.top != null) props.top = options.top - curOffset.top + curTop;
+                    if (options.left != null) props.left = options.left - curOffset.left + curLeft;
                     if ("using" in options) options.using.call(elem, props); else {
-                        if ("number" === typeof props.top) props.top += "px";
-                        if ("number" === typeof props.left) props.left += "px";
+                        if (typeof props.top === "number") props.top += "px";
+                        if (typeof props.left === "number") props.left += "px";
                         curElem.css(props);
                     }
                 }
             };
             jQuery.fn.extend({
                 offset: function(options) {
-                    if (arguments.length) return void 0 === options ? this : this.each((function(i) {
+                    if (arguments.length) return options === void 0 ? this : this.each((function(i) {
                         jQuery.offset.setOffset(this, options, i);
                     }));
                     var rect, win, elem = this[0];
@@ -5706,12 +5740,12 @@
                         top: 0,
                         left: 0
                     };
-                    if ("fixed" === jQuery.css(elem, "position")) offset = elem.getBoundingClientRect(); else {
+                    if (jQuery.css(elem, "position") === "fixed") offset = elem.getBoundingClientRect(); else {
                         offset = this.offset();
                         doc = elem.ownerDocument;
                         offsetParent = elem.offsetParent || doc.documentElement;
-                        while (offsetParent && (offsetParent === doc.body || offsetParent === doc.documentElement) && "static" === jQuery.css(offsetParent, "position")) offsetParent = offsetParent.parentNode;
-                        if (offsetParent && offsetParent !== elem && 1 === offsetParent.nodeType) {
+                        while (offsetParent && (offsetParent === doc.body || offsetParent === doc.documentElement) && jQuery.css(offsetParent, "position") === "static") offsetParent = offsetParent.parentNode;
+                        if (offsetParent && offsetParent !== elem && offsetParent.nodeType === 1) {
                             parentOffset = jQuery(offsetParent).offset();
                             parentOffset.top += jQuery.css(offsetParent, "borderTopWidth", true);
                             parentOffset.left += jQuery.css(offsetParent, "borderLeftWidth", true);
@@ -5725,7 +5759,7 @@
                 offsetParent: function() {
                     return this.map((function() {
                         var offsetParent = this.offsetParent;
-                        while (offsetParent && "static" === jQuery.css(offsetParent, "position")) offsetParent = offsetParent.offsetParent;
+                        while (offsetParent && jQuery.css(offsetParent, "position") === "static") offsetParent = offsetParent.offsetParent;
                         return offsetParent || documentElement;
                     }));
                 }
@@ -5738,8 +5772,8 @@
                 jQuery.fn[method] = function(val) {
                     return access(this, (function(elem, method, val) {
                         var win;
-                        if (isWindow(elem)) win = elem; else if (9 === elem.nodeType) win = elem.defaultView;
-                        if (void 0 === val) return win ? win[prop] : elem[method];
+                        if (isWindow(elem)) win = elem; else if (elem.nodeType === 9) win = elem.defaultView;
+                        if (val === void 0) return win ? win[prop] : elem[method];
                         if (win) win.scrollTo(!top ? val : win.pageXOffset, top ? val : win.pageYOffset); else elem[method] = val;
                     }), method, val, arguments.length);
                 };
@@ -5762,15 +5796,15 @@
                     "": "outer" + name
                 }, (function(defaultExtra, funcName) {
                     jQuery.fn[funcName] = function(margin, value) {
-                        var chainable = arguments.length && (defaultExtra || "boolean" !== typeof margin), extra = defaultExtra || (true === margin || true === value ? "margin" : "border");
+                        var chainable = arguments.length && (defaultExtra || typeof margin !== "boolean"), extra = defaultExtra || (margin === true || value === true ? "margin" : "border");
                         return access(this, (function(elem, type, value) {
                             var doc;
-                            if (isWindow(elem)) return 0 === funcName.indexOf("outer") ? elem["inner" + name] : elem.document.documentElement["client" + name];
-                            if (9 === elem.nodeType) {
+                            if (isWindow(elem)) return funcName.indexOf("outer") === 0 ? elem["inner" + name] : elem.document.documentElement["client" + name];
+                            if (elem.nodeType === 9) {
                                 doc = elem.documentElement;
                                 return Math.max(elem.body["scroll" + name], doc["scroll" + name], elem.body["offset" + name], doc["offset" + name], doc["client" + name]);
                             }
-                            return void 0 === value ? jQuery.css(elem, type, extra) : jQuery.style(elem, type, value, extra);
+                            return value === void 0 ? jQuery.css(elem, type, extra) : jQuery.style(elem, type, value, extra);
                         }), type, chainable ? margin : void 0, chainable);
                     };
                 }));
@@ -5791,7 +5825,7 @@
                     return this.on(types, selector, data, fn);
                 },
                 undelegate: function(selector, types, fn) {
-                    return 1 === arguments.length ? this.off(selector, "**") : this.off(types, selector || "**", fn);
+                    return arguments.length === 1 ? this.off(selector, "**") : this.off(types, selector || "**", fn);
                 },
                 hover: function(fnOver, fnOut) {
                     return this.mouseenter(fnOver).mouseleave(fnOut || fnOver);
@@ -5805,7 +5839,7 @@
             var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
             jQuery.proxy = function(fn, context) {
                 var tmp, args, proxy;
-                if ("string" === typeof context) {
+                if (typeof context === "string") {
                     tmp = fn[context];
                     context = fn;
                     fn = tmp;
@@ -5831,12 +5865,12 @@
             jQuery.now = Date.now;
             jQuery.isNumeric = function(obj) {
                 var type = jQuery.type(obj);
-                return ("number" === type || "string" === type) && !isNaN(obj - parseFloat(obj));
+                return (type === "number" || type === "string") && !isNaN(obj - parseFloat(obj));
             };
             jQuery.trim = function(text) {
-                return null == text ? "" : (text + "").replace(rtrim, "");
+                return text == null ? "" : (text + "").replace(rtrim, "");
             };
-            if ("function" === typeof define && define.amd) define("jquery", [], (function() {
+            if (typeof define === "function" && define.amd) define("jquery", [], (function() {
                 return jQuery;
             }));
             var _jQuery = window.jQuery, _$ = window.$;
@@ -5845,7 +5879,7 @@
                 if (deep && window.jQuery === jQuery) window.jQuery = _jQuery;
                 return jQuery;
             };
-            if ("undefined" === typeof noGlobal) window.jQuery = window.$ = jQuery;
+            if (typeof noGlobal === "undefined") window.jQuery = window.$ = jQuery;
             return jQuery;
         }));
         !function(e) {
@@ -8215,7 +8249,7 @@
                 localizedSearchfieldPlaceholder = "Category search";
                 break;
             }
-            if ("#menu" == $(location).attr("hash")) history.replaceState({}, null, "#");
+            if ($(location).attr("hash") == "#menu") history.replaceState({}, null, "#");
             const mobileMenu = new Mmenu("#menu", {
                 backButton: true,
                 extensions: [ "fullscreen", "position-front", "theme-green" ],
@@ -8286,7 +8320,7 @@
                 var panelSelector = hash + "-panel";
                 if (isMobile) panelSelector = "#mm-" + panelSelector.substring(1);
                 var panel = document.querySelector(panelSelector);
-                if (null == panel) return;
+                if (panel == null) return;
                 var menu = isMobile ? mobileMenu : desktopMenu;
                 menu.API.closeAllPanels();
                 menu.API.openPanel(panel);
@@ -8305,12 +8339,12 @@
             }
             $("a[data-menu-opener]").click((function() {
                 var hash = $(this).attr("href");
-                if ("#" == hash) {
+                if (hash == "#") {
                     openMenu();
                     return;
                 }
                 var isMobile = !mdBreakpoint.matches;
-                if (isMobile) if ("has-subcategories" == $(this).data("menu-opener")) hash += "-subcategories";
+                if (isMobile) if ($(this).data("menu-opener") == "has-subcategories") hash += "-subcategories";
                 openSubmenu(hash);
             }));
             $("#menu a, #mm-menu a").not("[href*='#']").click((function() {
@@ -8332,7 +8366,7 @@
                 search.toggleClass("hide");
                 $(".searchbar-input").val("");
                 $(".header__body .search-btn img").attr("src", (function(index, attr) {
-                    return "img/header/close.png" != attr ? "img/header/close.png" : "img/header/03.png";
+                    return attr != "img/header/close.png" ? "img/header/close.png" : "img/header/03.png";
                 }));
             }));
             function sendSearchString(value) {
@@ -8344,19 +8378,19 @@
                     success: function(response) {}
                 }));
                 $(".header__body .search-btn img").attr("src", (function(index, attr) {
-                    return "img/header/close.png" != attr ? "img/header/close.png" : "img/header/03.png";
+                    return attr != "img/header/close.png" ? "img/header/close.png" : "img/header/03.png";
                 }));
                 $(".searchbar-wrapper").addClass("hide");
                 $(".searchbar-input").val("");
             }
             $(document).keyup((function(e) {
                 var value = $(".searchbar-input").val();
-                if ("Enter" === e.key && "" !== value) sendSearchString(value);
+                if (e.key === "Enter" && value !== "") sendSearchString(value);
             }));
             $(".searchbar-btn").on("click", (function(e) {
                 e.preventDefault();
                 var value = $(".searchbar-input").val();
-                if ("" !== value) sendSearchString();
+                if (value !== "") sendSearchString();
             }));
         }));
         (function() {
@@ -8373,11 +8407,11 @@
                     selectedTab: 0,
                     startCollapsed: false
                 }, options);
-                if ("true" == el.getAttribute("data-tabs-allowed")) this.options.tabsAllowed = true; else if ("false" == el.getAttribute("data-tabs-allowed")) this.options.tabsAllowed = false;
+                if (el.getAttribute("data-tabs-allowed") == "true") this.options.tabsAllowed = true; else if (el.getAttribute("data-tabs-allowed") == "false") this.options.tabsAllowed = false;
                 if (el.getAttribute("data-breakpoint")) this.options.breakpoint = parseInt(el.getAttribute("data-breakpoint"));
                 if (el.getAttribute("data-selected-tab")) this.options.selectedTab = parseInt(el.getAttribute("data-selected-tab"));
-                if ("true" == el.getAttribute("data-start-collapsed")) this.options.startCollapsed = true; else if ("false" == el.getAttribute("data-start-collapsed")) this.options.startCollapsed = false;
-                if (0 === this.tabTriggers.length || this.tabTriggers.length !== this.tabPanels.length) return;
+                if (el.getAttribute("data-start-collapsed") == "true") this.options.startCollapsed = true; else if (el.getAttribute("data-start-collapsed") == "false") this.options.startCollapsed = false;
+                if (this.tabTriggers.length === 0 || this.tabTriggers.length !== this.tabPanels.length) return;
                 this._init();
             }
             AccordionTabs.prototype._init = function() {
@@ -8429,12 +8463,12 @@
                 e.preventDefault();
                 var closestTrigger = this._getClosest(e.target, ".js-tabs-trigger");
                 var closestTab = 0;
-                if (null == closestTrigger) {
+                if (closestTrigger == null) {
                     closestTrigger = this._getClosest(e.target, ".js-accordion-trigger");
                     closestTab = this._getClosest(closestTrigger, ".js-tabs-panel");
                     this.isAccordion = true;
                 } else this.isAccordion = false;
-                var targetIndex = null != e.target.index ? e.target.index : closestTab.index;
+                var targetIndex = e.target.index != null ? e.target.index : closestTab.index;
                 if (targetIndex === this.selectedTab && !this.isAccordion) return;
                 this.selectTab(targetIndex, true);
             };
@@ -8472,7 +8506,7 @@
                 this.tabPanels[index].setAttribute("tabindex", -1);
             };
             AccordionTabs.prototype.selectTab = function(index, userInvoked) {
-                if (null === index) if (this.isAccordion) return; else index = 0;
+                if (index === null) if (this.isAccordion) return; else index = 0;
                 if (!this.tabPanels[index].classList.contains("is-hidden") && userInvoked) {
                     if (index === this.selectedTab) this.selectedTab = null; else {
                         this.selectedTab = null;
@@ -8485,7 +8519,7 @@
                     this.prevSelectedTab = this.selectedTab;
                     this.selectedTab = index;
                 } else {
-                    if (null === this.prevSelectedTab || !this.isAccordion) {
+                    if (this.prevSelectedTab === null || !this.isAccordion) {
                         for (var i = 0; i < this.tabTriggersLength; i++) if (i !== index) this._hide(i);
                     } else this._hide(this.selectedTab);
                     this.prevSelectedTab = this.selectedTab;
@@ -8521,12 +8555,12 @@
                 var deep = false;
                 var i = 0;
                 var length = arguments.length;
-                if ("[object Boolean]" === Object.prototype.toString.call(arguments[0])) {
+                if (Object.prototype.toString.call(arguments[0]) === "[object Boolean]") {
                     deep = arguments[0];
                     i++;
                 }
                 var merge = function(obj) {
-                    for (var prop in obj) if (Object.prototype.hasOwnProperty.call(obj, prop)) if (deep && "[object Object]" === Object.prototype.toString.call(obj[prop])) extended[prop] = extend(true, extended[prop], obj[prop]); else extended[prop] = obj[prop];
+                    for (var prop in obj) if (Object.prototype.hasOwnProperty.call(obj, prop)) if (deep && Object.prototype.toString.call(obj[prop]) === "[object Object]") extended[prop] = extend(true, extended[prop], obj[prop]); else extended[prop] = obj[prop];
                 };
                 for (;i < length; i++) {
                     var obj = arguments[i];
@@ -8557,9 +8591,9 @@
                     new AccordionTabs(input);
                 }));
             }
-            if ("undefined" !== typeof Document) if ("loading" !== document.readyState) init(); else document.addEventListener("DOMContentLoaded", init);
-            if ("undefined" !== typeof self) self.AccordionTabs = AccordionTabs;
-            if ("object" === typeof module && module.exports) module.exports = AccordionTabs;
+            if (typeof Document !== "undefined") if (document.readyState !== "loading") init(); else document.addEventListener("DOMContentLoaded", init);
+            if (typeof self !== "undefined") self.AccordionTabs = AccordionTabs;
+            if (typeof module === "object" && module.exports) module.exports = AccordionTabs;
             return AccordionTabs;
         })();
         window["FLS"] = true;
