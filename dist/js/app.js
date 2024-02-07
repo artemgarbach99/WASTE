@@ -1395,6 +1395,12 @@
                     dropdownPromote.classList.toggle("promote-dropdown-open");
                     if (dropdownPromote.classList.contains("promote-dropdown-open")) element.classList.add("_active"); else element.classList.remove("_active");
                 }));
+                document.addEventListener("mousedown", (function(e) {
+                    if (e.target.closest(".dropdown-promote") === null && !e.target.closest(".promote-line-main__btn-orange")) {
+                        dropdownPromote.classList.remove("promote-dropdown-open");
+                        element.classList.remove("_active");
+                    }
+                }));
             }));
         }
         if (document.querySelector(".dropdown-promote")) promoteMore();
