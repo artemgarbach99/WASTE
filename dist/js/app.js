@@ -1404,6 +1404,32 @@
             }));
         }
         if (document.querySelector(".dropdown-promote")) promoteMore();
+        function loadLogo() {
+            const inputFile = document.querySelector("#load-logo__input");
+            const picturePreview = document.querySelector(".load-logo__preview");
+            inputFile.addEventListener("change", (function(e) {
+                const inputTarget = e.target;
+                const file = inputTarget.files[0];
+                if (file) {
+                    const maxSize = 1048576;
+                    if (file.size > maxSize) {
+                        alert("Размер файла превышает максимальный размер");
+                        return;
+                    }
+                    const reader = new FileReader;
+                    reader.addEventListener("load", (function(e) {
+                        const readerTarget = e.target;
+                        const img = document.createElement("img");
+                        img.src = readerTarget.result;
+                        picturePreview.classList.add("_show");
+                        picturePreview.innerHTML = "";
+                        picturePreview.appendChild(img);
+                    }));
+                    reader.readAsDataURL(file);
+                } else picturePreview.classList.remove("_show");
+            }));
+        }
+        if (document.querySelector(".load-logo")) loadLogo();
         /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
