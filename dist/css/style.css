@@ -6112,6 +6112,11 @@ a.mm-navbar__title {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+}
+
+.promote-line-main._static {
+  position: static;
 }
 
 .promote-line-main__btn {

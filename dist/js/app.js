@@ -1364,16 +1364,6 @@
         };
         const da = new DynamicAdapt("max");
         da.init();
-        //!
-        //!
-        //!
-        //!
-        //!
-        //!
-        //!
-        //!
-        //! test
-        //! arrows
         function switchLanguage() {
             const lableLanguage = document.querySelectorAll(".language-top-content__lable");
             const dropdownLanguages = document.querySelectorAll(".language-top-content__dropdown");
@@ -1388,7 +1378,7 @@
         if (document.querySelector(".language-top-content")) switchLanguage();
         function promoteMore() {
             const lablePromote = document.querySelectorAll(".promote-line-main__btn-orange");
-            const dropdownPromotes = document.querySelectorAll(".dropdown-promote");
+            const dropdownPromotes = document.querySelectorAll(".dropdown-promote-orange");
             lablePromote.forEach(((element, index) => {
                 const dropdownPromote = dropdownPromotes[index];
                 element.addEventListener("click", (function(e) {
@@ -1403,7 +1393,7 @@
                 }));
             }));
         }
-        if (document.querySelector(".dropdown-promote")) promoteMore();
+        if (document.querySelector(".promote-line-main")) promoteMore();
         function loadLogo() {
             const inputFile = document.querySelector("#load-logo__input");
             const picturePreview = document.querySelector(".load-logo__preview");
@@ -1430,6 +1420,32 @@
             }));
         }
         if (document.querySelector(".load-logo")) loadLogo();
+        function limitDropdown() {
+            const lableLimit = document.querySelectorAll(".limit-top-content__lable");
+            const dropdownsLimit = document.querySelectorAll(".limit-top-content__dropdown");
+            lableLimit.forEach(((element, index) => {
+                const dropdownLimit = dropdownsLimit[index];
+                element.addEventListener("click", (function(e) {
+                    dropdownLimit.classList.toggle("limit-dropdown-open");
+                    if (dropdownLimit.classList.contains("limit-dropdown-open")) element.classList.add("_active"); else element.classList.remove("_active");
+                }));
+            }));
+        }
+        if (document.querySelector(".limit-top-content")) limitDropdown();
+        function search() {
+            const lableSearch = document.querySelectorAll(".search-lable");
+            const inputsSearch = document.querySelectorAll(".search-input");
+            lableSearch.forEach(((element, index) => {
+                const inputSearch = inputsSearch[index];
+                element.addEventListener("click", (function(e) {
+                    inputSearch.classList.toggle("input-open");
+                }));
+                document.addEventListener("mousedown", (function(e) {
+                    if (e.target.closest(".search-input") === null) inputSearch.classList.remove("input-open");
+                }));
+            }));
+        }
+        if (document.querySelector(".search-navigation-tabs")) search();
         /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
