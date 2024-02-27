@@ -8793,6 +8793,10 @@ input[type=number] {
   margin-bottom: 0.9375rem;
 }
 
+.select-sections .select__body {
+  display: none;
+}
+
 .ms-drop input[type=radio],
 .ms-drop input[type=checkbox] {
   position: absolute;
@@ -9108,10 +9112,11 @@ input[type=number] {
   overflow: hidden;
   cursor: pointer;
   /* text-align: left; */
-  white-space: nowrap;
+  /* white-space: nowrap; */
   text-decoration: none;
   border-radius: 5px;
   background-color: #ffffff;
+  max-width: 455px;
 }
 
 .ms-choice.disabled {
@@ -9122,6 +9127,7 @@ input[type=number] {
 }
 
 .ms-choice > span {
+  text-align: left;
   /* position: absolute;
   top: 0;
   left: 0; */
@@ -9291,7 +9297,7 @@ input[type=number] {
 }
 
 .ms-drop ul::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 .ms-drop ul::-webkit-scrollbar-track {
