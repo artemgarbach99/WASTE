@@ -1446,6 +1446,23 @@
             }));
         }
         if (document.querySelector(".search-navigation-tabs")) search();
+        document.addEventListener("DOMContentLoaded", (event => {
+            const optionsCard = document.querySelectorAll(".checkbox");
+            const optionsArray = [ ...optionsCard ];
+            console.log(optionsArray);
+            const clickCounts = new Map;
+            optionsArray.forEach((button => {
+                if (button instanceof HTMLElement) {
+                    clickCounts.set(button, 0);
+                    button.addEventListener("change", (function() {
+                        console.log("123");
+                        const count = clickCounts.get(button) + 1;
+                        clickCounts.set(button, count);
+                        if (count >= 10) button.disabled = true;
+                    }));
+                }
+            }));
+        }));
         /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/

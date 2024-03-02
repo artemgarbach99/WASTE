@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240227202636">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240302145733">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -1992,17 +1992,17 @@
 								<div class="sd-multiSelect form-group">
 									<label class="select-sections__title" for="current-job-role">Вторсырье</label>
 									<select multiple id="current-job-role" class="sd-CustomSelect" data-width="100%">
-										<option value="1">Полимеры</option>
-										<option value="2">Макулатура</option>
-										<option value="3">Металлы</option>
-										<option value="4">Стекло</option>
-										<option value="5">Шины, резина</option>
-										<option value="6">Древесина</option>
-										<option value="7">Пищевые отходы</option>
-										<option value="8">Разная биомасса</option>
-										<option value="9">Текстиль, кожа</option>
-										<option value="10">Нефтепродукты</option>
-										<option value="11">Графит, уголь</option>
+										<option value="1" class="select-sections__item">Полимеры</option>
+										<option value="2" class="select-sections__item">Макулатура</option>
+										<option value="3" class="select-sections__item">Металлы</option>
+										<option value="4" class="select-sections__item">Стекло</option>
+										<option value="5" class="select-sections__item">Шины, резина</option>
+										<option value="6" class="select-sections__item">Древесина</option>
+										<option value="7" class="select-sections__item">Пищевые отходы</option>
+										<option value="8" class="select-sections__item">Разная биомасса</option>
+										<option value="9" class="select-sections__item">Текстиль, кожа</option>
+										<option value="10" class="select-sections__item">Нефтепродукты</option>
+										<option value="11" class="select-sections__item">Графит, уголь</option>
 									</select>
 								</div>
 							</div>
@@ -2069,20 +2069,20 @@
 		//     }
 		// });
 	</script>
-	<script src="js/app.min.js?_v=20240227202636"></script>
+	<script src="js/app.min.js?_v=20240302145733"></script>
 
-	<script src="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.js?_v=20240227202636"></script>
+	<script src="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.js?_v=20240302145733"></script>
 
 	<script>
 		$(document).ready(function() {
 			$(".sd-CustomSelect").multipleSelect({
 				selectAll: false,
-				placeholder: 'Вторсырье',
+				placeholder: 'Подробно (21 раздел)',
 				displayTitle: true,
 				displayDelimiter: ', ',
-				minimumCountSelected: 10,
-				ellipsis: true,
-				maxHeight: 215,
+				minimumCountSelected: 21,
+				// ellipsis: true,
+				maxHeight: 225,
 			});
 		});
 	</script>

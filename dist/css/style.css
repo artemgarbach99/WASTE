@@ -9091,6 +9091,13 @@ input[type=number] {
 .ms-parent.ms-parent-open .ms-choice {
   background-color: #22b14c;
   color: #FFFFFF;
+  /* color: #22b14c; */
+}
+
+.ms-parent.ms-parent-open .ms-choice span {
+  /* background-color: #22b14c; */
+  color: #FFFFFF;
+  /* color: #22b14c; */
 }
 
 .ms-parent.ms-parent-open .ms-choice .placeholder {
@@ -9128,6 +9135,7 @@ input[type=number] {
 
 .ms-choice > span {
   text-align: left;
+  color: #22b14c;
   /* position: absolute;
   top: 0;
   left: 0; */
@@ -9144,7 +9152,7 @@ input[type=number] {
   display: -ms-flexbox;
   display: flex;
   /* justify-content: flex-start; */
-  color: #113921;
+  color: #8d8d8d;
   /* display: flex;
   align-items: center;
   justify-content: space-between;
