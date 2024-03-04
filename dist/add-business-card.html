@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240302145733">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240304134459">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -1986,8 +1986,6 @@
 									</div>
 								</div>
 							</div>
-
-
 							<div class="sections-addition-form__select select-sections">
 								<div class="sd-multiSelect form-group">
 									<label class="select-sections__title" for="current-job-role">Вторсырье</label>
@@ -2005,8 +2003,27 @@
 										<option value="11" class="select-sections__item">Графит, уголь</option>
 									</select>
 								</div>
+								<div class="sd-multiSelect form-group">
+									<label class="select-sections__title" for="current-job-role">Технологии,
+										оборудование</label>
+									<select multiple id="current-job-role" class="sd-CustomSelect-02" data-width="100%">
+										<option value="1" class="select-sections__item">Пищевые отходы</option>
+										<option value="2" class="select-sections__item">Разная биомасса</option>
+										<option value="3" class="select-sections__item">Твердые бытовые отходы</option>
+										<option value="4" class="select-sections__item">Шламы</option>
+										<option value="5" class="select-sections__item">шлаки</option>
+										<option value="6" class="select-sections__item">щебень</option>
+										<option value="7" class="select-sections__item">Комбинированные материалы
+										</option>
+										<option value="8" class="select-sections__item">Медицинские отходы</option>
+										<option value="9" class="select-sections__item">Гальванические отходы</option>
+										<option value="10" class="select-sections__item">Ртутьсодержащие отходы</option>
+										<option value="11" class="select-sections__item">Отходы строительства</option>
+										<option value="12" class="select-sections__item">сноса</option>
+										<option value="13" class="select-sections__item">Газообразные отходы</option>
+									</select>
+								</div>
 							</div>
-
 						</div>
 					</form>
 				</div>
@@ -2069,9 +2086,9 @@
 		//     }
 		// });
 	</script>
-	<script src="js/app.min.js?_v=20240302145733"></script>
+	<script src="js/app.min.js?_v=20240304134459"></script>
 
-	<script src="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.js?_v=20240302145733"></script>
+	<script src="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.js?_v=20240304134459"></script>
 
 	<script>
 		$(document).ready(function() {
@@ -2081,14 +2098,52 @@
 				displayTitle: true,
 				displayDelimiter: ', ',
 				minimumCountSelected: 21,
-				// ellipsis: true,
+				maxHeight: 225,
+			});
+			$(".sd-CustomSelect-02").multipleSelect({
+				selectAll: false,
+				placeholder: 'Подробно (13 разделов)',
+				displayTitle: true,
+				displayDelimiter: ', ',
+				minimumCountSelected: 21,
 				maxHeight: 225,
 			});
 		});
+
+		$(document).ready(function() {
+			let clickCounts = 0; // Инициализируем общий счетчик нажатий
+
+			$('.select-sections #current-job-role').each(function() {
+				const selectElement = $(this);
+				const msDrop = $('.ms-drop'); // Изменено на .select-sections
+				let prevSelectedCount = 0; // Инициализируем счетчик предыдущего количества выбранных опций
+
+				selectElement.change(function() {
+					const selectedOptions = Array.from(this.options).filter(option => option.selected);
+					const currentSelectedCount = selectedOptions.length;
+
+					if (currentSelectedCount > prevSelectedCount) {
+						clickCounts++; // Увеличиваем общий счетчик
+						console.log(clickCounts);
+					} else if (currentSelectedCount < prevSelectedCount) {
+						clickCounts--; // Уменьшаем общий счетчик
+						console.log(clickCounts);
+					}
+
+					prevSelectedCount = currentSelectedCount; // Обновляем счетчик предыдущего количества выбранных опций
+
+					if (clickCounts >= 10) {
+						alert('Достигнут лимит в 10 опции');
+						msDrop.addClass('_block-items'); // Добавляем класс 'block-items' ко всем элементам
+					} else {
+						msDrop.removeClass('_block-items'); // Убираем класс 'block-items' у всех элементов
+					}
+				});
+			});
+
+			console.log(clickCounts); // Выводим общий счетчик нажатий
+		});
 	</script>
-
-
-
 </body>
 
 </html>

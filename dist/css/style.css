@@ -8783,6 +8783,14 @@ input[type=number] {
 }
 
 .select-sections {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.25rem;
   max-width: 28.4375rem;
   width: 100%;
   padding-top: 1.5625rem;
@@ -8795,6 +8803,10 @@ input[type=number] {
 
 .select-sections .select__body {
   display: none;
+}
+
+.select-sections__item.selected {
+  pointer-events: all;
 }
 
 .ms-drop input[type=radio],
@@ -9261,6 +9273,10 @@ input[type=number] {
   bottom: 100%;
   -webkit-box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.15);
           box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.15);
+}
+
+.ms-drop._block-items .select-sections__item:not(.selected) {
+  pointer-events: none;
 }
 
 .ms-search {
