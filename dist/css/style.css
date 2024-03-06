@@ -8714,6 +8714,10 @@ input[type=number] {
   border-radius: 5px;
 }
 
+.sections-addition-form__checkboxes._block-items .checkbox__input:not(:checked) + .checkbox__label {
+  pointer-events: none;
+}
+
 .sections-addition-form__button {
   width: 100%;
   background-color: #22b14c;
@@ -9078,6 +9082,7 @@ input[type=number] {
   transition: -webkit-transform 0.3s ease 0s;
   transition: transform 0.3s ease 0s;
   transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+  z-index: 5;
   /* color: #000;
   width: 16px;
   height: 16px; */
