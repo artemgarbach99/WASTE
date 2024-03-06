@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240306190752">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240306192456">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -2235,8 +2235,8 @@
 		//     }
 		// });
 	</script>
-	<script src="js/app.min.js?_v=20240306190752"></script>
-	<script src="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.js?_v=20240306190752"></script>
+	<script src="js/app.min.js?_v=20240306192456"></script>
+	<script src="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.js?_v=20240306192456"></script>
 	<script>
 		$(document).ready(function() {
 			$(".sd-CustomSelect").multipleSelect({
@@ -2320,6 +2320,7 @@
 		// рабочий лимит (полный)
 		$(document).ready(function() {
 			let clickCounts = 0; // Инициализируем общий счетчик нажатий
+			let count = 10;
 			const msDrop = $('.ms-drop');
 			const selectSection = $('.sections-addition-form__checkboxes')
 
@@ -2342,7 +2343,7 @@
 
 					prevSelectedCount = currentSelectedCount; // Обновляем счетчик предыдущего количества выбранных опций
 
-					if (clickCounts >= 2) {
+					if (clickCounts >= count) {
 						alert('Достигнут лимит в 10 опции');
 						msDrop.addClass('_block-items'); // Добавляем класс 'block-items' ко всем элементам
 						selectSection.addClass('_block-items');
@@ -2362,7 +2363,7 @@
 
 				console.log(clickCounts);
 
-				if (clickCounts >= 2) {
+				if (clickCounts >= count) {
 					alert('Достигнут лимит в 10 опции');
 					msDrop.addClass('_block-items'); // Добавляем класс 'block-items' ко всем элементам
 					selectSection.addClass('_block-items');
