@@ -1446,6 +1446,22 @@
             }));
         }
         if (document.querySelector(".search-navigation-tabs")) search();
+        function selectSection() {
+            const nextButton = document.querySelector("#select-section");
+            const nextButtonBack = document.querySelector("#select-section-back");
+            const sectionsAddition = document.querySelector(".sections-addition-form");
+            const sectionMain = document.querySelector(".section-main-addition");
+            nextButton.addEventListener("click", (() => {
+                sectionsAddition.classList.add("_hide");
+                sectionMain.classList.add("_show");
+                console.log(nextButton);
+            }));
+            nextButtonBack.addEventListener("click", (() => {
+                sectionsAddition.classList.remove("_hide");
+                sectionMain.classList.remove("_show");
+            }));
+        }
+        if (document.querySelector(".sections-addition-form")) selectSection();
         /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/

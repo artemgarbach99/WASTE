@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240306192456">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240307172156">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -2154,26 +2154,79 @@
 									<label for="c_6" class="checkbox__label"><span class="checkbox__text _sections">Работа</span></label>
 								</div>
 							</div>
-							<button type="submit" class="sections-addition-form__button">Выбрать разделы</button>
+							<button id="select-section" type="button" class="sections-addition-form__button">Выбрать
+								разделы</button>
 						</div>
-						<!-- <div class="addition-form__section-main section-main-addition">
-                            <div class="sections-addition-form__top">
-                                <div class="sections-addition-form__title _icon-star">Отметьте основной раздел</div>
-                            </div>
-                            <div class="options01">
-                                <div class="options__item">
-                                    <input hidden id="o_1" class="options__input" checked type="radio" value="1"
-                                        name="option">
-                                    <label for="o_1" class="options__label"><span class="options__text">Вторсырье</span>
-                                        <span>Вторичные полимеры - переработка, сырье, переработка</span></label>
-                                </div>
-                                <div class="options__item">
-                                    <input hidden id="o_2" class="options__input" type="radio" value="2" name="option">
-                                    <label for="o_2" class="options__label"><span
-                                            class="options__text">Текст</span></label>
-                                </div>
-                            </div>
-                        </div> -->
+						<div class="addition-form__section-main section-main-addition">
+							<div class="section-main-addition__wrap">
+								<div class="sections-addition-form__top">
+									<div class="sections-addition-form__title _icon-star">Отметьте основной раздел</div>
+								</div>
+								<div class="section-main-addition__options">
+									<div class="section-main-addition__item">
+										<input hidden id="d_1" class="section-main-addition__input" type="radio" value="2" name="option">
+										<label for="d_1" class="section-main-addition__label">
+											<div class="section-main-addition__text">
+												<div class="section-main-addition__heading">
+													<span>Вторсырье</span>
+													<span>Полимеры</span>
+												</div>
+												<span class="section-main-addition__checklist">Вторичные полимеры -
+													переработка, сырье, переработка</span>
+											</div>
+										</label>
+									</div>
+									<div class="section-main-addition__item">
+										<input hidden id="d_2" class="section-main-addition__input" type="radio" value="2" name="option">
+										<label for="d_2" class="section-main-addition__label">
+											<div class="section-main-addition__text">
+												<div class="section-main-addition__heading">
+
+													<span>Вторсырье</span>
+													<span>Макулатура</span>
+												</div>
+												<span class="section-main-addition__checklist">Вторичные полимеры -
+													переработка, сырье, переработка</span>
+											</div>
+										</label>
+									</div>
+									<div class="section-main-addition__item">
+										<input hidden id="d_3" class="section-main-addition__input" type="radio" value="2" name="option">
+										<label for="d_3" class="section-main-addition__label">
+											<div class="section-main-addition__text">
+												<div class="section-main-addition__heading">
+													<span>Услуги</span>
+													<span>Лизинг, аренда</span>
+												</div>
+												<span class="section-main-addition__checklist">Вторичные полимеры -
+													переработка, сырье, переработка</span>
+											</div>
+										</label>
+									</div>
+									<div class="section-main-addition__item">
+										<input hidden id="d_4" class="section-main-addition__input" type="radio" value="2" name="option">
+										<label for="d_4" class="section-main-addition__label">
+											<div class="section-main-addition__text">
+												<div class="section-main-addition__heading">
+													<span>Средства измерений</span>
+												</div>
+												<span class="section-main-addition__checklist">Вторичные полимеры -
+													переработка, сырье, переработка</span>
+											</div>
+										</label>
+									</div>
+								</div>
+								<button id="select-section-back" type="button" class="section-main-addition__button">Назад к выбору
+									разделов</button>
+							</div>
+							<div class="section-main-addition__bottom">
+								<button type="button" class="section-main-addition__button _orange">Сохранить и
+									рекламировать</button>
+								<button type="button" class="section-main-addition__button _save">Сохранить</button>
+								<span class="section-main-addition__info">Объявление, в том числе рекламируемое, должно
+									отвечать <a href="#">правилам сайта</a> “Мир отходов”</span>
+							</div>
+						</div>
 					</form>
 				</div>
 			</div>
@@ -2235,8 +2288,8 @@
 		//     }
 		// });
 	</script>
-	<script src="js/app.min.js?_v=20240306192456"></script>
-	<script src="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.js?_v=20240306192456"></script>
+	<script src="js/app.min.js?_v=20240307172156"></script>
+	<script src="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.js?_v=20240307172156"></script>
 	<script>
 		$(document).ready(function() {
 			$(".sd-CustomSelect").multipleSelect({
