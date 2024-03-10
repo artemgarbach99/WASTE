@@ -1462,6 +1462,50 @@
             }));
         }
         if (document.querySelector(".sections-addition-form")) selectSection();
+        document.addEventListener("DOMContentLoaded", (function() {
+            const checkboxes = document.querySelectorAll(".checkbox__input");
+            const targetContainer = document.querySelector(".section-main-addition__options");
+            checkboxes.forEach((checkbox => {
+                checkbox.addEventListener("change", (function() {
+                    if (this.checked) {
+                        const checkboxName = this.nextElementSibling.textContent;
+                        const blockId = `block_${Math.random().toString(36).substr(2, 9)}`;
+                        const newBlock = document.createElement("div");
+                        newBlock.className = "section-main-addition__item";
+                        newBlock.setAttribute("id", blockId);
+                        const hiddenInput = document.createElement("input");
+                        hiddenInput.className = "section-main-addition__input";
+                        hiddenInput.type = "radio";
+                        hiddenInput.value = "2";
+                        hiddenInput.name = "option";
+                        hiddenInput.hidden = true;
+                        hiddenInput.id = `d_${Math.random().toString(36).substr(2, 9)}`;
+                        const label = document.createElement("label");
+                        label.htmlFor = hiddenInput.id;
+                        label.className = "section-main-addition__label";
+                        const textElement = document.createElement("div");
+                        textElement.className = "section-main-addition__text";
+                        const headingElement = document.createElement("div");
+                        headingElement.className = "section-main-addition__heading";
+                        headingElement.innerHTML = `<span>${checkboxName}</span>`;
+                        const checklist = document.createElement("span");
+                        checklist.className = "section-main-addition__checklist";
+                        checklist.textContent = "Вторичные полимеры - переработка, сырье, переработка";
+                        textElement.appendChild(headingElement);
+                        textElement.appendChild(checklist);
+                        label.appendChild(textElement);
+                        newBlock.appendChild(hiddenInput);
+                        newBlock.appendChild(label);
+                        targetContainer.appendChild(newBlock);
+                        this.dataset.blockId = blockId;
+                    } else {
+                        const blockId = this.dataset.blockId;
+                        const blockToRemove = document.getElementById(blockId);
+                        if (blockToRemove) blockToRemove.remove();
+                    }
+                }));
+            }));
+        }));
         /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
