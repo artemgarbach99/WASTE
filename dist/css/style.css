@@ -9189,7 +9189,7 @@ input[type=number] {
   text-decoration: none;
   border-radius: 5px;
   background-color: #ffffff;
-  max-width: 455px;
+  /* max-width: 455px; */
 }
 
 .ms-choice.disabled {
@@ -9963,6 +9963,16 @@ input[type=number] {
             flex: 0 1 9.375rem;
   }
 
+  .quantity-addition-form._add-card .quantity-addition-form__column {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 50%;
+            flex: 0 1 50%;
+  }
+
+  .quantity-addition-form._add-card .quantity-addition-form__input {
+    width: 100%;
+  }
+
   .quantity-addition-form {
     padding: 1.875rem 0rem;
     -webkit-box-pack: justify;
@@ -10129,6 +10139,18 @@ input[type=number] {
   }
 
   .language-more-advertising__dropdown-link {
+    font-size: 0.875rem;
+  }
+
+  .sections-addition-form {
+    max-width: 100%;
+  }
+
+  .section-main-addition__wrap {
+    max-width: 100%;
+  }
+
+  .section-main-addition__button {
     font-size: 0.875rem;
   }
 }
@@ -10785,6 +10807,35 @@ input[type=number] {
     display: none;
   }
 
+  .product-addition-form__textarea::-webkit-input-placeholder {
+    font-size: 0.875rem;
+  }
+
+  .product-addition-form__textarea::-moz-placeholder {
+    font-size: 0.875rem;
+  }
+
+  .product-addition-form__textarea:-ms-input-placeholder {
+    font-size: 0.875rem;
+  }
+
+  .product-addition-form__textarea::-ms-input-placeholder {
+    font-size: 0.875rem;
+  }
+
+  .product-addition-form__textarea::placeholder {
+    font-size: 0.875rem;
+  }
+
+  .quantity-addition-form._add-card {
+    gap: 0.625rem;
+  }
+
+  .quantity-addition-form._add-card .quantity-addition-form__column:not(:first-child) {
+    border-top: none;
+    padding-top: 0.9375rem;
+  }
+
   .quantity-addition-form {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -10800,6 +10851,26 @@ input[type=number] {
 
   .quantity-addition-form__input {
     width: 100%;
+  }
+
+  .quantity-addition-form__input input::-webkit-input-placeholder {
+    font-size: 0.875rem;
+  }
+
+  .quantity-addition-form__input input::-moz-placeholder {
+    font-size: 0.875rem;
+  }
+
+  .quantity-addition-form__input input:-ms-input-placeholder {
+    font-size: 0.875rem;
+  }
+
+  .quantity-addition-form__input input::-ms-input-placeholder {
+    font-size: 0.875rem;
+  }
+
+  .quantity-addition-form__input input::placeholder {
+    font-size: 0.875rem;
   }
 
   .shipping-addition-form__row {
@@ -11002,6 +11073,37 @@ input[type=number] {
     font-size: 0.75rem;
   }
 
+  .info-addition-form {
+    padding-bottom: 1.875rem;
+  }
+
+  .info-addition-form__line {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    gap: 0.3125rem;
+    padding: 1rem;
+  }
+
+  .info-addition-form__label {
+    -webkit-box-flex: 1;
+        -ms-flex: auto;
+            flex: auto;
+    font-size: 0.875rem;
+  }
+
+  .info-addition-form__content {
+    font-size: 0.875rem;
+  }
+
+  .section-main-addition__input:checked + .section-main-addition__label:after {
+    left: 0.25rem;
+  }
+
   .section-main-addition__label {
     gap: 10px;
   }
@@ -11016,6 +11118,27 @@ input[type=number] {
 
   .section-main-addition__heading span:not(:last-child) {
     padding-right: 1.1875rem;
+  }
+
+  .section-main-addition__button._orange {
+    width: 100%;
+  }
+
+  .section-main-addition__button._save {
+    width: 100%;
+  }
+
+  .section-main-addition__bottom {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 1.875rem;
+    padding-top: 1.875rem;
+  }
+
+  .section-main-addition__info {
+    text-align: center;
   }
 }
 

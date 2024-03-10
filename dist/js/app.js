@@ -1454,10 +1454,16 @@
             nextButton.addEventListener("click", (() => {
                 sectionsAddition.classList.add("_hide");
                 sectionMain.classList.add("_show");
+                sectionMain.scrollIntoView({
+                    behavior: "smooth"
+                });
                 console.log(nextButton);
             }));
             nextButtonBack.addEventListener("click", (() => {
                 sectionsAddition.classList.remove("_hide");
+                sectionsAddition.scrollIntoView({
+                    behavior: "smooth"
+                });
                 sectionMain.classList.remove("_show");
             }));
         }
