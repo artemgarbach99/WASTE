@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240311132159">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240311162335">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -2297,8 +2297,8 @@
 		//     }
 		// });
 	</script>
-	<script src="js/app.min.js?_v=20240311132159"></script>
-	<script src="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.js?_v=20240311132159"></script>
+	<script src="js/app.min.js?_v=20240311162335"></script>
+	<script src="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.js?_v=20240311162335"></script>
 	<script>
 		$(document).ready(function() {
 			$(".sd-CustomSelect").multipleSelect({
@@ -2533,6 +2533,8 @@
 						const blockId = `block_${Math.random().toString(36).substr(2, 9)}`; // Генерируем случайный ID
 						const newBlock = $('<div>').addClass('section-main-addition__item').attr('id', blockId);
 
+						const selectTitle = this.closest('.sd-multiSelect').querySelector('.select-sections__title').textContent;
+
 						// Создаем скрытый input
 						const hiddenInput = $('<input>').addClass('section-main-addition__input').attr({
 							type: 'radio',
@@ -2547,7 +2549,7 @@
 
 						// Создаем элементы section-main-addition__text и section-main-addition__heading
 						const textElement = $('<div>').addClass('section-main-addition__text');
-						const headingElement = $('<div>').addClass('section-main-addition__heading').html(`<span>${checkboxName}</span>`);
+						const headingElement = $('<div>').addClass('section-main-addition__heading').html(`<span>${selectTitle}</span><span>${checkboxName}</span>`);
 
 						// Создаем текст внутри label
 						const checklist = $('<span>').addClass('section-main-addition__checklist').text('Вторичные полимеры - переработка, сырье, переработка');
