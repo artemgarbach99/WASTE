@@ -1482,7 +1482,7 @@
                         const hiddenInput = document.createElement("input");
                         hiddenInput.className = "section-main-addition__input";
                         hiddenInput.type = "radio";
-                        hiddenInput.value = "2";
+                        hiddenInput.value = this.value;
                         hiddenInput.name = "option";
                         hiddenInput.hidden = true;
                         hiddenInput.id = `d_${Math.random().toString(36).substr(2, 9)}`;
@@ -1504,6 +1504,14 @@
                         newBlock.appendChild(label);
                         targetContainer.appendChild(newBlock);
                         this.dataset.blockId = blockId;
+                        const items = Array.from(targetContainer.querySelectorAll(".section-main-addition__item"));
+                        items.sort((function(a, b) {
+                            const aValue = a.querySelector(".section-main-addition__input").value;
+                            const bValue = b.querySelector(".section-main-addition__input").value;
+                            return aValue - bValue;
+                        })).forEach((function(item) {
+                            targetContainer.appendChild(item);
+                        }));
                     } else {
                         const blockId = this.dataset.blockId;
                         const blockToRemove = document.getElementById(blockId);

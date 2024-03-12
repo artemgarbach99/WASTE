@@ -8901,7 +8901,7 @@ input[type=number] {
 }
 
 .section-main-addition__wrap {
-  max-width: 28.4375rem;
+  max-width: 31.25rem;
   width: 100%;
 }
 
@@ -8994,6 +8994,8 @@ input[type=number] {
       -ms-flex-align: center;
           align-items: center;
   gap: 0.75rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .section-main-addition__heading span {
@@ -11161,6 +11163,10 @@ input[type=number] {
 
   .section-main-addition__heading span:not(:last-child) {
     padding-right: 1.1875rem;
+  }
+
+  .section-main-addition__heading {
+    gap: 0.1875rem 0.375rem;
   }
 
   .section-main-addition__button._orange {
