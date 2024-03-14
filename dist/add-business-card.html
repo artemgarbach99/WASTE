@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240313214046">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240314175343">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -2052,8 +2052,8 @@
 									</select>
 								</div>
 								<div class="sd-multiSelect form-group">
-									<label class="select-sections__title" for="current-job-role">Секонд-хенд</label>
-									<select multiple id="current-job-role" class="sd-CustomSelect-02" data-width="100%">
+									<label class="select-sections__title" for="current-job-role-02">Секонд-хенд</label>
+									<select multiple id="current-job-role-02" class="sd-CustomSelect-02" data-width="100%">
 										<option value="12" class="select-sections__item">Пищевые отходы</option>
 										<option value="13" class="select-sections__item">Разная биомасса</option>
 										<option value="14" class="select-sections__item">Твердые бытовые отходы</option>
@@ -2071,9 +2071,9 @@
 									</select>
 								</div>
 								<div class="sd-multiSelect form-group">
-									<label class="select-sections__title" for="current-job-role">Технологии,
+									<label class="select-sections__title" for="current-job-role-03">Технологии,
 										оборудование</label>
-									<select multiple id="current-job-role" class="sd-CustomSelect-03" data-width="100%">
+									<select multiple id="current-job-role-03" class="sd-CustomSelect-03" data-width="100%">
 										<option value="25" class="select-sections__item">Пищевые отходы</option>
 										<option value="26" class="select-sections__item">Разная биомасса</option>
 										<option value="27" class="select-sections__item">Твердые бытовые отходы</option>
@@ -2091,8 +2091,8 @@
 									</select>
 								</div>
 								<div class="sd-multiSelect form-group">
-									<label class="select-sections__title" for="current-job-role">Услуги</label>
-									<select multiple id="current-job-role" class="sd-CustomSelect-04" data-width="100%">
+									<label class="select-sections__title" for="current-job-role-04">Услуги</label>
+									<select multiple id="current-job-role-04" class="sd-CustomSelect-04" data-width="100%">
 										<option value="38" class="select-sections__item">Пищевые отходы</option>
 										<option value="39" class="select-sections__item">Разная биомасса</option>
 										<option value="40" class="select-sections__item">Твердые бытовые отходы</option>
@@ -2110,9 +2110,9 @@
 									</select>
 								</div>
 								<div class="sd-multiSelect form-group">
-									<label class="select-sections__title" for="current-job-role">Продукция из
+									<label class="select-sections__title" for="current-job-role-05">Продукция из
 										второсырья</label>
-									<select multiple id="current-job-role" class="sd-CustomSelect-05" data-width="100%">
+									<select multiple id="current-job-role-05" class="sd-CustomSelect-05" data-width="100%">
 										<option value="51" class="select-sections__item">Пищевые отходы</option>
 										<option value="52" class="select-sections__item">Разная биомасса</option>
 										<option value="53" class="select-sections__item">Твердые бытовые отходы</option>
@@ -2297,8 +2297,8 @@
 		//     }
 		// });
 	</script>
-	<script src="js/app.min.js?_v=20240313214046"></script>
-	<script src="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.js?_v=20240313214046"></script>
+	<script src="js/app.min.js?_v=20240314175343"></script>
+	<script src="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.js?_v=20240314175343"></script>
 	<script>
 		$(document).ready(function() {
 			$(".sd-CustomSelect").multipleSelect({
@@ -2343,42 +2343,6 @@
 			});
 		});
 
-
-		// рабочий лимит
-		// $(document).ready(function () {
-		//     let clickCounts = 0; // Инициализируем общий счетчик нажатий
-
-		//     $('.select-sections #current-job-role').each(function () {
-		//         const selectElement = $(this);
-		//         const msDrop = $('.ms-drop'); // Изменено на .select-sections
-		//         let prevSelectedCount = 0; // Инициализируем счетчик предыдущего количества выбранных опций
-
-		//         selectElement.change(function () {
-		//             const selectedOptions = Array.from(this.options).filter(option => option.selected);
-		//             const currentSelectedCount = selectedOptions.length;
-
-		//             if (currentSelectedCount > prevSelectedCount) {
-		//                 clickCounts++; // Увеличиваем общий счетчик
-		//                 console.log(clickCounts);
-		//             } else if (currentSelectedCount < prevSelectedCount) {
-		//                 clickCounts--; // Уменьшаем общий счетчик
-		//                 console.log(clickCounts);
-		//             }
-
-		//             prevSelectedCount = currentSelectedCount; // Обновляем счетчик предыдущего количества выбранных опций
-
-		//             if (clickCounts >= 10) {
-		//                 alert('Достигнут лимит в 10 опции');
-		//                 msDrop.addClass('_block-items'); // Добавляем класс 'block-items' ко всем элементам
-		//             } else {
-		//                 msDrop.removeClass('_block-items'); // Убираем класс 'block-items' у всех элементов
-		//             }
-		//         });
-		//     });
-
-		//     console.log(clickCounts); // Выводим общий счетчик нажатий
-		// });
-
 		// рабочий лимит (полный)
 		$(document).ready(function() {
 			let clickCounts = 0; // Инициализируем общий счетчик нажатий
@@ -2386,10 +2350,9 @@
 			const msDrop = $('.ms-drop');
 			const selectSection = $('.sections-addition-form__checkboxes')
 
-
-
-			$('.select-sections #current-job-role').each(function() {
+			$('.select-sections select').each(function() {
 				const selectElement = $(this);
+				console.log(selectElement);
 
 				let prevSelectedCount = 0; // Инициализируем счетчик предыдущего количества выбранных опций
 
@@ -2442,35 +2405,50 @@
 
 
 		// открытие только одного селекта (не работает закрытие)
+		/*$(document).ready(function () {
+		    var selects = $('.ms-parent'); // Получаем все селекты
+
+		    // Добавляем обработчик события 'click' для каждого селекта
+		    selects.on('click', function () {
+		        var currentSelect = $(this); // Текущий селект
+
+		        // Удаляем класс 'ms-parent-open' у всех других селектов
+		        selects.not(currentSelect).removeClass('ms-parent-open');
+
+		        // Добавляем класс 'ms-parent-open' к текущему селекту
+		        currentSelect.addClass('ms-parent-open');
+
+		        // Проходим по всем селектам
+		        selects.each(function () {
+		            var select = $(this);
+
+		            // Если у селекта нет класса 'ms-parent-open', скрываем связанный с ним 'ms-drop'
+		            if (!select.hasClass('ms-parent-open')) {
+		                select.find('.ms-drop').css('display', 'none');
+		                select.find('.icon-caret').removeClass('open')
+		            } else {
+		                // Если у селекта есть класс 'ms-parent-open', показываем связанный с ним 'ms-drop'
+		                select.find('.ms-drop').css('display', 'block');
+		                select.find('.icon-caret').addClass('open')
+		            }
+		        });
+		    });
+		});*/
+
+		// открытие только одного селекта (рабочий)
 		$(document).ready(function() {
 			var selects = $('.ms-parent'); // Получаем все селекты
 
-			// Добавляем обработчик события 'click' для каждого селекта
-			selects.on('click', function() {
-				var currentSelect = $(this); // Текущий селект
-
-				// Удаляем класс 'ms-parent-open' у всех других селектов
-				selects.not(currentSelect).removeClass('ms-parent-open');
-
-				// Добавляем класс 'ms-parent-open' к текущему селекту
-				currentSelect.addClass('ms-parent-open');
-
-				// Проходим по всем селектам
-				selects.each(function() {
-					var select = $(this);
-
-					// Если у селекта нет класса 'ms-parent-open', скрываем связанный с ним 'ms-drop'
-					if (!select.hasClass('ms-parent-open')) {
-						select.find('.ms-drop').css('display', 'none');
-						select.find('.icon-caret').removeClass('open')
-					} else {
-						// Если у селекта есть класс 'ms-parent-open', показываем связанный с ним 'ms-drop'
-						select.find('.ms-drop').css('display', 'block');
-						select.find('.icon-caret').addClass('open')
-					}
+			selects.each(function() {
+				var select = $(this);
+				select.on('click', function() {
+					selects.not(select).removeClass('ms-parent-open');
+					selects.not(select).find('.ms-drop').css('display', 'none');
+					selects.not(select).find('.icon-caret').removeClass('open')
 				});
 			});
 		});
+
 
 		//========================================================================================================================================================
 
@@ -2518,8 +2496,6 @@
 		    });
 		})*/
 
-
-
 		// текущее добавление через селект
 		$(document).ready(function() {
 			const optionboxes = $('.select-sections__item input');
@@ -2538,7 +2514,6 @@
 						// Создаем скрытый input
 						const hiddenInput = $('<input>').addClass('section-main-addition__input').attr({
 							type: 'radio',
-							// value: '2',
 							value: $(this).val(), // Значение выбранного варианта
 							name: 'option',
 							hidden: true,
