@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240314175343">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240316110118">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -1833,7 +1833,7 @@
 											контактного
 											лица</div>
 										<div class="quantity-addition-form__input _long">
-											<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Введите должность" class="input">
+											<input autocomplete="off" type="text" name="form[]" data-error="Введен неверный пароль" data-required placeholder="Введите должность" class="input">
 											<span class="quantity-addition-form__subtext h5">Например: менеджер,
 												технолог или др.</span>
 										</div>
@@ -2165,7 +2165,8 @@
 						<div class="addition-form__section-main section-main-addition">
 							<div class="section-main-addition__wrap">
 								<div class="sections-addition-form__top">
-									<div class="sections-addition-form__title _icon-star">Отметьте основной раздел</div>
+									<div class="sections-addition-form__title _main _icon-star">Отметьте основной раздел
+									</div>
 								</div>
 								<div class="section-main-addition__options">
 									<!-- <div class="section-main-addition__item">
@@ -2297,8 +2298,8 @@
 		//     }
 		// });
 	</script>
-	<script src="js/app.min.js?_v=20240314175343"></script>
-	<script src="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.js?_v=20240314175343"></script>
+	<script src="js/app.min.js?_v=20240316110118"></script>
+	<script src="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.js?_v=20240316110118"></script>
 	<script>
 		$(document).ready(function() {
 			$(".sd-CustomSelect").multipleSelect({
@@ -2406,11 +2407,11 @@
 
 		// открытие только одного селекта (не работает закрытие)
 		/*$(document).ready(function () {
-		    var selects = $('.ms-parent'); // Получаем все селекты
+		    const selects = $('.ms-parent'); // Получаем все селекты
 
 		    // Добавляем обработчик события 'click' для каждого селекта
 		    selects.on('click', function () {
-		        var currentSelect = $(this); // Текущий селект
+		        const currentSelect = $(this); // Текущий селект
 
 		        // Удаляем класс 'ms-parent-open' у всех других селектов
 		        selects.not(currentSelect).removeClass('ms-parent-open');
@@ -2420,7 +2421,7 @@
 
 		        // Проходим по всем селектам
 		        selects.each(function () {
-		            var select = $(this);
+		            const select = $(this);
 
 		            // Если у селекта нет класса 'ms-parent-open', скрываем связанный с ним 'ms-drop'
 		            if (!select.hasClass('ms-parent-open')) {
@@ -2437,10 +2438,10 @@
 
 		// открытие только одного селекта (рабочий)
 		$(document).ready(function() {
-			var selects = $('.ms-parent'); // Получаем все селекты
+			const selects = $('.ms-parent'); // Получаем все селекты
 
 			selects.each(function() {
-				var select = $(this);
+				const select = $(this);
 				select.on('click', function() {
 					selects.not(select).removeClass('ms-parent-open');
 					selects.not(select).find('.ms-drop').css('display', 'none');
@@ -2500,7 +2501,11 @@
 		$(document).ready(function() {
 			const optionboxes = $('.select-sections__item input');
 			const targetContainer = $('.section-main-addition__options');
-			console.log(optionboxes);
+			const button = $('.sections-addition-form__button')
+			const buttons = $('.section-main-addition__button._save').add('.section-main-addition__button._orange');
+			const inputPosition = $('.quantity-addition-form__input._long input');
+			const textarea = $('.product-addition-form__textarea._big');
+			let title = $('.sections-addition-form__title._main');
 
 			optionboxes.each(function() {
 				$(this).on('change', function() {
@@ -2545,12 +2550,67 @@
 						targetContainer.append($('.section-main-addition__item').sort(function(a, b) {
 							return $(a).find('.section-main-addition__input').val() - $(b).find('.section-main-addition__input').val();
 						}));
+
+
+						// Проверяем, есть ли только один элемент в targetContainer
+						if (targetContainer.children('.section-main-addition__item').length === 1) {
+							newBlock.addClass('_single');
+							title.text("Выбран раздел");
+							title.removeClass("_icon-star");
+							newBlock.find('input[type="radio"]').prop('checked', true);
+						} else {
+							// Удаляем класс _single у всех элементов, если их больше одного
+							targetContainer.children('.section-main-addition__item').removeClass('_single');
+							title.text("Отметьте основной раздел");
+							title.addClass("_icon-star");
+							targetContainer.children('.section-main-addition__item').find('input[type="radio"]').prop('checked', false);
+						}
+
+
 					} else {
 						// Удаляем блок, если флажок снят
 						const blockId = $(this).data('blockId');
 						$(`#${blockId}`).remove();
+
+						// Если после удаления блока остался только один, добавляем ему класс _single
+						if (targetContainer.children('.section-main-addition__item').length === 1) {
+							targetContainer.children('.section-main-addition__item').addClass('_single');
+							title.text("Выбран раздел");
+							title.removeClass("_icon-star");
+							targetContainer.children('.section-main-addition__item').find('input[type="radio"]').prop('checked', true);
+						} else {
+							title.text("Отметьте основной раздел");
+							title.addClass("_icon-star");
+							targetContainer.children('.section-main-addition__item').find('input[type="radio"]').prop('checked', false);
+						}
 					}
 				});
+			});
+
+			button.on('mousedown', function(event) {
+				if (!targetContainer || targetContainer.children().length === 0) {
+					alert('Нет отмеченных разделов');
+					event.preventDefault();
+				}
+				if (!inputPosition.val() || !textarea.val()) {
+					alert('Поле ввода "должность контактного лица" или "описание" поле пустое');
+					event.preventDefault();
+				}
+			});
+
+			buttons.on('mousedown', function(event) {
+				const items = $('.section-main-addition__item');
+				let hasChecked = false;
+				items.each(function() {
+					if ($(this).find('input[type="radio"]').is(':checked')) {
+						hasChecked = true;
+						return false; // выход из цикла
+					}
+				});
+				if (!hasChecked) {
+					alert('Нет отмеченного основного раздела');
+					event.preventDefault();
+				}
 			});
 		});
 	</script>

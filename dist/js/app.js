@@ -1409,11 +1409,17 @@
                     const reader = new FileReader;
                     reader.addEventListener("load", (function(e) {
                         const readerTarget = e.target;
+                        const buttonClose = document.createElement("button");
+                        buttonClose.setAttribute("class", "load-logo__close _icon-plus");
+                        buttonClose.addEventListener("click", (function() {
+                            picturePreview.classList.remove("_show");
+                        }));
                         const img = document.createElement("img");
                         img.src = readerTarget.result;
                         picturePreview.classList.add("_show");
                         picturePreview.innerHTML = "";
                         picturePreview.appendChild(img);
+                        picturePreview.appendChild(buttonClose);
                     }));
                     reader.readAsDataURL(file);
                 } else picturePreview.classList.remove("_show");
@@ -1471,6 +1477,7 @@
         document.addEventListener("DOMContentLoaded", (function() {
             const checkboxes = document.querySelectorAll(".checkbox__input");
             const targetContainer = document.querySelector(".section-main-addition__options");
+            let title = document.querySelector(".sections-addition-form__title._main");
             checkboxes.forEach((checkbox => {
                 checkbox.addEventListener("change", (function() {
                     if (this.checked) {
@@ -1512,10 +1519,34 @@
                         })).forEach((function(item) {
                             targetContainer.appendChild(item);
                         }));
+                        if (items.length === 1) {
+                            newBlock.classList.add("_single");
+                            title.textContent = "Выбран раздел";
+                            title.classList.remove("_icon-star");
+                            newBlock.querySelector('input[type="radio"]').checked = true;
+                        } else {
+                            items.forEach((function(item) {
+                                item.classList.remove("_single");
+                                item.querySelector('input[type="radio"]').checked = false;
+                            }));
+                            title.textContent = "Отметьте основной раздел";
+                            title.classList.add("_icon-star");
+                        }
                     } else {
                         const blockId = this.dataset.blockId;
                         const blockToRemove = document.getElementById(blockId);
                         if (blockToRemove) blockToRemove.remove();
+                        let items = targetContainer.querySelectorAll(".section-main-addition__item");
+                        if (items.length === 1) {
+                            items[0].classList.add("_single");
+                            title.textContent = "Выбран раздел";
+                            title.classList.remove("_icon-star");
+                            items[0].querySelector('input[type="radio"]').checked = true;
+                        } else {
+                            title.textContent = "Отметьте основной раздел";
+                            title.classList.add("_icon-star");
+                            items[0].querySelector('input[type="radio"]').checked = false;
+                        }
                     }
                 }));
             }));

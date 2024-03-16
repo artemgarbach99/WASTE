@@ -8677,6 +8677,24 @@ input[type=number] {
   display: none;
 }
 
+.load-logo__close {
+  position: absolute;
+  top: 0.1875rem;
+  right: 0.1875rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: #22b14c;
+  border-radius: 5px;
+  border: 1px solid #113921;
+}
+
+.load-logo__close::before {
+  color: #ffffff;
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
 .sections-addition-form {
   display: block;
   padding-top: 2.5rem;
@@ -8914,15 +8932,26 @@ input[type=number] {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 0.1875rem;
-  margin-top: 2.1875rem;
+  margin-top: 1.875rem;
 }
 
 .section-main-addition__item {
   position: relative;
-  cursor: pointer;
   padding: 0.9375rem 1.25rem;
   border-radius: 5px;
   background-color: #ffffff;
+}
+
+.section-main-addition__item._single {
+  pointer-events: none;
+}
+
+.section-main-addition__item._single .section-main-addition__label::before {
+  display: none;
+}
+
+.section-main-addition__item._single .section-main-addition__label::after {
+  display: none;
 }
 
 .section-main-addition__input {
