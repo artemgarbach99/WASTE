@@ -1410,9 +1410,11 @@
                     reader.addEventListener("load", (function(e) {
                         const readerTarget = e.target;
                         const buttonClose = document.createElement("button");
+                        buttonClose.setAttribute("type", "button");
                         buttonClose.setAttribute("class", "load-logo__close _icon-plus");
                         buttonClose.addEventListener("click", (function() {
                             picturePreview.classList.remove("_show");
+                            inputFile.value = null;
                         }));
                         const img = document.createElement("img");
                         img.src = readerTarget.result;
@@ -1422,7 +1424,10 @@
                         picturePreview.appendChild(buttonClose);
                     }));
                     reader.readAsDataURL(file);
-                } else picturePreview.classList.remove("_show");
+                } else {
+                    picturePreview.classList.remove("_show");
+                    inputFile.value = null;
+                }
             }));
         }
         if (document.querySelector(".load-logo")) loadLogo();
