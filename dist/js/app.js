@@ -1457,28 +1457,6 @@
             }));
         }
         if (document.querySelector(".search-navigation-tabs")) search();
-        function selectSection() {
-            const nextButton = document.querySelector("#select-section");
-            const nextButtonBack = document.querySelector("#select-section-back");
-            const sectionsAddition = document.querySelector(".sections-addition-form");
-            const sectionMain = document.querySelector(".section-main-addition");
-            nextButton.addEventListener("click", (() => {
-                sectionsAddition.classList.add("_hide");
-                sectionMain.classList.add("_show");
-                sectionMain.scrollIntoView({
-                    behavior: "smooth"
-                });
-                console.log(nextButton);
-            }));
-            nextButtonBack.addEventListener("click", (() => {
-                sectionsAddition.classList.remove("_hide");
-                sectionsAddition.scrollIntoView({
-                    behavior: "smooth"
-                });
-                sectionMain.classList.remove("_show");
-            }));
-        }
-        if (document.querySelector(".sections-addition-form")) selectSection();
         document.addEventListener("DOMContentLoaded", (function() {
             const checkboxes = document.querySelectorAll(".checkbox__input");
             const targetContainer = document.querySelector(".section-main-addition__options");
@@ -1550,7 +1528,6 @@
                         } else {
                             title.textContent = "Отметьте основной раздел";
                             title.classList.add("_icon-star");
-                            items[0].querySelector('input[type="radio"]').checked = false;
                         }
                     }
                 }));

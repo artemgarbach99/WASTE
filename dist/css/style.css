@@ -6916,6 +6916,7 @@ a.mm-navbar__title {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 0 3.125rem;
 }
 
 .header-addition-form__title {
@@ -7814,6 +7815,11 @@ a.mm-navbar__title {
   gap: 4.375rem;
 }
 
+.advertising-addition__description {
+  padding: 3.125rem;
+  border-bottom: 1px solid #e2e2e2;
+}
+
 .items-advertising {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8310,7 +8316,7 @@ input[type=number] {
           flex-direction: column;
   color: #363636;
   font-size: 0.875rem;
-  line-height: 1.1428571429;
+  line-height: 1.2142857143;
 }
 
 .content-more-advertising__text p {
@@ -8330,6 +8336,10 @@ input[type=number] {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 0.9375rem;
+}
+
+.content-more-advertising__text strong {
+  font-weight: 700;
 }
 
 .payment-advertising {
@@ -9191,6 +9201,27 @@ input[type=number] {
   background-color: #22b14c;
 }
 
+.description-addition__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.625rem;
+  margin-top: 0.9375rem;
+}
+
+.description-addition__label {
+  font-size: 0.75rem;
+  color: #8d8d8d;
+}
+
+.description-addition__subtext {
+  font-size: 0.75rem;
+}
+
 /**
  * @author zhixin wen <wenzhixin2010@gmail.com>
  */
@@ -9760,7 +9791,15 @@ input[type=number] {
     padding: 2.1875rem 0;
   }
 
+  .header-addition-form {
+    padding: 0;
+  }
+
   .advertising-addition__block {
+    padding: 1.875rem 0rem;
+  }
+
+  .advertising-addition__description {
     padding: 1.875rem 0rem;
   }
 
