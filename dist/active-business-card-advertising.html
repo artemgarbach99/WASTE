@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240322125005">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240323150021">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -3598,8 +3598,8 @@
 								</div>
 								<div class="business-card__control">
 									<button type="submit" class="business-card__btn buttons-top-content__button">Редактировать</button>
-									<button type="submit" class="business-card__btn buttons-top-content__button">Деактивировать</button>
-									<button type="submit" class="business-card__btn buttons-top-content__button">Удалить</button>
+									<button type="submit" data-popup="#popup-deactivate" class="business-card__btn buttons-top-content__button">Деактивировать</button>
+									<button type="submit" data-popup="#popup-delete" class="business-card__btn buttons-top-content__button">Удалить</button>
 								</div>
 							</div>
 						</div>
@@ -3643,6 +3643,40 @@
 			</div>
 		</footer>
 	</div>
+	<div id="popup-deactivate" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__title">Вы действительно хотите
+					деактивировать рекламируемую визитку
+					с потерей неиспользованного рекламного времени?</div>
+				<div class="popup__text">
+					При необходимости Вы можете отредактировать ее.  Если рекламное время не истечет к моменту активации
+					визитки, реклама будет продолжена. Время нахождения в деактивированном состоянии не компенсируется
+				</div>
+				<div class="popup__buttons">
+					<button data-close type="button" class="popup__button _close">Не деактивировать</button>
+					<button type="submit" class="popup__button _green">Деактивировать</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="popup-delete" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__title">Вы действительно хотите удалить
+					рекламируемую визитку
+					с потерей неиспользованного рекламного времени?</div>
+				<div class="popup__text">
+					При необходимости Вы можете отредактировать ее.  Если рекламное время не истечет к моменту активации
+					визитки, реклама будет продолжена. Время нахождения в деактивированном состоянии не компенсируется
+				</div>
+				<div class="popup__buttons">
+					<button data-close type="button" class="popup__button _close">Не удалять</button>
+					<button type="submit" class="popup__button _green">Удалить</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<script>
 		const lableOffice = document.querySelector('.office-header__lable');
 		const dropdownOffice = document.querySelector('.office-header__dropdown')
@@ -3664,19 +3698,7 @@
 		//     }
 		// });
 	</script>
-	<!-- 
-<div id="popup" aria-hidden="true" class="popup">
-	<div class="popup__wrapper">
-		<div class="popup__content">
-			<button data-close type="button" class="popup__close">Закрыть</button>
-			<div class="popup__text">
-			</div>
-		</div>
-	</div>
-</div>
- -->
-
-	<script src="js/app.min.js?_v=20240322125005"></script>
+	<script src="js/app.min.js?_v=20240323150021"></script>
 </body>
 
 </html>

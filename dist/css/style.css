@@ -1152,6 +1152,159 @@ textarea.input {
   display: none !important;
 }
 
+.popup::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transition: opacity 0.8s ease 0s;
+  transition: opacity 0.8s ease 0s;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.popup-show .popup::after {
+  opacity: 1;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 1.875rem 0.625rem;
+  -webkit-transition: visibility 0.8s ease 0s;
+  transition: visibility 0.8s ease 0s;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.popup__title {
+  font-size: 1.25rem;
+  line-height: normal;
+  font-weight: 500;
+  text-align: center;
+  max-width: 33.125rem;
+}
+
+.popup__text {
+  margin-top: 1.25rem;
+  font-size: 0.875rem;
+  color: #8d8d8d;
+  line-height: normal;
+  text-align: center;
+}
+
+.popup__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.3125rem;
+  margin-top: 2.5rem;
+}
+
+.popup__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 11.875rem;
+  padding: 1.25rem 0.3125rem;
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  border-radius: 0.3125rem;
+}
+
+.popup__button._close {
+  background-color: #d9d9d9;
+  color: #8d8d8d;
+}
+
+.popup__button._green {
+  background-color: #22b14c;
+  color: #ffffff;
+}
+
+.popup_show {
+  z-index: 150;
+  visibility: visible;
+  overflow: auto;
+  pointer-events: auto;
+}
+
+.popup_show .popup__content {
+  visibility: visible;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+
+.popup__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  align-items: center;
+}
+
+.popup__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  visibility: hidden;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: -webkit-transform 0.3s ease 0s;
+  transition: -webkit-transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+  background-color: #ffffff;
+  padding: 2.8125rem 4.6875rem;
+  width: 100%;
+  max-width: 48.75rem;
+  border-radius: 0.3125rem;
+  border: 1px solid #d9d9d9;
+  z-index: 10;
+}
+
+.lock .popup__content {
+  visibility: visible;
+}
+
 [class*=-ibg] {
   position: relative;
 }
@@ -7382,6 +7535,10 @@ a.mm-navbar__title {
   color: #8d8d8d;
 }
 
+.product-addition-form__textarea._lock {
+  pointer-events: none;
+}
+
 .description-product-addition {
   position: relative;
 }
@@ -9213,6 +9370,20 @@ input[type=number] {
   margin-top: 0.9375rem;
 }
 
+.description-addition__content._hide {
+  display: none;
+}
+
+.description-addition__button {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #22b14c;
+  padding: 0.8125rem 2rem;
+  border-radius: 0.3125rem;
+  margin-top: 0.9375rem;
+}
+
 .description-addition__label {
   font-size: 0.75rem;
   color: #8d8d8d;
@@ -9787,6 +9958,11 @@ input[type=number] {
 }
 
 @media (max-width: 78.4375em) {
+  .popup__content {
+    max-width: 42.5rem;
+    padding: 2.1875rem 2.8125rem;
+  }
+
   .navbar__body {
     padding: 2.1875rem 0;
   }
@@ -9830,6 +10006,11 @@ input[type=number] {
 
   body.office-header-item .menu-announcements__item._hide-item {
     display: none;
+  }
+
+  .popup__content {
+    max-width: 37.5rem;
+    padding: 1.875rem 1.5625rem;
   }
 
   .searchbar-wrapper {
@@ -10329,6 +10510,30 @@ input[type=number] {
 
   .select_select-country-form .select__content .select__row {
     gap: 1.25rem;
+  }
+
+  .popup__title {
+    font-size: 1rem;
+  }
+
+  .popup__text {
+    font-size: 0.75rem;
+    margin-top: 0.9375rem;
+  }
+
+  .popup__buttons {
+    width: 100%;
+    margin-top: 1.875rem;
+  }
+
+  .popup__button {
+    width: 50%;
+    font-size: 0.875rem;
+  }
+
+  .popup__content {
+    max-width: 28.125rem;
+    padding: 1.5625rem 0.625rem;
   }
 
   .h5 {
