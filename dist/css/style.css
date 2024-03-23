@@ -11138,6 +11138,10 @@ input[type=number] {
     font-size: 0.875rem;
   }
 
+  .product-addition-form__textarea {
+    padding: 0.625rem;
+  }
+
   .quantity-addition-form._add-card {
     gap: 0.625rem;
   }
