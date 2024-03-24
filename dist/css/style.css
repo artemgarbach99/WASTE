@@ -351,6 +351,32 @@ textarea.input {
   color: #22b14c;
 }
 
+.checkbox__input-info {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.checkbox__input-info:checked + .checkbox__label:before {
+  content: "\e900";
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #ffffff;
+  font-weight: 700;
+  background-color: #22b14c;
+}
+
+.checkbox__input-info:checked + .checkbox__label .checkbox__text {
+  color: #22b14c;
+}
+
 .checkbox__label {
   cursor: pointer;
   display: -webkit-box;
