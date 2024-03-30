@@ -1804,7 +1804,25 @@
                 changeButton.style.display = "none";
             }));
         }
-        if (document.querySelector(".description-addition")) changeTextarea();
+        if (document.querySelector(".description-addition__button")) changeTextarea();
+        function pay() {
+            const payButton = document.querySelector(".payment-advertising__button._pay");
+            const inputPay = document.querySelectorAll(".items-advertising__input");
+            const textareaPay = document.querySelector(".product-addition-form__textarea");
+            const descriptionAddition = document.querySelector(".description-addition");
+            payButton.addEventListener("click", (function(event) {
+                let isNotEmpty = Array.from(inputPay).some((input => input.value.trim() !== ""));
+                if (!isNotEmpty) {
+                    alert("Должна быть введена продолжительность рекламы хотя бы в одной позиции");
+                    event.preventDefault();
+                }
+                if (!descriptionAddition.classList.contains("_hide")) if (!textareaPay.value.trim()) {
+                    alert("Заполните поле “Краткое описание деятельности”");
+                    event.preventDefault();
+                }
+            }));
+        }
+        if (document.querySelector(".payment-advertising")) pay();
         /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/

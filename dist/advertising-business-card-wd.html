@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240324103430">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240330193039">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -2161,6 +2161,19 @@
 				totalАmount.textContent = sum + " грн";
 			})
 		});
+
+		const inputPremium = document.querySelector(".items-advertising__input._premium");
+		const descriptionAddition = document.querySelector('.description-addition');
+
+		inputPremium.addEventListener('input', function() {
+			if (this.value.trim() !== '') {
+				// Если в инпуте есть значение, убираем класс _hide
+				descriptionAddition.classList.remove('_hide');
+			} else {
+				// Если инпут пустой, добавляем класс _hide
+				descriptionAddition.classList.add('_hide');
+			}
+		});
 	</script>
 	<script>
 		const lableOffice = document.querySelector('.office-header__lable');
@@ -2183,7 +2196,7 @@
 		//     }
 		// });
 	</script>
-	<script src="js/app.min.js?_v=20240324103430"></script>
+	<script src="js/app.min.js?_v=20240330193039"></script>
 </body>
 
 </html>

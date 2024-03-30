@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240324103430">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240330193039">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -1808,10 +1808,6 @@
 														материалы</span>
 												</div>
 											</div>
-											<div class="items-advertising__row _mob">
-												<!-- <button type="submit"
-                                                    class="items-advertising__btn _mob _icon-settings">Изменить</button> -->
-											</div>
 											<div class="items-advertising__row">
 												<div class="items-advertising__quantity">
 													<span>Количество месяцев</span>
@@ -1917,14 +1913,10 @@
 												<span>Главная страница</span>
 											</div>
 										</div>
-										<div class="items-advertising__row _mob">
-											<!-- <button type="submit"
-                                                class="items-advertising__btn _mob _icon-settings">Изменить</button> -->
-										</div>
 										<div class="items-advertising__row">
 											<div class="items-advertising__quantity">
 												<span>Количество недель</span>
-												<input class="items-advertising__input" autocomplete="off" type="number" name="form[]" data-error="Ошибка" placeholder="" id="5">
+												<input class="items-advertising__input _premium" autocomplete="off" type="number" name="form[]" data-error="Ошибка" placeholder="" id="5">
 											</div>
 											<div id="5" class="items-advertising__price">0 грн</div>
 											<!-- <button type="submit"
@@ -1958,7 +1950,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="advertising-addition__description description-addition">
+						<div class="advertising-addition__description description-addition _hide">
 							<div class="product-addition-form__top">
 								<div class="product-addition-form__lable _icon-star">Краткое описание деятельности</div>
 							</div>
@@ -1976,9 +1968,9 @@
 								<span class="payment-advertising__title-price"></span>
 							</div>
 							<div class="payment-advertising__buttons">
-								<button type="submit" class="payment-advertising__button _grey">Не
+								<button type="button" class="payment-advertising__button _grey">Не
 									рекламировать</button>
-								<button type="submit" class="payment-advertising__button _pay">Оплатить</button>
+								<button type="button" class="payment-advertising__button _pay">Оплатить</button>
 							</div>
 						</div>
 					</form>
@@ -2160,6 +2152,19 @@
 				totalАmount.textContent = sum + " грн";
 			})
 		});
+
+		const inputPremium = document.querySelector(".items-advertising__input._premium");
+		const descriptionAddition = document.querySelector('.description-addition');
+
+		inputPremium.addEventListener('input', function() {
+			if (this.value.trim() !== '') {
+				// Если в инпуте есть значение, убираем класс _hide
+				descriptionAddition.classList.remove('_hide');
+			} else {
+				// Если инпут пустой, добавляем класс _hide
+				descriptionAddition.classList.add('_hide');
+			}
+		});
 	</script>
 	<script>
 		const lableOffice = document.querySelector('.office-header__lable');
@@ -2182,7 +2187,7 @@
 		//     }
 		// });
 	</script>
-	<script src="js/app.min.js?_v=20240324103430"></script>
+	<script src="js/app.min.js?_v=20240330193039"></script>
 </body>
 
 </html>

@@ -8319,7 +8319,6 @@ input[type=number] {
 
 .content-more-advertising__image-ibg {
   display: block;
-  min-height: 12.5rem;
 }
 
 .content-more-advertising__image-ibg img {
@@ -8502,7 +8501,7 @@ input[type=number] {
   line-height: 1.2142857143;
 }
 
-.content-more-advertising__text p {
+.content-more-advertising__text p:not(:last-child) {
   margin-bottom: 1.25rem;
 }
 
@@ -9382,6 +9381,10 @@ input[type=number] {
   color: #ffffff;
   font-weight: 700;
   background-color: #22b14c;
+}
+
+.description-addition._hide {
+  display: none;
 }
 
 .description-addition__content {
@@ -11372,7 +11375,7 @@ input[type=number] {
     gap: 0.3125rem;
   }
 
-  .content-more-advertising__text p {
+  .content-more-advertising__text p:not(:last-child) {
     margin-bottom: 0.625rem;
   }
 
@@ -11794,6 +11797,7 @@ input[type=number] {
 
   .more-advertising__dropdown {
     width: 110%;
+    padding: 0.625rem;
   }
 
   .header-more-advertising {
