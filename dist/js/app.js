@@ -1811,9 +1811,9 @@
             const textareaPay = document.querySelector(".product-addition-form__textarea");
             const descriptionAddition = document.querySelector(".description-addition");
             payButton.addEventListener("click", (function(event) {
-                let isNotEmpty = Array.from(inputPay).some((input => input.value.trim() !== ""));
+                let isNotEmpty = Array.from(inputPay).some((input => input.value.trim() !== "" && input.value.trim() !== "0"));
                 if (!isNotEmpty) {
-                    alert("Должна быть введена продолжительность рекламы хотя бы в одной позиции");
+                    alert("Должна быть введена продолжительность рекламы хотя бы в одной позиции и она не должна быть равна 0");
                     event.preventDefault();
                 }
                 if (!descriptionAddition.classList.contains("_hide")) if (!textareaPay.value.trim()) {
@@ -1821,8 +1821,12 @@
                     event.preventDefault();
                 }
             }));
+            const inputPremium = document.querySelector(".items-advertising__input._premium");
+            inputPremium.addEventListener("input", (function() {
+                if (this.value.trim() !== "" && this.value.trim() !== "0") descriptionAddition.classList.remove("_hide"); else descriptionAddition.classList.add("_hide");
+            }));
         }
-        if (document.querySelector(".payment-advertising")) pay();
+        if (document.querySelector(".payment-advertising._business-card")) pay();
         /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
