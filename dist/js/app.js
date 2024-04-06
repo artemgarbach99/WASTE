@@ -1813,7 +1813,7 @@
             payButton.addEventListener("click", (function(event) {
                 let isNotEmpty = Array.from(inputPay).some((input => input.value.trim() !== "" && input.value.trim() !== "0"));
                 if (!isNotEmpty) {
-                    alert("Должна быть введена продолжительность рекламы хотя бы в одной позиции и она не должна быть равна 0");
+                    alert("Должна быть введена продолжительность рекламы хотя бы в одной позиции");
                     event.preventDefault();
                 }
                 if (!descriptionAddition.classList.contains("_hide")) if (!textareaPay.value.trim()) {
