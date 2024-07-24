@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240723192926">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240724143120">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -1817,8 +1817,10 @@
 						</div>
 						<div class="articles__main main-articles">
 							<div class="main-articles__content">
-								<div class="main-articles__heading">Статті з управління та захисту навколишнього
-									середовища
+								<div class="main-articles__top">
+									<div class="main-articles__heading">Статті з управління та захисту навколишнього
+										середовища
+									</div>
 								</div>
 								<div class="main-articles__sections sections-articles">
 									<div class="sections-articles__top">
@@ -1900,10 +1902,10 @@
 									<div class="banners-articles__img">
 										<img data-src="img/articles/02.jpg" alt="">
 									</div>
-									<div class="banners-articles__btn-up _icon-arrow"></div>
+									<button type="button" class="banners-articles__btn-up _icon-arrow"></button>
 								</div>
 							</div>
-							<div class="main-articles__ad">
+							<div data-da=".main-articles__top, 991" class="main-articles__ad">
 								<img data-src="img/articles/01.jpg" alt="">
 							</div>
 						</div>
@@ -1947,79 +1949,57 @@
 			</div>
 		</footer>
 	</div>
-	<!-- <script>
-    let checkAll = document.getElementById('check-all-active')
-    let otherCheckboxes = document.querySelectorAll('.check-input-active')
+	<script>
+		// смена языка в navbar
+		const dropdown = document.querySelector('.navbar__lable').onclick = function() {
+			document.querySelector('.navbar__dropdown').classList.toggle('dropdown-open');
+			if (document.querySelector('.navbar__dropdown').classList.contains('dropdown-open')) {
+				document.querySelector('.navbar__lable').classList.add('lable-active')
+			} else {
+				document.querySelector('.navbar__lable').classList.remove('lable-active')
+			}
+		}
+	</script>
+	<script>
+		// button to up
+		let intervalId = 0;
+		const $scrollButton = document.querySelector('.banners-articles__btn-up');
+
+		function scrollStep() {
+			if (window.pageYOffset === 0) {
+				clearInterval(intervalId);
+			}
+			window.scroll(0, window.pageYOffset - 50);
+		}
+
+		function scrollToTop() {
+			intervalId = setInterval(scrollStep, 16.66);
+		}
+
+		$scrollButton.addEventListener('click', scrollToTop);
+	</script>
+	<script>
+		const lableOffice = document.querySelector('.office-header__lable');
+		const dropdownOffice = document.querySelector('.office-header__dropdown')
+
+		lableOffice.addEventListener("click", function(e) {
+			dropdownOffice.classList.toggle('office-dropdown-open');
+
+			if (dropdownOffice.classList.contains('office-dropdown-open')) {
+				lableOffice.classList.add('_active')
+			} else {
+				lableOffice.classList.remove('_active')
+			}
+		});
 
 
-    checkAll.addEventListener('change', onCheckAllChange)
-    otherCheckboxes.forEach(input => input.addEventListener('change', onOtherCheckboxChange))
-
-    function onCheckAllChange() {
-        otherCheckboxes.forEach((input) => input.checked = checkAll.checked)
-    }
-
-    function onOtherCheckboxChange() {
-        let allChecked = Array.from(otherCheckboxes).every(input => input.checked);
-        checkAll.checked = allChecked;
-    }
-
-
-    let checkAllСhecking = document.getElementById('check-all-checking')
-    let otherCheckboxesСhecking = document.querySelectorAll('.check-input-сhecking')
-
-
-    checkAllСhecking.addEventListener('change', onCheckAllChangeСhecking)
-    otherCheckboxesСhecking.forEach(input => input.addEventListener('change', onOtherCheckboxChangeСhecking))
-
-    function onCheckAllChangeСhecking() {
-        otherCheckboxesСhecking.forEach((input) => input.checked = checkAllСhecking.checked)
-    }
-
-    function onOtherCheckboxChangeСhecking() {
-        let allCheckedСhecking = Array.from(otherCheckboxesСhecking).every(input => input.checked);
-        checkAllСhecking.checked = allCheckedСhecking;
-    }
-
-    let checkAllArchive = document.getElementById('check-all-archive')
-    let otherCheckboxesArchive = document.querySelectorAll('.check-input-archive')
-
-
-    checkAllArchive.addEventListener('change', onCheckAllChangeArchive)
-    otherCheckboxesArchive.forEach(input => input.addEventListener('change', onOtherCheckboxChangeArchive))
-
-    function onCheckAllChangeArchive() {
-        otherCheckboxesArchive.forEach((input) => input.checked = checkAllArchive.checked)
-    }
-
-    function onOtherCheckboxChangeArchive() {
-        let allCheckedArchive = Array.from(otherCheckboxesArchive).every(input => input.checked);
-        checkAllArchive.checked = allCheckedArchive;
-    }
-</script>
-    <script>
-    const lableOffice = document.querySelector('.office-header__lable');
-    const dropdownOffice = document.querySelector('.office-header__dropdown')
-
-    lableOffice.addEventListener("click", function (e) {
-        dropdownOffice.classList.toggle('office-dropdown-open');
-
-        if (dropdownOffice.classList.contains('office-dropdown-open')) {
-            lableOffice.classList.add('_active')
-        } else {
-            lableOffice.classList.remove('_active')
-        }
-    });
-
-
-    // document.addEventListener('mousedown', function (e) {
-    //     if (e.target.closest('.office-header__dropdown') === null) {
-    //         dropdownOffice.classList.remove('office-dropdown-open');
-    //     }
-    // });
-
-</script> -->
-	<script src="js/app.min.js?_v=20240723192926"></script>
+		// document.addEventListener('mousedown', function (e) {
+		//     if (e.target.closest('.office-header__dropdown') === null) {
+		//         dropdownOffice.classList.remove('office-dropdown-open');
+		//     }
+		// });
+	</script>
+	<script src="js/app.min.js?_v=20240724143120"></script>
 	<script>
 		if (document.documentElement.clientWidth < 992) {
 			var SETTINGS = {
