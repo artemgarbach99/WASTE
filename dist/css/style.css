@@ -4220,6 +4220,10 @@ a.mm-navbar__title {
   padding-right: 0.0625rem;
 }
 
+.navbar__item._hide {
+  display: none;
+}
+
 .navbar__link {
   font-family: "Open Sans";
   font-weight: 400;

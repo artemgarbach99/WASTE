@@ -6,14 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240724143120">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240728103649">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 	<meta name="viewport" content="width=device-width minimum-scale=1.0 maximum-scale=1.0 user-scalable=no" />
 </head>
 
-<body class="office-header-item">
+<body class="login-header-item">
 	<div class="wrapper">
 		<header class="header">
 			<div class="header__container">
@@ -1788,11 +1788,11 @@
 									</li>
 									<li class="navbar__item"><a class="navbar__link" href="#" data-menu-opener="href">Объявления,
 											Визитки</a></li>
-									<li class="navbar__item"><a class="navbar__link" href="#" data-menu-opener="href">Мероприятия</a>
+									<li class="navbar__item"><a class="navbar__link" href="#">Мероприятия</a>
 									</li>
-									<li class="navbar__item"><a class="navbar__link" href="#" data-menu-opener="href">Издания</a></li>
-									<li class="navbar__item"><a class="navbar__link" href="#" data-menu-opener="href">Статьи</a></li>
-									<li class="navbar__item"><a class="navbar__link" href="#" data-menu-opener="href">Законодательство</a>
+									<li class="navbar__item"><a class="navbar__link" href="#">Издания</a></li>
+									<li class="navbar__item _hide"><a class="navbar__link" href="#">Статьи</a></li>
+									<li class="navbar__item"><a class="navbar__link" href="#">Законодательство</a>
 									</li>
 								</ul>
 							</nav>
@@ -1807,13 +1807,13 @@
 					<div class="articles__body">
 						<div class="articles__breadcreams breadcreams">
 							<a href="" class="breadcreams__home">
-								<svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<svg width="20" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M12.0003 4.30566L3.4408 11.3621C3.4408 11.372 3.4383 11.3867 3.43329 11.4066C3.42839 11.4265 3.42578 11.4408 3.42578 11.4511V18.5964C3.42578 18.8544 3.5201 19.078 3.70869 19.2663C3.89723 19.4546 4.1205 19.5494 4.37854 19.5494H10.0947V13.833H13.906V19.5496H19.6221C19.88 19.5496 20.1036 19.4551 20.2919 19.2663C20.4805 19.0782 20.5751 18.8545 20.5751 18.5964V11.4511C20.5751 11.4114 20.5697 11.3815 20.5601 11.3621L12.0003 4.30566Z" fill="#0C6EFC" />
 									<path d="M23.8345 9.75431L20.5746 7.045V0.971337C20.5746 0.832488 20.5299 0.718301 20.4404 0.628932C20.3515 0.539668 20.2373 0.495036 20.0982 0.495036H17.24C17.101 0.495036 16.9869 0.539668 16.8975 0.628932C16.8083 0.718301 16.7637 0.83254 16.7637 0.971337V3.87414L13.1315 0.837232C12.8143 0.57919 12.4371 0.450195 12.0004 0.450195C11.5637 0.450195 11.1866 0.57919 10.869 0.837232L0.165418 9.75431C0.066195 9.83356 0.0118128 9.94024 0.00169755 10.0742C-0.00836551 10.2081 0.0263078 10.3251 0.105822 10.4243L1.02876 11.5259C1.10827 11.6151 1.21234 11.6697 1.34139 11.6897C1.46053 11.6997 1.57967 11.6649 1.69881 11.5855L12.0001 2.99584L22.3014 11.5855C22.381 11.6547 22.485 11.6893 22.614 11.6893H22.6588C22.7876 11.6697 22.8915 11.6147 22.9714 11.5257L23.8944 10.4242C23.9738 10.3248 24.0086 10.2081 23.9983 10.074C23.9881 9.9404 23.9335 9.83372 23.8345 9.75431Z" fill="#0C6EFC" />
 								</svg>
 							</a>
 							<span class="breadcreams__arrow _icon-arrow"></span>
-							<a href="#" class="breadcreams__item">Статті</a>
+							<!-- <a href="#" class="breadcreams__item">Статті</a> -->
 						</div>
 						<div class="articles__main main-articles">
 							<div class="main-articles__content">
@@ -1978,28 +1978,7 @@
 
 		$scrollButton.addEventListener('click', scrollToTop);
 	</script>
-	<script>
-		const lableOffice = document.querySelector('.office-header__lable');
-		const dropdownOffice = document.querySelector('.office-header__dropdown')
-
-		lableOffice.addEventListener("click", function(e) {
-			dropdownOffice.classList.toggle('office-dropdown-open');
-
-			if (dropdownOffice.classList.contains('office-dropdown-open')) {
-				lableOffice.classList.add('_active')
-			} else {
-				lableOffice.classList.remove('_active')
-			}
-		});
-
-
-		// document.addEventListener('mousedown', function (e) {
-		//     if (e.target.closest('.office-header__dropdown') === null) {
-		//         dropdownOffice.classList.remove('office-dropdown-open');
-		//     }
-		// });
-	</script>
-	<script src="js/app.min.js?_v=20240724143120"></script>
+	<script src="js/app.min.js?_v=20240728103649"></script>
 	<script>
 		if (document.documentElement.clientWidth < 992) {
 			var SETTINGS = {
