@@ -1827,6 +1827,17 @@
             }));
         }
         if (document.querySelector(".payment-advertising._business-card")) pay();
+        function favorite() {
+            const favoriteButtons = document.querySelectorAll(".chapter-articles__favorite");
+            favoriteButtons.forEach((button => {
+                let isAdded = false;
+                button.addEventListener("click", (function() {
+                    if (isAdded) button.classList.remove("_add"); else button.classList.add("_add");
+                    isAdded = !isAdded;
+                }));
+            }));
+        }
+        if (document.querySelector(".chapter-articles")) favorite();
         /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
