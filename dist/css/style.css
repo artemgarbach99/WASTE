@@ -9583,6 +9583,7 @@ input[type=number] {
   line-height: 1.1;
   font-family: "Open Sans";
   color: #2b74b9;
+  word-break: keep-all;
 }
 
 .breadcreams__item._disable {
@@ -9597,6 +9598,10 @@ input[type=number] {
       -ms-flex-pack: justify;
           justify-content: space-between;
   gap: 3.125rem;
+}
+
+.main-articles__content._id {
+  width: 100%;
 }
 
 .main-articles__top {
@@ -9622,6 +9627,20 @@ input[type=number] {
 }
 
 .main-articles__ad img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.main-articles__ad-id {
+  width: 100%;
+  max-width: 45.625rem;
+  height: 5.625rem;
+  margin: 3.125rem auto 0px;
+}
+
+.main-articles__ad-id img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -9988,6 +10007,85 @@ input[type=number] {
   transition: all 0.3s ease 0s;
   background-color: #22b14c;
   color: #ffffff;
+}
+
+.maintenance-articles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 2.5rem;
+}
+
+.maintenance-articles__title {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.0833333333;
+  padding-bottom: 1rem;
+}
+
+.maintenance-articles__title:not(:first-child) {
+  padding-top: 3.125rem;
+}
+
+.maintenance-articles__text {
+  font-size: 1.375rem;
+  line-height: 1.4545454545;
+  padding-top: 1.5rem;
+}
+
+.maintenance-articles__text a {
+  color: #2b74b9;
+}
+
+.maintenance-articles__image-ibg {
+  width: 100%;
+  padding-bottom: 41.1522633745%;
+}
+
+.social-articles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 12.5rem;
+  margin-top: 3.125rem;
+}
+
+.social-articles__column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.9375rem;
+}
+
+.social-articles__column .footer__content--social {
+  margin-bottom: 0;
+}
+
+.social-articles__title {
+  font-size: 1.375rem;
+  line-height: normal;
+}
+
+.social-articles__favorite svg path {
+  fill: #8d8d8d;
+}
+
+.social-articles__favorite._add svg path {
+  fill: #22b14c;
 }
 
 /**
@@ -10608,6 +10706,21 @@ input[type=number] {
 
   .banners-articles {
     padding-top: 3.125rem;
+  }
+
+  .maintenance-articles__title:not(:first-child) {
+    padding-top: 2.5rem;
+  }
+
+  .maintenance-articles__text {
+    padding-top: 0.9375rem;
+    font-size: 1.125rem;
+  }
+
+  .social-articles {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    gap: 1.5625rem;
   }
 }
 
@@ -12148,6 +12261,10 @@ input[type=number] {
     font-size: 1.25rem;
   }
 
+  .main-articles__ad-id {
+    margin: 1.875rem auto 0px;
+  }
+
   .sections-articles {
     margin-top: 1.5625rem;
   }
@@ -12259,6 +12376,43 @@ input[type=number] {
 
   .pagination-articles__link._hide {
     display: none;
+  }
+
+  .maintenance-articles {
+    padding-top: 1.875rem;
+  }
+
+  .maintenance-articles__title:not(:first-child) {
+    padding-top: 1.875rem;
+  }
+
+  .maintenance-articles__title {
+    font-size: 1.25rem;
+    padding-bottom: 0.3125rem;
+  }
+
+  .maintenance-articles__text {
+    padding-top: 0.625rem;
+  }
+
+  .social-articles {
+    margin-top: 1.875rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 0.9375rem;
+  }
+
+  .social-articles__column {
+    gap: 0.625rem;
+  }
+
+  .social-articles__title {
+    font-size: 1.125rem;
   }
 }
 
@@ -12609,6 +12763,11 @@ input[type=number] {
 
   .content-more-advertising__sublink {
     font-size: 0.625rem;
+  }
+
+  .breadcreams {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
 
   .sections-articles__input::-webkit-input-placeholder {

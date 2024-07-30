@@ -1828,7 +1828,7 @@
         }
         if (document.querySelector(".payment-advertising._business-card")) pay();
         function favorite() {
-            const favoriteButtons = document.querySelectorAll(".chapter-articles__favorite");
+            const favoriteButtons = document.querySelectorAll(".favorite-btn");
             favoriteButtons.forEach((button => {
                 let isAdded = false;
                 button.addEventListener("click", (function() {
@@ -1837,7 +1837,7 @@
                 }));
             }));
         }
-        if (document.querySelector(".chapter-articles")) favorite();
+        if (document.querySelector(".articles")) favorite();
         /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
