@@ -9682,6 +9682,10 @@ input[type=number] {
   border-radius: 4px;
 }
 
+.sections-articles__button._step-02 {
+  width: 15rem;
+}
+
 .sections-articles__link {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9843,7 +9847,7 @@ input[type=number] {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  gap: 0.9375rem;
+  gap: 1.875rem;
 }
 
 .chapter-articles__inner {
@@ -11082,6 +11086,10 @@ input[type=number] {
         -ms-grid-row-align: center;
         align-self: center;
   }
+
+  .chapter-articles__headings {
+    margin-top: 1.875rem;
+  }
 }
 
 @media (max-width: 47.99875em) {
@@ -11155,8 +11163,9 @@ input[type=number] {
   }
 
   .select_select-chapter .select__title {
-    padding: 1.125rem 1.25rem;
-    font-size: 0.875rem;
+    padding: 1rem;
+    text-align: center;
+    width: 15rem;
   }
 
   .select_select-chapter .select__options::-webkit-scrollbar {
@@ -11164,8 +11173,7 @@ input[type=number] {
   }
 
   .select_select-chapter .select__option {
-    padding: 1.125rem 1.25rem;
-    font-size: 0.875rem;
+    padding: 1rem;
   }
 
   .popup__title {
@@ -12153,11 +12161,43 @@ input[type=number] {
   }
 
   .sections-articles__seach {
-    padding-top: 0.9375rem;
+    padding-top: 1.875rem;
+  }
+
+  .sections-articles__seach._step-02 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 
   .sections-articles__input {
     padding: 1rem 0.5rem;
+  }
+
+  .sections-articles__input._step-02 {
+    max-width: 15rem;
+    padding: 1rem;
+  }
+
+  .sections-articles__input._step-02::-webkit-input-placeholder {
+    font-size: 1rem;
+  }
+
+  .sections-articles__input._step-02::-moz-placeholder {
+    font-size: 1rem;
+  }
+
+  .sections-articles__input._step-02:-ms-input-placeholder {
+    font-size: 1rem;
+  }
+
+  .sections-articles__input._step-02::-ms-input-placeholder {
+    font-size: 1rem;
+  }
+
+  .sections-articles__input._step-02::placeholder {
+    font-size: 1rem;
   }
 
   .sections-articles__button {
@@ -12189,6 +12229,36 @@ input[type=number] {
             flex-direction: column;
     gap: 1.875rem;
     padding-bottom: 5rem;
+  }
+
+  .chapter-articles__headings {
+    gap: 0.9375rem;
+  }
+
+  .chapter-articles__new {
+    gap: 0.9375rem;
+    padding: 1.5625rem 0.625rem 0.625rem;
+  }
+
+  .chapter-articles__title {
+    font-size: 1.125rem;
+  }
+
+  .chapter-articles__author {
+    font-size: 1.125rem;
+  }
+
+  .pagination-articles {
+    margin-top: 1.875rem;
+  }
+
+  .pagination-articles__button {
+    font-size: 0;
+    width: 3rem;
+  }
+
+  .pagination-articles__link._hide {
+    display: none;
   }
 }
 
