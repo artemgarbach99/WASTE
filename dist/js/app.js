@@ -1838,6 +1838,25 @@
             }));
         }
         if (document.querySelector(".articles")) favorite();
+        window.addEventListener("scroll", (() => {
+            if (document.querySelector(".main-articles__ad")) {
+                const adsDesk = document.querySelector(".main-articles__sticky");
+                const mainBlockDesk = document.querySelector(".header");
+                const catalogDesk = document.querySelector(".articles__body");
+                const navbar = document.querySelector(".navbar");
+                const footer = document.querySelector(".footer");
+                adsDesk.offsetHeight;
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight;
+                const footerHeight = footer.offsetHeight;
+                const threshold = documentHeight - windowHeight - footerHeight;
+                mainBlockDesk.offsetHeight, navbar.offsetHeight, catalogDesk.offsetHeight;
+                const mainBlockDeskHeight = mainBlockDesk.offsetHeight + navbar.offsetHeight;
+                let scrollDistance = window.scrollY;
+                if (scrollDistance >= mainBlockDeskHeight) adsDesk.classList.add("ads-fix"); else adsDesk.classList.remove("ads-fix");
+                if (scrollDistance >= threshold) adsDesk.classList.add("ads-hides"); else adsDesk.classList.remove("ads-hides");
+            }
+        }));
         /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
