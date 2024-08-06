@@ -9567,33 +9567,40 @@ input[type=number] {
 }
 
 .breadcreams {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 0.75rem;
+  vertical-align: middle;
   padding-bottom: 1.5625rem;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  overflow-wrap: break-word;
 }
 
 .breadcreams__arrow {
+  display: inline;
+  vertical-align: middle;
   -webkit-transform: rotate(-90deg);
       -ms-transform: rotate(-90deg);
           transform: rotate(-90deg);
 }
 
 .breadcreams__item {
+  display: inline;
+  vertical-align: middle;
+}
+
+.breadcreams__link {
   font-size: 1.25rem;
   line-height: 1.1;
   font-family: "Open Sans";
   color: #2b74b9;
 }
 
-.breadcreams__item._disable {
+.breadcreams__link._disable {
+  color: #113921;
+}
+
+.breadcreams__link::before {
+  display: inline-block;
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  margin: 0 0.75rem;
   color: #113921;
 }
 
@@ -9631,17 +9638,13 @@ input[type=number] {
 
 .main-articles__ad {
   min-width: 10rem;
-  height: 37.5rem;
+  min-height: 100%;
   overflow: hidden;
+  position: relative;
 }
 
-.main-articles__sticky.ads-fix {
-  position: fixed;
-  top: 2.5rem;
-}
-
-.main-articles__sticky.ads-hides {
-  display: none;
+.main-articles__sticky {
+  height: 37.5rem;
 }
 
 .main-articles__image {
@@ -9717,10 +9720,6 @@ input[type=number] {
   width: 5.5rem;
   height: 3.25rem;
   border-radius: 4px;
-}
-
-.sections-articles__button._step-02 {
-  width: 15rem;
 }
 
 .sections-articles__link {
@@ -9805,6 +9804,10 @@ input[type=number] {
 }
 
 .banners-articles__btn-up {
+  display: none;
+}
+
+.banners-articles__btn-up.show {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9814,16 +9817,16 @@ input[type=number] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: absolute;
+  position: fixed;
   width: 3.125rem;
   height: 3.125rem;
-  bottom: 0;
-  left: 0;
+  bottom: 1.5625rem;
+  left: 1.5625rem;
   background-color: rgba(0, 139, 56, 0.4);
   border-radius: 4px;
 }
 
-.banners-articles__btn-up::before {
+.banners-articles__btn-up.show::before {
   color: #ffffff;
   font-size: 1.875rem;
   font-weight: 500;
@@ -11218,11 +11221,6 @@ input[type=number] {
         align-self: center;
   }
 
-  .main-articles__sticky.ads-fix {
-    position: relative;
-    top: auto;
-  }
-
   .chapter-articles__headings {
     margin-top: 1.875rem;
   }
@@ -12281,11 +12279,19 @@ input[type=number] {
 
   .breadcreams {
     padding-bottom: 1.25rem;
-    gap: 0.5rem;
   }
 
-  .breadcreams__item {
+  .breadcreams__link {
     font-size: 0.875rem;
+  }
+
+  .breadcreams__link::before {
+    margin: 0.5rem;
+  }
+
+  .breadcreams__link._home svg {
+    width: 1rem;
+    height: 1rem;
   }
 
   .main-articles__heading {
@@ -12350,6 +12356,10 @@ input[type=number] {
 
   .sections-articles__button {
     width: 3.75rem;
+  }
+
+  .sections-articles__button._step-02 {
+    width: 15rem;
   }
 
   .sections-articles__link {

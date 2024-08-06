@@ -1838,25 +1838,47 @@
             }));
         }
         if (document.querySelector(".articles")) favorite();
-        window.addEventListener("scroll", (() => {
-            if (document.querySelector(".main-articles__ad")) {
-                const adsDesk = document.querySelector(".main-articles__sticky");
-                const mainBlockDesk = document.querySelector(".header");
-                const catalogDesk = document.querySelector(".articles__body");
-                const navbar = document.querySelector(".navbar");
-                const footer = document.querySelector(".footer");
-                adsDesk.offsetHeight;
-                const windowHeight = window.innerHeight;
-                const documentHeight = document.documentElement.scrollHeight;
-                const footerHeight = footer.offsetHeight;
-                const threshold = documentHeight - windowHeight - footerHeight;
-                mainBlockDesk.offsetHeight, navbar.offsetHeight, catalogDesk.offsetHeight;
-                const mainBlockDeskHeight = mainBlockDesk.offsetHeight + navbar.offsetHeight;
-                let scrollDistance = window.scrollY;
-                if (scrollDistance >= mainBlockDeskHeight) adsDesk.classList.add("ads-fix"); else adsDesk.classList.remove("ads-fix");
-                if (scrollDistance >= threshold) adsDesk.classList.add("ads-hides"); else adsDesk.classList.remove("ads-hides");
-            }
-        }));
+        if (document.querySelector(".main-articles__ad")) {
+            const adsDesk = document.querySelector(".main-articles__sticky");
+            const mainBlockDesk = document.querySelector(".header");
+            document.querySelector(".articles__body");
+            const navbar = document.querySelector(".navbar");
+            const footer = document.querySelector(".footer");
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const footerHeight = footer.offsetHeight;
+            const threshold = documentHeight - windowHeight - footerHeight;
+            const mainBlockDeskHeight = mainBlockDesk.offsetHeight + navbar.offsetHeight;
+            window.addEventListener("scroll", (() => {
+                if (window.innerWidth > 992) {
+                    let scrollDistance = window.scrollY;
+                    if (scrollDistance >= mainBlockDeskHeight) {
+                        adsDesk.classList.add("ads-fix");
+                        adsDesk.style.position = "fixed";
+                        adsDesk.style.top = "40px";
+                    } else {
+                        adsDesk.classList.remove("ads-fix");
+                        adsDesk.style.position = "static";
+                    }
+                    if (scrollDistance >= threshold) {
+                        adsDesk.style.position = "absolute";
+                        adsDesk.style.top = "auto";
+                        adsDesk.style.bottom = `0px`;
+                        adsDesk.classList.add("ads-hides");
+                    } else adsDesk.classList.remove("ads-hides");
+                }
+            }));
+        }
+        if (document.querySelector(".banners-articles__btn-up")) {
+            const backToTopButton = document.querySelector(".banners-articles__btn-up");
+            backToTopButton.onclick = () => document.documentElement.scroll({
+                top: 0,
+                behavior: "smooth"
+            });
+            window.onscroll = () => {
+                if (document.documentElement.scrollTop > 200) backToTopButton.classList.add("show"); else backToTopButton.classList.remove("show");
+            };
+        }
         /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
