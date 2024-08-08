@@ -1886,7 +1886,12 @@
                 const selectOptions = elem.querySelectorAll(".dropdownOption li");
                 const dropHolder = elem.querySelector(".dropdown");
                 let selectedOption = selectOptions[0];
+                for (const option of selectOptions) if (option.classList.contains("current")) {
+                    selectedOption = option;
+                    break;
+                }
                 selectedOption.classList.add("current");
+                selectHolder.innerText = selectedOption.textContent;
                 selectHolder.addEventListener("click", (function() {
                     dropHolder.classList.toggle("active");
                 }));
@@ -1894,9 +1899,9 @@
                     currentElement.addEventListener("click", (function() {
                         selectedOption.classList.remove("current");
                         selectedOption = currentElement;
-                        currentElement.classList.add("current");
+                        selectedOption.classList.add("current");
                         selectHolder.innerText = currentElement.textContent;
-                        dropHolder.classList.toggle("active");
+                        dropHolder.classList.remove("active");
                     }));
                 }));
             }
