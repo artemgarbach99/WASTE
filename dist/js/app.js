@@ -1879,6 +1879,29 @@
                 if (document.documentElement.scrollTop > 200) backToTopButton.classList.add("show"); else backToTopButton.classList.remove("show");
             };
         }
+        if (document.querySelector(".select-wrapper")) {
+            const navigationSelect = document.querySelector(".select-wrapper");
+            function initSelect(elem) {
+                const selectHolder = elem.querySelector(".holder");
+                const selectOptions = elem.querySelectorAll(".dropdownOption li");
+                const dropHolder = elem.querySelector(".dropdown");
+                let selectedOption = selectOptions[0];
+                selectedOption.classList.add("current");
+                selectHolder.addEventListener("click", (function() {
+                    dropHolder.classList.toggle("active");
+                }));
+                selectOptions.forEach((function(currentElement) {
+                    currentElement.addEventListener("click", (function() {
+                        selectedOption.classList.remove("current");
+                        selectedOption = currentElement;
+                        currentElement.classList.add("current");
+                        selectHolder.innerText = currentElement.textContent;
+                        dropHolder.classList.toggle("active");
+                    }));
+                }));
+            }
+            initSelect(navigationSelect);
+        }
         /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
