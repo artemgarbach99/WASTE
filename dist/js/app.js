@@ -1841,17 +1841,13 @@
         if (document.querySelector(".main-articles__ad")) {
             const adsDesk = document.querySelector(".main-articles__sticky");
             const mainBlockDesk = document.querySelector(".header");
-            document.querySelector(".articles__body");
             const navbar = document.querySelector(".navbar");
             const footer = document.querySelector(".footer");
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
-            const footerHeight = footer.offsetHeight;
-            const threshold = documentHeight - windowHeight - footerHeight;
             const mainBlockDeskHeight = mainBlockDesk.offsetHeight + navbar.offsetHeight;
-            window.addEventListener("scroll", (() => {
+            const handleScrollAndResize = () => {
+                let scrollDistance = window.scrollY;
+                let footerTopPosition = footer.getBoundingClientRect().top + window.scrollY;
                 if (window.innerWidth > 992) {
-                    let scrollDistance = window.scrollY;
                     if (scrollDistance >= mainBlockDeskHeight) {
                         adsDesk.classList.add("ads-fix");
                         adsDesk.style.position = "fixed";
@@ -1860,14 +1856,22 @@
                         adsDesk.classList.remove("ads-fix");
                         adsDesk.style.position = "static";
                     }
-                    if (scrollDistance >= threshold) {
+                    if (window.innerHeight + scrollDistance >= footerTopPosition) {
                         adsDesk.style.position = "absolute";
                         adsDesk.style.top = "auto";
                         adsDesk.style.bottom = `0px`;
                         adsDesk.classList.add("ads-hides");
                     } else adsDesk.classList.remove("ads-hides");
+                } else {
+                    adsDesk.classList.remove("ads-fix", "ads-hides");
+                    adsDesk.style.position = "static";
+                    adsDesk.style.top = "auto";
+                    adsDesk.style.bottom = "auto";
                 }
-            }));
+            };
+            window.addEventListener("scroll", handleScrollAndResize);
+            window.addEventListener("resize", handleScrollAndResize);
+            handleScrollAndResize();
         }
         if (document.querySelector(".banners-articles__btn-up")) {
             const backToTopButton = document.querySelector(".banners-articles__btn-up");
@@ -1898,11 +1902,21 @@
                 selectOptions.forEach((function(currentElement) {
                     currentElement.addEventListener("click", (function() {
                         selectedOption.classList.remove("current");
+                        selectedOption.classList.remove("hide-hover");
                         selectedOption = currentElement;
                         selectedOption.classList.add("current");
                         selectHolder.innerText = currentElement.textContent;
                         dropHolder.classList.remove("active");
                     }));
+                    currentElement.addEventListener("mouseenter", (function() {
+                        if (!currentElement.classList.contains("current")) selectedOption.classList.add("hide-hover");
+                    }));
+                    currentElement.addEventListener("mouseleave", (function() {
+                        if (selectedOption.classList.contains("hide-hover")) selectedOption.classList.remove("hide-hover");
+                    }));
+                }));
+                document.addEventListener("click", (function(event) {
+                    if (!elem.contains(event.target)) dropHolder.classList.remove("active");
                 }));
             }
             initSelect(navigationSelect);

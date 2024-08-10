@@ -10191,6 +10191,8 @@ input[type=number] {
 .dropdownOption li:hover {
   background-color: #22b14c;
   color: #ffffff;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 .dropdownOption li:not(.current) {
@@ -10199,11 +10201,22 @@ input[type=number] {
 
 .dropdownOption li:hover:not(.current) {
   color: #ffffff;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
-.current {
+.dropdownOption li.current {
   background-color: #22b14c;
   color: #ffffff;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.dropdownOption li.current.hide-hover {
+  background-color: #ffffff;
+  color: #8d8d8d;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 /**
@@ -13067,5 +13080,7 @@ input[type=number] {
   .dropdownOption li:hover {
     background-color: #22b14c;
     color: #ffffff;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
   }
 }
