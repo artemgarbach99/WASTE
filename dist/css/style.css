@@ -9604,6 +9604,10 @@ input[type=number] {
   color: #113921;
 }
 
+.breadcreams__link._home {
+  line-height: 0;
+}
+
 .main-articles {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9694,6 +9698,9 @@ input[type=number] {
           align-items: center;
   gap: 0.5rem;
   padding-top: 2.1875rem;
+  position: relative;
+  z-index: 6;
+  background-color: #ffffff;
 }
 
 .sections-articles__input {
@@ -12391,6 +12398,7 @@ input[type=number] {
 
   .breadcreams__link {
     font-size: 0.875rem;
+    line-height: 170%;
   }
 
   .breadcreams__link::before {

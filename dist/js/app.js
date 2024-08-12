@@ -1880,7 +1880,7 @@
                 behavior: "smooth"
             });
             window.onscroll = () => {
-                if (document.documentElement.scrollTop > 200) backToTopButton.classList.add("show"); else backToTopButton.classList.remove("show");
+                if (document.documentElement.scrollTop > 500) backToTopButton.classList.add("show"); else backToTopButton.classList.remove("show");
             };
         }
         if (document.querySelector(".select-wrapper")) {
