@@ -1884,7 +1884,7 @@
             };
         }
         if (document.querySelector(".select-wrapper")) {
-            const navigationSelect = document.querySelector(".select-wrapper");
+            const navigationSelect = document.querySelectorAll(".select-wrapper");
             function initSelect(elem) {
                 const selectHolder = elem.querySelector(".holder");
                 const selectOptions = elem.querySelectorAll(".dropdownOption li");
@@ -1919,7 +1919,9 @@
                     if (!elem.contains(event.target)) dropHolder.classList.remove("active");
                 }));
             }
-            initSelect(navigationSelect);
+            navigationSelect.forEach((function(elem) {
+                initSelect(elem);
+            }));
         }
         /*!
  * jQuery JavaScript Library v3.5.1
