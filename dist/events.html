@@ -6,14 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250113222235">
+	<link rel="stylesheet" href="css/style.min.css?_v=20250117231833">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 	<meta name="viewport" content="width=device-width minimum-scale=1.0 maximum-scale=1.0 user-scalable=no" />
 </head>
 
-<body class="office-header-item">
+<body id="event" class="office-header-item">
 	<div class="wrapper">
 		<header class="header">
 			<div class="header__container">
@@ -23,12 +23,11 @@
 						<a href="#" class="header__link _add-link _icon-plus"><span>Добавить</span></a>
 					</div>
 					<div class="header__item _login-item">
-						<a href="#" class="header__link"><img data-src="img/header/02.png" alt=""><span>Вход /
-								Регистрация</span></a>
+						<a href="#" class="header__link"><img data-src="img/header/02.png" alt="" /><span>Вход / Регистрация</span></a>
 					</div>
 					<div class="header__item _office-item">
 						<div class="header__office office-header">
-							<img data-src="img/header/05.png" alt="">
+							<img data-src="img/header/05.png" alt="" />
 							<a href="#" class="office-header__lable _icon-arrow">
 								<span>Личный кабинет</span>
 							</a>
@@ -36,13 +35,16 @@
 								<li class="office-header__item">
 									<a href="#" class="office-header__link h4">Объявления</a>
 								</li>
-								<li class="office-header__item _business-card-link">
+								<!-- <li class="office-header__item _business-card-link">
+							<a href="#" class="office-header__link h4">Визитка</a>
+						</li>
+						<li class="office-header__item _business-card-active">
+							<span class="office-header__link h4">Визитка</span>
+						</li> -->
+								<li class="office-header__item business-card-office-item">
 									<a href="#" class="office-header__link h4">Визитка</a>
 								</li>
-								<li class="office-header__item _business-card-active">
-									<span class="office-header__link h4">Визитка</span>
-								</li>
-								<li class="office-header__item">
+								<li class="office-header__item event-office-item">
 									<a href="#" class="office-header__link h4">Мероприятия</a>
 								</li>
 								<li class="office-header__item">
@@ -61,10 +63,10 @@
 						</div>
 					</div>
 					<div class="header__item search-btn">
-						<button class="header__link _close-btn"><img data-src="img/header/03.png" alt=""><span>Поиск</span></button>
+						<button class="header__link _close-btn"><img data-src="img/header/03.png" alt="" /><span>Поиск</span></button>
 					</div>
 					<div class="header__item">
-						<a href="#" class="header__link"><img data-src="img/header/04.png" alt=""><span>Избранное</span></a>
+						<a href="#" class="header__link"><img data-src="img/header/04.png" alt="" /><span>Избранное</span></a>
 					</div>
 				</div>
 			</div>
@@ -1834,7 +1836,7 @@
 									Активные<span class="navigation-tabs__count">10</span>
 								</div>
 								<div class="content" aria-hidden="false">
-									<div class="content-tabs__body">
+									<div class="content-tabs__body _event">
 										<div class="content-tabs__top top-content-tabs">
 											<div class="selects-events">
 												<div class="select-wrapper _event">
@@ -1977,27 +1979,28 @@
 										</div>
 										<div class="content-tabs__main main-content-event">
 											<div class="main-content-event__card">
+												<a href="#" class="main-content-event__title _mob">Экология большого города, XVIII Международный форум</a>
 												<div class="main-content-event__card-wrap">
 													<a href="#" class="main-content-event__image-ibg">
 														<img data-src="img/events/01.jpg" alt="" />
 													</a>
-													<!-- <div class="main-content-event__content"> -->
-													<a href="#" class="main-content-event__title">Экология большого города, XVIII Международный форум</a>
-													<div class="main-content-event__info">
-														<div class="main-content-event__item">
-															<img data-src="img/svg/calendar.svg" alt="" />
-															21.06.2019 - 24.06.2019
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/clipboard.svg" alt="" />
-															Выставка
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/location.svg" alt="" />
-															Санкт-Петербург, Россия
+													<div class="main-content-event__content">
+														<a href="#" class="main-content-event__title _pc">Экология большого города, XVIII Международный форум</a>
+														<div class="main-content-event__info">
+															<div class="main-content-event__item">
+																<img data-src="img/svg/calendar.svg" alt="" />
+																21.06.19-24.06.19
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/clipboard.svg" alt="" />
+																Выставка
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/location.svg" alt="" />
+																Санкт-Петербург, Россия
+															</div>
 														</div>
 													</div>
-													<!-- </div> -->
 												</div>
 												<div class="main-content-event__buttons">
 													<div class="line-main-content__buttons">
@@ -2008,27 +2011,28 @@
 												</div>
 											</div>
 											<div class="main-content-event__card">
+												<a href="#" class="main-content-event__title _mob">Экология большого города, XVIII Международный форум</a>
 												<div class="main-content-event__card-wrap">
 													<a href="#" class="main-content-event__image-ibg">
 														<img data-src="img/events/02.jpg" alt="" />
 													</a>
-													<!-- <div class="main-content-event__content"> -->
-													<a href="#" class="main-content-event__title">Обращение с отходами производства и потребления</a>
-													<div class="main-content-event__info">
-														<div class="main-content-event__item">
-															<img data-src="img/svg/calendar.svg" alt="" />
-															25.06.2019 - 26.06.2019
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/clipboard.svg" alt="" />
-															Учебный курс
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/location.svg" alt="" />
-															Онлайн
+													<div class="main-content-event__content">
+														<a href="#" class="main-content-event__title _pc">Обращение с отходами производства и потребления</a>
+														<div class="main-content-event__info">
+															<div class="main-content-event__item">
+																<img data-src="img/svg/calendar.svg" alt="" />
+																25.06.19-26.06.19
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/clipboard.svg" alt="" />
+																Учебный курс
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/location.svg" alt="" />
+																Онлайн
+															</div>
 														</div>
 													</div>
-													<!-- </div> -->
 												</div>
 												<div class="main-content-event__buttons">
 													<div class="line-main-content__buttons">
@@ -2039,27 +2043,28 @@
 												</div>
 											</div>
 											<div class="main-content-event__card">
+												<a href="#" class="main-content-event__title _mob">Экология большого города, XVIII Международный форум</a>
 												<div class="main-content-event__card-wrap">
 													<a href="#" class="main-content-event__image-ibg">
 														<img data-src="img/events/03.png" alt="" />
 													</a>
-													<!-- <div class="main-content-event__content"> -->
-													<a href="#" class="main-content-event__title">Recy & DepoTech 2019</a>
-													<div class="main-content-event__info">
-														<div class="main-content-event__item">
-															<img data-src="img/svg/calendar.svg" alt="" />
-															Любое удобное для вас время
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/clipboard.svg" alt="" />
-															Конференция
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/location.svg" alt="" />
-															Онлайн
+													<div class="main-content-event__content">
+														<a href="#" class="main-content-event__title _pc">Recy & DepoTech 2019</a>
+														<div class="main-content-event__info">
+															<div class="main-content-event__item">
+																<img data-src="img/svg/calendar.svg" alt="" />
+																Любое удобное время
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/clipboard.svg" alt="" />
+																Конференция
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/location.svg" alt="" />
+																Онлайн
+															</div>
 														</div>
 													</div>
-													<!-- </div> -->
 												</div>
 												<div class="main-content-event__buttons">
 													<div class="line-main-content__buttons">
@@ -2070,27 +2075,28 @@
 												</div>
 											</div>
 											<div class="main-content-event__card">
+												<a href="#" class="main-content-event__title _mob">Экология большого города, XVIII Международный форум</a>
 												<div class="main-content-event__card-wrap">
 													<a href="#" class="main-content-event__image-ibg">
 														<img data-src="img/events/03.png" alt="" />
 													</a>
-													<!-- <div class="main-content-event__content"> -->
-													<a href="#" class="main-content-event__title">Recy & DepoTech 2019</a>
-													<div class="main-content-event__info">
-														<div class="main-content-event__item">
-															<img data-src="img/svg/calendar.svg" alt="" />
-															07.11.2019
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/clipboard.svg" alt="" />
-															Конференция
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/location.svg" alt="" />
-															Леобен, Австрия
+													<div class="main-content-event__content">
+														<a href="#" class="main-content-event__title _pc">Recy & DepoTech 2019</a>
+														<div class="main-content-event__info">
+															<div class="main-content-event__item">
+																<img data-src="img/svg/calendar.svg" alt="" />
+																07.11.19
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/clipboard.svg" alt="" />
+																Конференция
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/location.svg" alt="" />
+																Леобен, Австрия
+															</div>
 														</div>
 													</div>
-													<!-- </div> -->
 												</div>
 												<div class="main-content-event__buttons">
 													<div class="line-main-content__buttons">
@@ -2101,27 +2107,28 @@
 												</div>
 											</div>
 											<div class="main-content-event__card">
+												<a href="#" class="main-content-event__title _mob">Экология большого города, XVIII Международный форум</a>
 												<div class="main-content-event__card-wrap">
 													<a href="#" class="main-content-event__image-ibg">
 														<img data-src="img/events/04.jpg" alt="" />
 													</a>
-													<!-- <div class="main-content-event__content"> -->
-													<a href="#" class="main-content-event__title">North India’s Trade Fair for Water, Sewage, Solid Waste and Recycling</a>
-													<div class="main-content-event__info">
-														<div class="main-content-event__item">
-															<img data-src="img/svg/calendar.svg" alt="" />
-															Любое удобное для вас время
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/clipboard.svg" alt="" />
-															Выставка
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/location.svg" alt="" />
-															Онлайн
+													<div class="main-content-event__content">
+														<a href="#" class="main-content-event__title _pc">North India’s Trade Fair for Water, Sewage, Solid Waste and Recycling</a>
+														<div class="main-content-event__info">
+															<div class="main-content-event__item">
+																<img data-src="img/svg/calendar.svg" alt="" />
+																Любое удобное время
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/clipboard.svg" alt="" />
+																Выставка
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/location.svg" alt="" />
+																Онлайн
+															</div>
 														</div>
 													</div>
-													<!-- </div> -->
 												</div>
 												<div class="main-content-event__buttons">
 													<div class="line-main-content__buttons">
@@ -2375,27 +2382,28 @@
 										</div>
 										<div class="content-tabs__main main-content-event">
 											<div class="main-content-event__card">
+												<a href="#" class="main-content-event__title _mob">Экология большого города, XVIII Международный форум</a>
 												<div class="main-content-event__card-wrap">
-													<a href="#" class="main-content-event__image-ibg">
+													<span class="main-content-event__image-ibg">
 														<img data-src="img/events/01.jpg" alt="" />
-													</a>
-													<!-- <div class="main-content-event__content"> -->
-													<a href="#" class="main-content-event__title">Экология большого города, XVIII Международный форум</a>
-													<div class="main-content-event__info">
-														<div class="main-content-event__item">
-															<img data-src="img/svg/calendar.svg" alt="" />
-															21.06.2019 - 24.06.2019
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/clipboard.svg" alt="" />
-															Выставка
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/location.svg" alt="" />
-															Санкт-Петербург, Россия
+													</span>
+													<div class="main-content-event__content">
+														<span class="main-content-event__title _pc">Экология большого города, XVIII Международный форум</span>
+														<div class="main-content-event__info">
+															<div class="main-content-event__item">
+																<img data-src="img/svg/calendar.svg" alt="" />
+																21.06.19-24.06.19
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/clipboard.svg" alt="" />
+																Выставка
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/location.svg" alt="" />
+																Санкт-Петербург, Россия
+															</div>
 														</div>
 													</div>
-													<!-- </div> -->
 												</div>
 												<div class="main-content-event__buttons">
 													<div class="line-main-content__buttons">
@@ -2406,27 +2414,28 @@
 												</div>
 											</div>
 											<div class="main-content-event__card">
+												<a href="#" class="main-content-event__title _mob">Экология большого города, XVIII Международный форум</a>
 												<div class="main-content-event__card-wrap">
-													<a href="#" class="main-content-event__image-ibg">
+													<span class="main-content-event__image-ibg">
 														<img data-src="img/events/02.jpg" alt="" />
-													</a>
-													<!-- <div class="main-content-event__content"> -->
-													<a href="#" class="main-content-event__title">Обращение с отходами производства и потребления</a>
-													<div class="main-content-event__info">
-														<div class="main-content-event__item">
-															<img data-src="img/svg/calendar.svg" alt="" />
-															25.06.2019 - 26.06.2019
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/clipboard.svg" alt="" />
-															Учебный курс
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/location.svg" alt="" />
-															Онлайн
+													</span>
+													<div class="main-content-event__content">
+														<span class="main-content-event__title _pc">Обращение с отходами производства и потребления</span>
+														<div class="main-content-event__info">
+															<div class="main-content-event__item">
+																<img data-src="img/svg/calendar.svg" alt="" />
+																25.06.19-26.06.19
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/clipboard.svg" alt="" />
+																Учебный курс
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/location.svg" alt="" />
+																Онлайн
+															</div>
 														</div>
 													</div>
-													<!-- </div> -->
 												</div>
 												<div class="main-content-event__buttons">
 													<div class="line-main-content__buttons">
@@ -2437,27 +2446,28 @@
 												</div>
 											</div>
 											<div class="main-content-event__card">
+												<a href="#" class="main-content-event__title _mob">Экология большого города, XVIII Международный форум</a>
 												<div class="main-content-event__card-wrap">
-													<a href="#" class="main-content-event__image-ibg">
+													<span class="main-content-event__image-ibg">
 														<img data-src="img/events/03.png" alt="" />
-													</a>
-													<!-- <div class="main-content-event__content"> -->
-													<a href="#" class="main-content-event__title">Recy & DepoTech 2019</a>
-													<div class="main-content-event__info">
-														<div class="main-content-event__item">
-															<img data-src="img/svg/calendar.svg" alt="" />
-															Любое удобное для вас время
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/clipboard.svg" alt="" />
-															Конференция
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/location.svg" alt="" />
-															Онлайн
+													</span>
+													<div class="main-content-event__content">
+														<span class="main-content-event__title _pc">Recy & DepoTech 2019</span>
+														<div class="main-content-event__info">
+															<div class="main-content-event__item">
+																<img data-src="img/svg/calendar.svg" alt="" />
+																Любое удобное время
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/clipboard.svg" alt="" />
+																Конференция
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/location.svg" alt="" />
+																Онлайн
+															</div>
 														</div>
 													</div>
-													<!-- </div> -->
 												</div>
 												<div class="main-content-event__buttons">
 													<div class="line-main-content__buttons">
@@ -2468,8 +2478,9 @@
 												</div>
 											</div>
 											<div class="main-content-event__card">
+												<a href="#" class="main-content-event__title _mob">Экология большого города, XVIII Международный форум</a>
 												<div class="main-content-event__card-wrap">
-													<a href="#" class="main-content-event__image-ibg">
+													<span class="main-content-event__image-ibg">
 														<img data-src="img/events/03.png" alt="" />
 														<div class="main-content-event__sticker-pc">
 															<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2479,24 +2490,24 @@
 															</svg>
 															Не прошло проверку
 														</div>
-													</a>
-													<!-- <div class="main-content-event__content"> -->
-													<a href="#" class="main-content-event__title">Recy & DepoTech 2019</a>
-													<div class="main-content-event__info">
-														<div class="main-content-event__item">
-															<img data-src="img/svg/calendar.svg" alt="" />
-															07.11.2019
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/clipboard.svg" alt="" />
-															Конференция
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/location.svg" alt="" />
-															Леобен, Австрия
+													</span>
+													<div class="main-content-event__content">
+														<span class="main-content-event__title _pc">Recy & DepoTech 2019</span>
+														<div class="main-content-event__info">
+															<div class="main-content-event__item">
+																<img data-src="img/svg/calendar.svg" alt="" />
+																07.11.19
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/clipboard.svg" alt="" />
+																Конференция
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/location.svg" alt="" />
+																Леобен, Австрия
+															</div>
 														</div>
 													</div>
-													<!-- </div> -->
 												</div>
 												<div class="main-content-event__buttons">
 													<div class="line-main-content__buttons">
@@ -2516,27 +2527,28 @@
 												</div>
 											</div>
 											<div class="main-content-event__card">
+												<a href="#" class="main-content-event__title _mob">Экология большого города, XVIII Международный форум</a>
 												<div class="main-content-event__card-wrap">
-													<a href="#" class="main-content-event__image-ibg">
+													<span class="main-content-event__image-ibg">
 														<img data-src="img/events/04.jpg" alt="" />
-													</a>
-													<!-- <div class="main-content-event__content"> -->
-													<a href="#" class="main-content-event__title">North India’s Trade Fair for Water, Sewage, Solid Waste and Recycling</a>
-													<div class="main-content-event__info">
-														<div class="main-content-event__item">
-															<img data-src="img/svg/calendar.svg" alt="" />
-															Любое удобное для вас время
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/clipboard.svg" alt="" />
-															Выставка
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/location.svg" alt="" />
-															Онлайн
+													</span>
+													<div class="main-content-event__content">
+														<span class="main-content-event__title _pc">North India’s Trade Fair for Water, Sewage, Solid Waste and Recycling</span>
+														<div class="main-content-event__info">
+															<div class="main-content-event__item">
+																<img data-src="img/svg/calendar.svg" alt="" />
+																Любое удобное время
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/clipboard.svg" alt="" />
+																Выставка
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/location.svg" alt="" />
+																Онлайн
+															</div>
 														</div>
 													</div>
-													<!-- </div> -->
 												</div>
 												<div class="main-content-event__buttons">
 													<div class="line-main-content__buttons">
@@ -2784,27 +2796,28 @@
 										</div>
 										<div class="content-tabs__main main-content-event">
 											<div class="main-content-event__card">
+												<a href="#" class="main-content-event__title _mob">Экология большого города, XVIII Международный форум</a>
 												<div class="main-content-event__card-wrap">
-													<a href="#" class="main-content-event__image-ibg">
+													<span class="main-content-event__image-ibg">
 														<img data-src="img/events/01.jpg" alt="" />
-													</a>
-													<!-- <div class="main-content-event__content"> -->
-													<a href="#" class="main-content-event__title">Экология большого города, XVIII Международный форум</a>
-													<div class="main-content-event__info">
-														<div class="main-content-event__item">
-															<img data-src="img/svg/calendar.svg" alt="" />
-															21.06.2019 - 24.06.2019
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/clipboard.svg" alt="" />
-															Выставка
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/location.svg" alt="" />
-															Санкт-Петербург, Россия
+													</span>
+													<div class="main-content-event__content">
+														<span class="main-content-event__title _pc">Экология большого города, XVIII Международный форум</span>
+														<div class="main-content-event__info">
+															<div class="main-content-event__item">
+																<img data-src="img/svg/calendar.svg" alt="" />
+																21.06.19-24.06.19
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/clipboard.svg" alt="" />
+																Выставка
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/location.svg" alt="" />
+																Санкт-Петербург, Россия
+															</div>
 														</div>
 													</div>
-													<!-- </div> -->
 												</div>
 												<div class="main-content-event__buttons">
 													<div class="line-main-content__buttons">
@@ -2815,27 +2828,28 @@
 												</div>
 											</div>
 											<div class="main-content-event__card">
+												<a href="#" class="main-content-event__title _mob">Экология большого города, XVIII Международный форум</a>
 												<div class="main-content-event__card-wrap">
-													<a href="#" class="main-content-event__image-ibg">
+													<span class="main-content-event__image-ibg">
 														<img data-src="img/events/02.jpg" alt="" />
-													</a>
-													<!-- <div class="main-content-event__content"> -->
-													<a href="#" class="main-content-event__title">Обращение с отходами производства и потребления</a>
-													<div class="main-content-event__info">
-														<div class="main-content-event__item">
-															<img data-src="img/svg/calendar.svg" alt="" />
-															25.06.2019 - 26.06.2019
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/clipboard.svg" alt="" />
-															Учебный курс
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/location.svg" alt="" />
-															Онлайн
+													</span>
+													<div class="main-content-event__content">
+														<span class="main-content-event__title _pc">Обращение с отходами производства и потребления</span>
+														<div class="main-content-event__info">
+															<div class="main-content-event__item">
+																<img data-src="img/svg/calendar.svg" alt="" />
+																25.06.19-26.06.19
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/clipboard.svg" alt="" />
+																Учебный курс
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/location.svg" alt="" />
+																Онлайн
+															</div>
 														</div>
 													</div>
-													<!-- </div> -->
 												</div>
 												<div class="main-content-event__buttons">
 													<div class="line-main-content__buttons">
@@ -2846,8 +2860,9 @@
 												</div>
 											</div>
 											<div class="main-content-event__card">
+												<a href="#" class="main-content-event__title _mob">Экология большого города, XVIII Международный форум</a>
 												<div class="main-content-event__card-wrap">
-													<a href="#" class="main-content-event__image-ibg">
+													<span class="main-content-event__image-ibg">
 														<img data-src="img/events/03.png" alt="" />
 														<div class="main-content-event__sticker-pc _green">
 															<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2857,24 +2872,24 @@
 															</svg>
 															Активировать
 														</div>
-													</a>
-													<!-- <div class="main-content-event__content"> -->
-													<a href="#" class="main-content-event__title">Recy & DepoTech 2019</a>
-													<div class="main-content-event__info">
-														<div class="main-content-event__item">
-															<img data-src="img/svg/calendar.svg" alt="" />
-															Любое удобное для вас время
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/clipboard.svg" alt="" />
-															Конференция
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/location.svg" alt="" />
-															Онлайн
+													</span>
+													<div class="main-content-event__content">
+														<span class="main-content-event__title _pc">Recy & DepoTech 2019</span>
+														<div class="main-content-event__info">
+															<div class="main-content-event__item">
+																<img data-src="img/svg/calendar.svg" alt="" />
+																Любое удобное время
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/clipboard.svg" alt="" />
+																Конференция
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/location.svg" alt="" />
+																Онлайн
+															</div>
 														</div>
 													</div>
-													<!-- </div> -->
 												</div>
 												<div class="main-content-event__buttons">
 													<div class="line-main-content__buttons">
@@ -2893,27 +2908,28 @@
 												</div>
 											</div>
 											<div class="main-content-event__card">
+												<a href="#" class="main-content-event__title _mob">Экология большого города, XVIII Международный форум</a>
 												<div class="main-content-event__card-wrap">
-													<a href="#" class="main-content-event__image-ibg">
+													<span class="main-content-event__image-ibg">
 														<img data-src="img/events/03.png" alt="" />
-													</a>
-													<!-- <div class="main-content-event__content"> -->
-													<a href="#" class="main-content-event__title">Recy & DepoTech 2019</a>
-													<div class="main-content-event__info">
-														<div class="main-content-event__item">
-															<img data-src="img/svg/calendar.svg" alt="" />
-															07.11.2019
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/clipboard.svg" alt="" />
-															Конференция
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/location.svg" alt="" />
-															Леобен, Австрия
+													</span>
+													<div class="main-content-event__content">
+														<span class="main-content-event__title _pc">Recy & DepoTech 2019</span>
+														<div class="main-content-event__info">
+															<div class="main-content-event__item">
+																<img data-src="img/svg/calendar.svg" alt="" />
+																07.11.19
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/clipboard.svg" alt="" />
+																Конференция
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/location.svg" alt="" />
+																Леобен, Австрия
+															</div>
 														</div>
 													</div>
-													<!-- </div> -->
 												</div>
 												<div class="main-content-event__buttons">
 													<div class="line-main-content__buttons">
@@ -2924,8 +2940,9 @@
 												</div>
 											</div>
 											<div class="main-content-event__card">
+												<a href="#" class="main-content-event__title _mob">Экология большого города, XVIII Международный форум</a>
 												<div class="main-content-event__card-wrap">
-													<a href="#" class="main-content-event__image-ibg">
+													<span class="main-content-event__image-ibg">
 														<img data-src="img/events/04.jpg" alt="" />
 														<div class="main-content-event__sticker-pc _green">
 															<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2935,24 +2952,24 @@
 															</svg>
 															Активировать
 														</div>
-													</a>
-													<!-- <div class="main-content-event__content"> -->
-													<a href="#" class="main-content-event__title">North India’s Trade Fair for Water, Sewage, Solid Waste and Recycling</a>
-													<div class="main-content-event__info">
-														<div class="main-content-event__item">
-															<img data-src="img/svg/calendar.svg" alt="" />
-															Любое удобное для вас время
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/clipboard.svg" alt="" />
-															Выставка
-														</div>
-														<div class="main-content-event__item">
-															<img data-src="img/svg/location.svg" alt="" />
-															Онлайн
+													</span>
+													<div class="main-content-event__content">
+														<span class="main-content-event__title _pc">North India’s Trade Fair for Water, Sewage, Solid Waste and Recycling</span>
+														<div class="main-content-event__info">
+															<div class="main-content-event__item">
+																<img data-src="img/svg/calendar.svg" alt="" />
+																Любое удобное время
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/clipboard.svg" alt="" />
+																Выставка
+															</div>
+															<div class="main-content-event__item">
+																<img data-src="img/svg/location.svg" alt="" />
+																Онлайн
+															</div>
 														</div>
 													</div>
-													<!-- </div> -->
 												</div>
 												<div class="main-content-event__buttons">
 													<div class="line-main-content__buttons">
@@ -3186,7 +3203,7 @@
 		//     }
 		// });
 	</script>
-	<script src="js/app.min.js?_v=20250113222235"></script>
+	<script src="js/app.min.js?_v=20250117231833"></script>
 </body>
 
 </html>
