@@ -1656,39 +1656,42 @@
         }
         if (document.querySelector(".promote-line-main")) promoteMore();
         function loadLogo() {
-            const inputFile = document.querySelector("#load-logo__input");
-            const picturePreview = document.querySelector(".load-logo__preview");
-            inputFile.addEventListener("change", (function(e) {
-                const inputTarget = e.target;
-                const file = inputTarget.files[0];
-                if (file) {
-                    const maxSize = 1048576;
-                    if (file.size > maxSize) {
-                        alert("Размер файла превышает максимальный размер");
-                        return;
-                    }
-                    const reader = new FileReader;
-                    reader.addEventListener("load", (function(e) {
-                        const readerTarget = e.target;
-                        const buttonClose = document.createElement("button");
-                        buttonClose.setAttribute("type", "button");
-                        buttonClose.setAttribute("class", "load-logo__close _icon-plus");
-                        buttonClose.addEventListener("click", (function() {
-                            picturePreview.classList.remove("_show");
-                            inputFile.value = null;
+            const inputFile = document.querySelectorAll('input[type="file"][id^="load-logo__input"]');
+            inputFile.forEach((input => {
+                const inputID = input.getAttribute("id");
+                const picturePreview = document.querySelector(`.load-logo__preview[data-preview-id="${inputID}"]`);
+                input.addEventListener("change", (function(e) {
+                    const inputTarget = e.target;
+                    const file = inputTarget.files[0];
+                    if (file) {
+                        const maxSize = 1048576;
+                        if (file.size > maxSize) {
+                            alert("Размер файла превышает максимальный размер");
+                            return;
+                        }
+                        const reader = new FileReader;
+                        reader.addEventListener("load", (function(e) {
+                            const readerTarget = e.target;
+                            const buttonClose = document.createElement("button");
+                            buttonClose.setAttribute("type", "button");
+                            buttonClose.setAttribute("class", "load-logo__close _icon-plus");
+                            buttonClose.addEventListener("click", (function() {
+                                picturePreview.classList.remove("_show");
+                                input.value = null;
+                            }));
+                            const img = document.createElement("img");
+                            img.src = readerTarget.result;
+                            picturePreview.classList.add("_show");
+                            picturePreview.innerHTML = "";
+                            picturePreview.appendChild(img);
+                            picturePreview.appendChild(buttonClose);
                         }));
-                        const img = document.createElement("img");
-                        img.src = readerTarget.result;
-                        picturePreview.classList.add("_show");
-                        picturePreview.innerHTML = "";
-                        picturePreview.appendChild(img);
-                        picturePreview.appendChild(buttonClose);
-                    }));
-                    reader.readAsDataURL(file);
-                } else {
-                    picturePreview.classList.remove("_show");
-                    inputFile.value = null;
-                }
+                        reader.readAsDataURL(file);
+                    } else {
+                        picturePreview.classList.remove("_show");
+                        input.value = null;
+                    }
+                }));
             }));
         }
         if (document.querySelector(".load-logo")) loadLogo();
@@ -1923,6 +1926,61 @@
                 initSelect(elem);
             }));
         }
+        function AddOrganizersEvent() {
+            const button = document.getElementById("addButton");
+            const wrapButton = document.querySelector(".organizers-event__line");
+            const itemsList = document.querySelector(".organizers-event__list");
+            let count = 0;
+            const limitItems = 3;
+            button.addEventListener("click", (function() {
+                if (count < limitItems) {
+                    const newElement = `\n\t\t\t\t\t\t\t\t\t<div class="organizers-event__item _star _icon-star">\n\t\t\t\t\t\t\t\t\t\t\t<button type="button" class="organizers-event__close _icon-plus"></button>\n\t\t\t\t\t\t\t\t\t\t\t<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Укажите организатора " class="input" />\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t`;
+                    itemsList.insertAdjacentHTML("beforeend", newElement);
+                    count++;
+                    itemsList.lastElementChild.querySelector(".organizers-event__close").addEventListener("click", (function() {
+                        this.parentElement.remove();
+                        count--;
+                        if (count < limitItems) wrapButton.classList.remove("hide");
+                    }));
+                }
+                count === limitItems && wrapButton.classList.add("hide");
+            }));
+        }
+        if (document.getElementById("organizers-offline")) AddOrganizersEvent();
+        function AddOrganizersEventWithCountry() {
+            const button = document.querySelectorAll(".organizers-event__button");
+            button.forEach((button => {
+                const buttonID = button.getAttribute("id");
+                const itemsList = document.querySelector(`.organizers-event__list[data-list-id="${buttonID}"]`);
+                const wrapButton = document.querySelector(`.organizers-event__line[data-line-id="${buttonID}"]`);
+                let count = 0;
+                const limitItems = 3;
+                button.addEventListener("click", (function() {
+                    if (count < limitItems) {
+                        const newElement = `\n\t\t\t\t\t\t\t\t<div class="organizers-event__row">\n\t\t\t\t\t\t\t\t\t<div class="organizers-event__item">\n\t\t\t\t\t\t\t\t\t\t<button type="button" class="organizers-event__close _icon-plus"></button>\n\t\t\t\t\t\t\t\t\t\t<div class="organizers-event__input _star _icon-star">\n\t\t\t\t\t\t\t\t\t\t\t<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Укажите организатора" class="input" />\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class="organizers-event__input _star _icon-star">\n\t\t\t\t\t\t\t\t\t\t<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Укажите страну" class="input" />\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t`;
+                        itemsList.insertAdjacentHTML("beforeend", newElement);
+                        count++;
+                        itemsList.lastElementChild.querySelector(".organizers-event__close").addEventListener("click", (function() {
+                            this.closest(".organizers-event__row").remove();
+                            count--;
+                            if (count < limitItems) wrapButton.classList.remove("hide");
+                        }));
+                    }
+                    count === limitItems && wrapButton.classList.add("hide");
+                }));
+            }));
+        }
+        if (document.getElementById("organizers-online")) AddOrganizersEventWithCountry();
+        function otherCountrySelect() {
+            const selectOptions = document.querySelectorAll(".select_select-country .select__option");
+            const countryInput = document.querySelector(".shipping-addition-form__country");
+            selectOptions.forEach((option => {
+                option.addEventListener("click", (function() {
+                    if (option.classList.contains("other-country")) countryInput.classList.add("show"); else countryInput.classList.remove("show");
+                }));
+            }));
+        }
+        if (document.querySelector(".select_select-country")) otherCountrySelect();
         /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
