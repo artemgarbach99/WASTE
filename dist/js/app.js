@@ -1660,6 +1660,7 @@
             inputFile.forEach((input => {
                 const inputID = input.getAttribute("id");
                 const picturePreview = document.querySelector(`.load-logo__preview[data-preview-id="${inputID}"]`);
+                const label = document.querySelector(`._label-logo[for="${inputID}"]`);
                 input.addEventListener("change", (function(e) {
                     const inputTarget = e.target;
                     const file = inputTarget.files[0];
@@ -1677,6 +1678,7 @@
                             buttonClose.setAttribute("class", "load-logo__close _icon-plus");
                             buttonClose.addEventListener("click", (function() {
                                 picturePreview.classList.remove("_show");
+                                label.classList.remove("_disable");
                                 input.value = null;
                             }));
                             const img = document.createElement("img");
@@ -1687,8 +1689,10 @@
                             picturePreview.appendChild(buttonClose);
                         }));
                         reader.readAsDataURL(file);
+                        label.classList.add("_disable");
                     } else {
                         picturePreview.classList.remove("_show");
+                        label.classList.remove("_disable");
                         input.value = null;
                     }
                 }));
@@ -1930,20 +1934,23 @@
             const button = document.getElementById("addButton");
             const wrapButton = document.querySelector(".organizers-event__line");
             const itemsList = document.querySelector(".organizers-event__list");
+            const listInfo = document.querySelector(".organizers-event__info");
             let count = 0;
             const limitItems = 3;
             button.addEventListener("click", (function() {
                 if (count < limitItems) {
-                    const newElement = `\n\t\t\t\t\t\t\t\t\t<div class="organizers-event__item _star _icon-star">\n\t\t\t\t\t\t\t\t\t\t\t<button type="button" class="organizers-event__close _icon-plus"></button>\n\t\t\t\t\t\t\t\t\t\t\t<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Укажите организатора " class="input" />\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t`;
+                    const newElement = `\n\t\t\t\t\t\t\t\t\t<div class="organizers-event__item _star _icon-star">\n\t\t\t\t\t\t\t\t\t\t\t<button type="button" class="organizers-event__close _icon-plus"></button>\n\t\t\t\t\t\t\t\t\t\t\t<div class="organizers-event__input">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="Укажите организатора " class="input" />\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t`;
                     itemsList.insertAdjacentHTML("beforeend", newElement);
                     count++;
                     itemsList.lastElementChild.querySelector(".organizers-event__close").addEventListener("click", (function() {
                         this.parentElement.remove();
                         count--;
                         if (count < limitItems) wrapButton.classList.remove("hide");
+                        if (count === 0) listInfo.classList.remove("_show");
                     }));
                 }
                 count === limitItems && wrapButton.classList.add("hide");
+                count > 0 && listInfo.classList.add("_show");
             }));
         }
         if (document.getElementById("organizers-offline")) AddOrganizersEvent();
@@ -1953,20 +1960,23 @@
                 const buttonID = button.getAttribute("id");
                 const itemsList = document.querySelector(`.organizers-event__list[data-list-id="${buttonID}"]`);
                 const wrapButton = document.querySelector(`.organizers-event__line[data-line-id="${buttonID}"]`);
+                const listInfo = document.querySelector(`.organizers-event__info[data-info-id="${buttonID}"]`);
                 let count = 0;
                 const limitItems = 3;
                 button.addEventListener("click", (function() {
                     if (count < limitItems) {
-                        const newElement = `\n\t\t\t\t\t\t\t\t<div class="organizers-event__row">\n\t\t\t\t\t\t\t\t\t<div class="organizers-event__item">\n\t\t\t\t\t\t\t\t\t\t<button type="button" class="organizers-event__close _icon-plus"></button>\n\t\t\t\t\t\t\t\t\t\t<div class="organizers-event__input _star _icon-star">\n\t\t\t\t\t\t\t\t\t\t\t<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Укажите организатора" class="input" />\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class="organizers-event__input _star _icon-star">\n\t\t\t\t\t\t\t\t\t\t<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Укажите страну" class="input" />\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t`;
+                        const newElement = `\n\t\t\t\t\t\t\t\t<div class="organizers-event__row">\n\t\t\t\t\t\t\t\t\t<div class="organizers-event__item">\n\t\t\t\t\t\t\t\t\t\t<button type="button" class="organizers-event__close _icon-plus"></button>\n\t\t\t\t\t\t\t\t\t\t<div class="organizers-event__input _star _icon-star">\n\t\t\t\t\t\t\t\t\t\t\t<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="Укажите организатора" class="input" />\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class="organizers-event__input _star _icon-star">\n\t\t\t\t\t\t\t\t\t\t<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="Укажите страну" class="input" />\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t`;
                         itemsList.insertAdjacentHTML("beforeend", newElement);
                         count++;
                         itemsList.lastElementChild.querySelector(".organizers-event__close").addEventListener("click", (function() {
                             this.closest(".organizers-event__row").remove();
                             count--;
                             if (count < limitItems) wrapButton.classList.remove("hide");
+                            if (count === 0) listInfo.classList.remove("_show");
                         }));
                     }
                     count === limitItems && wrapButton.classList.add("hide");
+                    count > 0 && listInfo.classList.add("_show");
                 }));
             }));
         }
@@ -1981,6 +1991,58 @@
             }));
         }
         if (document.querySelector(".select_select-country")) otherCountrySelect();
+        function DateInputs() {
+            const dateContainers = document.querySelectorAll(".quantity-addition-form__input._date");
+            dateContainers.forEach((dateContainer => {
+                const dateInput = dateContainer.querySelector(".input");
+                if (dateInput) dateContainer.addEventListener("click", (function(event) {
+                    dateInput.select();
+                }));
+            }));
+        }
+        if (document.getElementById("date-picker-container")) DateInputs();
+        function CheckFieldsContacts() {
+            const buttons = document.querySelectorAll(".contacts-addition-form__button-event");
+            buttons.forEach((button => {
+                const buttonID = button.getAttribute("id");
+                const email = document.querySelector(`.contacts-addition-form__input._email input[id="${buttonID}"]`);
+                const phone = document.querySelector(`.input.phone-mask[id="${buttonID}"]`);
+                const phoneBorder = document.querySelector(`.phone-content-forms__inner[id="${buttonID}"]`);
+                const wrap = document.querySelector(`.contacts-addition-form__row-phone[id="${buttonID}"]`);
+                button.addEventListener("click", (() => {
+                    if (!email.value && !phone.value) {
+                        const newElement = `\n\t\t\t\t\t<div class="contacts-addition-form__error">\n\t\t\t\t\t\t\tУкажите хотя бы один контакт!\n\t\t\t\t\t</div>\n\t\t\t\t`;
+                        wrap.insertAdjacentHTML("beforeend", newElement);
+                        email.classList.add("_error");
+                        phoneBorder.classList.add("_form-error");
+                    } else {
+                        const existingErrorElement = wrap.querySelector(".contacts-addition-form__error");
+                        if (existingErrorElement) {
+                            existingErrorElement.remove();
+                            email.classList.remove("_error");
+                            phoneBorder.classList.remove("_form-error");
+                        }
+                    }
+                    const dateCheckin = document.querySelector(`.date-checkin[id="${buttonID}"]`);
+                    const dateCheckout = document.querySelector(`.date-checkout[id="${buttonID}"]`);
+                    if (dateCheckin && dateCheckout) {
+                        const dateContainers = document.querySelectorAll(`.quantity-addition-form__input._date[id="${buttonID}"]`);
+                        const checkinDate = new Date(dateCheckin.value.split("-").reverse().join("-"));
+                        const checkoutDate = new Date(dateCheckout.value.split("-").reverse().join("-"));
+                        dateContainers.forEach((item => {
+                            if (checkinDate > checkoutDate) item.classList.add("_error-date"); else {
+                                item.classList.remove("_error-date");
+                                console.log("Даты корректны");
+                            }
+                        }));
+                    }
+                }));
+            }));
+        }
+        if (document.querySelector(".contacts-addition-form__input._email input")) CheckFieldsContacts();
+        if (document.getElementById("myForm")) window.addEventListener("load", (function() {
+            document.getElementById("myForm").reset();
+        }));
         /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/

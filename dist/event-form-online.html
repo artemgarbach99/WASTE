@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250124152323">
+	<link rel="stylesheet" href="css/style.min.css?_v=20250212201229">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -1777,7 +1777,7 @@
 		<main class="page">
 			<div class="addition-form event-online">
 				<div class="addition-form__container">
-					<form action="#" class="addition-form__body">
+					<form id="myForm" action="#" class="addition-form__body">
 						<div class="addition-form__language language-top-content">
 							<span id="navbar__lable" class="language-top-content__lable _icon-triangle">UK</span>
 							<div id="navbar__dropdown" class="language-top-content__dropdown">
@@ -1823,7 +1823,7 @@
 										</div>
 										<div class="caption-addition-form__row">
 											<div class="caption-addition-form__input">
-												<input id="input" maxlength="100" autocomplete="off" type="text" name="form[]" data-required data-error="Ошибка" placeholder="" class="input" />
+												<input id="input" maxlength="100" autocomplete="off" type="text" name="form[]" data-required data-error="Не заполнено поле" placeholder="" class="input" />
 												<label for="input">Осталось знаков (с пробелами): <span data-limitLabel></span></label>
 												<!-- <span>Осталось знаков (с пробелами): </span> -->
 											</div>
@@ -1832,23 +1832,26 @@
                         </div> -->
 										</div>
 									</div>
-									<div class="addition-form__quantity quantity-addition-form">
+									<div class="addition-form__quantity quantity-addition-form _event _bb-none">
 										<div class="quantity-addition-form__column">
 											<div class="quantity-addition-form__lable h4 _icon-star">Дата начала</div>
-											<div class="quantity-addition-form__input">
-												<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="ДД.ММ.ГГГГ" class="input" />
+											<div id="6" class="quantity-addition-form__input _date" id="date-picker-container">
+												<input id="6" type="text" data-error="Не заполнено поле" data-required placeholder="ДД.ММ.ГГГГ" class="input date-checkin" />
+
+												<!-- <input type="date" id="date-checkin" class="input" name="date-from" /> -->
+												<!-- <input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="ДД.ММ.ГГГГ" class="input date-mask" /> -->
 												<!-- <span class="quantity-addition-form__subtext h5">Укажите, когда проходило мероприятие</span> -->
 											</div>
 										</div>
 										<div class="quantity-addition-form__column">
 											<div class="quantity-addition-form__lable h4 _icon-star">Время начала</div>
 											<div class="quantity-addition-form__input">
-												<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="00:00" class="input" />
+												<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="00:00" class="input time-mask" />
 												<!-- <span class="quantity-addition-form__subtext h5">Например: договорная, 150 тыс. грн и т.д.</span> -->
 											</div>
 										</div>
 									</div>
-									<div class="addition-form__quantity quantity-addition-form">
+									<div class="addition-form__quantity quantity-addition-form _event">
 										<div class="quantity-addition-form__column">
 											<div class="quantity-addition-form__lable h4 _icon-star">Часовой пояс</div>
 
@@ -1858,19 +1861,27 @@
 													<label for="e_1" class="options-event__label"><span class="options-event__text h4">Киев</span></label>
 												</div>
 												<div class="options-event__item">
-													<input id="e_2" class="options-event__input" type="radio" value="1" name="option_event" />
-													<label for="e_2" class="options-event__label"><span class="options-event__text h4">Укажите другой пояс</span></label>
+													<input id="e_2" class="options-event__input" type="radio" value="2" name="option_event" />
+													<label for="e_2" class="options-event__label">
+														<div class="options-event__value">
+															<input id="option-country" autocomplete="off" type="text" name="form[]" value="Укажите другой пояс" data-error="Не заполнено поле" data-required placeholder="Укажите другой пояс" class="input" />
+															<!-- <span class="options-event__text h4">Укажите другой пояс</span> -->
+														</div>
+													</label>
 												</div>
 											</div>
 
 											<!-- <div class="quantity-addition-form__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="ДД.ММ.ГГГГ" class="input" />
+													<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" placeholder="ДД.ММ.ГГГГ" class="input" />
 												</div> -->
 										</div>
 										<div class="quantity-addition-form__column">
 											<div class="quantity-addition-form__lable h4 _icon-star">Дата окончания</div>
-											<div class="quantity-addition-form__input">
-												<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="ДД.ММ.ГГГГ" class="input" />
+											<div id="6" class="quantity-addition-form__input _date" id="date-picker-container">
+												<input id="6" type="text" data-error="Не заполнено поле" data-required placeholder="ДД.ММ.ГГГГ" class="input date-checkout" />
+
+												<!-- <input type="date" id="date-checkout" class="input" name="" /> -->
+												<!-- <input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="ДД.ММ.ГГГГ" class="input date-mask" /> -->
 												<!-- <span class="quantity-addition-form__subtext h5">Например: договорная, 150 тыс. грн и т.д.</span> -->
 											</div>
 										</div>
@@ -1880,7 +1891,7 @@
 											<div class="equipment-event-offline__title h4">Логотип</div>
 											<div class="equipment-event-offline__logo">
 												<div class="equipment-event-offline__button">
-													<label class="equipment-event-offline__label _icon-plus" for="load-logo__input1" tabindex="0">
+													<label class="equipment-event-offline__label _icon-plus _label-logo" for="load-logo__input1" tabindex="0">
 														<!-- <span class="load-logo__image"></span> -->
 													</label>
 													<input type="file" name="load-logo__input" id="load-logo__input1" autocomplete="off" />
@@ -1895,28 +1906,35 @@
 										</div>
 										<div class="equipment-event-offline__column">
 											<div class="equipment-event-offline__title h4 _icon-star">Описание мероприятия</div>
-											<textarea name="" id="" class="equipment-event-offline__textarea h5"></textarea>
+											<div class="equipment-event-offline__textarea">
+												<textarea name="" id="" data-error="Не заполнено поле" data-required class="h5"></textarea>
+											</div>
 										</div>
 									</div>
 									<div id="organizers-online" class="event-offline__organizers organizers-event">
 										<div class="organizers-event__title _icon-star">Организатор(ы)</div>
-										<div data-list-id="1" class="organizers-event__list _country">
+										<div data-list-id="1" class="organizers-event__list _country drop-items">
 											<div class="organizers-event__row">
-												<div class="organizers-event__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Экологический Альянс, ООО" class="input" />
-												</div>
-												<div class="organizers-event__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Украина" class="input" />
-												</div>
+												<div class="organizers-event__name">Экологический Альянс, ООО</div>
+												<div class="organizers-event__name">Украина</div>
+												<!-- <div class="organizers-event__input">
+														<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" placeholder="Экологический Альянс, ООО" class="input" />
+													</div>
+													<div class="organizers-event__input">
+														<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" placeholder="Украина" class="input" />
+													</div> -->
 											</div>
 											<!-- <div class="organizers-event__item _star _icon-star">
                           <button type="button" class="organizers-event__close _icon-plus"></button>
-                          <input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Укажите организатора " class="input" />
+                          <input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" placeholder="Укажите организатора " class="input" />
                         </div> -->
 										</div>
 										<div data-line-id="1" class="organizers-event__line">
 											<button id="1" type="button" class="organizers-event__button _green _icon-plus"></button>
 											<div class="organizers-event__text h4">Добавить организатора</div>
+										</div>
+										<div data-info-id="1" class="organizers-event__info">
+											<span class="shipping-addition-form__subtext h5">Перетяните строку для изменения порядка следования организаторов.</span>
 										</div>
 									</div>
 									<div class="addition-form__contacts contacts-addition-form">
@@ -1924,15 +1942,15 @@
 											<div class="contacts-addition-form__column">
 												<div class="contacts-addition-form__lable h4 _icon-star">Сайт</div>
 												<div class="contacts-addition-form__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" data-required placeholder="" class="input" />
+													<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="" class="input" />
 												</div>
 											</div>
 											<div class="contacts-addition-form__column">
 												<div class="contacts-addition-form__lable h4 _icon-star">Контактное лицо</div>
 												<div class="contacts-addition-form__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Анастасия" class="input" />
+													<input autocomplete="off" type="text" name="form[]" value="Анастасия" data-error="Не заполнено поле" data-required placeholder="" class="input" />
 													<!-- <div class="checkbox">
-                              <input id="c_1" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]" />
+                              <input id="c_1" data-error="Не заполнено поле" class="checkbox__input" type="checkbox" value="1" name="form[]" />
                               <label for="c_1" class="checkbox__label"><span class="checkbox__text h5">Скрыть email при показе объявления</span></label>
                             </div> -->
 												</div>
@@ -1942,21 +1960,21 @@
 											<div class="contacts-addition-form__column">
 												<div class="contacts-addition-form__lable h4">Должность</div>
 												<div class="contacts-addition-form__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" data-required placeholder="Например, event-менеджер" class="input" />
+													<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" placeholder="Например, event-менеджер" class="input" />
 												</div>
 											</div>
 											<div class="contacts-addition-form__column">
 												<div class="contacts-addition-form__lable h4">Email</div>
-												<div class="contacts-addition-form__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="email@gmail.com" class="input" />
+												<div class="contacts-addition-form__input _email">
+													<input id="6" autocomplete="off" type="text" name="form[]" value="email@gmail.com" data-error="Не заполнено поле" placeholder="" class="input" />
 													<!-- <div class="checkbox">
-                              <input id="c_1" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]" />
+                              <input id="c_1" data-error="Не заполнено поле" class="checkbox__input" type="checkbox" value="1" name="form[]" />
                               <label for="c_1" class="checkbox__label"><span class="checkbox__text h5">Скрыть email при показе объявления</span></label>
                             </div> -->
 												</div>
 											</div>
 										</div>
-										<div class="contacts-addition-form__row-phone">
+										<div id="6" class="contacts-addition-form__row-phone">
 											<div class="contacts-addition-form__column _number">
 												<div class="contacts-addition-form__phone phone-content-forms">
 													<div class="phone-content-forms__body">
@@ -1977,7 +1995,7 @@
 																<option value="12" data-asset="Грузия">+995</option>
 																<option value="13" data-asset="Дания">+45</option>
 															</select>
-															<input autocomplete="off" type="tel" name="form[]" data-error="Ошибка" data-required placeholder="Номер телефона" class="input _min-fontsize" />
+															<input id="6" autocomplete="off" type="tel" name="form[]" data-error="Не указан номер телефона" placeholder="Номер телефона" value="12345678901234" class="input _min-fontsize phone-mask" />
 														</div>
 													</div>
 													<div id="6" class="phone-content-forms__out"></div>
@@ -1990,7 +2008,7 @@
 											</div>
 										</div>
 										<div class="contacts-addition-form__buttons _event">
-											<button type="submit" class="contacts-addition-form__button-event">Сохранить</button>
+											<button id="6" type="submit" class="contacts-addition-form__button-event">Сохранить</button>
 											<!-- <div class="contacts-addition-form__buttons-wrap">
                           <button type="submit" class="contacts-addition-form__button h4 _promote">Сохранить и рекламировать</button>
                           <button type="submit" class="contacts-addition-form__button h4 _save">Сохранить</button>
@@ -2011,7 +2029,7 @@
 										</div>
 										<div class="caption-addition-form__row">
 											<div class="caption-addition-form__input">
-												<input id="input" maxlength="100" autocomplete="off" type="text" name="form[]" data-required data-error="Ошибка" placeholder="" class="input" />
+												<input id="input" maxlength="100" autocomplete="off" type="text" name="form[]" data-required data-error="Не заполнено поле" placeholder="" class="input" />
 												<label for="input">Осталось знаков (с пробелами): <span data-limitLabel></span></label>
 											</div>
 											<!-- <div class="caption-addition-form__text _desk">
@@ -2019,19 +2037,29 @@
                         </div> -->
 										</div>
 									</div>
-									<div class="addition-form__quantity quantity-addition-form">
-										<div class="quantity-addition-form__column">
-											<div class="quantity-addition-form__lable h4 _icon-star">Дата начала</div>
-											<div class="quantity-addition-form__input">
-												<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="ДД.ММ.ГГГГ" class="input" />
-												<span class="quantity-addition-form__subtext h5">Укажите, когда проходило мероприятие</span>
+									<div class="addition-form__quantity quantity-addition-form _info _event">
+										<span class="quantity-addition-form__subtext h4">Укажите, когда проходило мероприятие</span>
+
+										<div class="quantity-addition-form__row">
+											<div class="quantity-addition-form__column">
+												<div class="quantity-addition-form__lable h4 _icon-star">Дата начала</div>
+												<div id="7" class="quantity-addition-form__input _date" id="date-picker-container">
+													<input id="7" type="text" data-error="Не заполнено поле" data-required placeholder="ДД.ММ.ГГГГ" class="input date-checkin" />
+
+													<!-- <input type="date" id="date-checkin" class="input" name="date-from" /> -->
+													<!-- <input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="ДД.ММ.ГГГГ" class="input date-mask" /> -->
+													<!-- <span class="quantity-addition-form__subtext h5">Укажите, когда проходило мероприятие</span> -->
+												</div>
 											</div>
-										</div>
-										<div class="quantity-addition-form__column">
-											<div class="quantity-addition-form__lable h4 _icon-star">Дата окончания</div>
-											<div class="quantity-addition-form__input">
-												<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="ДД.ММ.ГГГГ" class="input" />
-												<!-- <span class="quantity-addition-form__subtext h5">Например: договорная, 150 тыс. грн и т.д.</span> -->
+											<div class="quantity-addition-form__column">
+												<div class="quantity-addition-form__lable h4 _icon-star">Дата окончания</div>
+												<div id="7" class="quantity-addition-form__input _date" id="date-picker-container">
+													<input id="7" type="text" data-error="Не заполнено поле" data-required placeholder="ДД.ММ.ГГГГ" class="input date-checkout" />
+
+													<!-- <input type="date" id="date-checkout" class="input" name="" /> -->
+													<!-- <input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="ДД.ММ.ГГГГ" class="input date-mask" /> -->
+													<!-- <span class="quantity-addition-form__subtext h5">Например: договорная, 150 тыс. грн и т.д.</span> -->
+												</div>
 											</div>
 										</div>
 									</div>
@@ -2053,7 +2081,7 @@
 											<div class="quantity-addition-form__column">
 												<div class="quantity-addition-form__lable h4 _icon-star">Дата окончания</div>
 												<div class="quantity-addition-form__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="ДД.ММ.ГГГГ" class="input" />
+													<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" placeholder="ДД.ММ.ГГГГ" class="input" />
 												</div>
 											</div>
 										</div> -->
@@ -2062,7 +2090,7 @@
 											<div class="equipment-event-offline__title h4">Логотип</div>
 											<div class="equipment-event-offline__logo">
 												<div class="equipment-event-offline__button">
-													<label class="equipment-event-offline__label _icon-plus" for="load-logo__input2" tabindex="0">
+													<label class="equipment-event-offline__label _icon-plus _label-logo" for="load-logo__input2" tabindex="0">
 														<!-- <span class="load-logo__image"></span> -->
 													</label>
 													<input type="file" name="load-logo__input" id="load-logo__input2" autocomplete="off" />
@@ -2077,28 +2105,35 @@
 										</div>
 										<div class="equipment-event-offline__column">
 											<div class="equipment-event-offline__title h4 _icon-star">Описание мероприятия</div>
-											<textarea name="" id="" class="equipment-event-offline__textarea h5"></textarea>
+											<div class="equipment-event-offline__textarea">
+												<textarea name="" id="" data-error="Не заполнено поле" data-required class="h5"></textarea>
+											</div>
 										</div>
 									</div>
 									<div id="organizers-online" class="event-offline__organizers organizers-event">
 										<div class="organizers-event__title _icon-star">Организатор(ы)</div>
-										<div data-list-id="2" class="organizers-event__list _country">
+										<div data-list-id="2" class="organizers-event__list _country drop-items">
 											<div class="organizers-event__row">
-												<div class="organizers-event__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Экологический Альянс, ООО" class="input" />
-												</div>
-												<div class="organizers-event__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Украина" class="input" />
-												</div>
+												<div class="organizers-event__name">Экологический Альянс, ООО</div>
+												<div class="organizers-event__name">Украина</div>
+												<!-- <div class="organizers-event__input">
+														<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" placeholder="Экологический Альянс, ООО" class="input" />
+													</div>
+													<div class="organizers-event__input">
+														<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" placeholder="Украина" class="input" />
+													</div> -->
 											</div>
 											<!-- <div class="organizers-event__item _star _icon-star">
                           <button type="button" class="organizers-event__close _icon-plus"></button>
-                          <input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Укажите организатора " class="input" />
+                          <input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" placeholder="Укажите организатора " class="input" />
                         </div> -->
 										</div>
 										<div data-line-id="2" class="organizers-event__line">
 											<button id="2" type="button" class="organizers-event__button _green _icon-plus"></button>
 											<div class="organizers-event__text h4">Добавить организатора</div>
+										</div>
+										<div data-info-id="2" class="organizers-event__info">
+											<span class="shipping-addition-form__subtext h5">Перетяните строку для изменения порядка следования организаторов.</span>
 										</div>
 									</div>
 									<div class="addition-form__contacts contacts-addition-form">
@@ -2106,15 +2141,15 @@
 											<div class="contacts-addition-form__column">
 												<div class="contacts-addition-form__lable h4 _icon-star">Сайт</div>
 												<div class="contacts-addition-form__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" data-required placeholder="" class="input" />
+													<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="" class="input" />
 												</div>
 											</div>
 											<div class="contacts-addition-form__column">
 												<div class="contacts-addition-form__lable h4 _icon-star">Контактное лицо</div>
 												<div class="contacts-addition-form__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Анастасия" class="input" />
+													<input autocomplete="off" type="text" name="form[]" value="Анастасия" data-error="Не заполнено поле" data-required placeholder="" class="input" />
 													<!-- <div class="checkbox">
-                              <input id="c_1" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]" />
+                              <input id="c_1" data-error="Не заполнено поле" class="checkbox__input" type="checkbox" value="1" name="form[]" />
                               <label for="c_1" class="checkbox__label"><span class="checkbox__text h5">Скрыть email при показе объявления</span></label>
                             </div> -->
 												</div>
@@ -2124,21 +2159,21 @@
 											<div class="contacts-addition-form__column">
 												<div class="contacts-addition-form__lable h4">Должность</div>
 												<div class="contacts-addition-form__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" data-required placeholder="Например, event-менеджер" class="input" />
+													<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" placeholder="Например, event-менеджер" class="input" />
 												</div>
 											</div>
 											<div class="contacts-addition-form__column">
 												<div class="contacts-addition-form__lable h4">Email</div>
-												<div class="contacts-addition-form__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="email@gmail.com" class="input" />
+												<div class="contacts-addition-form__input _email">
+													<input id="7" autocomplete="off" type="text" name="form[]" value="email@gmail.com" data-error="Не заполнено поле" placeholder="" class="input" />
 													<!-- <div class="checkbox">
-                              <input id="c_1" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]" />
+                              <input id="c_1" data-error="Не заполнено поле" class="checkbox__input" type="checkbox" value="1" name="form[]" />
                               <label for="c_1" class="checkbox__label"><span class="checkbox__text h5">Скрыть email при показе объявления</span></label>
                             </div> -->
 												</div>
 											</div>
 										</div>
-										<div class="contacts-addition-form__row-phone">
+										<div id="7" class="contacts-addition-form__row-phone">
 											<div class="contacts-addition-form__column _number">
 												<div class="contacts-addition-form__phone phone-content-forms">
 													<div class="phone-content-forms__body">
@@ -2159,7 +2194,7 @@
 																<option value="12" data-asset="Грузия">+995</option>
 																<option value="13" data-asset="Дания">+45</option>
 															</select>
-															<input autocomplete="off" type="tel" name="form[]" data-error="Ошибка" data-required placeholder="Номер телефона" class="input _min-fontsize" />
+															<input id="7" autocomplete="off" type="tel" name="form[]" data-error="Не указан номер телефона" placeholder="Номер телефона" value="12345678901234" class="input _min-fontsize phone-mask" />
 														</div>
 													</div>
 													<div id="7" class="phone-content-forms__out"></div>
@@ -2172,7 +2207,7 @@
 											</div>
 										</div>
 										<div class="contacts-addition-form__buttons _event">
-											<button type="submit" class="contacts-addition-form__button-event">Сохранить</button>
+											<button id="7" type="submit" class="contacts-addition-form__button-event">Сохранить</button>
 											<!-- <div class="contacts-addition-form__buttons-wrap">
                           <button type="submit" class="contacts-addition-form__button h4 _promote">Сохранить и рекламировать</button>
                           <button type="submit" class="contacts-addition-form__button h4 _save">Сохранить</button>
@@ -2193,7 +2228,7 @@
 										</div>
 										<div class="caption-addition-form__row">
 											<div class="caption-addition-form__input">
-												<input id="input" maxlength="100" autocomplete="off" type="text" name="form[]" data-required data-error="Ошибка" placeholder="" class="input" />
+												<input id="input" maxlength="100" autocomplete="off" type="text" name="form[]" data-required data-error="Не заполнено поле" placeholder="" class="input" />
 												<label for="input">Осталось знаков (с пробелами): <span data-limitLabel></span></label>
 											</div>
 											<!-- <div class="caption-addition-form__text _desk">
@@ -2206,7 +2241,7 @@
 											<div class="equipment-event-offline__title h4">Логотип</div>
 											<div class="equipment-event-offline__logo">
 												<div class="equipment-event-offline__button">
-													<label class="equipment-event-offline__label _icon-plus" for="load-logo__input_3" tabindex="0">
+													<label class="equipment-event-offline__label _icon-plus _label-logo" for="load-logo__input_3" tabindex="0">
 														<!-- <span class="load-logo__image"></span> -->
 													</label>
 													<input type="file" name="load-logo__input" id="load-logo__input_3" autocomplete="off" />
@@ -2221,28 +2256,35 @@
 										</div>
 										<div class="equipment-event-offline__column">
 											<div class="equipment-event-offline__title h4 _icon-star">Описание мероприятия</div>
-											<textarea name="" id="" class="equipment-event-offline__textarea h5"></textarea>
+											<div class="equipment-event-offline__textarea">
+												<textarea name="" id="" data-error="Не заполнено поле" data-required class="h5"></textarea>
+											</div>
 										</div>
 									</div>
 									<div id="organizers-online" class="event-offline__organizers organizers-event">
 										<div class="organizers-event__title _icon-star">Организатор(ы)</div>
-										<div data-list-id="3" class="organizers-event__list _country">
+										<div data-list-id="3" class="organizers-event__list _country drop-items">
 											<div class="organizers-event__row">
-												<div class="organizers-event__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Экологический Альянс, ООО" class="input" />
-												</div>
-												<div class="organizers-event__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Украина" class="input" />
-												</div>
+												<div class="organizers-event__name">Экологический Альянс, ООО</div>
+												<div class="organizers-event__name">Украина</div>
+												<!-- <div class="organizers-event__input">
+														<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" placeholder="Экологический Альянс, ООО" class="input" />
+													</div>
+													<div class="organizers-event__input">
+														<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" placeholder="Украина" class="input" />
+													</div> -->
 											</div>
 											<!-- <div class="organizers-event__item _star _icon-star">
                           <button type="button" class="organizers-event__close _icon-plus"></button>
-                          <input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Укажите организатора " class="input" />
+                          <input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" placeholder="Укажите организатора " class="input" />
                         </div> -->
 										</div>
 										<div data-line-id="3" class="organizers-event__line">
 											<button id="3" type="button" class="organizers-event__button _green _icon-plus"></button>
 											<div class="organizers-event__text h4">Добавить организатора</div>
+										</div>
+										<div data-info-id="3" class="organizers-event__info">
+											<span class="shipping-addition-form__subtext h5">Перетяните строку для изменения порядка следования организаторов.</span>
 										</div>
 									</div>
 									<div class="addition-form__contacts contacts-addition-form">
@@ -2250,15 +2292,15 @@
 											<div class="contacts-addition-form__column">
 												<div class="contacts-addition-form__lable h4 _icon-star">Сайт</div>
 												<div class="contacts-addition-form__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" data-required placeholder="" class="input" />
+													<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="" class="input" />
 												</div>
 											</div>
 											<div class="contacts-addition-form__column">
 												<div class="contacts-addition-form__lable h4 _icon-star">Контактное лицо</div>
 												<div class="contacts-addition-form__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Анастасия" class="input" />
+													<input autocomplete="off" type="text" name="form[]" value="Анастасия" data-error="Не заполнено поле" data-required placeholder="" class="input" />
 													<!-- <div class="checkbox">
-                              <input id="c_1" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]" />
+                              <input id="c_1" data-error="Не заполнено поле" class="checkbox__input" type="checkbox" value="1" name="form[]" />
                               <label for="c_1" class="checkbox__label"><span class="checkbox__text h5">Скрыть email при показе объявления</span></label>
                             </div> -->
 												</div>
@@ -2268,21 +2310,21 @@
 											<div class="contacts-addition-form__column">
 												<div class="contacts-addition-form__lable h4">Должность</div>
 												<div class="contacts-addition-form__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" data-required placeholder="Например, event-менеджер" class="input" />
+													<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" placeholder="Например, event-менеджер" class="input" />
 												</div>
 											</div>
 											<div class="contacts-addition-form__column">
 												<div class="contacts-addition-form__lable h4">Email</div>
-												<div class="contacts-addition-form__input">
-													<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="email@gmail.com" class="input" />
+												<div class="contacts-addition-form__input _email">
+													<input id="8" autocomplete="off" type="text" name="form[]" value="email@gmail.com" data-error="Не заполнено поле" placeholder="" class="input" />
 													<!-- <div class="checkbox">
-                              <input id="c_1" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]" />
+                              <input id="c_1" data-error="Не заполнено поле" class="checkbox__input" type="checkbox" value="1" name="form[]" />
                               <label for="c_1" class="checkbox__label"><span class="checkbox__text h5">Скрыть email при показе объявления</span></label>
                             </div> -->
 												</div>
 											</div>
 										</div>
-										<div class="contacts-addition-form__row-phone">
+										<div id="8" class="contacts-addition-form__row-phone">
 											<div class="contacts-addition-form__column _number">
 												<div class="contacts-addition-form__phone phone-content-forms">
 													<div class="phone-content-forms__body">
@@ -2303,7 +2345,7 @@
 																<option value="12" data-asset="Грузия">+995</option>
 																<option value="13" data-asset="Дания">+45</option>
 															</select>
-															<input autocomplete="off" type="tel" name="form[]" data-error="Ошибка" data-required placeholder="Номер телефона" class="input _min-fontsize" />
+															<input id="8" autocomplete="off" type="tel" name="form[]" data-error="Не указана контактная информация" placeholder="Номер телефона" value="12345678901234" class="input _min-fontsize phone-mask" />
 														</div>
 													</div>
 													<div id="8" class="phone-content-forms__out"></div>
@@ -2316,7 +2358,7 @@
 											</div>
 										</div>
 										<div class="contacts-addition-form__buttons _event">
-											<button type="submit" class="contacts-addition-form__button-event">Сохранить</button>
+											<button id="8" type="submit" class="contacts-addition-form__button-event">Сохранить</button>
 											<!-- <div class="contacts-addition-form__buttons-wrap">
                           <button type="submit" class="contacts-addition-form__button h4 _promote">Сохранить и рекламировать</button>
                           <button type="submit" class="contacts-addition-form__button h4 _save">Сохранить</button>
@@ -2351,14 +2393,14 @@
 									<div class="shipping-addition-form__column">
 										<div class="shipping-addition-form__lable h4 _icon-star">Город</div>
 										<div class="shipping-addition-form__input">
-											<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Например, Киев" class="input" />
+											<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" placeholder="Например, Киев" class="input" />
 										</div>
 									</div>
 								</div>
 								<div class="shipping-addition-form__row-event">
 									<div class="shipping-addition-form__lable h4 _icon-star">Место проведения и адрес</div>
 									<div class="shipping-addition-form__input">
-										<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Например, Международный Выставочный Центр, Броварской проспект, 15" class="input" />
+										<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" placeholder="Например, Международный Выставочный Центр, Броварской проспект, 15" class="input" />
 									</div>
 								</div>
 							</div> -->
@@ -2425,15 +2467,101 @@
 			</div>
 		</footer>
 	</div>
-	<!-- <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20250124152323"></script>
-		<script>
-			const DropItem = document.getElementById('drop-items')
-			new Sortable(DropItem, {
-				animation: 150,
-				filter: '.description-product-addition__dropdown',
-				preventOnFilter: false
+	<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20250212201229"></script>
+	<script src="https://unpkg.com/imask?_v=20250212201229"></script>
+	<script>
+		const DropItem = document.querySelectorAll('.drop-items')
+		DropItem.forEach(element => {
+			new Sortable(element, {
+				animation: 150
 			})
-		</script> -->
+		})
+		// new Sortable(DropItem, {
+		// 	animation: 150,
+		// })
+	</script>
+	<script>
+		document.querySelectorAll('.date-mask').forEach(function(element) {
+			IMask(element, {
+				mask: Date,
+				min: new Date(1990, 0, 1),
+				max: new Date(2026, 0, 1),
+				lazy: true
+			})
+		})
+		document.querySelectorAll('.time-mask').forEach(function(element) {
+			IMask(element, {
+				mask: 'HH:MM',
+				blocks: {
+					HH: {
+						mask: IMask.MaskedRange,
+						from: 0,
+						to: 23,
+						maxLength: 2
+					},
+					MM: {
+						mask: IMask.MaskedRange,
+						from: 0,
+						to: 59,
+						maxLength: 2
+					}
+				}
+			})
+		})
+		document.querySelectorAll('.phone-mask').forEach(function(element) {
+			IMask(element, {
+				mask: '00-000-000-000-000'
+			})
+		})
+	</script>
+	<script>
+		// Функция для установки значения и фокуса на input в зависимости от выбранной радио кнопки
+		function handleRadioChange() {
+			var inputElement = document.getElementById('option-country')
+			var selectedRadio = document.querySelector('input[name="option_event"]:checked')
+
+			if (selectedRadio && selectedRadio.id === 'e_2') {
+				// Если выбрана радио кнопка с id e_2, активируем и очищаем input
+				inputElement.value = '' // Очистить значение
+				inputElement.focus() // Фокусируемся на элементе input
+			} else {
+				// Если выбрана другая радио кнопка, устанавливаем значение и деактивируем input
+				inputElement.value = 'Укажите другой пояс' // Восстанавливаем предварительное значение
+				// inputElement.blur() // Убираем фокус с input
+			}
+		}
+
+		// Добавляем обработчики события change для всех радио кнопок
+		document.querySelectorAll('input[name="option_event"]').forEach(function(radio) {
+			radio.addEventListener('change', handleRadioChange)
+		})
+	</script>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20250212201229" />
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20250212201229"></script>
+	<script>
+		document.querySelectorAll('.date-checkin').forEach(function(element) {
+			flatpickr(element, {
+				dateFormat: 'd-m-Y' // Настройка формата даты
+			})
+		})
+		// document.addEventListener('DOMContentLoaded', function () {
+		// 	flatpickr('#date-checkin', {
+		// 		dateFormat: 'd-m-Y' // Настройка формата даты
+		// 	})
+		// 	flatpickr('#date-checkout', {
+		// 		dateFormat: 'd-m-Y' // Настройка формата даты
+		// 	})
+		// })
+	</script>
+	<script>
+		document.querySelectorAll('.date-checkout').forEach(function(element) {
+			flatpickr(element, {
+				dateFormat: 'd-m-Y' // Настройка формата даты
+			})
+		})
+	</script>
+
 	<!-- <script>
 			// рабочий лимит 
 			class LimitLabel {
@@ -2593,68 +2721,140 @@
         addPhone()
     </script> -->
 	<script>
-		const addPhoneButton = document.querySelectorAll(
-			".phone-content-forms__button"
-		);
+		const addPhoneButton = document.querySelectorAll('.phone-content-forms__button')
 
-		addPhoneButton.forEach((element) => {
-			let CountPhones = 0;
-			const limitItems = 2;
-			const id = element.getAttribute("id");
-			const addPhoneBtn = document.querySelectorAll(".phone-content-forms__button[id='" + id + "']");
+		addPhoneButton.forEach(element => {
+			let CountPhones = 0
+			const limitItems = 2
+			const id = element.getAttribute('id')
+			const addPhoneBtn = document.querySelectorAll(".phone-content-forms__button[id='" + id + "']")
 
 			function addPhoneBody() {
-				let currentElementId = this.getAttribute("id");
-				const elemKod = document.querySelector(
-					".phone-content-forms__inner[id='" + currentElementId + "']"
-				).outerHTML;
-				const elemOutKod = document.querySelectorAll(
-					".phone-content-forms__out[id='" + currentElementId + "']"
-				);
+				let currentElementId = this.getAttribute('id')
+				const elemKod = `
+				<div id="${currentElementId}" class="phone-content-forms__inner _01">
+				<div class="select select_select-phone _select-active" data-id="2" bis_skin_checked="1">
+					<select name="form[]" class="select-phone" hidden="" data-id="2" data-speed="150">
+						<option value="1" selected="" data-asset="Украина">+380</option>
+						<option value="2" data-asset="Австрия">+43</option>
+						<option value="3" data-asset="Азербайджан">+994</option>
+						<option value="4" data-asset="Армения">+374</option>
+						<option value="5" data-asset="Белоруссия">+375</option>
+						<option value="6" data-asset="Бельгия">+32</option>
+						<option value="7" data-asset="Болгария">+359</option>
+						<option value="8" data-asset="Великобритания">+44</option>
+						<option value="9" data-asset="Венгрия">+36</option>
+						<option value="10" data-asset="Германия">+49</option>
+						<option value="11" data-asset="Греция">+30</option>
+						<option value="12" data-asset="Грузия">+995</option>
+						<option value="13" data-asset="Дания">+45</option>
+					</select>
+					<div class="select__body" bis_skin_checked="1">
+						<button type="button" class="select__title">
+							<span class="select__value">
+								<span class="select__content">
+									<span class="select__row">
+										<span class="select__asset">Украина</span>
+										<span class="select__text">+380</span>
+									</span>
+								</span>
+							</span>
+						</button>
+						<div hidden="" class="select__options" bis_skin_checked="1">
+							<button hidden="" class="select__option" data-value="1" type="button">
+								<span class="select__row"><span class="select__asset">Украина</span><span class="select__text">+380</span></span></button
+							><button class="select__option" data-value="2" type="button">
+								<span class="select__row"><span class="select__asset">Австрия</span><span class="select__text">+43</span></span></button
+							><button class="select__option" data-value="3" type="button">
+								<span class="select__row"><span class="select__asset">Азербайджан</span><span class="select__text">+994</span></span></button
+							><button class="select__option" data-value="4" type="button">
+								<span class="select__row"><span class="select__asset">Армения</span><span class="select__text">+374</span></span></button
+							><button class="select__option" data-value="5" type="button">
+								<span class="select__row"><span class="select__asset">Белоруссия</span><span class="select__text">+375</span></span></button
+							><button class="select__option" data-value="6" type="button">
+								<span class="select__row"><span class="select__asset">Бельгия</span><span class="select__text">+32</span></span></button
+							><button class="select__option" data-value="7" type="button">
+								<span class="select__row"><span class="select__asset">Болгария</span><span class="select__text">+359</span></span></button
+							><button class="select__option" data-value="8" type="button">
+								<span class="select__row"><span class="select__asset">Великобритания</span><span class="select__text">+44</span></span></button
+							><button class="select__option" data-value="9" type="button">
+								<span class="select__row"><span class="select__asset">Венгрия</span><span class="select__text">+36</span></span></button
+							><button class="select__option" data-value="10" type="button">
+								<span class="select__row"><span class="select__asset">Германия</span><span class="select__text">+49</span></span></button
+							><button class="select__option" data-value="11" type="button">
+								<span class="select__row"><span class="select__asset">Греция</span><span class="select__text">+30</span></span></button
+							><button class="select__option" data-value="12" type="button">
+								<span class="select__row"><span class="select__asset">Грузия</span><span class="select__text">+995</span></span></button
+							><button class="select__option" data-value="13" type="button">
+								<span class="select__row"><span class="select__asset">Дания</span><span class="select__text">+45</span></span>
+							</button>
+						</div>
+					</div>
+				</div>
+					<input
+						autocomplete="off"
+						type="tel"
+						name="form[]"
+						value=""
+						data-error="Не указан номер телефона"
+						data-required
+						placeholder="Номер телефона"
+						class="input _min-fontsize phone-mask" />
+				</div>
+			`
+				// const elemKod = document.querySelector(".phone-content-forms__inner[id='" + currentElementId + "']").outerHTML
+				const elemOutKod = document.querySelectorAll(".phone-content-forms__out[id='" + currentElementId + "']")
 
-				elemOutKod.forEach((element) => {
+				elemOutKod.forEach(element => {
 					if (CountPhones < limitItems) {
-						const formBody = document.createElement("div");
-						const buttonClose = document.createElement("button");
-						formBody.style.marginTop = "30px";
-						buttonClose.setAttribute(
-							"class",
-							"phone-content-forms__button-close"
-						);
-						buttonClose.setAttribute("type", "button");
-						buttonClose.id = currentElementId;
-						formBody.setAttribute("class", "phone-content-forms__body");
-						element.appendChild(formBody);
-						formBody.appendChild(buttonClose);
-						formBody.insertAdjacentHTML("beforeend", elemKod);
+						const formBody = document.createElement('div')
+						const buttonClose = document.createElement('button')
+						formBody.style.marginTop = '30px'
+						buttonClose.setAttribute('class', 'phone-content-forms__button-close')
+						buttonClose.setAttribute('type', 'button')
+						buttonClose.id = currentElementId
+						formBody.setAttribute('class', 'phone-content-forms__body')
+						element.appendChild(formBody)
+						formBody.appendChild(buttonClose)
+						formBody.insertAdjacentHTML('beforeend', elemKod)
 
-						const buttonsClose = document.querySelectorAll(
-							".phone-content-forms__button-close[id='" + currentElementId + "']"
-						);
-						buttonsClose.forEach((element) =>
-							element.addEventListener("click", deletePhoneBody)
-						);
+						// Функция для инициализации масок на элементах с классом 'date-mask'
+						function initializeDateMasks() {
+							document.querySelectorAll('.phone-mask').forEach(function(element) {
+								IMask(element, {
+									mask: '00000000000000'
+								})
+							})
+						}
 
-						CountPhones++;
+						// Вызов функции инициализации после вставки нового HTML
+						initializeDateMasks()
+						//=====
+
+						const buttonsClose = document.querySelectorAll(".phone-content-forms__button-close[id='" + currentElementId + "']")
+						buttonsClose.forEach(element => element.addEventListener('click', deletePhoneBody))
+
+						CountPhones++
 					}
 					if (CountPhones === limitItems) {
-						addPhoneBtn.forEach((element) => {
-							element.classList.add("_disable");
-						});
+						addPhoneBtn.forEach(element => {
+							element.classList.add('_disable')
+						})
 					}
-				});
+				})
 			}
 
 			function deletePhoneBody() {
-				this.parentElement.remove();
-				addPhoneBtn.forEach((element) => {
-					element.classList.remove("_disable");
-				});
-				CountPhones--;
+				this.parentElement.remove()
+				addPhoneBtn.forEach(element => {
+					element.classList.remove('_disable')
+				})
+				CountPhones--
 			}
-			element.addEventListener("click", addPhoneBody);
-		});
+			element.addEventListener('click', addPhoneBody)
+		})
 	</script>
+
 	<!-- <script>
     const button1 = document.querySelector('.product-addition-form__button');
     const panelGroup = document.querySelector('.product-addition-form__wrapper');
@@ -2910,7 +3110,7 @@
 		//     }
 		// });
 	</script>
-	<script src="js/app.min.js?_v=20250124152323"></script>
+	<script src="js/app.min.js?_v=20250212201229"></script>
 </body>
 
 </html>
