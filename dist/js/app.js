@@ -1991,7 +1991,8 @@
             }));
         }
         if (document.querySelector(".select_select-country")) otherCountrySelect();
-        function DateInputs() {
+        //! старый datepicker
+                function DateInputs() {
             const dateContainers = document.querySelectorAll(".quantity-addition-form__input._date");
             dateContainers.forEach((dateContainer => {
                 const dateInput = dateContainer.querySelector(".input");
@@ -9241,6 +9242,20 @@
             if (typeof module === "object" && module.exports) module.exports = AccordionTabs;
             return AccordionTabs;
         })();
+        const dateCheckin = document.querySelectorAll(".date-checkin");
+        const dateCheckout = document.querySelectorAll(".date-checkout");
+        if (dateCheckin && dateCheckout) {
+            dateCheckin.forEach((function(element) {
+                flatpickr(element, {
+                    dateFormat: "d-m-Y"
+                });
+            }));
+            dateCheckout.forEach((function(element) {
+                flatpickr(element, {
+                    dateFormat: "d-m-Y"
+                });
+            }));
+        }
         window["FLS"] = true;
         isWebp();
         addTouchClass();

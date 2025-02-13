@@ -3,15 +3,16 @@
 
 <head>
 	<title>event-form-online</title>
-	<meta charset="UTF-8">
-	<meta name="format-detection" content="telephone=no">
+	<meta charset="UTF-8" />
+	<meta name="format-detection" content="telephone=no" />
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250212201229">
-	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="css/style.min.css?_v=20250213212243" />
+	<link rel="shortcut icon" href="favicon.ico" />
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 	<meta name="viewport" content="width=device-width minimum-scale=1.0 maximum-scale=1.0 user-scalable=no" />
 </head>
+
 
 <body class="office-header-item">
 	<div class="wrapper">
@@ -2467,8 +2468,8 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20250212201229"></script>
-	<script src="https://unpkg.com/imask?_v=20250212201229"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20250213212243"></script>
+	<script src="https://unpkg.com/imask?_v=20250213212243"></script>
 	<script>
 		const DropItem = document.querySelectorAll('.drop-items')
 		DropItem.forEach(element => {
@@ -2537,30 +2538,20 @@
 		})
 	</script>
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20250212201229" />
-	<script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20250212201229"></script>
-	<script>
-		document.querySelectorAll('.date-checkin').forEach(function(element) {
-			flatpickr(element, {
-				dateFormat: 'd-m-Y' // Настройка формата даты
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20250213212243" />
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20250213212243"></script>
+	<!-- <script>
+			document.querySelectorAll('.date-checkin').forEach(function (element) {
+				flatpickr(element, {
+					dateFormat: 'd-m-Y' // Настройка формата даты
+				})
 			})
-		})
-		// document.addEventListener('DOMContentLoaded', function () {
-		// 	flatpickr('#date-checkin', {
-		// 		dateFormat: 'd-m-Y' // Настройка формата даты
-		// 	})
-		// 	flatpickr('#date-checkout', {
-		// 		dateFormat: 'd-m-Y' // Настройка формата даты
-		// 	})
-		// })
-	</script>
-	<script>
-		document.querySelectorAll('.date-checkout').forEach(function(element) {
-			flatpickr(element, {
-				dateFormat: 'd-m-Y' // Настройка формата даты
+			document.querySelectorAll('.date-checkout').forEach(function (element) {
+				flatpickr(element, {
+					dateFormat: 'd-m-Y' // Настройка формата даты
+				})
 			})
-		})
-	</script>
+		</script> -->
 
 	<!-- <script>
 			// рабочий лимит 
@@ -2688,38 +2679,6 @@
 			})
 		})
 	</script>
-	<!-- <script>
-        function addPhone() {
-            const addPhoneButton = document.querySelector('._btn-first-phone');
-
-            function closeAudit() {
-                this.parentElement.remove();
-                addPhoneButton.classList.remove("_disable");
-                addressesCountFirst--;
-            }
-
-            let addressesCountFirst = 0;
-            let addressesCountLimit = 1
-
-            function addAudit() {
-                if (addressesCountFirst <= addressesCountLimit) {
-                    const elemKod = document.querySelector('.phone-content-forms__inner._01').outerHTML;
-                    const elemOutKod = document.querySelector('.phone-content-forms__out');
-                    elemOutKod.style.marginTop = "30px";
-                    elemOutKod.innerHTML += '<div class="phone-content-forms__body">' + '<button type="button" class="phone-content-forms__button-close _01">' + '</button>' + elemKod + '</div>';
-                    const closePhone = document.querySelectorAll('.phone-content-forms__button-close._01');
-                    closePhone.forEach(element => element.addEventListener('click', closeAudit))
-                    addressesCountFirst++;
-                }
-                if (addressesCountFirst === 2) {
-                    addPhoneButton.classList.add("_disable");
-                }
-            };
-
-            addPhoneButton.addEventListener("click", addAudit);
-        }
-        addPhone()
-    </script> -->
 	<script>
 		const addPhoneButton = document.querySelectorAll('.phone-content-forms__button')
 
@@ -2854,241 +2813,6 @@
 			element.addEventListener('click', addPhoneBody)
 		})
 	</script>
-
-	<!-- <script>
-    const button1 = document.querySelector('.product-addition-form__button');
-    const panelGroup = document.querySelector('.product-addition-form__wrapper');
-    const limit = document.querySelector('.product-addition-form__wrapper');
-    const itemsLimit = parseInt(limit.getAttribute('data-limit'));
-    let idCard = 1;
-    let itemCount = 0;
-
-    const input = document.querySelector('.product-addition-form__input-file');
-    input.addEventListener('change', handleInputChange);
-
-    function handleInputChange() {
-        const maxSize = 1048576; // 1 MB
-        const input = document.querySelector('input[type="file"]');
-        if (input.files && input.files[0]) {
-            const file = input.files[0];
-            if (file.size > maxSize) {
-                alert('Размер файла превышает максимальный размер')
-            return;
-            }
-            const reader = new FileReader();
-            reader.onload = handleFileLoad;
-            reader.readAsDataURL(file);
-            console.log('Файл выбран');
-            input.value = '';
-            addElement();
-        } else {
-            console.log('Файл не выбран');
-            return;
-        }
-    }
-
-    function handleFileLoad(e) {
-        const url = e.target.result;
-        let id;
-        const deleteItems = document.querySelectorAll('.product-addition-form__image');
-        deleteItems.forEach(element => {
-            id = element.getAttribute("id");
-        });
-        const img = document.querySelector(".description-product-addition__image-source[id='" + id + "']");
-        img.src = url;
-    }
-
-    function addElement() {
-        if (itemCount < itemsLimit) {
-            const description = document.createElement('div');
-            const lableDescription = document.createElement('div');
-            const dropDescription = document.createElement('div');
-            const count = document.createElement('span');
-            const panel1 = document.createElement('div');
-            const deleteItem = document.createElement('div');
-            const img = document.createElement('img');
-            const button = document.createElement('button');
-            const textareaBody = document.createElement('textarea');
-            const closeButton = document.createElement('div');
-            const inner = document.createElement('div');
-
-            deleteItem.setAttribute('class', 'product-addition-form__image')
-            img.setAttribute('class', 'description-product-addition__image-source')
-            count.setAttribute('class', 'description-product-addition__count');
-            panel1.setAttribute('class', 'product-addition-form__slide');
-            panelGroup.appendChild(panel1);
-            panel1.appendChild(deleteItem);
-            panel1.appendChild(description);
-            deleteItem.appendChild(img);
-            description.setAttribute('class', 'product-addition-form__description description-product-addition');
-            lableDescription.setAttribute('class', 'description-product-addition__lable');
-            dropDescription.setAttribute('class', 'description-product-addition__dropdown');
-            lableDescription.textContent = 'Описание';
-            description.appendChild(lableDescription);
-            description.appendChild(dropDescription);
-            inner.setAttribute('class', 'description-product-addition__inner');
-            button.setAttribute('class', 'description-product-addition__button');
-            button.setAttribute('type', 'button');
-            button.textContent = 'Сохранить описание';
-            textareaBody.setAttribute('class', 'description-product-addition__textarea required');
-            textareaBody.setAttribute('id', 'desinp');
-            textareaBody.setAttribute('name', 'desinp');
-            textareaBody.setAttribute('maxlength', '50');
-            textareaBody.setAttribute('rows', '3');
-            closeButton.setAttribute('class', 'description-product-addition__close _icon-plus');
-            dropDescription.appendChild(inner);
-            dropDescription.appendChild(button);
-            dropDescription.appendChild(closeButton);
-            inner.appendChild(textareaBody);
-            inner.appendChild(count);
-
-            const currentId = idCard++;
-
-            lableDescription.id = currentId;
-            dropDescription.id = currentId;
-            count.id = currentId;
-            button.id = currentId;
-            textareaBody.id = currentId;
-            closeButton.id = currentId;
-            deleteItem.id = currentId;
-            img.id = currentId;
-            panel1.id = currentId;
-
-            
-            if (document.documentElement.classList.contains('touch')) {
-                let isTouchMoveActive = false;
-    
-                deleteItem.addEventListener('touchmove', function(event) {
-                    isTouchMoveActive = true;
-                });
-    
-                deleteItem.addEventListener('touchend', function(event) {
-                    if (isTouchMoveActive) {
-                        event.preventDefault();
-                        console.log('touchend cancelled');
-                    } else {
-                        deleteSlide();
-                        console.log('Файл удален');
-                    }
-                    isTouchMoveActive = false;
-                });
-            } else {
-                deleteItem.addEventListener('click', deleteSlide);
-            }
-
-            const lableDescriptions = document.querySelectorAll('.description-product-addition__lable');
-            const dropDescriptions = document.querySelectorAll('.description-product-addition__dropdown');
-            const slides = document.querySelectorAll('.product-addition-form__slide');
-
-            for (let i = 0; i < lableDescriptions.length; i++) {
-                if (document.documentElement.classList.contains('touch')) {
-                    lableDescriptions[i].addEventListener("touchend", openDropMenu)
-				} else {
-                    lableDescriptions[i].addEventListener("click", openDropMenu)
-                }
-            }
-
-            function openDropMenu() {
-                const getShowBody = this.getAttribute("id");
-                const textareaBodies = document.querySelectorAll(".description-product-addition__textarea[id='" + getShowBody + "']");
-                const counts = document.querySelectorAll(".description-product-addition__count[id='" + getShowBody + "']");
-
-                dropDescriptions.forEach(element => {
-                    element.classList.remove('_show-dropdown');
-                });
-                counts.forEach(element => {
-                    element.classList.remove('_show');
-                    element.innerHTML = "";
-                });
-
-                document.querySelector(".description-product-addition__dropdown[id='" + getShowBody + "']").classList.add("_show-dropdown");
-                
-                counts.forEach(element => {
-                    element.classList.add("_show");
-                });
-
-                textareaBodies.forEach(function (element) {
-                    element.addEventListener('keyup', function () {
-                        counts.forEach(element => {
-                            element.innerHTML = "Осталось знаков: " + (50 - this.value.length);
-                        });
-                    });
-
-                    if (document.documentElement.classList.contains('touch')) {
-                        element.addEventListener('touchend', function () {
-                            element.focus();
-                        });
-                    } else {
-                        element.addEventListener('click', function () {
-                            element.focus();
-                        });
-                    }
-                });
-
-                const button = document.querySelectorAll(".description-product-addition__button[id='" + getShowBody + "']");
-
-                button.forEach(element => {
-                    if (document.documentElement.classList.contains('touch')) {
-                        element.addEventListener("touchend", saveDescription)
-                    } else {
-                        element.addEventListener("click", saveDescription)
-                    }
-                });
-
-                function saveDescription () {
-                    dropDescriptions.forEach(element => {
-                            element.classList.remove("_show-dropdown");
-                        });
-                    textareaBodies.forEach(element => {
-                        // if (element.value == "") {
-                        //     document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
-                        // } else {
-                        //     document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Изменить';
-                        // }
-
-                        if (element.value === null || element.value === "") {
-                            document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
-                        } else {
-                            document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Изменить';
-                        }
-                    });
-                }
-
-                const closeButton = document.querySelectorAll(".description-product-addition__close[id='" + getShowBody + "']");
-
-                closeButton.forEach(element => {
-                    if (document.documentElement.classList.contains('touch')) {
-                        element.addEventListener("touchend", closeDescription)
-                    } else {
-                        element.addEventListener("click", closeDescription)
-                    }
-                });
-
-                function closeDescription () {
-                    dropDescriptions.forEach(element => {
-                        element.classList.remove("_show-dropdown");
-                    });
-                    textareaBodies.forEach(element => {
-                        element.value = "";
-                        document.querySelector(".description-product-addition__lable[id='" + getShowBody + "']").textContent = 'Описание';
-                    });
-                }
-            }
-
-            function deleteSlide() {
-                panel1.remove();
-                itemCount--;
-                button1.classList.remove("_disable");
-                input.disabled = false;
-            }
-            itemCount++;
-        }
-        if (itemCount === itemsLimit) {
-            button1.classList.add("_disable");
-            input.disabled = true;
-        }
-    }
-</script>  -->
 	<script>
 		const lableOffice = document.querySelector('.office-header__lable');
 		const dropdownOffice = document.querySelector('.office-header__dropdown')
@@ -3110,7 +2834,7 @@
 		//     }
 		// });
 	</script>
-	<script src="js/app.min.js?_v=20250212201229"></script>
+	<script src="js/app.min.js?_v=20250213212243"></script>
 </body>
 
 </html>
