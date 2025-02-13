@@ -1981,13 +1981,13 @@
             }));
         }
         if (document.getElementById("organizers-online")) AddOrganizersEventWithCountry();
-        function otherCountrySelect() {
-            const selectOptions = document.querySelectorAll(".select_select-country .select__option");
+        //! input для другой страны (не рабочий)
+                function otherCountrySelect() {
+            const countrySelect = document.querySelector(".select_select-country");
             const countryInput = document.querySelector(".shipping-addition-form__country");
-            selectOptions.forEach((option => {
-                option.addEventListener("click", (function() {
-                    if (option.classList.contains("other-country")) countryInput.classList.add("show"); else countryInput.classList.remove("show");
-                }));
+            countrySelect.addEventListener("click", (function(event) {
+                const target = event.target;
+                if (target.classList.contains("other-country")) countryInput.classList.add("show"); else countryInput.classList.remove("show");
             }));
         }
         if (document.querySelector(".select_select-country")) otherCountrySelect();
