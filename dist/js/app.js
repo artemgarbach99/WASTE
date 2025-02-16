@@ -1942,11 +1942,13 @@
                     const newElement = `\n\t\t\t\t\t\t\t\t\t<div class="organizers-event__item _star _icon-star">\n\t\t\t\t\t\t\t\t\t\t\t<button type="button" class="organizers-event__close _icon-plus"></button>\n\t\t\t\t\t\t\t\t\t\t\t<div class="organizers-event__input">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="Укажите организатора " class="input" />\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t`;
                     itemsList.insertAdjacentHTML("beforeend", newElement);
                     count++;
-                    itemsList.lastElementChild.querySelector(".organizers-event__close").addEventListener("click", (function() {
-                        this.parentElement.remove();
-                        count--;
-                        if (count < limitItems) wrapButton.classList.remove("hide");
-                        if (count === 0) listInfo.classList.remove("_show");
+                    itemsList.lastElementChild.querySelector(".organizers-event__close").addEventListener("click", (function(event) {
+                        if (event.target.classList.contains("organizers-event__close")) {
+                            event.target.closest(".organizers-event__item").remove();
+                            count--;
+                            if (count < limitItems) wrapButton.classList.remove("hide");
+                            if (count === 0) listInfo.classList.remove("_show");
+                        }
                     }));
                 }
                 count === limitItems && wrapButton.classList.add("hide");
@@ -1965,14 +1967,16 @@
                 const limitItems = 3;
                 button.addEventListener("click", (function() {
                     if (count < limitItems) {
-                        const newElement = `\n\t\t\t\t\t\t\t\t<div class="organizers-event__row">\n\t\t\t\t\t\t\t\t\t<div class="organizers-event__item">\n\t\t\t\t\t\t\t\t\t\t<button type="button" class="organizers-event__close _icon-plus"></button>\n\t\t\t\t\t\t\t\t\t\t<div class="organizers-event__input _star _icon-star">\n\t\t\t\t\t\t\t\t\t\t\t<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="Укажите организатора" class="input" />\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class="organizers-event__input _star _icon-star">\n\t\t\t\t\t\t\t\t\t\t<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="Укажите страну" class="input" />\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t`;
+                        const newElement = `\n\t\t\t\t\t\t\t\t<div class="organizers-event__row">\n\t\t\t\t\t\t\t\t\t<div class="organizers-event__item">\n\t\t\t\t\t\t\t\t\t\t<button id='${buttonID}' type="button" class="organizers-event__close _icon-plus"></button>\n\t\t\t\t\t\t\t\t\t\t<div class="organizers-event__input _star _icon-star">\n\t\t\t\t\t\t\t\t\t\t\t<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="Укажите организатора" class="input" />\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class="organizers-event__input _star _icon-star">\n\t\t\t\t\t\t\t\t\t\t<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="Укажите страну" class="input" />\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t`;
                         itemsList.insertAdjacentHTML("beforeend", newElement);
                         count++;
-                        itemsList.lastElementChild.querySelector(".organizers-event__close").addEventListener("click", (function() {
-                            this.closest(".organizers-event__row").remove();
-                            count--;
-                            if (count < limitItems) wrapButton.classList.remove("hide");
-                            if (count === 0) listInfo.classList.remove("_show");
+                        itemsList.lastElementChild.querySelector(".organizers-event__close").addEventListener("click", (function(event) {
+                            if (event.target.classList.contains("organizers-event__close") && event.target.id === buttonID) {
+                                event.target.closest(".organizers-event__row").remove();
+                                count--;
+                                if (count < limitItems) wrapButton.classList.remove("hide");
+                                if (count === 0) listInfo.classList.remove("_show");
+                            }
                         }));
                     }
                     count === limitItems && wrapButton.classList.add("hide");
