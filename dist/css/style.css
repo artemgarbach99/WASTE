@@ -8099,7 +8099,7 @@ a.mm-navbar__title {
 }
 
 .quantity-addition-form__input._form-error {
-  padding-bottom: 1.25rem;
+  padding-bottom: 1.375rem;
 }
 
 .quantity-addition-form__input._form-error input,
@@ -8116,6 +8116,10 @@ a.mm-navbar__title {
   color: #e77373;
   font-size: 0.875rem;
   line-height: 1.2857142857;
+}
+
+.quantity-addition-form__input input {
+  background-color: #ffffff;
 }
 
 .quantity-addition-form__input._long {
@@ -8144,6 +8148,13 @@ a.mm-navbar__title {
 
 .quantity-addition-form__input._date input::placeholder {
   text-transform: uppercase;
+}
+
+.quantity-addition-form__input._date .contacts-addition-form__error {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-top: 0.1875rem;
 }
 
 .quantity-addition-form__input._error-date input {
@@ -8252,7 +8263,7 @@ a.mm-navbar__title {
 }
 
 .shipping-addition-form__input._form-error {
-  padding-bottom: 1.25rem;
+  padding-bottom: 1.375rem;
 }
 
 .shipping-addition-form__input._form-error input,
@@ -8351,7 +8362,7 @@ a.mm-navbar__title {
   color: #e77373;
   font-size: 0.875rem;
   line-height: 1.2857142857;
-  padding: 0.3125rem;
+  padding-top: 0.3125rem;
 }
 
 .contacts-addition-form__column {
@@ -11042,7 +11053,7 @@ input[type=number] {
 }
 
 .equipment-event-offline__textarea._form-error {
-  padding-bottom: 1.25rem;
+  padding-bottom: 1.375rem;
 }
 
 .equipment-event-offline__textarea._form-error input,
@@ -11186,7 +11197,7 @@ input[type=number] {
 }
 
 .organizers-event__input._form-error {
-  padding-bottom: 1.25rem;
+  padding-bottom: 1.375rem;
 }
 
 .organizers-event__input._form-error input,

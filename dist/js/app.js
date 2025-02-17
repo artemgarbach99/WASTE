@@ -2011,21 +2011,29 @@
             buttons.forEach((button => {
                 const buttonID = button.getAttribute("id");
                 const email = document.querySelector(`.contacts-addition-form__input._email input[id="${buttonID}"]`);
-                const phone = document.querySelector(`.input.phone-mask[id="${buttonID}"]`);
-                const phoneBorder = document.querySelector(`.phone-content-forms__inner[id="${buttonID}"]`);
                 const wrap = document.querySelector(`.contacts-addition-form__row-phone[id="${buttonID}"]`);
                 button.addEventListener("click", (() => {
-                    if (!email.value && !phone.value) {
-                        const newElement = `\n\t\t\t\t\t<div class="contacts-addition-form__error">\n\t\t\t\t\t\t\tУкажите хотя бы один контакт!\n\t\t\t\t\t</div>\n\t\t\t\t`;
+                    const phones = document.querySelectorAll(`.input.phone-mask[id="${buttonID}"]`);
+                    const phoneBorders = document.querySelectorAll(`.phone-content-forms__inner[id="${buttonID}"]`);
+                    let phoneHasValue = false;
+                    phones.forEach((phone => {
+                        if (phone.value) phoneHasValue = true;
+                    }));
+                    if (!email.value && !phoneHasValue) {
+                        const newElement = `\n\t\t\t\t\t\t\t\t\t<div class="contacts-addition-form__error">\n\t\t\t\t\t\t\t\t\t\t\tУкажите хотя бы один контакт!\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t`;
                         wrap.insertAdjacentHTML("beforeend", newElement);
                         email.classList.add("_error");
-                        phoneBorder.classList.add("_form-error");
+                        phoneBorders.forEach((phoneBorder => {
+                            phoneBorder.classList.add("_form-error");
+                        }));
                     } else {
                         const existingErrorElement = wrap.querySelector(".contacts-addition-form__error");
                         if (existingErrorElement) {
                             existingErrorElement.remove();
                             email.classList.remove("_error");
-                            phoneBorder.classList.remove("_form-error");
+                            phoneBorders.forEach((phoneBorder => {
+                                phoneBorder.classList.remove("_form-error");
+                            }));
                         }
                     }
                     const dateCheckin = document.querySelector(`.date-checkin[id="${buttonID}"]`);
@@ -2034,9 +2042,15 @@
                         const dateContainers = document.querySelectorAll(`.quantity-addition-form__input._date[id="${buttonID}"]`);
                         const checkinDate = new Date(dateCheckin.value.split("-").reverse().join("-"));
                         const checkoutDate = new Date(dateCheckout.value.split("-").reverse().join("-"));
+                        const errorElement = `\n\t\t\t\t\t\t<div class="contacts-addition-form__error">\n\t\t\t\t\t\t\t\tНеправильно указаны даты!\n\t\t\t\t\t\t</div>\n\t\t\t\t`;
                         dateContainers.forEach((item => {
-                            if (checkinDate > checkoutDate) item.classList.add("_error-date"); else {
+                            if (checkinDate > checkoutDate || !dateCheckin.value || !dateCheckout.value) {
+                                item.classList.add("_error-date");
+                                item.insertAdjacentHTML("beforeend", errorElement);
+                            } else {
                                 item.classList.remove("_error-date");
+                                const existingErrorElement = item.querySelector(".contacts-addition-form__error");
+                                if (existingErrorElement) existingErrorElement.remove();
                                 console.log("Даты корректны");
                             }
                         }));
@@ -9251,12 +9265,14 @@
         if (dateCheckin && dateCheckout) {
             dateCheckin.forEach((function(element) {
                 flatpickr(element, {
-                    dateFormat: "d-m-Y"
+                    dateFormat: "d-m-Y",
+                    disableMobile: true
                 });
             }));
             dateCheckout.forEach((function(element) {
                 flatpickr(element, {
-                    dateFormat: "d-m-Y"
+                    dateFormat: "d-m-Y",
+                    disableMobile: true
                 });
             }));
         }

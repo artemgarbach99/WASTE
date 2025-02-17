@@ -6,7 +6,7 @@
 	<meta charset="UTF-8" />
 	<meta name="format-detection" content="telephone=no" />
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250216185018" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20250217130148" />
 	<link rel="shortcut icon" href="favicon.ico" />
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -1823,7 +1823,7 @@
 							<div class="quantity-addition-form__column">
 								<div class="quantity-addition-form__lable h4 _icon-star">Дата начала</div>
 								<div id="4" class="quantity-addition-form__input _date" id="date-picker-container">
-									<input id="4" type="text" data-error="Не заполнено поле" data-required placeholder="ДД.ММ.ГГГГ" class="input date-checkin" />
+									<input id="4" type="text" data-error="Не заполнено поле" placeholder="ДД.ММ.ГГГГ" class="input date-checkin" />
 
 									<!-- <input type="date" id="date-checkin" data-error="Не заполнено поле" data-required class="input" name="date-from" /> -->
 									<!-- <input id="date-mask-01" autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="ДД.ММ.ГГГГ" class="input date-mask" /> -->
@@ -1832,7 +1832,7 @@
 							<div class="quantity-addition-form__column">
 								<div class="quantity-addition-form__lable h4 _icon-star">Дата окончания</div>
 								<div id="4" class="quantity-addition-form__input _date" id="date-picker-container">
-									<input id="4" type="text" data-error="Не заполнено поле" data-required placeholder="ДД.ММ.ГГГГ" class="input date-checkout" />
+									<input id="4" type="text" data-error="Не заполнено поле" placeholder="ДД.ММ.ГГГГ" class="input date-checkout" />
 
 									<!-- <input type="date" id="date-checkout" data-error="Не заполнено поле" data-required class="input" name="" /> -->
 									<!-- <input id="date-mask-02" autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="ДД.ММ.ГГГГ" class="input date-mask" /> -->
@@ -2210,7 +2210,7 @@
 		//     textCallback: customText,
 		// });
 	</script>
-	<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20250216185018"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20250217130148"></script>
 	<script>
 		const DropItem = document.getElementById('drop-items')
 		new Sortable(DropItem, {
@@ -2220,8 +2220,8 @@
 		})
 	</script>
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20250216185018" />
-	<script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20250216185018"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20250217130148" />
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20250217130148"></script>
 	<!-- <script>
 			document.querySelectorAll('.date-checkin').forEach(function (element) {
 				flatpickr(element, {
@@ -2235,7 +2235,7 @@
 			})
 		</script> -->
 
-	<script src="https://unpkg.com/imask?_v=20250216185018"></script>
+	<script src="https://unpkg.com/imask?_v=20250217130148"></script>
 	<script>
 		document.querySelectorAll('.date-mask').forEach(function(element) {
 			IMask(element, {
@@ -2380,12 +2380,12 @@
 					</div>
 				</div>
 					<input
+						id="${currentElementId}"
 						autocomplete="off"
 						type="tel"
 						name="form[]"
 						value=""
 						data-error="Не указан номер телефона"
-						data-required
 						placeholder="Номер телефона"
 						class="input _min-fontsize phone-mask" />
 				</div>
@@ -2697,7 +2697,7 @@
 		//     }
 		// });
 	</script>
-	<script src="js/app.min.js?_v=20250216185018"></script>
+	<script src="js/app.min.js?_v=20250217130148"></script>
 </body>
 
 </html>
