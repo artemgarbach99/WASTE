@@ -9276,6 +9276,38 @@
                 });
             }));
         }
+        const buttonTest = document.querySelectorAll(".button-test");
+        if (buttonTest) buttonTest.forEach((element => {
+            let CountPhones = 0;
+            const limitItems = 2;
+            element.getAttribute("id");
+            function addPhoneBody() {
+                let currentElementId = this.getAttribute("id");
+                const elemKod = `<div>кнопка удаления</div>`;
+                const elemOutKod = document.querySelectorAll(".test-out");
+                elemOutKod.forEach((element => {
+                    if (CountPhones < limitItems) {
+                        const formBody = document.createElement("div");
+                        const buttonClose = document.createElement("button");
+                        buttonClose.setAttribute("class", "test-close _icon-plus");
+                        buttonClose.setAttribute("type", "button");
+                        buttonClose.id = currentElementId;
+                        formBody.setAttribute("class", "test-body");
+                        element.appendChild(formBody);
+                        formBody.appendChild(buttonClose);
+                        formBody.insertAdjacentHTML("beforeend", elemKod);
+                        const buttonsClose = document.querySelectorAll(".test-close");
+                        buttonsClose.forEach((element => element.addEventListener("click", deletePhoneBody)));
+                        CountPhones++;
+                    }
+                }));
+            }
+            function deletePhoneBody() {
+                this.parentElement.remove();
+                CountPhones--;
+            }
+            element.addEventListener("click", addPhoneBody);
+        }));
         window["FLS"] = true;
         isWebp();
         addTouchClass();
