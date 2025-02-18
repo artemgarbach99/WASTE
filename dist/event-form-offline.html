@@ -6,7 +6,7 @@
 	<meta charset="UTF-8" />
 	<meta name="format-detection" content="telephone=no" />
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250217140256" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20250218144334" />
 	<link rel="shortcut icon" href="favicon.ico" />
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -1839,14 +1839,14 @@
 								</div>
 							</div>
 						</div>
-						<div class="test">
-							<div class="h3">Тест</div>
-							<div class="test-row">
-								<button type="button" class="button-test _icon-plus"></button>
-								кнопка добавления
-							</div>
-							<div class="test-out"></div>
-						</div>
+						<!-- <div class="test">
+								<div class="h3">Тест</div>
+								<div class="test-row">
+									<button type="button" class="button-test _icon-plus"></button>
+									кнопка добавления
+								</div>
+								<div class="test-out"></div>
+							</div> -->
 						<div class="addition-form__shipping shipping-addition-form">
 							<div class="shipping-addition-form__row">
 								<div class="shipping-addition-form__column">
@@ -1961,7 +1961,7 @@
 										<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" placeholder="Название организатора из регистрационной формы" class="input" />
 									</div>
 								</div> -->
-							<div id="drop-items" class="organizers-event__list">
+							<div class="organizers-event__list drop-items">
 								<div class="organizers-event__name">Название организатора из регистрационной формы</div>
 								<!-- <div class="organizers-event__item _star _icon-star">
 										<button type="button" class="organizers-event__close _icon-plus"></button>
@@ -2218,18 +2218,18 @@
 		//     textCallback: customText,
 		// });
 	</script>
-	<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20250217140256"></script>
-	<script>
-		const DropItem = document.getElementById('drop-items')
-		new Sortable(DropItem, {
-			animation: 150,
-			filter: '.description-product-addition__dropdown',
-			preventOnFilter: false
-		})
-	</script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20250218144334"></script>
+		<script>
+			const DropItem = document.getElementById('drop-items')
+			new Sortable(DropItem, {
+				animation: 150,
+				filter: '.description-product-addition__dropdown',
+				preventOnFilter: false
+			})
+		</script> -->
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20250217140256" />
-	<script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20250217140256"></script>
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20250218144334" /> -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20250218144334"></script> -->
 	<!-- <script>
 			document.querySelectorAll('.date-checkin').forEach(function (element) {
 				flatpickr(element, {
@@ -2243,7 +2243,7 @@
 			})
 		</script> -->
 
-	<script src="https://unpkg.com/imask?_v=20250217140256"></script>
+	<script src="https://unpkg.com/imask?_v=20250218144334"></script>
 	<script>
 		document.querySelectorAll('.date-mask').forEach(function(element) {
 			IMask(element, {
@@ -2705,7 +2705,7 @@
 		//     }
 		// });
 	</script>
-	<script src="js/app.min.js?_v=20250217140256"></script>
+	<script src="js/app.min.js?_v=20250218144334"></script>
 </body>
 
 </html>

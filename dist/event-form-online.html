@@ -6,7 +6,7 @@
 	<meta charset="UTF-8" />
 	<meta name="format-detection" content="telephone=no" />
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250217140256" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20250218144334" />
 	<link rel="shortcut icon" href="favicon.ico" />
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -2468,19 +2468,16 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20250217140256"></script>
-	<script src="https://unpkg.com/imask?_v=20250217140256"></script>
-	<script>
-		const DropItem = document.querySelectorAll('.drop-items')
-		DropItem.forEach(element => {
-			new Sortable(element, {
-				animation: 150
+	<script src="https://unpkg.com/imask?_v=20250218144334"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20250218144334"></script>
+		<script>
+			const DropItem = document.querySelectorAll('.drop-items')
+			DropItem.forEach(element => {
+				new Sortable(element, {
+					animation: 150
+				})
 			})
-		})
-		// new Sortable(DropItem, {
-		// 	animation: 150,
-		// })
-	</script>
+		</script> -->
 	<script>
 		document.querySelectorAll('.date-mask').forEach(function(element) {
 			IMask(element, {
@@ -2538,8 +2535,8 @@
 		})
 	</script>
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20250217140256" />
-	<script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20250217140256"></script>
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20250218144334" />
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20250218144334"></script> -->
 	<!-- <script>
 			document.querySelectorAll('.date-checkin').forEach(function (element) {
 				flatpickr(element, {
@@ -2550,76 +2547,6 @@
 				flatpickr(element, {
 					dateFormat: 'd-m-Y' // Настройка формата даты
 				})
-			})
-		</script> -->
-
-	<!-- <script>
-			// рабочий лимит 
-			class LimitLabel {
-				/**
-				 *
-				 * @param {element}
-				 * @param {element}
-				 * @param {element}
-				 * @param {function}
-				 */
-				constructor(args) {
-					if (args instanceof Element) {
-						this.input = args
-					} else {
-						this.input = args.input
-						this.textCallback = args.textCallback
-					}
-
-					this.limit = this.input.getAttribute('maxlength')
-
-					this.label = args.label
-						? args.label
-						: document.querySelectorAll(`
-      [for="${this.input.getAttribute('id')}"] [data-limitLabel],
-      [for="${this.input.getAttribute('id')}"] ~ [data-limitLabel],
-      [for="${this.input.getAttribute('id')}"] ~ * [data-limitLabel]
-    `)[0]
-
-					this.forceLimit()
-					this.updateLabel()
-
-					this.input.addEventListener('input', () => {
-						this.updateLabel()
-					})
-				}
-
-				forceLimit() {
-					if (this.input.value.length > this.limit) this.input.value = this.input.value.substring(0, this.limit)
-				}
-
-				updateLabel() {
-					this.label.innerText = this.labelText()
-				}
-
-				labelText() {
-					if (this.textCallback) {
-						return this.textCallback(this.remaining, this.input.value, this.limit)
-					} else {
-						let characterLabel = { singular: '', plural: '' }
-						let plurality = this.remaining === 1 ? characterLabel.singular : characterLabel.plural
-
-						return `${this.remaining} ${plurality}`
-					}
-				}
-
-				get remaining() {
-					let currentLength = this.input.value.length
-					let charactersRemaining = this.limit - currentLength
-
-					return charactersRemaining
-				}
-			}
-
-			let inputs = document.querySelectorAll('.caption-addition-form__input input[type="text"]')
-
-			inputs.forEach(input => {
-				new LimitLabel(input)
 			})
 		</script> -->
 	<script>
@@ -2833,7 +2760,7 @@
 		//     }
 		// });
 	</script>
-	<script src="js/app.min.js?_v=20250217140256"></script>
+	<script src="js/app.min.js?_v=20250218144334"></script>
 </body>
 
 </html>
