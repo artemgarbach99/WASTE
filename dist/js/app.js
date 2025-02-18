@@ -11135,9 +11135,7 @@
         if (buttonTest) buttonTest.forEach((element => {
             let CountPhones = 0;
             const limitItems = 3;
-            element.getAttribute("id");
             function addPhoneBody() {
-                let currentElementId = this.getAttribute("id");
                 const elemKod = `\n\t\t\t\t\t\t<div>test</div>\n\t\t\t`;
                 const elemOutKod = document.querySelectorAll(".organizers-event__list");
                 elemOutKod.forEach((element => {
@@ -11146,12 +11144,41 @@
                         const buttonClose = document.createElement("button");
                         buttonClose.setAttribute("class", "organizers-event__close");
                         buttonClose.setAttribute("type", "button");
-                        buttonClose.id = currentElementId;
                         formBody.setAttribute("class", "organizers-event__item");
                         element.appendChild(formBody);
                         formBody.appendChild(buttonClose);
                         formBody.insertAdjacentHTML("beforeend", elemKod);
                         const buttonsClose = document.querySelectorAll(".organizers-event__close");
+                        buttonsClose.forEach((element => element.addEventListener("click", deletePhoneBody)));
+                        CountPhones++;
+                    }
+                }));
+            }
+            function deletePhoneBody() {
+                this.parentElement.remove();
+                CountPhones--;
+            }
+            element.addEventListener("click", addPhoneBody);
+        }));
+        const buttonTestOld = document.querySelectorAll(".button-test-old");
+        if (buttonTestOld) buttonTestOld.forEach((element => {
+            let CountPhones = 0;
+            const limitItems = 3;
+            element.getAttribute("id");
+            function addPhoneBody() {
+                const elemKod = `\n\t\t\t\t\t\t<div>test</div>\n\t\t\t`;
+                const elemOutKod = document.querySelectorAll(".test-out");
+                elemOutKod.forEach((element => {
+                    if (CountPhones < limitItems) {
+                        const formBody = document.createElement("div");
+                        const buttonClose = document.createElement("button");
+                        buttonClose.setAttribute("class", "test-close _icon-plus");
+                        buttonClose.setAttribute("type", "button");
+                        formBody.setAttribute("class", "test-row");
+                        element.appendChild(formBody);
+                        formBody.appendChild(buttonClose);
+                        formBody.insertAdjacentHTML("beforeend", elemKod);
+                        const buttonsClose = document.querySelectorAll(".test-close");
                         buttonsClose.forEach((element => element.addEventListener("click", deletePhoneBody)));
                         CountPhones++;
                     }
