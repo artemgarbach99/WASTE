@@ -6,7 +6,7 @@
 	<meta charset="UTF-8" />
 	<meta name="format-detection" content="telephone=no" />
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250218144334" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20250218153337" />
 	<link rel="shortcut icon" href="favicon.ico" />
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -2468,8 +2468,8 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://unpkg.com/imask?_v=20250218144334"></script>
-	<!-- <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20250218144334"></script>
+
+	<!-- <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20250218153337"></script>
 		<script>
 			const DropItem = document.querySelectorAll('.drop-items')
 			DropItem.forEach(element => {
@@ -2478,40 +2478,43 @@
 				})
 			})
 		</script> -->
-	<script>
-		document.querySelectorAll('.date-mask').forEach(function(element) {
-			IMask(element, {
-				mask: Date,
-				min: new Date(1990, 0, 1),
-				max: new Date(2026, 0, 1),
-				lazy: true
+
+	<!-- <script src="https://unpkg.com/imask?_v=20250218153337"></script>
+		<script>
+			document.querySelectorAll('.date-mask').forEach(function (element) {
+				IMask(element, {
+					mask: Date,
+					min: new Date(1990, 0, 1),
+					max: new Date(2026, 0, 1),
+					lazy: true
+				})
 			})
-		})
-		document.querySelectorAll('.time-mask').forEach(function(element) {
-			IMask(element, {
-				mask: 'HH:MM',
-				blocks: {
-					HH: {
-						mask: IMask.MaskedRange,
-						from: 0,
-						to: 23,
-						maxLength: 2
-					},
-					MM: {
-						mask: IMask.MaskedRange,
-						from: 0,
-						to: 59,
-						maxLength: 2
+			document.querySelectorAll('.time-mask').forEach(function (element) {
+				IMask(element, {
+					mask: 'HH:MM',
+					blocks: {
+						HH: {
+							mask: IMask.MaskedRange,
+							from: 0,
+							to: 23,
+							maxLength: 2
+						},
+						MM: {
+							mask: IMask.MaskedRange,
+							from: 0,
+							to: 59,
+							maxLength: 2
+						}
 					}
-				}
+				})
 			})
-		})
-		document.querySelectorAll('.phone-mask').forEach(function(element) {
-			IMask(element, {
-				mask: '00000000000000'
+			document.querySelectorAll('.phone-mask').forEach(function (element) {
+				IMask(element, {
+					mask: '00000000000000'
+				})
 			})
-		})
-	</script>
+		</script> -->
+
 	<script>
 		// Функция для установки значения и фокуса на input в зависимости от выбранной радио кнопки
 		function handleRadioChange() {
@@ -2535,8 +2538,8 @@
 		})
 	</script>
 
-	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20250218144334" />
-		<script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20250218144334"></script> -->
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20250218153337" />
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20250218153337"></script> -->
 	<!-- <script>
 			document.querySelectorAll('.date-checkin').forEach(function (element) {
 				flatpickr(element, {
@@ -2760,7 +2763,7 @@
 		//     }
 		// });
 	</script>
-	<script src="js/app.min.js?_v=20250218144334"></script>
+	<script src="js/app.min.js?_v=20250218153337"></script>
 </body>
 
 </html>
