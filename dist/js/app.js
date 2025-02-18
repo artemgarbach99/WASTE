@@ -1948,41 +1948,6 @@
                 initSelect(elem);
             }));
         }
-        function AddOrganizersEvent() {
-            const button = document.getElementById("addButton");
-            const wrapButton = document.querySelector(".organizers-event__line");
-            const itemsList = document.querySelector(".organizers-event__list");
-            const listInfo = document.querySelector(".organizers-event__info");
-            let count = 0;
-            const limitItems = 3;
-            function AddOrganizersInput() {
-                if (count < limitItems) {
-                    const newElement = `\n\t\t\t\t\t\t\t<div class="organizers-event__input">\n\t\t\t\t\t\t\t\t\t<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="Укажите организатора " class="input" />\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t`;
-                    const itemBody = document.createElement("div");
-                    const buttonClose = document.createElement("button");
-                    buttonClose.setAttribute("class", "organizers-event__close _icon-plus");
-                    buttonClose.setAttribute("type", "button");
-                    itemBody.setAttribute("class", "organizers-event__item _star _icon-star");
-                    itemsList.appendChild(itemBody);
-                    itemBody.appendChild(buttonClose);
-                    itemBody.insertAdjacentHTML("beforeend", newElement);
-                    count++;
-                    buttonClose.addEventListener("click", deletePhoneBody);
-                    console.log(count);
-                }
-                if (count === limitItems) wrapButton.classList.add("hide");
-                if (count > 0) listInfo.classList.add("_show");
-            }
-            function deletePhoneBody() {
-                this.parentElement.remove();
-                count--;
-                if (count < limitItems) wrapButton.classList.remove("hide");
-                if (count === 0) listInfo.classList.remove("_show");
-                console.log(count);
-            }
-            button.addEventListener("click", AddOrganizersInput);
-        }
-        if (document.getElementById("organizers-offline")) AddOrganizersEvent();
         function AddOrganizersEventWithCountry() {
             const button = document.querySelectorAll(".organizers-event__button");
             button.forEach((button => {
@@ -11169,24 +11134,24 @@
         const buttonTest = document.querySelectorAll(".button-test");
         if (buttonTest) buttonTest.forEach((element => {
             let CountPhones = 0;
-            const limitItems = 2;
+            const limitItems = 3;
             element.getAttribute("id");
             function addPhoneBody() {
                 let currentElementId = this.getAttribute("id");
-                const elemKod = `<input type='text'>`;
-                const elemOutKod = document.querySelectorAll(".test-out");
+                const elemKod = `\n\t\t\t\t\t\t<div class="organizers-event__input">\n\t\t\t\t\t\t\t<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="Укажите организатора " class="input" />\n\t\t\t\t\t\t</div>\n\t\t\t`;
+                const elemOutKod = document.querySelectorAll(".organizers-event__list");
                 elemOutKod.forEach((element => {
                     if (CountPhones < limitItems) {
                         const formBody = document.createElement("div");
                         const buttonClose = document.createElement("button");
-                        buttonClose.setAttribute("class", "test-close _icon-plus");
+                        buttonClose.setAttribute("class", "organizers-event__close _icon-plus");
                         buttonClose.setAttribute("type", "button");
                         buttonClose.id = currentElementId;
-                        formBody.setAttribute("class", "test-body");
+                        formBody.setAttribute("class", "organizers-event__item _star _icon-star");
                         element.appendChild(formBody);
                         formBody.appendChild(buttonClose);
                         formBody.insertAdjacentHTML("beforeend", elemKod);
-                        const buttonsClose = document.querySelectorAll(".test-close");
+                        const buttonsClose = document.querySelectorAll(".organizers-event__close");
                         buttonsClose.forEach((element => element.addEventListener("click", deletePhoneBody)));
                         CountPhones++;
                     }
