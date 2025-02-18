@@ -11138,16 +11138,16 @@
             element.getAttribute("id");
             function addPhoneBody() {
                 let currentElementId = this.getAttribute("id");
-                const elemKod = `\n\t\t\t\t\t\t<div class="organizers-event__input">\n\t\t\t\t\t\t\t<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="Укажите организатора " class="input" />\n\t\t\t\t\t\t</div>\n\t\t\t`;
+                const elemKod = `\n\t\t\t\t\t\t<div>test</div>\n\t\t\t`;
                 const elemOutKod = document.querySelectorAll(".organizers-event__list");
                 elemOutKod.forEach((element => {
                     if (CountPhones < limitItems) {
                         const formBody = document.createElement("div");
                         const buttonClose = document.createElement("button");
-                        buttonClose.setAttribute("class", "organizers-event__close _icon-plus");
+                        buttonClose.setAttribute("class", "organizers-event__close");
                         buttonClose.setAttribute("type", "button");
                         buttonClose.id = currentElementId;
-                        formBody.setAttribute("class", "organizers-event__item _star _icon-star");
+                        formBody.setAttribute("class", "organizers-event__item");
                         element.appendChild(formBody);
                         formBody.appendChild(buttonClose);
                         formBody.insertAdjacentHTML("beforeend", elemKod);
