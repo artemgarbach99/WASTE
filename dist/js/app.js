@@ -12939,7 +12939,8 @@
         const DropItem = document.querySelectorAll(".drop-items");
         if (DropItem) DropItem.forEach((element => {
             new sortable_esm(element, {
-                animation: 150
+                animation: 150,
+                handle: ".draggable"
             });
         }));
         const DropProducts = document.getElementById("drop-items");
