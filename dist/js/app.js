@@ -1948,6 +1948,41 @@
                 initSelect(elem);
             }));
         }
+        function AddOrganizersEvent() {
+            const button = document.getElementById("addButton");
+            const wrapButton = document.querySelector(".organizers-event__line");
+            const itemsList = document.querySelector(".organizers-event__list");
+            const listInfo = document.querySelector(".organizers-event__info");
+            let count = 0;
+            const limitItems = 3;
+            function AddOrganizersInput() {
+                if (count < limitItems) {
+                    const newElement = `\n\t\t\t\t\t\t<div class="organizers-event__input">\n\t\t\t\t\t\t\t\t<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="Укажите организатора " class="input" />\n\t\t\t\t\t\t</div>\n\t\t\t\t\t`;
+                    const itemBody = document.createElement("div");
+                    const buttonClose = document.createElement("button");
+                    buttonClose.setAttribute("class", "organizers-event__close _icon-plus");
+                    buttonClose.setAttribute("type", "button");
+                    itemBody.setAttribute("class", "organizers-event__item _star _icon-star");
+                    itemsList.appendChild(itemBody);
+                    itemBody.appendChild(buttonClose);
+                    itemBody.insertAdjacentHTML("beforeend", newElement);
+                    count++;
+                    buttonClose.addEventListener("click", deletePhoneBody);
+                    console.log(count);
+                }
+                if (count === limitItems) wrapButton.classList.add("hide");
+                if (count > 0) listInfo.classList.add("_show");
+            }
+            function deletePhoneBody() {
+                this.parentElement.remove();
+                count--;
+                if (count < limitItems) wrapButton.classList.remove("hide");
+                if (count === 0) listInfo.classList.remove("_show");
+                console.log(count);
+            }
+            button.addEventListener("click", AddOrganizersInput);
+        }
+        if (document.getElementById("organizers-offline")) AddOrganizersEvent();
         function AddOrganizersEventWithCountry() {
             const button = document.querySelectorAll(".organizers-event__button");
             button.forEach((button => {

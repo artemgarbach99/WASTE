@@ -11192,6 +11192,11 @@ input[type=number] {
   width: 50%;
 }
 
+.organizers-event__row.draggable {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
 .organizers-event__input {
   position: relative;
 }
@@ -11252,6 +11257,11 @@ input[type=number] {
   line-height: 1.1875;
   color: #8d8d8d;
   background-color: #ffffff;
+}
+
+.organizers-event__name.draggable {
+  cursor: -webkit-grab;
+  cursor: grab;
 }
 
 .organizers-event__info {
