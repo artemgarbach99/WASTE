@@ -8042,6 +8042,7 @@ a.mm-navbar__title {
 
 .quantity-addition-form._bb-none {
   border-bottom: none;
+  padding-bottom: 0;
 }
 
 .quantity-addition-form__row {
