@@ -2022,6 +2022,15 @@
             }));
         }
         if (document.querySelector(".select_select-country")) otherCountrySelect();
+        function allCountrySelect() {
+            const select = document.querySelector(".dropdownOption._country");
+            const selectCountry = document.querySelector(".search-articles__offline");
+            select.addEventListener("click", (function(event) {
+                const target = event.target;
+                if (target.classList.contains("offline")) selectCountry.classList.add("show"); else selectCountry.classList.remove("show");
+            }));
+        }
+        if (document.querySelector(".dropdownOption._country")) allCountrySelect();
         //! старый datepicker
                 function DateInputs() {
             const dateContainers = document.querySelectorAll(".quantity-addition-form__input._date");
@@ -2089,6 +2098,15 @@
         if (document.getElementById("myForm")) window.addEventListener("load", (function() {
             document.getElementById("myForm").reset();
         }));
+        function dropdownLanguageNavbar() {
+            const label = document.querySelector(".navbar__lable");
+            const dropdown = document.querySelector(".navbar__dropdown");
+            label.addEventListener("click", (() => {
+                dropdown.classList.toggle("dropdown-open");
+                if (dropdown.classList.contains("dropdown-open")) label.classList.add("lable-active"); else label.classList.remove("lable-active");
+            }));
+        }
+        if (document.querySelector(".navbar__lable")) dropdownLanguageNavbar();
         /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
