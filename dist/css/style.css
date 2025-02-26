@@ -14756,11 +14756,6 @@ span.flatpickr-weekday {
     padding-bottom: 1.875rem;
   }
 
-  .shipping-addition-form__column:not(:first-child) {
-    border-top: 1px solid #e2e2e2;
-    padding-top: 1.875rem;
-  }
-
   .shipping-addition-form__input {
     width: 100%;
   }
@@ -14788,11 +14783,6 @@ span.flatpickr-weekday {
     gap: 1.875rem;
   }
 
-  .contacts-addition-form__row .contacts-addition-form__column:not(:first-child) {
-    border-top: 1px solid #e2e2e2;
-    padding-top: 1.875rem;
-  }
-
   .contacts-addition-form__row-phone {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -14807,8 +14797,6 @@ span.flatpickr-weekday {
 
   .contacts-addition-form__phone {
     padding-right: 0px;
-    border-top: 1px solid #e2e2e2;
-    padding-top: 1.875rem;
   }
 
   .contacts-addition-form__phone .phone-content-forms__inner {
