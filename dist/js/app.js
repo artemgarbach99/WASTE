@@ -1912,7 +1912,7 @@
             const navigationSelect = document.querySelectorAll(".select-wrapper");
             function initSelect(elem) {
                 const selectHolder = elem.querySelector(".holder");
-                const selectOptions = elem.querySelectorAll(".dropdownOption li");
+                const selectOptions = Array.from(elem.querySelectorAll(".dropdownOption li"));
                 const dropHolder = elem.querySelector(".dropdown");
                 let selectedOption = selectOptions[0];
                 for (const option of selectOptions) if (option.classList.contains("current")) {
@@ -1923,6 +1923,10 @@
                 selectHolder.innerText = selectedOption.textContent;
                 selectHolder.addEventListener("click", (function() {
                     dropHolder.classList.toggle("active");
+                    selectedOption.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest"
+                    });
                 }));
                 selectOptions.forEach((function(currentElement) {
                     currentElement.addEventListener("click", (function() {
@@ -1932,6 +1936,10 @@
                         selectedOption.classList.add("current");
                         selectHolder.innerText = currentElement.textContent;
                         dropHolder.classList.remove("active");
+                        selectedOption.scrollIntoView({
+                            behavior: "smooth",
+                            block: "nearest"
+                        });
                     }));
                     currentElement.addEventListener("mouseenter", (function() {
                         if (!currentElement.classList.contains("current")) selectedOption.classList.add("hide-hover");
