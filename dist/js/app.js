@@ -2115,6 +2115,33 @@
             }));
         }
         if (document.querySelector(".navbar__lable")) dropdownLanguageNavbar();
+        function dropdownSortingMenu() {
+            const wrap = document.querySelector(".sorting__wrap");
+            const button = document.querySelector(".sorting__button");
+            const list = document.querySelector(".sorting__list");
+            const lable = document.querySelector(".sorting__lable");
+            button.addEventListener("click", (() => {
+                list.classList.toggle("show");
+                if (list.classList.contains("show")) {
+                    wrap.classList.add("active");
+                    button.classList.add("close");
+                    lable.classList.add("show");
+                } else {
+                    wrap.classList.remove("active");
+                    button.classList.remove("close");
+                    lable.classList.remove("show");
+                }
+            }));
+            window.addEventListener("resize", (() => {
+                if (window.innerWidth > 480) {
+                    wrap.classList.remove("active");
+                    button.classList.remove("close");
+                    lable.classList.remove("show");
+                    list.classList.remove("show");
+                }
+            }));
+        }
+        if (document.querySelector(".sorting__button")) dropdownSortingMenu();
         /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
