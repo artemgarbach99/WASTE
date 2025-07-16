@@ -10750,12 +10750,12 @@ input[type=number] {
   position: absolute;
   z-index: 5;
   min-width: 100%;
-  top: 110%;
+  top: calc(100% + 5px);
   left: 0;
   background-color: #ffffff;
   -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.17);
           box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.17);
-  border-radius: 7px;
+  border-radius: 5px;
   overflow: auto;
   max-height: 18.75rem;
 }
@@ -14349,6 +14349,10 @@ span.flatpickr-weekday {
 
   .holder {
     height: 2.6875rem;
+  }
+
+  .dropdownOption {
+    top: calc(100% + 10px);
   }
 
   .dropdownOption li {
