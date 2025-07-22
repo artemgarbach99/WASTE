@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 
 <head>
@@ -6,7 +6,7 @@
 	<meta charset="UTF-8" />
 	<meta name="format-detection" content="telephone=no" />
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250716163804" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20250722121735" />
 	<link rel="shortcut icon" href="favicon.ico" />
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -48,7 +48,7 @@
 								<li class="office-header__item event-office-item">
 									<a href="#" class="office-header__link h4">Мероприятия</a>
 								</li>
-								<li class="office-header__item">
+								<li class="office-header__item edition-office-item">
 									<a href="#" class="office-header__link h4">Издания</a>
 								</li>
 								<li class="office-header__item">
@@ -72,7 +72,6 @@
 				</div>
 			</div>
 		</header>
-
 		<div class="searchbar-wrapper hide" bis_skin_checked="1">
 			<div class="searchbar" bis_skin_checked="1">
 				<input type="text" class="searchbar-input" placeholder="Поиск по сайту">
@@ -1811,34 +1810,37 @@
 						</div>
 						<div class="announcements__tabs tabs js-tabs">
 							<ul role="tablist" class="tabs__navigation navigation-tabs">
-								<li role="presentation" class="navigation-tabs__title"><a href="#section1" role="tab" id="tab1" aria-controls="section1" aria-selected="true" class="tabs-trigger js-tabs-trigger">Активные<span class="navigation-tabs__count">10</span></a></li>
-								<li role="presentation" class="navigation-tabs__title"><a href="#section2" role="tab" id="tab2" aria-controls="section2" class="tabs-trigger js-tabs-trigger">На
-										проверке<span class="navigation-tabs__count">7</span></a></li>
-								<li role="presentation" class="navigation-tabs__title"><a href="#section3" role="tab" id="tab3" aria-controls="section3" class="tabs-trigger js-tabs-trigger">Архив<span class="navigation-tabs__count">3</span></a></li>
+								<li role="presentation" class="navigation-tabs__title">
+									<a href="#section1" role="tab" id="tab1" aria-controls="section1" aria-selected="true" class="tabs-trigger js-tabs-trigger">Активные<span class="navigation-tabs__count">10</span></a>
+								</li>
+								<li role="presentation" class="navigation-tabs__title">
+									<a href="#section2" role="tab" id="tab2" aria-controls="section2" class="tabs-trigger js-tabs-trigger">На проверке<span class="navigation-tabs__count">7</span></a>
+								</li>
+								<li role="presentation" class="navigation-tabs__title">
+									<a href="#section3" role="tab" id="tab3" aria-controls="section3" class="tabs-trigger js-tabs-trigger">Архив<span class="navigation-tabs__count">3</span></a>
+								</li>
 								<div class="navigation-tabs__search search-navigation-tabs">
 									<div class="search-navigation-tabs__wrap">
 										<span class="search-navigation-tabs__lable search-lable _icon-search">Найти</span>
 										<div class="search-navigation-tabs__input search-input">
-											<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Поиск по объявлениям">
+											<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Поиск по объявлениям" />
 											<button type="button" class="search-navigation-tabs__button _icon-search"></button>
 										</div>
 									</div>
 								</div>
 							</ul>
 							<section id="section1" role="tabpanel" aria-labelledby="tab1" class="tabs-panel js-tabs-panel" tabindex="0">
-								<div class="accordion-trigger js-accordion-trigger _icon-arrow" aria-controls="section1" aria-expanded="true" tabindex="0">Активные<span class="navigation-tabs__count">10</span></div>
+								<div class="accordion-trigger js-accordion-trigger _icon-arrow" aria-controls="section1" aria-expanded="true" tabindex="0">
+									Активные<span class="navigation-tabs__count">10</span>
+								</div>
 								<div class="content" aria-hidden="false">
 									<div class="content-tabs__body">
 										<div class="content-tabs__empty empty-content-tabs">
 											<div class="empty-content-tabs__wrap">
-												<div class="empty-content-tabs__lable">У Вас пока нет активных
-													объявлений.
-												</div>
-												<div class="empty-content-tabs__sublable">Чтобы добавить объявление,
-													нажмите
-													<span>«+ Добавить»</span> в шапке сайта. <br>
-													Если у Вас есть объявления в архиве, их можно активировать или
-													отредактировать.
+												<div class="empty-content-tabs__lable">У Вас пока нет активных объявлений.</div>
+												<div class="empty-content-tabs__sublable">
+													Чтобы добавить объявление, нажмите <span>«+ Добавить»</span> в шапке сайта. <br />
+													Если у Вас есть объявления в архиве, их можно активировать или отредактировать.
 												</div>
 											</div>
 										</div>
@@ -1846,7 +1848,9 @@
 								</div>
 							</section>
 							<section id="section2" role="tabpanel" aria-labelledby="tab2" class="tabs-panel js-tabs-panel">
-								<div class="accordion-trigger js-accordion-trigger _icon-arrow" aria-controls="section2" aria-expanded="false" tabindex="0">На проверке<span class="navigation-tabs__count">7</span></div>
+								<div class="accordion-trigger js-accordion-trigger _icon-arrow" aria-controls="section2" aria-expanded="false" tabindex="0">
+									На проверке<span class="navigation-tabs__count">7</span>
+								</div>
 								<div class="content" aria-hidden="true">
 									<div class="content-tabs__body">
 										<!-- <div class="content-tabs__top top-content-tabs">
@@ -2094,14 +2098,10 @@
                                         </div> -->
 										<div class="content-tabs__empty empty-content-tabs">
 											<div class="empty-content-tabs__wrap">
-												<div class="empty-content-tabs__lable">У Вас пока нет активных
-													объявлений.
-												</div>
-												<div class="empty-content-tabs__sublable">Чтобы добавить объявление,
-													нажмите
-													<span>«+ Добавить»</span> в шапке сайта. <br>
-													Если у Вас есть объявления в архиве, их можно активировать или
-													отредактировать.
+												<div class="empty-content-tabs__lable">У Вас пока нет активных объявлений.</div>
+												<div class="empty-content-tabs__sublable">
+													Чтобы добавить объявление, нажмите <span>«+ Добавить»</span> в шапке сайта. <br />
+													Если у Вас есть объявления в архиве, их можно активировать или отредактировать.
 												</div>
 											</div>
 										</div>
@@ -2114,10 +2114,7 @@
 									<div class="content-tabs__body">
 										<div class="content-tabs__empty empty-content-tabs">
 											<div class="empty-content-tabs__wrap">
-												<div class="empty-content-tabs__lable">В настоящее время у Вас нет
-													архивных
-													объявлений.
-												</div>
+												<div class="empty-content-tabs__lable">В настоящее время у Вас нет архивных объявлений.</div>
 											</div>
 										</div>
 									</div>
@@ -2185,7 +2182,7 @@
 		//     }
 		// });
 	</script>
-	<script src="js/app.min.js?_v=20250716163804"></script>
+	<script src="js/app.min.js?_v=20250722121735"></script>
 </body>
 
 </html>
