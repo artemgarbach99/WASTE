@@ -13832,6 +13832,14 @@ span.flatpickr-weekday {
 }
 
 @media (max-width: 78.4375em) {
+  .phone-content-forms .input {
+    padding: 1.0625rem 1.25rem;
+  }
+
+  .select_select-phone .select__title {
+    padding: 1.125rem 1.25rem;
+  }
+
   .popup__content {
     max-width: 42.5rem;
     padding: 2.1875rem 2.8125rem;
@@ -14122,6 +14130,14 @@ span.flatpickr-weekday {
 
   body.office-header-item .menu-announcements__item._hide-item {
     display: none;
+  }
+
+  .phone-content-forms .input {
+    padding: 1.0625rem 0.9375rem;
+  }
+
+  .select_select-phone .select__title {
+    padding: 1.125rem 0.9375rem;
   }
 
   .popup__content {
@@ -16427,52 +16443,60 @@ span.flatpickr-weekday {
   }
 
   .input._min-fontsize {
-    font-size: 0.75rem;
-    line-height: 1.4166666667;
+    font-size: 0.8125rem;
+    line-height: 1.3076923077;
   }
 
   .input._min-fontsize::-webkit-input-placeholder {
     font-weight: 400;
-    font-size: 0.75rem;
-    line-height: 1.4166666667;
+    font-size: 0.8125rem;
+    line-height: 1.3076923077;
     color: #8d8d8d;
   }
 
   .input._min-fontsize::-moz-placeholder {
     font-weight: 400;
-    font-size: 0.75rem;
-    line-height: 1.4166666667;
+    font-size: 0.8125rem;
+    line-height: 1.3076923077;
     color: #8d8d8d;
   }
 
   .input._min-fontsize:-ms-input-placeholder {
     font-weight: 400;
-    font-size: 0.75rem;
-    line-height: 1.4166666667;
+    font-size: 0.8125rem;
+    line-height: 1.3076923077;
     color: #8d8d8d;
   }
 
   .input._min-fontsize::-ms-input-placeholder {
     font-weight: 400;
-    font-size: 0.75rem;
-    line-height: 1.4166666667;
+    font-size: 0.8125rem;
+    line-height: 1.3076923077;
     color: #8d8d8d;
   }
 
   .input._min-fontsize::placeholder {
     font-weight: 400;
-    font-size: 0.75rem;
-    line-height: 1.4166666667;
+    font-size: 0.8125rem;
+    line-height: 1.3076923077;
     color: #8d8d8d;
+  }
+
+  .phone-content-forms .input {
+    padding: 0.9375rem 0.625rem;
   }
 
   .select_select-country .select__title {
     padding: 1.125rem 0.625rem;
   }
 
+  .select_select-phone .select__body {
+    height: 100%;
+  }
+
   .select_select-phone .select__title {
-    padding: 1.125rem 0.625rem;
-    font-size: 0.875rem;
+    padding: 0.9375rem 0.625rem;
+    font-size: 0.8125rem;
   }
 
   .select_select-sort .select__options {
@@ -16525,6 +16549,18 @@ span.flatpickr-weekday {
 
   .phone-content-forms__body {
     gap: 0.625rem;
+  }
+
+  .phone-content-forms__button {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 3.125rem;
+            flex: 0 0 3.125rem;
+    width: 3.125rem;
+    height: 3.125rem;
+  }
+
+  .phone-content-forms__inner {
+    height: 3.125rem;
   }
 
   .content-tabs__body._event {
