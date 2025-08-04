@@ -11208,6 +11208,7 @@
         const esm = flatpickr;
         const dateCheckin = document.querySelectorAll(".date-checkin");
         const dateCheckout = document.querySelectorAll(".date-checkout");
+        const dateSingle = document.querySelectorAll(".date-single");
         if (dateCheckin && dateCheckout) {
             dateCheckin.forEach((function(element) {
                 esm(element, {
@@ -11216,6 +11217,12 @@
                 });
             }));
             dateCheckout.forEach((function(element) {
+                esm(element, {
+                    dateFormat: "d-m-Y",
+                    disableMobile: true
+                });
+            }));
+            dateSingle.forEach((function(element) {
                 esm(element, {
                     dateFormat: "d-m-Y",
                     disableMobile: true
