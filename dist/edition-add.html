@@ -6,7 +6,7 @@
 	<meta charset="UTF-8" />
 	<meta name="format-detection" content="telephone=no" />
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250804115254" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20250808193750" />
 	<link rel="shortcut icon" href="favicon.ico" />
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -2200,8 +2200,11 @@
 										</div>
 										<div class="quantity-addition-form__column _max-width">
 											<div class="quantity-addition-form__lable h4 _icon-star">Год издания</div>
-											<div id="20" class="quantity-addition-form__input _date _long">
-												<input id="20" type="text" data-error="Не указана дата!" data-required placeholder="" class="input date-single" />
+											<div class="quantity-addition-form__input _date _long">
+												<input id="calendar-input" type="text" readonly data-error="Не указана дата!" data-required placeholder="" class="input" />
+												<div class="quantity-addition-form__calendar-dropdown">
+													<div id="calendar"></div>
+												</div>
 											</div>
 											<!-- <div class="quantity-addition-form__input _long">
 													<input autocomplete="off" type="text" name="form[]" data-error="Не заполнено поле" data-required placeholder="" class="input" />
@@ -2213,10 +2216,10 @@
 											<div class="equipment-event-offline__title h4">Логотип или обложка</div>
 											<div class="equipment-event-offline__logo">
 												<div class="equipment-event-offline__button">
-													<label class="equipment-event-offline__label _icon-plus _label-logo" for="load-logo__input1" tabindex="0">
+													<label class="equipment-event-offline__label _icon-plus _label-logo" for="load-logo__input2" tabindex="0">
 														<!-- <span class="load-logo__image"></span> -->
 													</label>
-													<input type="file" name="load-logo__input" id="load-logo__input1" autocomplete="off" />
+													<input type="file" name="load-logo__input" id="load-logo__input2" autocomplete="off" />
 												</div>
 												<div class="equipment-event-offline__text h5">
 													<p>Оптимальный размер 300х180 пкс</p>
@@ -2224,7 +2227,7 @@
 													<p>Форматы: png, jpg, gif</p>
 												</div>
 											</div>
-											<div class="load-logo__preview" data-preview-id="load-logo__input1"></div>
+											<div class="load-logo__preview" data-preview-id="load-logo__input2"></div>
 										</div>
 										<div class="equipment-event-offline__column">
 											<div class="equipment-event-offline__title h4 _fix-width _icon-star">
@@ -2852,7 +2855,7 @@
 		</footer>
 	</div>
 
-	<!-- <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20250804115254"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?_v=20250808193750"></script>
 		<script>
 			const DropItem = document.querySelectorAll('.drop-items')
 			DropItem.forEach(element => {
@@ -2862,7 +2865,7 @@
 			})
 		</script> -->
 
-	<!-- <script src="https://unpkg.com/imask?_v=20250804115254"></script>
+	<!-- <script src="https://unpkg.com/imask?_v=20250808193750"></script>
 		<script>
 			document.querySelectorAll('.date-mask').forEach(function (element) {
 				IMask(element, {
@@ -2921,8 +2924,8 @@
 		})
 	</script>
 
-	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20250804115254" />
-		<script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20250804115254"></script> -->
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20250808193750" />
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20250808193750"></script> -->
 	<!-- <script>
 			document.querySelectorAll('.date-checkin').forEach(function (element) {
 				flatpickr(element, {
@@ -3146,7 +3149,7 @@
 		//     }
 		// });
 	</script>
-	<script src="js/app.min.js?_v=20250804115254"></script>
+	<script src="js/app.min.js?_v=20250808193750"></script>
 </body>
 
 </html>
