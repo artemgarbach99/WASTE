@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 
 <head>
@@ -6,7 +6,7 @@
 	<meta charset="UTF-8" />
 	<meta name="format-detection" content="telephone=no" />
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250808193750" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20250812224128" />
 	<link rel="shortcut icon" href="favicon.ico" />
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -72,7 +72,6 @@
 				</div>
 			</div>
 		</header>
-
 		<div class="searchbar-wrapper hide" bis_skin_checked="1">
 			<div class="searchbar" bis_skin_checked="1">
 				<input type="text" class="searchbar-input" placeholder="Поиск по сайту">
@@ -1780,15 +1779,14 @@
 			<div class="announcements">
 				<div class="announcements__container">
 					<div class="announcements__body">
-						<div data-spollers="992" class="announcements__menu menu-announcements">
-							<button type="button" data-spoller class="menu-announcements__item _active-item _item-spoller _icon-arrow">
-								<a href="#" class="menu-announcements__link _active-item h4">Объявления</a>
-							</button>
+						<div data-spollers="991" class="announcements__menu menu-announcements">
+							<span type="button" data-spoller class="menu-announcements__item _item-spoller _icon-arrow">
+								<span class="menu-announcements__link h4 _active-item _nhv">Объявления</span>
+							</span>
 							<ul class="menu-announcements__items spollers__body">
-								<!-- <li class="menu-announcements__item _active-item">
-                                    <a href="#" class="menu-announcements__link h4"
-                                        data-menu-opener="href">Объявления</a>
-                                </li> -->
+								<li class="menu-announcements__item _active-item">
+									<span class="menu-announcements__link h4 _active-item _nhv">Объявления</span>
+								</li>
 								<li class="menu-announcements__item">
 									<a href="#" class="menu-announcements__link h4">Визитка</a>
 								</li>
@@ -1809,6 +1807,32 @@
 								</li>
 							</ul>
 						</div>
+
+						<!-- <div data-spollers="992" class="announcements__menu menu-announcements">
+								<button type="button" data-spoller class="menu-announcements__item _active-item _item-spoller _icon-arrow">
+									<a href="#" class="menu-announcements__link _active-item h4">Объявления</a>
+								</button>
+								<ul class="menu-announcements__items spollers__body">
+									<li class="menu-announcements__item">
+										<a href="#" class="menu-announcements__link h4">Визитка</a>
+									</li>
+									<li class="menu-announcements__item">
+										<a href="#" class="menu-announcements__link h4">Мероприятия</a>
+									</li>
+									<li class="menu-announcements__item">
+										<a href="#" class="menu-announcements__link h4">Издания</a>
+									</li>
+									<li class="menu-announcements__item">
+										<a href="#" class="menu-announcements__link h4">Платежи и счет</a>
+									</li>
+									<li class="menu-announcements__item">
+										<a href="#" class="menu-announcements__link h4">Настройки</a>
+									</li>
+									<li class="menu-announcements__item">
+										<a href="#" class="menu-announcements__link h4">Выход</a>
+									</li>
+								</ul>
+							</div> -->
 						<!-- <div data-tabs="767" class="announcements__tabs tabs">
                             <nav data-tabs-titles class="tabs__navigation navigation-tabs">
                                 <button type="button" class="navigation-tabs__title _tab-active _icon-arrow">Активные
@@ -2623,22 +2647,29 @@
 
 						<div class="announcements__tabs tabs js-tabs">
 							<ul role="tablist" class="tabs__navigation navigation-tabs">
-								<li role="presentation" class="navigation-tabs__title"><a href="#section1" role="tab" id="tab1" aria-controls="section1" aria-selected="true" class="tabs-trigger js-tabs-trigger">Активные<span class="navigation-tabs__count">10</span></a></li>
-								<li role="presentation" class="navigation-tabs__title"><a href="#section2" role="tab" id="tab2" aria-controls="section2" class="tabs-trigger js-tabs-trigger">На
-										проверке<span class="navigation-tabs__count">7</span></a></li>
-								<li role="presentation" class="navigation-tabs__title"><a href="#section3" role="tab" id="tab3" aria-controls="section3" class="tabs-trigger js-tabs-trigger">Архив<span class="navigation-tabs__count">3</span></a></li>
+								<li role="presentation" class="navigation-tabs__title">
+									<a href="#section1" role="tab" id="tab1" aria-controls="section1" aria-selected="true" class="tabs-trigger js-tabs-trigger">Активные<span class="navigation-tabs__count">10</span></a>
+								</li>
+								<li role="presentation" class="navigation-tabs__title">
+									<a href="#section2" role="tab" id="tab2" aria-controls="section2" class="tabs-trigger js-tabs-trigger">На проверке<span class="navigation-tabs__count">7</span></a>
+								</li>
+								<li role="presentation" class="navigation-tabs__title">
+									<a href="#section3" role="tab" id="tab3" aria-controls="section3" class="tabs-trigger js-tabs-trigger">Архив<span class="navigation-tabs__count">3</span></a>
+								</li>
 								<div class="navigation-tabs__search search-navigation-tabs">
 									<div class="search-navigation-tabs__wrap">
 										<span class="search-navigation-tabs__lable search-lable _icon-search">Найти</span>
 										<div class="search-navigation-tabs__input search-input">
-											<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Поиск по объявлениям">
+											<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Поиск по объявлениям" />
 											<button type="button" class="search-navigation-tabs__button _icon-search"></button>
 										</div>
 									</div>
 								</div>
 							</ul>
 							<section id="section1" role="tabpanel" aria-labelledby="tab1" class="tabs-panel js-tabs-panel" tabindex="0">
-								<div class="accordion-trigger js-accordion-trigger _icon-arrow" aria-controls="section1" aria-expanded="true" tabindex="0">Активные<span class="navigation-tabs__count">10</span></div>
+								<div class="accordion-trigger js-accordion-trigger _icon-arrow" aria-controls="section1" aria-expanded="true" tabindex="0">
+									Активные<span class="navigation-tabs__count">10</span>
+								</div>
 								<div class="content" aria-hidden="false">
 									<div class="content-tabs__body">
 										<div class="content-tabs__top top-content-tabs">
@@ -2648,23 +2679,18 @@
 														<div class="mob-seach-top__wrap">
 															<span class="mob-seach-top__lable search-lable _icon-search">Найти</span>
 															<div class="mob-seach-top__input search-input">
-																<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Поиск по объявлениям">
+																<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Поиск по объявлениям" />
 																<button type="button" class="mob-seach-top__button _icon-search"></button>
 															</div>
 														</div>
 													</div>
 												</div>
 												<div class="top-content-tabs__select select-top-content">
-													<span class="select-top-content__lable">
-														Сортировать:
-													</span>
+													<span class="select-top-content__lable"> Сортировать: </span>
 													<select name="form[]" class="select-sort">
-														<option value="1" selected data-asset="img/svg/sort-up.svg">
-															Последние вверху</option>
-														<option value="2" data-asset="img/svg/sort-down.svg">Последние
-															внизу</option>
-														<option value="3" data-asset="img/svg/sections.svg">По разделам
-														</option>
+														<option value="1" selected data-asset="img/svg/sort-up.svg">Последние вверху</option>
+														<option value="2" data-asset="img/svg/sort-down.svg">Последние внизу</option>
+														<option value="3" data-asset="img/svg/sections.svg">По разделам</option>
 													</select>
 												</div>
 												<div data-da=".top-content-tabs__mob-seach, 767" class="top-content-tabs__language language-top-content">
@@ -2698,19 +2724,15 @@
 															</div>
 														</div>
 														<div class="limit-top-content__content">
-															<div class="limit-top-content__title">В пределах лимита
-																управляйте объявлениями удобным для вас способом:</div>
+															<div class="limit-top-content__title">В пределах лимита управляйте объявлениями удобным для вас способом:</div>
 															<ul class="limit-top-content__list">
 																<li class="limit-top-content_item">
 																	<span class="limit-top-content__number">1.</span>
-																	Отредактируйте какое-либо объявление в
-																	соответствующем разделе (активное или находящееся на
-																	проверке)
+																	Отредактируйте какое-либо объявление в соответствующем разделе (активное или находящееся на проверке)
 																</li>
 																<li class="limit-top-content_item">
 																	<span class="limit-top-content__number">2.</span>
-																	Активируйте нужное
-																	объявление из архива
+																	Активируйте нужное объявление из архива
 																</li>
 															</ul>
 														</div>
@@ -2719,7 +2741,7 @@
 											</div>
 											<div class="top-content-tabs__row">
 												<div class="top-content-tabs__checkbox checkbox-top-content">
-													<input id="check-all-active" data-error="Ошибка" class="checkbox-top-content__input" type="checkbox" value="1" name="form[]">
+													<input id="check-all-active" data-error="Ошибка" class="checkbox-top-content__input" type="checkbox" value="1" name="form[]" />
 													<label for="check-all-active" class="checkbox-top-content__label">
 														<!-- <span
                                                             class="checkbox-top-content__text h5">Все или
@@ -2727,11 +2749,9 @@
 													</label>
 												</div>
 												<div class="top-content-tabs__buttons buttons-top-content">
-													<span class="checkbox-top-content__text h5">Все или
-														выбранные:</span>
+													<span class="checkbox-top-content__text h5">Все или выбранные:</span>
 													<button type="submit" class="buttons-top-content__button _active-btn _icon-promote">Рекламировать</button>
-													<button type="submit" class="buttons-top-content__button">В
-														архив</button>
+													<button type="submit" class="buttons-top-content__button">В архив</button>
 													<button type="submit" class="buttons-top-content__button">Удалить</button>
 												</div>
 											</div>
@@ -2740,161 +2760,116 @@
 											<div class="main-content-tabs__block">
 												<div class="main-content-tabs__breadcrumps breadcrumps-main-content">
 													<div class="breadcrumps-main-content__items">
-														<span class="breadcrumps-main-content__item">Технологии,
-															оборудование</span>
-														<span class="breadcrumps-main-content__item">Комбинированные
-															материалы</span>
+														<span class="breadcrumps-main-content__item">Технологии, оборудование</span>
+														<span class="breadcrumps-main-content__item">Комбинированные материалы</span>
 														<span class="breadcrumps-main-content__item">Предлагаю</span>
 													</div>
 													<div class="breadcrumps-main-content__data">23.11.21</div>
 												</div>
-												<a href="#" class="main-content-tabs__title">Куплю газетную макулатуру,
-													картон
-													в
-													любом количествe</a>
+												<a href="#" class="main-content-tabs__title">Куплю газетную макулатуру, картон в любом количествe</a>
 												<div class="main-content-tabs__line line-main-content">
 													<div class="line-main-content__promote promote-line-main">
 														<button type="submit" class="promote-line-main__btn _icon-promote">Рекламировать</button>
 														<div class="promote-line-main__data-mob">23.11.21</div>
 													</div>
 													<div class="line-main-content__buttons">
-														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать
-														</button>
-														<button type="submit" class="line-main-content__btn _icon-archive">В
-															архив
-														</button>
-														<button type="submit" class="line-main-content__btn _icon-delete">Удалить
-														</button>
+														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать</button>
+														<button type="submit" class="line-main-content__btn _icon-archive">В архив</button>
+														<button type="submit" class="line-main-content__btn _icon-delete">Удалить</button>
 													</div>
 												</div>
 												<div class="main-content-tabs__checkbox checkbox-main-content">
-													<input id="c_3" data-error="Ошибка" class="checkbox-main-content__input check-input-active" type="checkbox" value="1" name="form[]">
-													<label for="c_3" class="checkbox-main-content__label">
-													</label>
+													<input id="c_3" data-error="Ошибка" class="checkbox-main-content__input check-input-active" type="checkbox" value="1" name="form[]" />
+													<label for="c_3" class="checkbox-main-content__label"> </label>
 												</div>
 											</div>
 											<div class="main-content-tabs__block">
 												<div class="main-content-tabs__breadcrumps breadcrumps-main-content">
 													<div class="breadcrumps-main-content__items">
-														<span class="breadcrumps-main-content__item">Технологии,
-															оборудование</span>
-														<span class="breadcrumps-main-content__item">Комбинированные
-															материалы</span>
+														<span class="breadcrumps-main-content__item">Технологии, оборудование</span>
+														<span class="breadcrumps-main-content__item">Комбинированные материалы</span>
 														<span class="breadcrumps-main-content__item">Предлагаю</span>
 													</div>
 													<div class="breadcrumps-main-content__data">23.11.21</div>
 												</div>
-												<a href="#" class="main-content-tabs__title">Куплю газетную макулатуру,
-													картон
-													в
-													любом количествe</a>
+												<a href="#" class="main-content-tabs__title">Куплю газетную макулатуру, картон в любом количествe</a>
 												<div class="main-content-tabs__line line-main-content">
 													<div class="line-main-content__promote promote-line-main">
 														<button type="submit" class="promote-line-main__btn _icon-promote">Рекламировать</button>
 														<div class="promote-line-main__data-mob">23.11.21</div>
 													</div>
 													<div class="line-main-content__buttons">
-														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать
-														</button>
-														<button type="submit" class="line-main-content__btn _icon-archive">В
-															архив
-														</button>
-														<button type="submit" class="line-main-content__btn _icon-delete">Удалить
-														</button>
+														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать</button>
+														<button type="submit" class="line-main-content__btn _icon-archive">В архив</button>
+														<button type="submit" class="line-main-content__btn _icon-delete">Удалить</button>
 													</div>
 												</div>
 												<div class="main-content-tabs__checkbox checkbox-main-content">
-													<input id="c_4" data-error="Ошибка" class="checkbox-main-content__input check-input-active" type="checkbox" value="1" name="form[]">
-													<label for="c_4" class="checkbox-main-content__label">
-													</label>
+													<input id="c_4" data-error="Ошибка" class="checkbox-main-content__input check-input-active" type="checkbox" value="1" name="form[]" />
+													<label for="c_4" class="checkbox-main-content__label"> </label>
 												</div>
 											</div>
 											<div class="main-content-tabs__block">
 												<div class="main-content-tabs__breadcrumps breadcrumps-main-content">
 													<div class="breadcrumps-main-content__items">
-														<span class="breadcrumps-main-content__item">Технологии,
-															оборудование</span>
-														<span class="breadcrumps-main-content__item">Комбинированные
-															материалы</span>
+														<span class="breadcrumps-main-content__item">Технологии, оборудование</span>
+														<span class="breadcrumps-main-content__item">Комбинированные материалы</span>
 														<span class="breadcrumps-main-content__item">Предлагаю</span>
 													</div>
 													<div class="breadcrumps-main-content__data">23.11.21</div>
 												</div>
-												<a href="#" class="main-content-tabs__title">Куплю газетную макулатуру,
-													картон
-													в
-													любом количествe</a>
+												<a href="#" class="main-content-tabs__title">Куплю газетную макулатуру, картон в любом количествe</a>
 												<div class="main-content-tabs__line line-main-content">
 													<div class="line-main-content__promote promote-line-main">
 														<button type="submit" class="promote-line-main__btn _icon-promote">Рекламировать</button>
 														<div class="promote-line-main__data-mob">23.11.21</div>
 													</div>
 													<div class="line-main-content__buttons">
-														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать
-														</button>
-														<button type="submit" class="line-main-content__btn _icon-archive">В
-															архив
-														</button>
-														<button type="submit" class="line-main-content__btn _icon-delete">Удалить
-														</button>
+														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать</button>
+														<button type="submit" class="line-main-content__btn _icon-archive">В архив</button>
+														<button type="submit" class="line-main-content__btn _icon-delete">Удалить</button>
 													</div>
 												</div>
 												<div class="main-content-tabs__checkbox checkbox-main-content">
-													<input id="c_5" data-error="Ошибка" class="checkbox-main-content__input check-input-active" type="checkbox" value="1" name="form[]">
-													<label for="c_5" class="checkbox-main-content__label">
-													</label>
+													<input id="c_5" data-error="Ошибка" class="checkbox-main-content__input check-input-active" type="checkbox" value="1" name="form[]" />
+													<label for="c_5" class="checkbox-main-content__label"> </label>
 												</div>
 											</div>
 											<div class="main-content-tabs__block _orange-border">
 												<div class="main-content-tabs__breadcrumps breadcrumps-main-content">
 													<div class="breadcrumps-main-content__items">
-														<span class="breadcrumps-main-content__item">Технологии,
-															оборудование</span>
-														<span class="breadcrumps-main-content__item">Комбинированные
-															материалы</span>
+														<span class="breadcrumps-main-content__item">Технологии, оборудование</span>
+														<span class="breadcrumps-main-content__item">Комбинированные материалы</span>
 														<span class="breadcrumps-main-content__item">Предлагаю</span>
 													</div>
 													<div class="breadcrumps-main-content__data">23.11.21</div>
 												</div>
-												<a href="#" class="main-content-tabs__title">Куплю газетную макулатуру,
-													картон
-													в
-													любом количествe</a>
+												<a href="#" class="main-content-tabs__title">Куплю газетную макулатуру, картон в любом количествe</a>
 												<div class="main-content-tabs__line line-main-content">
 													<div class="line-main-content__promote promote-line-main">
-														<button type="submit" class="promote-line-main__btn-orange _icon-arrow">Рекламируется
-														</button>
-														<button type="submit" class="promote-line-main__btn-trans">Продлить
-														</button>
+														<button type="submit" class="promote-line-main__btn-orange _icon-arrow">Рекламируется</button>
+														<button type="submit" class="promote-line-main__btn-trans">Продлить</button>
 														<div class="promote-line-main__dropdown dropdown-promote-orange">
 															<div class="promote-line-main__row">
 																<a href="#" class="promote-line-main__lable _link">Престиж-блок</a>
-																<div class="promote-line-main__data">26.04.21-26.04.22
-																</div>
+																<div class="promote-line-main__data">26.04.21-26.04.22</div>
 															</div>
 															<div class="promote-line-main__row">
-																<a href="#" class="promote-line-main__lable _link">Премиум-объявления
-																</a>
-																<div class="promote-line-main__data">26.04.21-26.04.21
-																</div>
+																<a href="#" class="promote-line-main__lable _link">Премиум-объявления </a>
+																<div class="promote-line-main__data">26.04.21-26.04.21</div>
 															</div>
 														</div>
 														<div class="promote-line-main__data-mob">23.11.21</div>
 													</div>
 													<div class="line-main-content__buttons">
-														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать
-														</button>
-														<button type="submit" class="line-main-content__btn _icon-archive">В
-															архив
-														</button>
-														<button type="submit" class="line-main-content__btn _icon-delete">Удалить
-														</button>
+														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать</button>
+														<button type="submit" class="line-main-content__btn _icon-archive">В архив</button>
+														<button type="submit" class="line-main-content__btn _icon-delete">Удалить</button>
 													</div>
 												</div>
 												<div class="main-content-tabs__checkbox checkbox-main-content">
-													<input id="c_6" data-error="Ошибка" class="checkbox-main-content__input check-input-active" type="checkbox" value="1" name="form[]">
-													<label for="c_6" class="checkbox-main-content__label">
-													</label>
+													<input id="c_6" data-error="Ошибка" class="checkbox-main-content__input check-input-active" type="checkbox" value="1" name="form[]" />
+													<label for="c_6" class="checkbox-main-content__label"> </label>
 												</div>
 											</div>
 										</div>
@@ -2902,7 +2877,9 @@
 								</div>
 							</section>
 							<section id="section2" role="tabpanel" aria-labelledby="tab2" class="tabs-panel js-tabs-panel">
-								<div class="accordion-trigger js-accordion-trigger _icon-arrow" aria-controls="section2" aria-expanded="false" tabindex="0">На проверке<span class="navigation-tabs__count">7</span></div>
+								<div class="accordion-trigger js-accordion-trigger _icon-arrow" aria-controls="section2" aria-expanded="false" tabindex="0">
+									На проверке<span class="navigation-tabs__count">7</span>
+								</div>
 								<div class="content" aria-hidden="true">
 									<div class="content-tabs__body">
 										<div class="content-tabs__top top-content-tabs">
@@ -2912,23 +2889,18 @@
 														<div class="mob-seach-top__wrap">
 															<span class="mob-seach-top__lable search-lable _icon-search">Найти</span>
 															<div class="mob-seach-top__input search-input">
-																<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Поиск по объявлениям">
+																<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Поиск по объявлениям" />
 																<button type="button" class="mob-seach-top__button _icon-search"></button>
 															</div>
 														</div>
 													</div>
 												</div>
 												<div class="top-content-tabs__select select-top-content">
-													<span class="select-top-content__lable">
-														Сортировать:
-													</span>
+													<span class="select-top-content__lable"> Сортировать: </span>
 													<select name="form[]" class="select-sort">
-														<option value="1" selected data-asset="img/svg/sort-up.svg">
-															Последние вверху</option>
-														<option value="2" data-asset="img/svg/sort-down.svg">Последние
-															внизу</option>
-														<option value="3" data-asset="img/svg/sections.svg">По разделам
-														</option>
+														<option value="1" selected data-asset="img/svg/sort-up.svg">Последние вверху</option>
+														<option value="2" data-asset="img/svg/sort-down.svg">Последние внизу</option>
+														<option value="3" data-asset="img/svg/sections.svg">По разделам</option>
 													</select>
 												</div>
 												<div data-da=".top-content-tabs__mob-seach._02, 767" class="top-content-tabs__language language-top-content">
@@ -2962,19 +2934,15 @@
 															</div>
 														</div>
 														<div class="limit-top-content__content">
-															<div class="limit-top-content__title">В пределах лимита
-																управляйте объявлениями удобным для вас способом:</div>
+															<div class="limit-top-content__title">В пределах лимита управляйте объявлениями удобным для вас способом:</div>
 															<ul class="limit-top-content__list">
 																<li class="limit-top-content_item">
 																	<span class="limit-top-content__number">1.</span>
-																	Отредактируйте какое-либо объявление в
-																	соответствующем разделе (активное или находящееся на
-																	проверке)
+																	Отредактируйте какое-либо объявление в соответствующем разделе (активное или находящееся на проверке)
 																</li>
 																<li class="limit-top-content_item">
 																	<span class="limit-top-content__number">2.</span>
-																	Активируйте нужное
-																	объявление из архива
+																	Активируйте нужное объявление из архива
 																</li>
 															</ul>
 														</div>
@@ -2983,7 +2951,7 @@
 											</div>
 											<div class="top-content-tabs__row">
 												<div class="top-content-tabs__checkbox checkbox-top-content">
-													<input id="check-all-checking" data-error="Ошибка" class="checkbox-top-content__input" type="checkbox" value="1" name="form[]">
+													<input id="check-all-checking" data-error="Ошибка" class="checkbox-top-content__input" type="checkbox" value="1" name="form[]" />
 													<label for="check-all-checking" class="checkbox-top-content__label">
 														<!-- <span
                                                             class="checkbox-top-content__text h5">Все или
@@ -2991,8 +2959,7 @@
 													</label>
 												</div>
 												<div class="top-content-tabs__buttons buttons-top-content">
-													<span class="checkbox-top-content__text h5">Все или
-														выбранные:</span>
+													<span class="checkbox-top-content__text h5">Все или выбранные:</span>
 													<button type="submit" class="buttons-top-content__button _active-btn _icon-promote">Рекламировать</button>
 													<button type="submit" class="buttons-top-content__button">Удалить</button>
 												</div>
@@ -3002,147 +2969,112 @@
 											<div class="main-content-tabs__block _red-border">
 												<div class="main-content-tabs__breadcrumps breadcrumps-main-content">
 													<div class="breadcrumps-main-content__items">
-														<span class="breadcrumps-main-content__item">Технологии,
-															оборудование</span>
-														<span class="breadcrumps-main-content__item">Комбинированные
-															материалы</span>
+														<span class="breadcrumps-main-content__item">Технологии, оборудование</span>
+														<span class="breadcrumps-main-content__item">Комбинированные материалы</span>
 														<span class="breadcrumps-main-content__item">Предлагаю</span>
 													</div>
 													<div class="breadcrumps-main-content__data">23.11.21</div>
 												</div>
-												<div class="main-content-tabs__title _check">Куплю газетную макулатуру,
-													картон в
-													любом количествe</div>
+												<div class="main-content-tabs__title _check">Куплю газетную макулатуру, картон в любом количествe</div>
 												<div class="main-content-tabs__line line-main-content">
 													<div class="line-main-content__promote promote-line-main">
-														<button type="submit" class="promote-line-main__btn-red">Не
-															прошло
-															проверку</button>
+														<button type="submit" class="promote-line-main__btn-red">Не прошло проверку</button>
 														<div class="promote-line-main__data-mob">23.11.21</div>
 													</div>
 													<div class="line-main-content__buttons">
-														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать
-														</button>
-														<button type="submit" class="line-main-content__btn _icon-delete">Удалить
-														</button>
+														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать</button>
+														<button type="submit" class="line-main-content__btn _icon-delete">Удалить</button>
 													</div>
 												</div>
 												<div class="main-content-tabs__checkbox checkbox-main-content">
-													<input id="c_8" data-error="Ошибка" class="checkbox-main-content__input check-input-сhecking" type="checkbox" value="1" name="form[]">
-													<label for="c_8" class="checkbox-main-content__label">
-													</label>
+													<input id="c_8" data-error="Ошибка" class="checkbox-main-content__input check-input-сhecking" type="checkbox" value="1" name="form[]" />
+													<label for="c_8" class="checkbox-main-content__label"> </label>
 												</div>
 											</div>
 											<div class="main-content-tabs__block">
 												<div class="main-content-tabs__breadcrumps breadcrumps-main-content">
 													<div class="breadcrumps-main-content__items">
-														<span class="breadcrumps-main-content__item">Технологии,
-															оборудование</span>
-														<span class="breadcrumps-main-content__item">Комбинированные
-															материалы</span>
+														<span class="breadcrumps-main-content__item">Технологии, оборудование</span>
+														<span class="breadcrumps-main-content__item">Комбинированные материалы</span>
 														<span class="breadcrumps-main-content__item">Предлагаю</span>
 													</div>
 													<div class="breadcrumps-main-content__data">23.11.21</div>
 												</div>
-												<div class="main-content-tabs__title _check">Куплю газетную макулатуру,
-													картон в
-													любом количествe</div>
+												<div class="main-content-tabs__title _check">Куплю газетную макулатуру, картон в любом количествe</div>
 												<div class="main-content-tabs__line line-main-content">
 													<div class="line-main-content__promote promote-line-main">
 														<button type="submit" class="promote-line-main__btn _icon-promote">Рекламировать</button>
 														<div class="promote-line-main__data-mob">23.11.21</div>
 													</div>
 													<div class="line-main-content__buttons">
-														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать
-														</button>
-														<button type="submit" class="line-main-content__btn _icon-delete">Удалить
-														</button>
+														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать</button>
+														<button type="submit" class="line-main-content__btn _icon-delete">Удалить</button>
 													</div>
 												</div>
 												<div class="main-content-tabs__checkbox checkbox-main-content">
-													<input id="c_9" data-error="Ошибка" class="checkbox-main-content__input check-input-сhecking" type="checkbox" value="1" name="form[]">
-													<label for="c_9" class="checkbox-main-content__label">
-													</label>
+													<input id="c_9" data-error="Ошибка" class="checkbox-main-content__input check-input-сhecking" type="checkbox" value="1" name="form[]" />
+													<label for="c_9" class="checkbox-main-content__label"> </label>
 												</div>
 											</div>
 											<div class="main-content-tabs__block">
 												<div class="main-content-tabs__breadcrumps breadcrumps-main-content">
 													<div class="breadcrumps-main-content__items">
-														<span class="breadcrumps-main-content__item">Технологии,
-															оборудование</span>
-														<span class="breadcrumps-main-content__item">Комбинированные
-															материалы</span>
+														<span class="breadcrumps-main-content__item">Технологии, оборудование</span>
+														<span class="breadcrumps-main-content__item">Комбинированные материалы</span>
 														<span class="breadcrumps-main-content__item">Предлагаю</span>
 													</div>
 													<div class="breadcrumps-main-content__data">23.11.21</div>
 												</div>
-												<div class="main-content-tabs__title _check">Куплю газетную макулатуру,
-													картон в
-													любом количествe</div>
+												<div class="main-content-tabs__title _check">Куплю газетную макулатуру, картон в любом количествe</div>
 												<div class="main-content-tabs__line line-main-content">
 													<div class="line-main-content__promote promote-line-main">
 														<button type="submit" class="promote-line-main__btn _icon-promote">Рекламировать</button>
 														<div class="promote-line-main__data-mob">23.11.21</div>
 													</div>
 													<div class="line-main-content__buttons">
-														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать
-														</button>
-														<button type="submit" class="line-main-content__btn _icon-delete">Удалить
-														</button>
+														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать</button>
+														<button type="submit" class="line-main-content__btn _icon-delete">Удалить</button>
 													</div>
 												</div>
 												<div class="main-content-tabs__checkbox checkbox-main-content">
-													<input id="c_10" data-error="Ошибка" class="checkbox-main-content__input check-input-сhecking" type="checkbox" value="1" name="form[]">
-													<label for="c_10" class="checkbox-main-content__label">
-													</label>
+													<input id="c_10" data-error="Ошибка" class="checkbox-main-content__input check-input-сhecking" type="checkbox" value="1" name="form[]" />
+													<label for="c_10" class="checkbox-main-content__label"> </label>
 												</div>
 											</div>
 											<div class="main-content-tabs__block _orange-border">
 												<div class="main-content-tabs__breadcrumps breadcrumps-main-content">
 													<div class="breadcrumps-main-content__items">
-														<span class="breadcrumps-main-content__item">Технологии,
-															оборудование</span>
-														<span class="breadcrumps-main-content__item">Комбинированные
-															материалы</span>
+														<span class="breadcrumps-main-content__item">Технологии, оборудование</span>
+														<span class="breadcrumps-main-content__item">Комбинированные материалы</span>
 														<span class="breadcrumps-main-content__item">Предлагаю</span>
 													</div>
 													<div class="breadcrumps-main-content__data">23.11.21</div>
 												</div>
-												<div class="main-content-tabs__title _check">Куплю газетную макулатуру,
-													картон в
-													любом количествe</div>
+												<div class="main-content-tabs__title _check">Куплю газетную макулатуру, картон в любом количествe</div>
 												<div class="main-content-tabs__line line-main-content">
 													<div class="line-main-content__promote promote-line-main">
-														<button type="submit" class="promote-line-main__btn-orange _02 _icon-arrow">Рекламируется
-														</button>
-														<button type="submit" class="promote-line-main__btn-trans">Продлить
-														</button>
+														<button type="submit" class="promote-line-main__btn-orange _02 _icon-arrow">Рекламируется</button>
+														<button type="submit" class="promote-line-main__btn-trans">Продлить</button>
 														<div class="promote-line-main__dropdown dropdown-promote-orange">
 															<div class="promote-line-main__row">
 																<div class="promote-line-main__lable">Престиж-блок</div>
-																<div class="promote-line-main__data">26.04.21-26.04.22
-																</div>
+																<div class="promote-line-main__data">26.04.21-26.04.22</div>
 															</div>
 															<div class="promote-line-main__row">
-																<div class="promote-line-main__lable">Премиум-объявления
-																</div>
-																<div class="promote-line-main__data">26.04.21-26.04.21
-																</div>
+																<div class="promote-line-main__lable">Премиум-объявления</div>
+																<div class="promote-line-main__data">26.04.21-26.04.21</div>
 															</div>
 														</div>
 														<div class="promote-line-main__data-mob">23.11.21</div>
 													</div>
 													<div class="line-main-content__buttons">
-														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать
-														</button>
-														<button type="submit" class="line-main-content__btn _icon-delete">Удалить
-														</button>
+														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать</button>
+														<button type="submit" class="line-main-content__btn _icon-delete">Удалить</button>
 													</div>
 												</div>
 												<div class="main-content-tabs__checkbox checkbox-main-content">
-													<input id="c_11" data-error="Ошибка" class="checkbox-main-content__input check-input-сhecking" type="checkbox" value="1" name="form[]">
-													<label for="c_11" class="checkbox-main-content__label">
-													</label>
+													<input id="c_11" data-error="Ошибка" class="checkbox-main-content__input check-input-сhecking" type="checkbox" value="1" name="form[]" />
+													<label for="c_11" class="checkbox-main-content__label"> </label>
 												</div>
 											</div>
 										</div>
@@ -3160,23 +3092,18 @@
 														<div class="mob-seach-top__wrap">
 															<span class="mob-seach-top__lable search-lable _icon-search">Найти</span>
 															<div class="mob-seach-top__input search-input">
-																<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Поиск по объявлениям">
+																<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Поиск по объявлениям" />
 																<button type="button" class="mob-seach-top__button _icon-search"></button>
 															</div>
 														</div>
 													</div>
 												</div>
 												<div class="top-content-tabs__select select-top-content">
-													<span class="select-top-content__lable">
-														Сортировать:
-													</span>
+													<span class="select-top-content__lable"> Сортировать: </span>
 													<select name="form[]" class="select-sort">
-														<option value="1" selected data-asset="img/svg/sort-up.svg">
-															Последние вверху</option>
-														<option value="2" data-asset="img/svg/sort-down.svg">Последние
-															внизу</option>
-														<option value="3" data-asset="img/svg/sections.svg">По разделам
-														</option>
+														<option value="1" selected data-asset="img/svg/sort-up.svg">Последние вверху</option>
+														<option value="2" data-asset="img/svg/sort-down.svg">Последние внизу</option>
+														<option value="3" data-asset="img/svg/sections.svg">По разделам</option>
 													</select>
 												</div>
 												<div data-da=".top-content-tabs__mob-seach._03, 767" class="top-content-tabs__language language-top-content">
@@ -3210,19 +3137,15 @@
 															</div>
 														</div>
 														<div class="limit-top-content__content">
-															<div class="limit-top-content__title">В пределах лимита
-																управляйте объявлениями удобным для вас способом:</div>
+															<div class="limit-top-content__title">В пределах лимита управляйте объявлениями удобным для вас способом:</div>
 															<ul class="limit-top-content__list">
 																<li class="limit-top-content_item">
 																	<span class="limit-top-content__number">1.</span>
-																	Отредактируйте какое-либо объявление в
-																	соответствующем разделе (активное или находящееся на
-																	проверке)
+																	Отредактируйте какое-либо объявление в соответствующем разделе (активное или находящееся на проверке)
 																</li>
 																<li class="limit-top-content_item">
 																	<span class="limit-top-content__number">2.</span>
-																	Активируйте нужное
-																	объявление из архива
+																	Активируйте нужное объявление из архива
 																</li>
 															</ul>
 														</div>
@@ -3231,7 +3154,7 @@
 											</div>
 											<div class="top-content-tabs__row">
 												<div class="top-content-tabs__checkbox checkbox-top-content">
-													<input id="check-all-archive" data-error="Ошибка" class="checkbox-top-content__input" type="checkbox" value="1" name="form[]">
+													<input id="check-all-archive" data-error="Ошибка" class="checkbox-top-content__input" type="checkbox" value="1" name="form[]" />
 													<label for="check-all-archive" class="checkbox-top-content__label">
 														<!-- <span
                                                             class="checkbox-top-content__text h5">Все или
@@ -3239,8 +3162,7 @@
 													</label>
 												</div>
 												<div class="top-content-tabs__buttons buttons-top-content">
-													<span class="checkbox-top-content__text h5">Все или
-														выбранные:</span>
+													<span class="checkbox-top-content__text h5">Все или выбранные:</span>
 													<button type="submit" class="buttons-top-content__button _active-btn">Активировать</button>
 													<button type="submit" class="buttons-top-content__button">Удалить</button>
 												</div>
@@ -3250,129 +3172,101 @@
 											<div class="main-content-tabs__block">
 												<div class="main-content-tabs__breadcrumps breadcrumps-main-content">
 													<div class="breadcrumps-main-content__items">
-														<span class="breadcrumps-main-content__item">Технологии,
-															оборудование</span>
-														<span class="breadcrumps-main-content__item">Комбинированные
-															материалы</span>
+														<span class="breadcrumps-main-content__item">Технологии, оборудование</span>
+														<span class="breadcrumps-main-content__item">Комбинированные материалы</span>
 														<span class="breadcrumps-main-content__item">Предлагаю</span>
 													</div>
 													<div class="breadcrumps-main-content__data">23.11.21</div>
 												</div>
-												<div class="main-content-tabs__title _check">Куплю газетную макулатуру,
-													картон в
-													любом количествe</div>
+												<div class="main-content-tabs__title _check">Куплю газетную макулатуру, картон в любом количествe</div>
 												<div class="main-content-tabs__line line-main-content">
 													<div class="line-main-content__promote promote-line-main">
 														<button type="submit" class="promote-line-main__btn">Активировать</button>
 														<div class="promote-line-main__data-mob">23.11.21</div>
 													</div>
 													<div class="line-main-content__buttons">
-														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать
-														</button>
-														<button type="submit" class="line-main-content__btn _icon-delete">Удалить
-														</button>
+														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать</button>
+														<button type="submit" class="line-main-content__btn _icon-delete">Удалить</button>
 													</div>
 												</div>
 												<div class="main-content-tabs__checkbox checkbox-main-content">
-													<input id="c_13" data-error="Ошибка" class="checkbox-main-content__input check-input-archive" type="checkbox" value="1" name="form[]">
-													<label for="c_13" class="checkbox-main-content__label">
-													</label>
+													<input id="c_13" data-error="Ошибка" class="checkbox-main-content__input check-input-archive" type="checkbox" value="1" name="form[]" />
+													<label for="c_13" class="checkbox-main-content__label"> </label>
 												</div>
 											</div>
 											<div class="main-content-tabs__block">
 												<div class="main-content-tabs__breadcrumps breadcrumps-main-content">
 													<div class="breadcrumps-main-content__items">
-														<span class="breadcrumps-main-content__item">Технологии,
-															оборудование</span>
-														<span class="breadcrumps-main-content__item">Комбинированные
-															материалы</span>
+														<span class="breadcrumps-main-content__item">Технологии, оборудование</span>
+														<span class="breadcrumps-main-content__item">Комбинированные материалы</span>
 														<span class="breadcrumps-main-content__item">Предлагаю</span>
 													</div>
 													<div class="breadcrumps-main-content__data">23.11.21</div>
 												</div>
-												<div class="main-content-tabs__title _check">Куплю газетную макулатуру,
-													картон в
-													любом количествe</div>
+												<div class="main-content-tabs__title _check">Куплю газетную макулатуру, картон в любом количествe</div>
 												<div class="main-content-tabs__line line-main-content">
 													<div class="line-main-content__promote promote-line-main">
 														<button type="submit" class="promote-line-main__btn">Активировать</button>
 														<div class="promote-line-main__data-mob">23.11.21</div>
 													</div>
 													<div class="line-main-content__buttons">
-														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать
-														</button>
-														<button type="submit" class="line-main-content__btn _icon-delete">Удалить
-														</button>
+														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать</button>
+														<button type="submit" class="line-main-content__btn _icon-delete">Удалить</button>
 													</div>
 												</div>
 												<div class="main-content-tabs__checkbox checkbox-main-content">
-													<input id="c_14" data-error="Ошибка" class="checkbox-main-content__input check-input-archive" type="checkbox" value="1" name="form[]">
-													<label for="c_14" class="checkbox-main-content__label">
-													</label>
+													<input id="c_14" data-error="Ошибка" class="checkbox-main-content__input check-input-archive" type="checkbox" value="1" name="form[]" />
+													<label for="c_14" class="checkbox-main-content__label"> </label>
 												</div>
 											</div>
 											<div class="main-content-tabs__block">
 												<div class="main-content-tabs__breadcrumps breadcrumps-main-content">
 													<div class="breadcrumps-main-content__items">
-														<span class="breadcrumps-main-content__item">Технологии,
-															оборудование</span>
-														<span class="breadcrumps-main-content__item">Комбинированные
-															материалы</span>
+														<span class="breadcrumps-main-content__item">Технологии, оборудование</span>
+														<span class="breadcrumps-main-content__item">Комбинированные материалы</span>
 														<span class="breadcrumps-main-content__item">Предлагаю</span>
 													</div>
 													<div class="breadcrumps-main-content__data">23.11.21</div>
 												</div>
-												<div class="main-content-tabs__title _check">Куплю газетную макулатуру,
-													картон в
-													любом количествe</div>
+												<div class="main-content-tabs__title _check">Куплю газетную макулатуру, картон в любом количествe</div>
 												<div class="main-content-tabs__line line-main-content">
 													<div class="line-main-content__promote promote-line-main">
 														<button type="submit" class="promote-line-main__btn">Активировать</button>
 														<div class="promote-line-main__data-mob">23.11.21</div>
 													</div>
 													<div class="line-main-content__buttons">
-														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать
-														</button>
-														<button type="submit" class="line-main-content__btn _icon-delete">Удалить
-														</button>
+														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать</button>
+														<button type="submit" class="line-main-content__btn _icon-delete">Удалить</button>
 													</div>
 												</div>
 												<div class="main-content-tabs__checkbox checkbox-main-content">
-													<input id="c_15" data-error="Ошибка" class="checkbox-main-content__input check-input-archive" type="checkbox" value="1" name="form[]">
-													<label for="c_15" class="checkbox-main-content__label">
-													</label>
+													<input id="c_15" data-error="Ошибка" class="checkbox-main-content__input check-input-archive" type="checkbox" value="1" name="form[]" />
+													<label for="c_15" class="checkbox-main-content__label"> </label>
 												</div>
 											</div>
 											<div class="main-content-tabs__block">
 												<div class="main-content-tabs__breadcrumps breadcrumps-main-content">
 													<div class="breadcrumps-main-content__items">
-														<span class="breadcrumps-main-content__item">Технологии,
-															оборудование</span>
-														<span class="breadcrumps-main-content__item">Комбинированные
-															материалы</span>
+														<span class="breadcrumps-main-content__item">Технологии, оборудование</span>
+														<span class="breadcrumps-main-content__item">Комбинированные материалы</span>
 														<span class="breadcrumps-main-content__item">Предлагаю</span>
 													</div>
 													<div class="breadcrumps-main-content__data">23.11.21</div>
 												</div>
-												<div class="main-content-tabs__title _check">Куплю газетную макулатуру,
-													картон в
-													любом количествe</div>
+												<div class="main-content-tabs__title _check">Куплю газетную макулатуру, картон в любом количествe</div>
 												<div class="main-content-tabs__line line-main-content">
 													<div class="line-main-content__promote promote-line-main">
 														<button type="submit" class="promote-line-main__btn">Активировать</button>
 														<div class="promote-line-main__data-mob">23.11.21</div>
 													</div>
 													<div class="line-main-content__buttons">
-														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать
-														</button>
-														<button type="submit" class="line-main-content__btn _icon-delete">Удалить
-														</button>
+														<button type="submit" class="line-main-content__btn _icon-settings">Редактировать</button>
+														<button type="submit" class="line-main-content__btn _icon-delete">Удалить</button>
 													</div>
 												</div>
 												<div class="main-content-tabs__checkbox checkbox-main-content">
-													<input id="c_16" data-error="Ошибка" class="checkbox-main-content__input check-input-archive" type="checkbox" value="1" name="form[]">
-													<label for="c_16" class="checkbox-main-content__label">
-													</label>
+													<input id="c_16" data-error="Ошибка" class="checkbox-main-content__input check-input-archive" type="checkbox" value="1" name="form[]" />
+													<label for="c_16" class="checkbox-main-content__label"> </label>
 												</div>
 											</div>
 										</div>
@@ -3491,7 +3385,7 @@
 		//     }
 		// });
 	</script>
-	<script src="js/app.min.js?_v=20250808193750"></script>
+	<script src="js/app.min.js?_v=20250812224128"></script>
 </body>
 
 </html>

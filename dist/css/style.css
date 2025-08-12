@@ -5463,6 +5463,10 @@ a.mm-navbar__title {
   border-bottom: 1px solid #d9d9d9;
 }
 
+.menu-announcements__item._item-spoller {
+  display: none;
+}
+
 .menu-announcements__item._item-spoller::before {
   display: none;
 }
@@ -5510,6 +5514,7 @@ a.mm-navbar__title {
   background-color: #22b14c;
   color: #ffffff;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .menu-announcements__link._active-item::before {
@@ -8238,6 +8243,10 @@ a.mm-navbar__title {
   top: calc(100% + 10px);
   left: 0;
   z-index: 5;
+}
+
+.quantity-addition-form__calendar-dropdown #calendar {
+  border: 2px solid #e2e2e2;
 }
 
 .shipping-addition-form {
@@ -15781,6 +15790,10 @@ button[data-vc-week-day] {
   .menu-announcements__item._spoller-active {
     border-radius: 10px 10px 0px 0px;
     border-bottom: none;
+  }
+
+  .menu-announcements__item._active-item {
+    display: none;
   }
 
   .tabs {
